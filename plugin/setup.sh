@@ -29,9 +29,10 @@ else
   gi="already there"
 fi
 
-# 2. Module files, skipping anything that exists. The starter workflows and the
-#    default gate are copied into projects/campaign-engine/ so the user edits
-#    their own copies; the frameworks/ originals stay as the reference.
+# 2. Module files, skipping anything that exists. The default gate is copied
+#    into projects/campaign-engine/ so the user edits their own copy. The starter
+#    workflows stay in frameworks/workflows/; /campaign-channels makes each
+#    campaign's copy, and saves the user's defaults to projects/campaign-engine/workflows/.
 created=0; kept=0
 copy_tree() {
   if [ -f "$ROOT/$1" ]; then
@@ -50,13 +51,18 @@ copy_tree() {
 for p in raw/campaigns raw/voc raw/brand raw/strategy raw/performance projects/campaigns \
          frameworks/campaign-brief-template.md frameworks/workflow-format.md \
          frameworks/campaign-inputs.md frameworks/quality-gate.md \
-         frameworks/decision-models.md frameworks/workflows; do
+         frameworks/decision-models.md frameworks/campaigns-board.md frameworks/workflows; do
   copy_tree "$p" "$p"
 done
-copy_tree "frameworks/workflows" "projects/campaign-engine/workflows"
+mkdir -p projects/campaign-engine/workflows
 if [ ! -e projects/campaign-engine/quality-gate.md ]; then
   mkdir -p projects/campaign-engine
   cp "$ROOT/frameworks/quality-gate.md" projects/campaign-engine/quality-gate.md
+  created=$((created+1))
+else kept=$((kept+1)); fi
+if [ ! -e projects/campaigns/campaigns.md ]; then
+  mkdir -p projects/campaigns
+  printf -- '---\ntype: campaigns-board\nlast_updated: ""\n---\n\n# Campaigns\n\n| Campaign | Scale | Stage | KPI | Target | Actual | Dates | Channels | Gate 2 | Next |\n|---|---|---|---|---|---|---|---|---|---|\n\n## Closed\n\n| Campaign | KPI | Target | Actual | Lesson | Closed |\n|---|---|---|---|---|---|\n\n## Examples\n\n| Campaign | Scale | Stage | KPI | Target | Actual | Dates | Channels | Gate 2 | Next |\n|---|---|---|---|---|---|---|---|---|---|\n' > projects/campaigns/campaigns.md
   created=$((created+1))
 else kept=$((kept+1)); fi
 if [ ! -e projects/campaign-engine/campaign-engine.md ]; then

@@ -1,5 +1,5 @@
 ---
-description: Campaign Engine step 3. Draft every channel of an approved campaign by following your own workflow file for that channel, step by step, pausing at every human lane. Writes one draft per channel.
+description: Campaign Engine step 3. Draft every channel of an approved campaign by following this campaign's own workflow for that channel, step by step, pausing at every step a person owns. Writes one draft per channel.
 argument-hint: <campaign slug> [channel ...]
 ---
 
@@ -7,7 +7,7 @@ argument-hint: <campaign slug> [channel ...]
 
 Step 3 of the Campaign Engine. Take an approved brief and draft each channel the way the participant's workflow says to, not the way you would.
 
-Read the `campaign-engine` skill, then the brief, then each channel's workflow in `projects/campaign-engine/workflows/`, then the brand brain, before writing a line.
+Read the `campaign-engine` skill, then the brief, then each channel's workflow in `projects/campaigns/<slug>/workflows/` (written by `/campaign-channels`), then the brand brain, before writing a line.
 
 ## Mode
 
@@ -17,7 +17,7 @@ Read the `campaign-engine` skill, then the brief, then each channel's workflow i
 
 ## 1. Which channels
 
-List the brief's `channels` and every workflow file in `projects/campaign-engine/workflows/` with its `status` (starter or adjusted). Ask which to draft now. A channel in the brief with no workflow file: say it cannot be drafted until `/workflow-update <channel>` creates one. Do not improvise a workflow.
+List the brief's `channels` and every file in `projects/campaigns/<slug>/workflows/` with its `status` (starter, suggested or adjusted) and `tools`. Ask which to draft now. No `workflows/` folder at all, or a channel in the brief with no file there: say it cannot be drafted until `/campaign-channels <slug>` sets it up, and offer to run it now. Do not fall back to a default or a starter silently, and do not improvise a workflow.
 
 For a **big-C** brief: do not draft channels. Read section 14 and offer to create the small-c brief folders it lists, each with `parent:` set, then stop. Channels are drafted from the small-c briefs.
 
@@ -31,8 +31,9 @@ For a **big-C** brief: do not draft channels. Read section 14 and offer to creat
 
 For each channel, walk the Steps table in order:
 
-- **Claude Code lane:** do the step exactly as written. Produce what the "Comes out" column says.
-- **Human lane (any named role):** **stop.** Show the work so far and the decision the step asks for. Wait for the answer. Record it. Do not continue past a pause on your own, and do not batch two pauses into one question.
+- **A step owned by `Claude`:** do the step exactly as written, following its rule. Meet the step's "Check before moving on" before the next step.
+- **A step owned by a person (`You` or a named role):** **stop.** Show the work so far and the decision the step asks for. Wait for the answer. Record it. Do not continue past a pause on your own, and do not batch two pauses into one question.
+- **A step owned by a tool (HubSpot, the CMS, the ad account):** do not do it. Write into the draft exactly what the person loads where, and move on.
 - **Specs:** check every element against the Specs table as you write it. Count characters and words. Fix before moving on.
 - **Angles and proof:** each asset carries one angle. A claim is written only with its proof from the brief; a (no proof) angle is written as an opinion, never as a fact or a number. Nothing from outside the brief or the brain.
 - **CTA:** every CTA leads to the brief's destination and KPI action. Email 1 of a sequence may deliver the asset, but the sequence ends on the ask.
@@ -48,10 +49,10 @@ One file per channel, `projects/campaigns/<slug>/drafts/<channel>.md`, with fron
 type: campaign-draft
 campaign: <slug>
 channel: <channel>
-workflow: projects/campaign-engine/workflows/<channel>.md (status at draft time)
+workflow: projects/campaigns/<slug>/workflows/<channel>.md (status at draft time)
 status: draft
 last_updated: ""
-decisions: []        # every human-lane answer, with the step number
+decisions: []        # every answer at a step a person owns, with the step number
 sources: []          # brief sections, brain files, raw files used
 ---
 ```
@@ -60,4 +61,4 @@ Then the content the workflow's Outputs section lists, in the order of the steps
 
 ## 5. Hand over
 
-For each channel: the file path, the decisions taken at each pause, and anything the gate will probably flag (say it now rather than wait). Then: **next, `/campaign-review <slug>`.** Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.
+For each channel: the file path, the decisions taken at each pause, and anything the gate will probably flag (say it now rather than wait). Then: **next, `/campaign-review <slug>`.** Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.

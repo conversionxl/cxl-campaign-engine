@@ -1,6 +1,6 @@
 ---
 type: framework
-source: CXL Campaign Engine workshop. Gate 1 and the first six Gate 2 rows come from Tyler Durman's briefs, plans and feedback (2022 to 2026). The remaining rows and the channel weights draw on CXL course instructors: Jessica Best (Email Marketing Fundamentals), Mason Cosby (ABM, Get ROI in 6 Weeks), Tycho Luijten (B2B Demand Generation), Kyle Bastien (Sales and Customer Success Enablement), Louis Grenier (Unique Positioning, Radical Differentiation), plus Nick Christensen's ad scoring. Lesson citations are in the row notes.
+source: CXL Campaign Engine workshop. Gate 1 and the first six Gate 2 rows come from Tyler Durman's briefs, plans and feedback (2022 to 2026). The remaining rows and the channel weights draw on CXL course instructors: Jessica Best (Email Marketing Fundamentals), Andy Crestodina (Content Strategy for Demand Generation), Michael Aagaard (Landing Page Optimization), AJ Wilcox (Validate and Scale your LinkedIn Ads), Steve Armenti (Create sales enablement assets with AI), Mason Cosby (ABM, Get ROI in 6 Weeks; Align sales, marketing and leadership), Tycho Luijten (B2B Demand Generation), Louis Grenier (Unique Positioning, Radical Differentiation), plus Nick Christensen's ad scoring. The channel workflows in frameworks/workflows/ cite the same courses step by step. Lesson citations are in the row notes.
 used_by: /campaign-brief (Gate 1), /campaign-review (Gate 2), /quality-gate (tuning)
 tags: [campaign-engine, quality-gate]
 ---
@@ -29,7 +29,7 @@ Pass or fail, all of them. `/campaign-brief` will not ask for approval while any
 | 4 | Approach fits one sentence: get [who] to [do what] by [mechanism] | Two sentences, or no mechanism | Tyler's briefs open with "Approach" in one line |
 | 5 | Audience has an include list and an exclude list | No exclusions; existing customers or people in an active sales conversation not excluded; the segment is a demographic with no shared struggle | Tyler's ads briefs exclude converters; Grenier: niche by shared struggle, not demographics |
 | 6 | Every angle has proof, or is marked (no proof) | A claim with no source; a number from an old deck; a claim legal has not cleared | Tyler's video: "supporting sources"; the Acme Q2 readout |
-| 7 | Proof comes from customers or third parties, not only from the brand | All proof is the brand's own assertion | Best, Bastien: testimonial, review, analyst report over brand claim |
+| 7 | Proof comes from customers or third parties, not only from the brand | All proof is the brand's own assertion | Best: customer voice over brand claim; Armenti: proof points from customer interviews |
 | 8 | Buying stage is stated, with the buyer's thought quoted | No stage; the "thought" is the marketer's paraphrase | Tyler's journey map: "Buyer thoughts by stage"; Luijten: 5 to 10 interviews per ICP |
 | 9 | The offer passes "would they miss it" | A rebranded ebook; an offer the segment would not forward to a colleague | CXL B2B lead gen process; Best: it has to feel like a deal from their side |
 | 10 | The ask matches the stage | A demo ask to a problem-unaware audience; next-step content only, to a sales-qualified account | Cosby: "we have rarely seen this work"; Best: button copy matches stage |
@@ -40,32 +40,32 @@ Pass or fail, all of them. `/campaign-brief` will not ask for approval while any
 
 ## Gate 2: the drafts
 
-Every draft is scored on every row that has a weight above 0 for its channel. The engine (or you) gives each row a score, the sheet does the arithmetic.
+Every draft is scored on every row that has a weight above 0 for its channel. A channel with no column of its own (a webinar, a partner email you added with `/campaign-channels`) is scored with the closest column until you add one with `/quality-gate`. The engine (or you) gives each row a score, the sheet does the arithmetic.
 
 **Score per row:** 0 fails, 1 partly, 2 passes. **Weight per channel:** 0 not checked, 1 matters, 2 matters a lot, 3 decides it. **Weighted score** = sum of (score × weight) ÷ sum of (2 × weight), as a percentage.
 
 **Routes:** SHIP at 85% and above. REVIEW from 70% to 84%, with the failing rows listed. FIX below 70%. A score of 0 on a row marked **\*** (non-negotiable) is FIX regardless of the total. These thresholds are yours to move.
 
-| # | Criterion | Passes when | Email seq | Email camp | Sales enablement | Landing page | Ad tests | Blog post | Source |
-|---|---|---|---|---|---|---|---|---|---|
-| G1\* | **Goal** | Every CTA moves the reader to the brief's KPI action, every email in a sequence carries the ask, and the sequence or page ends on it, not on the asset | 3 | 3 | 3 | 3 | 3 | 2 | Tyler, TAP plan: "a more direct approach"; his 2022 rewrite attached the calendar ask to the asset in the same sentence |
-| G2\* | **Fidelity** | Every statistic, customer, quote and case study traces to the brief's proof column or the brand brain; nothing invented; an unverified claim is flagged, not softened | 3 | 3 | 3 | 3 | 3 | 3 | Tyler's video: "supporting sources"; workshop page: "make an unverified claim fail loudly"; Eric Siu's draft gate: "invented stats" |
-| G3 | **Workflow** | Every output the channel's workflow names exists, within its specs (counts, character limits, formats, timing) | 3 | 2 | 2 | 2 | 3 | 2 | Tyler's briefs retype LinkedIn 150/70/100 every time; now the workflow holds them |
-| G4 | **Stage** | The copy fits the buyer's quoted thought at the stated stage: problem content for the unaware, differentiation and third-party proof for consideration, de-risking for implementation | 3 | 2 | 2 | 3 | 2 | 3 | Tyler's journey map; Bastien, Customer Facing Content |
-| G5 | **Voice** | Passes every Always and Never in `voice-guide.md`, no banned word in `vocabulary.md`, in the buyer's words from `icp.md`; no AI tells (em dashes, "it's not X, it's Y") | 2 | 2 | 1 | 2 | 3 | 2 | The brand brain; Eric Siu's draft gate; the Acme Q2 "unlock" variants |
-| G6 | **Consistency** | Headline, offer and CTA agree across every channel in the campaign; the ad says what the page says | 2 | 2 | 2 | 3 | 3 | 1 | Deck Gate 2; the Acme landing page that promised white-label for two weeks after legal pulled it |
-| G7 | **Audience** | Targeting, segment and exclusions match the brief; personalization uses only data the recipient expects you to have | 2 | 3 | 1 | 1 | 3 | 1 | Tyler's exclusion lists; Best: "creepy, creepy, creepy"; the Acme in-house downloads |
-| G8 | **One idea** | One angle and one CTA per asset; the email sells the click and the page carries the detail | 3 | 3 | 1 | 2 | 3 | 2 | Best, Copywriting; Nick Christensen, ad scoring |
-| G9 | **Offer up front** | The offer or the "what's in it for me" is in the subject line or headline, within the first 25 characters where the channel allows | 3 | 3 | 0 | 2 | 2 | 1 | Best: "the offer should go in the subject line. Don't test this." 43% lift from the first 25 characters |
-| G10 | **Proof from others** | At least one customer voice or third-party proof per asset, where the stage calls for it | 2 | 2 | 3 | 3 | 1 | 2 | Best, Bastien; the Acme 9 July customer-story email at 44% open |
-| G11 | **Differentiation** | Consistent with the positioning statement; the difference claimed is tied to a struggle alternatives ignore; a competitor could not run it unchanged | 1 | 1 | 2 | 3 | 2 | 3 | Grenier, Unique Positioning M1L1; Luijten: "the danger is to say the same as everybody else" |
-| G12 | **Why now** | Names the trigger the campaign rides (a price change, an event, a stage entry, a question asked) and it is real | 2 | 2 | 1 | 1 | 1 | 1 | Cosby: a target without a trigger is "one step removed from spray and pray"; Grenier: brand cues plus timing-sensitive hooks |
-| G13 | **Sales handoff** | The lead definition, the owner, the alert and the time limit are written into the asset where a lead can appear | 2 | 1 | 3 | 2 | 1 | 0 | Tyler: one business day, Slack alert with campaign and action; the Acme sales feedback |
-| G14 | **Measurement** | UTM and tracking per the brief; any test names one hypothesis and one winning metric in advance | 2 | 2 | 1 | 3 | 3 | 1 | Best: one test per month, winner metric named first; the CXL B2B process: test submission before traffic |
-| G15 | **Skimmable** | Paragraphs of 2 to 3 sentences, one visual, bullets where it helps; buttons over text links; literal button copy | 2 | 2 | 1 | 2 | 0 | 1 | Best, Copywriting: "maybe 4 seconds, maybe 8" |
-| G16 | **Distribution** | Long-form has a paired short-form plan; content is fronted by a named person, not only the company | 0 | 0 | 0 | 0 | 1 | 3 | Luijten: personal profile 10x the company page; long-form always paired |
+| # | Criterion | Passes when | Email seq | Email camp | Sales enablement | Landing page | Ad tests | Blog post | Social | Source |
+|---|---|---|---|---|---|---|---|---|---|---|
+| G1\* | **Goal** | Every CTA moves the reader to the brief's KPI action, every email in a sequence carries the ask, and the sequence or page ends on it, not on the asset | 3 | 3 | 3 | 3 | 3 | 2 | 2 | Tyler, TAP plan: "a more direct approach"; his 2022 rewrite attached the calendar ask to the asset in the same sentence |
+| G2\* | **Fidelity** | Every statistic, customer, quote and case study traces to the brief's proof column or the brand brain; nothing invented; an unverified claim is flagged, not softened | 3 | 3 | 3 | 3 | 3 | 3 | 3 | Tyler's video: "supporting sources"; workshop page: "make an unverified claim fail loudly"; Eric Siu's draft gate: "invented stats" |
+| G3 | **Workflow** | Every output the channel's workflow names exists, within its specs (counts, character limits, formats, timing) | 3 | 2 | 2 | 2 | 3 | 2 | 2 | Tyler's briefs retype LinkedIn 150/70/100 every time; now the workflow holds them |
+| G4 | **Stage** | The copy fits the buyer's quoted thought at the stated stage, and its ask fits that stage's exit: no product-specific messaging to accounts still at awareness or initial engagement | 3 | 2 | 2 | 3 | 2 | 3 | 2 | Tyler's journey map; Cosby, Mapping your Playbooks to the Account Progression Model |
+| G5 | **Voice** | Passes every Always and Never in `voice-guide.md`, no banned word in `vocabulary.md`, in the buyer's words from `icp.md`; no AI tells (em dashes, "it's not X, it's Y") | 2 | 2 | 1 | 2 | 3 | 2 | 3 | The brand brain; Eric Siu's draft gate; the Acme Q2 "unlock" variants |
+| G6 | **Consistency** | Headline, offer and CTA agree across every channel in the campaign; the ad says what the page says | 2 | 2 | 2 | 3 | 3 | 1 | 2 | Deck Gate 2; the Acme landing page that promised white-label for two weeks after legal pulled it |
+| G7 | **Audience** | Targeting, segment and exclusions match the brief; personalization uses only data the recipient expects you to have | 2 | 3 | 1 | 1 | 3 | 1 | 1 | Tyler's exclusion lists; Best: "creepy, creepy, creepy"; the Acme in-house downloads |
+| G8 | **One idea** | One angle and one CTA per asset; the email sells the click and the page carries the detail | 3 | 3 | 1 | 2 | 3 | 2 | 3 | Best, Copywriting; Nick Christensen, ad scoring |
+| G9 | **Offer up front** | The offer or the "what's in it for me" is in the subject line or headline, within the first 25 characters where the channel allows | 3 | 3 | 0 | 2 | 2 | 1 | 1 | Best: "the offer should go in the subject line. Don't test this." 43% lift from the first 25 characters |
+| G10 | **Proof from others** | At least one customer voice or third-party proof per asset, where the stage calls for it | 2 | 2 | 3 | 3 | 1 | 2 | 2 | Best; Cosby: a case study per vertical; the Acme 9 July customer-story email at 44% open |
+| G11 | **Differentiation** | Consistent with the positioning statement; the difference claimed is tied to a struggle alternatives ignore; a competitor could not run it unchanged | 1 | 1 | 2 | 3 | 2 | 3 | 3 | Grenier, Unique Positioning M1L1; Luijten: "the danger is to say the same as everybody else" |
+| G12 | **Why now** | Names the trigger the campaign rides (a price change, an event, a stage entry, a question asked) and it is real | 2 | 2 | 1 | 1 | 1 | 1 | 2 | Cosby: a target without a trigger is "one step removed from spray and pray"; Grenier: brand cues plus timing-sensitive hooks |
+| G13 | **Sales handoff** | The lead definition, the owner, the alert and the time limit are written into the asset where a lead can appear | 2 | 1 | 3 | 2 | 1 | 0 | 0 | Tyler: one business day, Slack alert with campaign and action; the Acme sales feedback |
+| G14 | **Measurement** | UTM and tracking per the brief; any test names one hypothesis and one winning metric in advance | 2 | 2 | 1 | 3 | 3 | 1 | 1 | Best: one test per month, winner metric named first; the CXL B2B process: test submission before traffic |
+| G15 | **Skimmable** | Paragraphs of 2 to 3 sentences, one visual, bullets where it helps; buttons over text links; literal button copy | 2 | 2 | 1 | 2 | 0 | 1 | 2 | Best, Copywriting: "maybe 4 seconds, maybe 8" |
+| G16 | **Distribution** | Long-form has a paired short-form plan; content is fronted by a named person, not only the company | 0 | 0 | 0 | 0 | 1 | 3 | 3 | Luijten: personal profile 10x the company page; long-form always paired |
 
-Maximum score per channel at weights above: email sequence 70, email campaign 66, sales enablement 52, landing page 70, ad tests 68, blog post 56. The sheet recomputes these when you change a weight.
+Maximum score per channel at weights above: email sequence 70, email campaign 66, sales enablement 52, landing page 70, ad tests 68, blog post 56, social 64. The sheet recomputes these when you change a weight.
 
 ## Reading a scorecard
 
@@ -73,7 +73,7 @@ Maximum score per channel at weights above: email sequence 70, email campaign 66
 
 ```
 | Row | Criterion | Weight | Score | Weighted | Note |
-| G1 | Goal | 3 | 1 | 3/6 | Email 4 asks for a reply, not the demo; the brief's KPI is demos booked |
+| G1 | Goal | 3 | 1 | 3/6 | 2 | Email 4 asks for a reply, not the demo; the brief's KPI is demos booked |
 ...
 | | Total | | | 54/70 = 77% | REVIEW |
 ```

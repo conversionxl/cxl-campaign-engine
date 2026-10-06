@@ -1,6 +1,6 @@
 ---
 name: campaign-engine
-description: How the Campaign Engine's folders, files and gates fit together. Apply automatically on any campaign work in this repo: writing or adjusting a campaign brief, drafting a channel (email, sequence, sales enablement, landing page, ads, blog), reviewing drafts, reading campaign results, and whenever a task touches projects/campaigns/, projects/campaign-engine/, or raw/campaigns/.
+description: How the Campaign Engine's folders, files and gates fit together. Apply automatically on any campaign work in this repo: writing or adjusting a campaign brief, choosing channels or adjusting a channel's steps, drafting a channel (email campaign, email sequence, blog, social, sales enablement, landing page, ads, or one the user added), reviewing drafts, tracking several campaigns, reading campaign results, and whenever a task touches projects/campaigns/, projects/campaign-engine/, or raw/campaigns/.
 ---
 
 # Campaign engine
@@ -13,13 +13,15 @@ Brief in, reviewed campaign out, with a human at both gates. These are the rules
 |---|---|---|
 | `raw/campaigns/` | Past briefs, results, sales feedback, calendar, `live/` pulls. Local, gitignored | The user, or a command filing what they pasted or fetched |
 | `raw/campaigns/example/` | Acme Deals: history, CRM and email pulls, and `brand-brain/`. Committed | The module. Read only |
-| `projects/campaign-engine/workflows/<channel>.md` | The user's workflow per channel. Starts as a copy of `frameworks/workflows/`, becomes `adjusted` | `/workflow-update`, or the user by hand |
+| `projects/campaigns/campaigns.md` | The board: every campaign, its stage, KPI against target, next command. Source of truth for `/campaigns` | Every command updates its row |
+| `projects/campaign-engine/workflows/<channel>.md` | The user's default workflow per channel, saved from a campaign. New campaigns start from it | `/campaign-channels`, on a yes to "save as my default" |
+| `projects/campaigns/<slug>/workflows/<channel>.md` | This campaign's workflow per channel. What `/campaign-draft` follows | `/campaign-channels <slug>` |
 | `projects/campaign-engine/quality-gate.md` | The user's gate: criteria × channel × weight, thresholds | `/quality-gate`, or the user by hand |
 | `projects/campaigns/<slug>/brief.md` | Decisions, no copy. `status` is `approved` only by a human | `/campaign-brief` |
 | `projects/campaigns/<slug>/drafts/<channel>.md` | One draft per channel, following that channel's workflow | `/campaign-draft` |
 | `projects/campaigns/<slug>/review.md` | The scorecard and the human's decisions | `/campaign-review` |
 | `projects/campaigns/<slug>/results.md` | What it returned. The next brief reads it | The user |
-| `frameworks/` | The reference: template, workflow format, default workflows, default gate, inputs, decision models | The module. Never edited by commands |
+| `frameworks/` | The reference: template, workflow format, the starter workflows, default gate, inputs, board format, decision models | The module. Never edited by commands |
 | `wiki/brand/` | The brand brain from the Marketing Brain. Read, never written | The marketing-brain plugin |
 
 ## The brand brain
@@ -36,7 +38,8 @@ Read it before anything customer-facing, in this order: `wiki/brand/README.md`, 
 ## Rules that hold everywhere
 
 - **The brief holds decisions, drafts hold copy.** Copy found in a brief is moved to a draft or cut. Specs (limits, counts, formats) live in the workflow, not the brief.
-- **Your workflow beats the starter.** Draft by following `projects/campaign-engine/workflows/<channel>.md` step by step. Stop at every human lane and wait. No workflow file for a channel: do not improvise one; point to `/workflow-update`.
+- **The campaign's workflow is the one that runs.** Draft by following `projects/campaigns/<slug>/workflows/<channel>.md` step by step. Stop at every step a person owns and wait; write tool steps as instructions for the person. No workflow file for a channel: do not improvise one or fall back silently; point to `/campaign-channels <slug>`. Layers, most specific first: this campaign, the user's default, the starter (`frameworks/workflow-format.md`).
+- **Many campaigns at once.** Everything about a campaign lives in its folder. Keep the board in `projects/campaigns/campaigns.md` current: every command that changes a campaign's stage updates its row.
 - **Approval is human.** `status: approved` on a brief and the decisions in a review are set only after the user says so, in every mode including `example`.
 - **The (inferred) and (no proof) rules.** Every brief line traces to a file, a brain section, a snapshot, or the user's answer, or it is tagged (inferred). Every claim in a draft traces to the brief's proof column or the brain, or it is cut. An angle marked (no proof) is written as an opinion, never as a fact or a number. Metrics, customers, quotes and case studies are never generated.
 - **The ask, not the asset.** Every CTA moves the reader to the brief's KPI action. A sequence ends on the ask. A page whose only CTA is the download, when the goal is meetings, fails the gate.
