@@ -1,0 +1,20 @@
+# Campaign Engine: your own campaign inputs in raw/campaigns/ stay on your
+# machine (past briefs, results, sales feedback, CRM and email pulls). Only the
+# README and the fictional Acme Deals example are committed. These lines must
+# stay below the *.csv rule above.
+raw/campaigns/*
+!raw/campaigns/README.md
+!raw/campaigns/example/
+!raw/campaigns/example/**
+
+# Campaign Engine: customer data, strategy docs and performance data stay local
+# too (same rules as the Marketing Brain; harmless if already present).
+raw/voc/*
+!raw/voc/README.md
+!raw/voc/review-urls.md
+!raw/voc/example/
+!raw/voc/example/*.csv
+raw/strategy/*
+!raw/strategy/README.md
+raw/performance/*
+!raw/performance/README.md

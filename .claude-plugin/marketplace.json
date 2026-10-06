@@ -1,0 +1,9 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cxl-campaign-engine",
+  "description": "CXL's Campaign Engine plugin for the AI Native Marketer cohort.",
+  "owner": { "name": "CXL", "email": "hesh@cxl.com" },
+  "plugins": [
+    { "name": "campaign-engine", "description": "Brief, channel workflows, drafts and a weighted quality gate: a campaign engine with a human at both gates.", "source": "./", "category": "productivity" }
+  ]
+}
