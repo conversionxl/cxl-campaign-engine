@@ -31,7 +31,7 @@ The five channels the workshop promises, plus the two most campaigns need:
 | Email sequence | `email-sequence` | Jessica Best; Tyler Durman's sequences |
 | Blog post | `blog-post` | Andy Crestodina; Tycho Luijten |
 | Social (LinkedIn posts and carousels) | `social-post` | Andy Crestodina; Tycho Luijten |
-| Sales enablement | `sales-enablement` | Tyler Durman; Kyle Bastien |
+| Sales enablement | `sales-enablement` | Tyler Durman; Steve Armenti; Mason Cosby |
 | Landing page | `landing-page` | CXL landing page optimization course |
 | Ad tests | `ad-tests` | CXL LinkedIn ads course; Nick Christensen's ad scoring |
 

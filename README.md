@@ -120,7 +120,7 @@ Optionally, the gate can be written as a question set for a decision model (Type
 ## Credits
 
 - **Brief structure, sales enablement process, email sequence pattern, campaign lessons:** Tyler Durman, Ignition Growth Consulting, from campaign briefs and plans written 2020 to 2025 and shared for this workshop.
-- **Channel workflows and gate criteria:** CXL course instructors Jessica Best (email), Andy Crestodina (B2B content), Kyle Bastien (sales enablement), AJ Wilcox (LinkedIn ads), Michael Aagaard (landing page optimization), Tycho Luijten (B2B demand generation), Mason Cosby (ABM), Louis Grenier (positioning and differentiation). Each step cites its lesson in `frameworks/workflows/`; each gate row in `frameworks/quality-gate.md`.
+- **Channel workflows and gate criteria:** CXL course instructors Jessica Best (email), Andy Crestodina (B2B content), Steve Armenti (sales enablement), AJ Wilcox (LinkedIn ads), Michael Aagaard (landing page optimization), Tycho Luijten (B2B demand generation), Mason Cosby (ABM), Louis Grenier (positioning and differentiation). Each step cites its lesson in `frameworks/workflows/`; each gate row in `frameworks/quality-gate.md`.
 - **Acme Deals example data and ad scoring:** Nick Christensen, [ship-icp-ads-automate-monitoring](https://github.com/nickyc1/ship-icp-ads-automate-monitoring), MIT license (copy in `raw/voc/example/LICENSE`). The campaign history in `raw/campaigns/example/` is CXL's fictional extension.
 - **Decision models:** Eric Siu, Cloudflare, TypeSafe AI, Claire Vo and Lenny Rachitsky; sources in `frameworks/decision-models.md`.
 - **Personal OS:** [conversionxl/cxl-personal-os](https://github.com/conversionxl/cxl-personal-os).
