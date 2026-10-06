@@ -16,7 +16,7 @@ Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (
 
 ## 1. Load
 
-The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow (Specs and Outputs). The brand brain (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables. If a decision-model output file exists for this campaign (`projects/campaigns/<slug>/gate-output.json`), load it too.
+The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables. If a decision-model output file exists for this campaign (`projects/campaigns/<slug>/gate-output.json`), load it too.
 
 ## 2. Score each draft
 
@@ -71,12 +71,12 @@ status: open          # open until every draft is SHIP or the human has overrule
 
 Walk the fixes channel by channel. For each: **accept the fix, write your own, or overrule the gate.** Apply accepted fixes to a new version of the draft (`<channel>-v2.md`), never to the original. Record every decision in the Decisions table with the reason. An overrule needs a reason; say so.
 
-When every draft is SHIP, or every remaining flag is overruled, set `status: closed` and say what the human does next: load the drafts into the tools, run the test submission, start the campaign. Loading is theirs; this command never writes to a connected tool.
+When every draft is SHIP, or every remaining flag is overruled, set `status: closed`, update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section) with stage `reviewed` and the Gate 2 summary, and say what the human does next: load the drafts into the tools, run the test submission, start the campaign. Loading is theirs; this command never writes to a connected tool.
 
 ## 6. Learn from it
 
 - Three overrules of the same row across campaigns means the weight is wrong, not the drafts: suggest `/quality-gate` and name the row.
 - A fail that the gate did not have a row for: suggest the row, with the line from this review that taught it.
-- When the campaign closes, remind the user to add `results.md` to the folder. The next brief reads it.
+- When the campaign is live, `/campaigns running <slug>`; when it ends, `/campaigns close <slug>` records the result and the lesson the next brief reads.
 
 In `example` mode, stop after step 4 and say the dry run ends with the scorecard; Gate 2 is theirs to practise on their own campaign.

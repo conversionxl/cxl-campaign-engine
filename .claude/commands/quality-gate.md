@@ -17,12 +17,12 @@ Read the `quality-gate` skill and both gate files first. If `projects/campaign-e
 
 ## 1. Show the gate as it stands
 
-The rows, the channel columns, the weights, the thresholds, the non-negotiables, and the Changes table. Say how many campaigns have been reviewed with it (count `review.md` files in `projects/campaigns/`) and list the rows most often overruled in their Decisions tables, if any.
+The rows, the channel columns, the weights, the thresholds, the non-negotiables, and the Changes table. Say how many campaigns have been reviewed with it (count `review.md` files in `projects/campaigns/`), the lessons recorded in the Closed section of `projects/campaigns/campaigns.md`, and list the rows most often overruled in their Decisions tables, if any.
 
 ## 2. Ask about their campaigns
 
 In one message:
-1. Which channels do you run that are not columns here? Which columns do you never use?
+1. Which channels do you run that are not columns here? (Check `projects/campaigns/*/workflows/` and `projects/campaign-engine/workflows/` for channels added with `/campaign-channels` and name them.) Which columns do you never use?
 2. What did your last campaign that missed fail on? Point to the readout in `raw/campaigns/results/` if there is one, or tell the story.
 3. Which check do you find yourself ignoring every time?
 4. Which check would have stopped the miss?

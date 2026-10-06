@@ -1,18 +1,28 @@
 {
   "name": "campaign-engine",
-  "version": "0.1.0",
-  "description": "Campaign Engine module for the CXL AI Native Marketer cohort: brief in, reviewed campaign out. /campaign-engine:campaign-brief, workflow-update, campaign-draft, campaign-review and quality-gate, the campaign-engine and quality-gate skills, six starter channel workflows, and /campaign-engine:setup to add the module to your personal OS. Works on its own; reads the brand brain from the marketing-brain plugin when it is there.",
-  "author": { "name": "CXL", "email": "hesh@cxl.com" },
+  "version": "0.2.0",
+  "description": "Campaign Engine module for the CXL AI Native Marketer cohort: brief in, reviewed campaign out. /campaign-engine:campaign-brief, campaign-channels, campaign-draft, campaign-review, quality-gate and campaigns (the board for every campaign), the campaign-engine and quality-gate skills, seven starter channel workflows built from CXL courses, and /campaign-engine:setup to add the module to your personal OS. Works on its own; reads the brand brain from the marketing-brain plugin when it is there.",
+  "author": {
+    "name": "CXL",
+    "email": "hesh@cxl.com"
+  },
   "homepage": "https://github.com/conversionxl/cxl-campaign-engine",
   "repository": "https://github.com/conversionxl/cxl-campaign-engine",
-  "keywords": ["cxl", "campaign-engine", "campaign-brief", "quality-gate", "b2b-marketing"],
+  "keywords": [
+    "cxl",
+    "campaign-engine",
+    "campaign-brief",
+    "quality-gate",
+    "b2b-marketing"
+  ],
   "commands": [
     "./plugin/setup.md",
     "./.claude/commands/campaign-brief.md",
-    "./.claude/commands/workflow-update.md",
+    "./.claude/commands/campaign-channels.md",
     "./.claude/commands/campaign-draft.md",
     "./.claude/commands/campaign-review.md",
-    "./.claude/commands/quality-gate.md"
+    "./.claude/commands/quality-gate.md",
+    "./.claude/commands/campaigns.md"
   ],
   "skills": [
     "./.claude/skills/campaign-engine",

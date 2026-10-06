@@ -39,7 +39,7 @@ owner:
 approved_by:
 approved_on:
 dates: { start: "", end: "" }
-channels: []            # from projects/campaign-engine/workflows/
+channels: []            # proposed here, confirmed in /campaign-channels
 sources: []             # files, brain files, tool pulls with date range, user answers
 tags: [campaign]
 ---

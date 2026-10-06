@@ -11,7 +11,7 @@ In Claude Code, hooks load the two newest daily logs at the start of a session a
 
 ## Commands
 
-The routines are Markdown files in `.claude/commands/`: `start`, `brief`, `ingest`, `shutdown`, `lint`, `team-update`, and the Campaign Engine steps `campaign-brief`, `workflow-update`, `campaign-draft`, `campaign-review` and `quality-gate`. When the user names one ("run campaign-brief", "review the agency campaign"), open `.claude/commands/<name>.md` and follow it step by step. Treat `$ARGUMENTS` as whatever the user added after the name.
+The routines are Markdown files in `.claude/commands/`: `start`, `brief`, `ingest`, `shutdown`, `lint`, `team-update`, and the Campaign Engine steps `campaign-brief`, `campaign-channels`, `campaign-draft`, `campaign-review`, `quality-gate` and `campaigns`. When the user names one ("run campaign-brief", "review the agency campaign"), open `.claude/commands/<name>.md` and follow it step by step. Treat `$ARGUMENTS` as whatever the user added after the name.
 
 ## Skills and memory
 
@@ -20,4 +20,4 @@ The routines are Markdown files in `.claude/commands/`: `start`, `brief`, `inges
 
 ## Campaign Engine
 
-A campaign is a folder in `projects/campaigns/<slug>/` with a brief (decisions, no copy), one draft per channel, and a review. Draft a channel only by following `projects/campaign-engine/workflows/<channel>.md`, stopping at every human lane. Score drafts only with `projects/campaign-engine/quality-gate.md`. Never set a brief to `approved` or close a review without the user's explicit yes. Read `wiki/brand/` before writing anything customer-facing when it exists; never write to it.
+A campaign is a folder in `projects/campaigns/<slug>/` with a brief (decisions, no copy), one draft per channel, and a review. Draft a channel only by following that campaign's `projects/campaigns/<slug>/workflows/<channel>.md`, stopping at every step a person owns. Keep `projects/campaigns/campaigns.md` current when a campaign changes stage. Score drafts only with `projects/campaign-engine/quality-gate.md`. Never set a brief to `approved` or close a review without the user's explicit yes. Read `wiki/brand/` before writing anything customer-facing when it exists; never write to it.
