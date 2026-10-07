@@ -26,14 +26,14 @@ Brief in, reviewed campaign out, with a human at both gates. These are the rules
 
 ## The brand brain
 
-Read it before anything customer-facing, in this order: `wiki/brand/README.md`, `icp.md`, `positioning-messaging.md`, `voice-guide.md`, `vocabulary.md`. Check each file's `status`:
+Read it before anything customer-facing, in this order: `wiki/brand/README.md`, `icp.md`, `positioning-messaging.md`, `voice-guide.md`, `vocabulary.md`. Read the `.md` files, never the pages in `projects/marketing-brain/outputs/`. The brand is defined once: never ask a voice, audience or messaging question the brain already answers. Check each file's `status`:
 - `template`: empty. Say which, point to the Marketing Brain exercise that fills it (`/marketing-brain:icp-dossier`, `positioning-messaging`, `brand-voice`), and continue with what the brief collected, tagged (inferred).
-- `draft`: usable; say it has open (inferred) tags and do not lean on a tagged line as proof.
+- `draft`: usable; say it has open tags and do not lean on a tagged line as proof. Lines tagged (inferred), (vague), hypothesis or proxy are direction only, never a claim or a proof point. An ICP at `stage: hypothesis` means the audience is a guess: say so.
 - `final`: use it.
-- No `wiki/brand/` at all: say so once. The brief's sections 3, 5 and 9 carry the audience, the angles and the voice rules instead, tagged (inferred). The engine does not need the Marketing Brain to run; it is better with it.
+- No `wiki/brand/` here: ask once whether the user has a brain in another folder, and follow section 2 of `frameworks/campaign-inputs.md` (recommend running the engine there; otherwise a dated snapshot copy). Only with no brain anywhere: say so once. The brief's sections 3, 5 and 9 carry the audience, the angles and the voice rules instead, tagged (inferred). The engine does not need the Marketing Brain to run; it is better with it.
 - `example` mode: `raw/campaigns/example/brand-brain/` stands in for `wiki/brand/`.
 
-**Who** comes from `icp.md`: the core segment, the exclusions (negative ICP), their words. **What to say** from `positioning-messaging.md`: the owned key message, the pillars, and the only proof points the drafts may use. **How to say it** from `voice-guide.md` and `vocabulary.md`. When files disagree, wording follows voice-guide > vocabulary > positioning-messaging > icp, facts the reverse; say when you hit one.
+**Who** comes from `icp.md`: "Who buys now" (older brains: the rich avatar and core segment), the exclusions (negative ICP), their words. **What to say** from `positioning-messaging.md`: the owned key message, the pillars, and the only proof points the drafts may use. **How to say it** from `voice-guide.md` and `vocabulary.md`. When files disagree, wording follows voice-guide > vocabulary > positioning-messaging > icp, facts the reverse; say when you hit one.
 
 ## Rules that hold everywhere
 

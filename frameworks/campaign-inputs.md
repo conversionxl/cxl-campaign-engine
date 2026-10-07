@@ -38,12 +38,17 @@ Ask for every relevant document before drafting. Four ways in, all equal:
 
 The Campaign Engine reads the brand brain the Marketing Brain workshop builds in `wiki/brand/`: `icp.md` (who), `positioning-messaging.md` (what to say, with proof points), `voice-guide.md` and `vocabulary.md` (how to say it). It never writes to those files.
 
+**The brand is defined once.** Whatever the brain answers, the engine never asks again: no voice, audience or messaging questions for a file that is filled. It asks only for what is missing. It reads the `.md` files, never the HTML pages in `projects/marketing-brain/outputs/`.
+
 | Brain state | What the engine does |
 |---|---|
 | All four files present with `status: draft` or `final` | Reads them. Audience, messaging and voice sections of the brief start from the brain; the gate checks drafts against it |
 | Files present but `status: template` | Says which are empty, points to the Marketing Brain exercise that fills each (`/marketing-brain:icp-dossier`, `positioning-messaging`, `brand-voice`), and offers to continue |
+| No `wiki/brand/` here, but the user has a brain in another folder (another repo, their personal OS) | Asks once where it is. Recommends running the engine in that folder, so there is one brain and nothing to keep in step. If the user wants to stay here, copies the four `.md` files into `wiki/brand/` as a snapshot, with a line at the top of `wiki/brand/README.md` naming the source folder and date, and says to copy again after the brain changes. Never asks the questions the brain answers |
 | No `wiki/brand/` at all | Says so once, then collects the minimum in the brief itself: who it is for and who it is not for, the three to five angles with proof, the voice rules to follow. Every such line is tagged (inferred) until a brain or a source confirms it |
 | `example` mode | Reads `raw/campaigns/example/brand-brain/` (Acme Deals) instead |
+
+**Tagged lines are unconfirmed.** Lines tagged (inferred), (vague), hypothesis or proxy in the brain steer direction but never become a claim, a number or a proof point in a draft. An ICP with `stage: hypothesis` means the whole audience is a guess: say so in the brief. The ICP's "Who buys now" (or, in older brains, "The rich avatar") is the audience; "Who you want next" is used only when the brief targets that shift, and tagged.
 
 The Marketing Brain plugin is recommended, not required. The engine works without it; the brief carries more (inferred) tags.
 
