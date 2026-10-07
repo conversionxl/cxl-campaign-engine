@@ -7,6 +7,11 @@ set -e
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TARGET="${1:-$PWD}"
 cd "$TARGET"
+# A folder map (.claude/folders.json) sends each module file to the user's own
+# folder; without one, every path below is the standard one.
+. "$ROOT/.claude/hooks/lib-folders.sh"
+mp() { pos_map_path "$PWD" "$1"; }
+engine="$(mp projects/campaign-engine)"; board="$(pos_rel "$PWD" campaigns)"; brand="$(pos_rel "$PWD" brand-wiki)"
 
 # No personal OS here? Start a minimal CLAUDE.md so the module still works.
 if [ ! -f CLAUDE.md ]; then
@@ -28,6 +33,8 @@ if ! grep -qx 'raw/campaigns/\*' .gitignore; then
 else
   gi="already there"
 fi
+# Renamed folders get the same local-only rules, before any file lands in them.
+[ -f .claude/folders.json ] && map_gi="$(bash "$ROOT/.claude/hooks/folder-map.sh" gitignore "$PWD")"
 
 # 2. Module files, skipping anything that exists. The default gate is copied
 #    into projects/campaign-engine/ so the user edits their own copy. The starter
@@ -52,21 +59,20 @@ for p in raw/campaigns raw/voc raw/brand raw/strategy raw/performance projects/c
          frameworks/campaign-brief-template.md frameworks/workflow-format.md \
          frameworks/campaign-inputs.md frameworks/quality-gate.md \
          frameworks/decision-models.md frameworks/campaigns-board.md frameworks/workflows; do
-  copy_tree "$p" "$p"
+  copy_tree "$p" "$(mp "$p")"
 done
-mkdir -p projects/campaign-engine/workflows
-if [ ! -e projects/campaign-engine/quality-gate.md ]; then
-  mkdir -p projects/campaign-engine
-  cp "$ROOT/frameworks/quality-gate.md" projects/campaign-engine/quality-gate.md
+mkdir -p "$engine/workflows"
+if [ ! -e "$engine/quality-gate.md" ]; then
+  cp "$ROOT/frameworks/quality-gate.md" "$engine/quality-gate.md"
   created=$((created+1))
 else kept=$((kept+1)); fi
-if [ ! -e projects/campaigns/campaigns.md ]; then
-  mkdir -p projects/campaigns
-  printf -- '---\ntype: campaigns-board\nlast_updated: ""\n---\n\n# Campaigns\n\n| Campaign | Scale | Stage | KPI | Target | Actual | Dates | Channels | Gate 2 | Next |\n|---|---|---|---|---|---|---|---|---|---|\n\n## Closed\n\n| Campaign | KPI | Target | Actual | Lesson | Closed |\n|---|---|---|---|---|---|\n\n## Examples\n\n| Campaign | Scale | Stage | KPI | Target | Actual | Dates | Channels | Gate 2 | Next |\n|---|---|---|---|---|---|---|---|---|---|\n' > projects/campaigns/campaigns.md
+if [ ! -e "$board/campaigns.md" ]; then
+  mkdir -p "$board"
+  printf -- '---\ntype: campaigns-board\nlast_updated: ""\n---\n\n# Campaigns\n\n| Campaign | Scale | Stage | KPI | Target | Actual | Dates | Channels | Gate 2 | Next |\n|---|---|---|---|---|---|---|---|---|---|\n\n## Closed\n\n| Campaign | KPI | Target | Actual | Lesson | Closed |\n|---|---|---|---|---|---|\n\n## Examples\n\n| Campaign | Scale | Stage | KPI | Target | Actual | Dates | Channels | Gate 2 | Next |\n|---|---|---|---|---|---|---|---|---|---|\n' > "$board/campaigns.md"
   created=$((created+1))
 else kept=$((kept+1)); fi
-if [ ! -e projects/campaign-engine/campaign-engine.md ]; then
-  cp "$ROOT/projects/campaign-engine/campaign-engine.md" projects/campaign-engine/campaign-engine.md
+if [ ! -e "$engine/campaign-engine.md" ]; then
+  cp "$ROOT/projects/campaign-engine/campaign-engine.md" "$engine/campaign-engine.md"
   created=$((created+1))
 else kept=$((kept+1)); fi
 
@@ -81,11 +87,12 @@ fi
 echo "Folder: $TARGET"
 echo ".gitignore block: $gi"
 echo "Files created: $created. Existing files kept: $kept."
+[ -n "${map_gi:-}" ] && echo "$map_gi"
 [ -n "${cm_new:-}" ] && echo "CLAUDE.md: $cm_new"
 echo "CLAUDE.md Campaign Engine section: $cm"
-if [ -d wiki/brand ]; then
-  echo "Brand brain: wiki/brand/ found. The engine will read it."
+if [ -d "$brand" ]; then
+  echo "Brand brain: $brand/ found. The engine will read it."
 else
-  echo "Brand brain: no wiki/brand/ here. The engine works without it; the brief collects the minimum itself. The marketing-brain plugin builds one: /marketing-brain:setup"
+  echo "Brand brain: no $brand/ here. The engine works without it; the brief collects the minimum itself. The marketing-brain plugin builds one: /marketing-brain:setup"
 fi
 [ -f .claude/personal-os.json ] || echo "Optional: the personal-os plugin adds daily logs, memory and its own commands: /personal-os:setup"
