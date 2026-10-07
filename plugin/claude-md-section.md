@@ -36,5 +36,6 @@ Each command takes `example` to run on Acme Deals, the fictional brand in `raw/c
 - **Read only in connected tools.** Loading a draft into an email, ad or CRM tool is your step, after Gate 2.
 - **No personal data in campaign folders.** Leads and customers are referred to by company, segment or ID. Email addresses stay in `raw/`.
 - **Keep the HR tech example unnamed.** The workshop's missed-campaign lesson refers to "an HR tech SaaS platform". Never name the company.
+- **Your own folder names.** If `.claude/folders.json` exists, every folder named in this section (`wiki/brand/`, `raw/voc/`, `projects/` and the rest) is read at its mapped name instead, subfolders included. `/campaign-engine:setup` asks about it.
 
 Credits: the small-c and big-C brief structure, the sales enablement process and the campaign examples come from Tyler Durman's briefs and plans, shared for this workshop. Channel craft and gate criteria credit the CXL course instructors named in `frameworks/quality-gate.md`. Acme Deals is Nick Christensen's (MIT). Decision models: see `frameworks/decision-models.md`.
