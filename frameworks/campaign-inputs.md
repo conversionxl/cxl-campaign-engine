@@ -36,21 +36,53 @@ Ask for every relevant document before drafting. Four ways in, all equal:
 
 ## 2. The brand brain
 
-The Campaign Engine reads the brand brain the Marketing Brain workshop builds in `wiki/brand/`: `icp.md` (who), `positioning-messaging.md` (what to say, with proof points), `voice-guide.md` and `vocabulary.md` (how to say it). It never writes to those files.
+The Campaign Engine reads a brand brain: four files, `icp.md` (who), `positioning-messaging.md` (what to say, with proof points), `voice-guide.md` and `vocabulary.md` (how to say it). It reads them wherever they live and never writes to them.
+
+### Where the brain can live
+
+Every command finds the brand sources first by running `bash "${CLAUDE_PLUGIN_ROOT}/plugin/find-context.sh" "$PWD"` (in the repo copy: `bash plugin/find-context.sh "$PWD"`). It lists every folder that holds the four files, with each file's `status`:
+
+| Source | Where | Typical owner |
+|---|---|---|
+| This folder | `wiki/brand/`, or the folder `.claude/folders.json` maps as `brand-wiki` | The Marketing Brain plugin, run here |
+| Another installed plugin | The plugin's own `brand/` or `wiki/brand/` folder, found through Claude Code's list of installed plugins | A company plugin that ships the company's brand to everyone (for CXL staff, `cxl-plugin`) |
+| Another folder | A personal OS or repo elsewhere on the machine | The user's own brain, built in a different folder |
+
+**One source per repo, chosen once.**
+- Exactly one source found: use it, and say which in one line.
+- More than one: ask once which brand this repo's campaigns are for, recommend one (the company plugin's brand for campaigns the company runs; this folder's brain for an agency, a client or a side brand), and record the answer in the Campaign Engine section of `CLAUDE.md` as `**Brand source:** <this folder | plugin <name> | <path>>`. Record a plugin by name, never by its install path: the path changes with every plugin update. Every command reads the recorded line and never asks again (`not chosen yet` means nothing is recorded); the user changes the line to switch.
+- A file that is `template` in the chosen source is treated as missing; the brief does not quietly borrow that file from another source. Say which file is empty and where it could come from.
+- A plugin's brand is read in place. Never copied into this folder, never edited.
 
 **The brand is defined once.** Whatever the brain answers, the engine never asks again: no voice, audience or messaging questions for a file that is filled. It asks only for what is missing. It reads the `.md` files, never the HTML pages in `projects/marketing-brain/outputs/`.
 
 | Brain state | What the engine does |
 |---|---|
-| All four files present with `status: draft` or `final` | Reads them. Audience, messaging and voice sections of the brief start from the brain; the gate checks drafts against it |
+| All four files present in the chosen source with `status: draft` or `final` | Reads them. Audience, messaging and voice sections of the brief start from the brain; the gate checks drafts against it |
 | Files present but `status: template` | Says which are empty, points to the Marketing Brain exercise that fills each (`/marketing-brain:icp-dossier`, `positioning-messaging`, `brand-voice`), and offers to continue |
-| No `wiki/brand/` here, but the user has a brain in another folder (another repo, their personal OS) | Asks once where it is. Recommends running the engine in that folder, so there is one brain and nothing to keep in step. If the user wants to stay here, copies the four `.md` files into `wiki/brand/` as a snapshot, with a line at the top of `wiki/brand/README.md` naming the source folder and date, and says to copy again after the brain changes. Never asks the questions the brain answers |
-| No `wiki/brand/` at all | Says so once, then collects the minimum in the brief itself: who it is for and who it is not for, the three to five angles with proof, the voice rules to follow. Every such line is tagged (inferred) until a brain or a source confirms it |
+| No brain in this folder or in a plugin, but the user has one in another folder (another repo, their personal OS) | Asks once where it is, and records it as the brand source. Recommends running the engine in that folder, so there is one brain and nothing to keep in step. If the user wants to stay here, copies the four `.md` files into `wiki/brand/` as a snapshot, with a line at the top of `wiki/brand/README.md` naming the source folder and date, and says to copy again after the brain changes. Never asks the questions the brain answers |
+| No brain anywhere | Says so once, then collects the minimum in the brief itself: who it is for and who it is not for, the three to five angles with proof, the voice rules to follow. Every such line is tagged (inferred) until a brain or a source confirms it |
 | `example` mode | Reads `raw/campaigns/example/brand-brain/` (Acme Deals) instead |
 
 **Tagged lines are unconfirmed.** Lines tagged (inferred), (vague), hypothesis or proxy in the brain steer direction but never become a claim, a number or a proof point in a draft. An ICP with `stage: hypothesis` means the whole audience is a guess: say so in the brief. The ICP's "Who buys now" (or, in older brains, "The rich avatar") is the audience; "Who you want next" is used only when the brief targets that shift, and tagged.
 
 The Marketing Brain plugin is recommended, not required. The engine works without it; the brief carries more (inferred) tags.
+
+## 2b. Daily logs from the personal OS
+
+The personal-os plugin writes a daily log per working session (`daily-logs/YYYY-MM-DD-convo.md`, or the folder `.claude/folders.json` maps as `daily-logs`). The logs record what was decided, committed and shipped, including about campaigns that never got a brief. The engine reads them; it never writes or edits a log.
+
+| Command | Reads | For |
+|---|---|---|
+| `/campaign-brief` | The last 30 days of logs, searched for the campaign's name, product, offer, audience and KPI | Decisions already made (dates, budget, who owns what), commitments to sales, earlier attempts at this campaign. Each finding cites the log file |
+| `/campaigns` | Logs since each campaign's last board update | Stage changes the board missed ("launched the agency upgrade", "sent email 2"), results mentioned in passing; proposed as board updates, applied only on a yes |
+| `/campaigns close` | Every log across the campaign's dates | What happened, in order, to draft the "what worked, what did not" answers for the user to confirm |
+
+Rules:
+- **Logs are context, not proof.** A number in a log is a lead to the source it came from, never a metric for the brief or the board, unless the log names a snapshot or report that can be opened. Say so when a number only exists in a log.
+- **Cite the file**, for example `(daily-logs/2026-10-07-convo.md)`.
+- **No logs in this folder:** the finder says so. If `.claude/personal-os.json` is missing, ask once whether a personal OS lives in another folder, and record the answer in the Campaign Engine section of `CLAUDE.md` as `**Daily logs:** <path>`, or `**Daily logs:** none` to stop asking. Read that folder in place.
+- Logs can hold names and details of people. Nothing personal is copied from a log into a brief, a draft or the board.
 
 ## 3. Voice of customer for this campaign
 
