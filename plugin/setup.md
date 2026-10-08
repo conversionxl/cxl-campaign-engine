@@ -1,5 +1,5 @@
 ---
-description: Add the Campaign Engine to your personal OS. Adds raw/campaigns, projects/campaigns with an empty campaigns board, your copy of the quality gate, the seven starter channel workflows, the frameworks, the project file, and a Campaign Engine section in CLAUDE.md. Never overwrites your files. Ends by starting your first brief.
+description: Add the Campaign Engine to your personal OS. Adds raw/campaigns, projects/campaigns with an empty campaigns board, your copy of the quality gate, the seven starter channel workflows, the frameworks, the project file, and a Campaign Engine section in CLAUDE.md. Never overwrites your files. Ends by starting your first brief: the Acme example, one made up on the spot, or your own.
 ---
 
 # /campaign-engine:setup
@@ -22,7 +22,7 @@ Add the Campaign Engine module to the folder this session is in, then get the us
    >
    > | | Command | What happens |
    > |---|---|---|
-   > | 1 | `/campaign-engine:campaign-brief example` | A practice run on Acme Deals, a made-up company with sample data. You see what a finished brief looks like. Nothing of yours is touched. |
+   > | 1 | `/campaign-engine:campaign-brief example` | A practice run on Acme Deals, a made-up company with sample data. You see what a finished brief looks like. Nothing of yours is touched. Or `practice` to make up a campaign of your own on the spot. |
    > | 2 | `/campaign-engine:campaign-brief <your campaign>` | Your first real brief. It asks for what it needs as it goes (past campaigns, results, what customers say): drop files into `raw/campaigns/` or paste them in the chat. You approve it before anything gets written. |
    > | 3 | `/campaign-engine:campaign-channels <campaign>` | Pick the channels (email, landing page, ads, and so on) and adjust each one's steps to how you work. |
    > | 4 | `/campaign-engine:campaign-draft <campaign>` | Claude drafts every channel, pausing where a step is yours. |
@@ -30,7 +30,8 @@ Add the Campaign Engine module to the folder this session is in, then get the us
    >
    > Any time: `/campaign-engine:campaigns` shows every campaign on one board.
 
-   Then ask one question: **"Start the practice run on Acme Deals now, or go straight to your own campaign?"**
-   - **Practice run:** run `/campaign-engine:campaign-brief example` now, in this session.
+   Then ask one question: **"Where do you want to start: the Acme practice run, a campaign you make up now, or your own campaign?"**
+   - **Acme practice run:** run `/campaign-engine:campaign-brief example` now, in this session.
+   - **Make one up:** ask for the idea in a sentence (a company, what it sells, what the campaign is for), then run `/campaign-engine:campaign-brief practice <idea>` now. It stays a practice campaign, separate from real ones, and can go through every step.
    - **Own campaign:** ask for the campaign's name in a few words, then run `/campaign-engine:campaign-brief <name>` now.
    - **Later:** stop, and say that `/campaign-engine:campaign-brief example` is the place to start.

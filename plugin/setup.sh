@@ -96,4 +96,4 @@ echo
 echo "Brand: with more than one source above, the first campaign command asks once which one this folder uses and records it in CLAUDE.md. With none, the brief collects the minimum itself; the marketing-brain plugin builds a brain: /marketing-brain:setup"
 [ -f .claude/personal-os.json ] || echo "Optional: the personal-os plugin adds daily logs, memory and its own commands: /personal-os:setup"
 echo
-echo "Next: /campaign-engine:campaign-brief example, a practice run on a made-up company. Then /campaign-engine:campaign-brief <your campaign>."
+echo "Next: /campaign-engine:campaign-brief example (practice on a sample company), /campaign-engine:campaign-brief practice (make one up), or /campaign-engine:campaign-brief <your campaign>."
