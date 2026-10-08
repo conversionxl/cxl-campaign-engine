@@ -63,11 +63,11 @@ Fill the Gate 1 table from `frameworks/quality-gate.md`, row by row, with a pass
 
 Show the brief in one screen: goal, approach, audience include and exclude, offer, angles with proof status, stage and thought, handoff rule, kill rule, classification. Then ask: **approve, change, or hold?**
 
-- **Approve:** set `status: approved`, `approved_by`, `approved_on`. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `approved`. Say what comes next: `/campaign-channels <slug>` to pick the channels and adjust their steps, then `/campaign-draft <slug>`.
+- **Approve:** set `status: approved`, `approved_by`, `approved_on`. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `approved`. Then the next step: `/campaign-engine:campaign-channels <slug>` picks the channels and adjusts each one's steps. Ask **"Run it now?"**
 - **Change:** make the change, re-run Gate 1, ask again.
 - **Hold:** leave `status: draft` and list what is missing.
 
-Approval is the human's. Never set `approved` on your own, in any mode. In `example` mode, stop at the question and say that the dry run ends here, with the brief ready to approve.
+Approval is the human's. Never set `approved` on your own, in any mode. In `example` mode, stop at the question and say that the practice brief ends here, ready to approve. Then the next step: `/campaign-engine:campaign-channels example` shows how a channel's steps get adjusted, on the same practice campaign. Ask **"Run it now?"**, and offer `/campaign-engine:campaign-brief <your campaign>` as the other way forward.
 
 ## 6. Checks
 
@@ -77,7 +77,7 @@ Answer honestly from what you wrote:
 - How many (inferred) tags are open, and which single input would resolve the most?
 - Which channels does the brief propose, and which have no starter yet (so `/campaign-channels` will need the user's steps or a suggestion)?
 
-Then the file path and the next command.
+Then the file path and the next step, as the `campaign-engine` skill's hand-off rule says.
 
 ## Last. Connect it to the repo
 

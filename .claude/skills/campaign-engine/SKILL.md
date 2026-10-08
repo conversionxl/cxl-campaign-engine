@@ -54,6 +54,7 @@ If the personal-os plugin writes daily logs here (or `CLAUDE.md` records `**Dail
 - **Read only in tools.** Pulls from a CRM, email, ad or analytics tool are read only and saved as dated snapshots in `raw/campaigns/live/`. Loading a draft anywhere is the human's step, after Gate 2.
 - **No personal data in campaign folders.** Leads and customers by company, segment or ID. Email addresses stay in `raw/`. The HR tech example in the gate stays unnamed.
 - **Classification.** The goal decides. Big-C when the goal is strategic (revenue, pipeline or category) and at least one more trigger holds (longer than 8 weeks; more than one segment or program; four or more channel types; needs sales, product, PR or events). A tactical goal is small-c however many channels it uses. The engine proposes, the human confirms at Gate 1. A big-C plan spawns small-c briefs (section 14); channels are drafted from those.
+- **Every command ends on the next step, ready to run.** Close with one line on what the next command does, then the command itself with the slug filled in, named the way this session runs it: `/campaign-engine:<command>` with the plugin, `/<command>` in the repo copy. In `example` mode the argument is `example`. Then ask **"Run it now?"** and on a yes, run it in this session. The order: `campaign-brief`, `campaign-channels`, `campaign-draft`, `campaign-review`, then `campaigns running` and `campaigns close`.
 - **No em dashes**, in any file this engine writes.
 
 ## Credits
