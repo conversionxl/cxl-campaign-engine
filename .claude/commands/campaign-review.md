@@ -71,7 +71,7 @@ status: open          # open until every draft is SHIP or the human has overrule
 
 Walk the fixes channel by channel. For each: **accept the fix, write your own, or overrule the gate.** Apply accepted fixes to a new version of the draft (`<channel>-v2.md`), never to the original. Record every decision in the Decisions table with the reason. An overrule needs a reason; say so.
 
-When every draft is SHIP, or every remaining flag is overruled, set `status: closed`, update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section) with stage `reviewed` and the Gate 2 summary, and say what the human does next: load the drafts into the tools, run the test submission, start the campaign. Loading is theirs; this command never writes to a connected tool.
+When every draft is SHIP, or every remaining flag is overruled, set `status: closed`, update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section) with stage `reviewed` and the Gate 2 summary, and say what the human does next: load the drafts into the tools, run the test submission, start the campaign. Loading is theirs; this command never writes to a connected tool. Then the next step: once it is live, `/campaign-engine:campaigns running <slug>` marks it running on the board. Ask whether it is live yet, and on a yes run it.
 
 ## 6. Learn from it
 
@@ -79,4 +79,4 @@ When every draft is SHIP, or every remaining flag is overruled, set `status: clo
 - A fail that the gate did not have a row for: suggest the row, with the line from this review that taught it.
 - When the campaign is live, `/campaigns running <slug>`; when it ends, `/campaigns close <slug>` records the result and the lesson the next brief reads.
 
-In `example` mode, stop after step 4 and say the dry run ends with the scorecard; Gate 2 is theirs to practise on their own campaign.
+In `example` mode, stop after step 4 and say the practice run ends with the scorecard; Gate 2 is theirs to practise on their own campaign. Then the next step: `/campaign-engine:campaign-brief <your campaign>` starts their own. Ask for the campaign's name in a few words and offer to run it now.

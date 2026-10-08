@@ -35,6 +35,7 @@ Read it before anything customer-facing, in this order: the source's `README.md`
 - `final`: use it.
 - No brain in this folder or in any plugin: ask once whether the user has a brain in another folder, and follow section 2 of `frameworks/campaign-inputs.md` (recommend running the engine there; otherwise a dated snapshot copy). Only with no brain anywhere: say so once. The brief's sections 3, 5 and 9 carry the audience, the angles and the voice rules instead, tagged (inferred). The engine does not need the Marketing Brain to run; it is better with it.
 - `example` mode: `raw/campaigns/example/brand-brain/` stands in for `wiki/brand/`.
+- A `practice-<slug>` campaign (`/campaign-brief practice`, made up on the spot): the user's own brain if they chose it, otherwise none, and the brief's made-up answers stand in. Practice data never goes into `raw/` or a real campaign; the board lists it under Examples. Every command takes a practice slug like any other.
 
 **Who** comes from `icp.md`: "Who buys now" (older brains: the rich avatar and core segment), the exclusions (negative ICP), their words. **What to say** from `positioning-messaging.md`: the owned key message, the pillars, and the only proof points the drafts may use. **How to say it** from `voice-guide.md` and `vocabulary.md`. When files disagree, wording follows voice-guide > vocabulary > positioning-messaging > icp, facts the reverse; say when you hit one.
 
@@ -54,6 +55,7 @@ If the personal-os plugin writes daily logs here (or `CLAUDE.md` records `**Dail
 - **Read only in tools.** Pulls from a CRM, email, ad or analytics tool are read only and saved as dated snapshots in `raw/campaigns/live/`. Loading a draft anywhere is the human's step, after Gate 2.
 - **No personal data in campaign folders.** Leads and customers by company, segment or ID. Email addresses stay in `raw/`. The HR tech example in the gate stays unnamed.
 - **Classification.** The goal decides. Big-C when the goal is strategic (revenue, pipeline or category) and at least one more trigger holds (longer than 8 weeks; more than one segment or program; four or more channel types; needs sales, product, PR or events). A tactical goal is small-c however many channels it uses. The engine proposes, the human confirms at Gate 1. A big-C plan spawns small-c briefs (section 14); channels are drafted from those.
+- **Every command ends on the next step, ready to run.** Close with one line on what the next command does, then the command itself with the slug filled in, named the way this session runs it: `/campaign-engine:<command>` with the plugin, `/<command>` in the repo copy. In `example` mode the argument is `example`; a practice campaign uses its `practice-<slug>`. Then ask **"Run it now?"** and on a yes, run it in this session. The order: `campaign-brief`, `campaign-channels`, `campaign-draft`, `campaign-review`, then `campaigns running` and `campaigns close`.
 - **No em dashes**, in any file this engine writes.
 
 ## Credits

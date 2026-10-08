@@ -62,7 +62,7 @@ For each channel that changed, ask once: **"Save this as your default <channel>,
 - Set the campaign's stage to `channels set` in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing).
 - A channel with no column in `projects/campaign-engine/quality-gate.md` will be scored with the closest column. Name the channel and the column, and suggest `/quality-gate <channel>` to give it its own.
 - Summarise per channel: steps kept, changed, cut, added; the tools; whether it was saved as a default.
-- **Next: `/campaign-draft <slug>`.**
+- **Next step:** `/campaign-engine:campaign-draft <slug>` (in `example` mode, `example`) drafts every channel by following these steps. Ask **"Run it now?"**
 
 ## Rules
 

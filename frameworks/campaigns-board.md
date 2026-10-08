@@ -42,7 +42,7 @@ last_updated: ""
 
 - **Campaign** links to the brief. **Gate 2** is the review's summary (for example "3 SHIP, 1 REVIEW") with a link to `review.md`.
 - **Actual** is blank until a result is pulled or entered, and always says where it came from (a snapshot in `raw/campaigns/live/` or "entered by you, date").
-- Example campaigns (`example-*`) get their own section, **Examples**, so they never mix with real ones.
+- Example and practice campaigns (`example-*`, `practice-*`) get their own section, **Examples**, so they never mix with real ones.
 - A big-C plan is a row too; its small-c children are rows below it, with the parent's slug in front (`h2-plan / phase-2-upgrade`).
 
 ## The page
