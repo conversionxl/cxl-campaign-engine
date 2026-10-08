@@ -22,18 +22,25 @@ Brief in, reviewed campaign out, with a human at both gates. These are the rules
 | `projects/campaigns/<slug>/review.md` | The scorecard and the human's decisions | `/campaign-review` |
 | `projects/campaigns/<slug>/results.md` | What it returned. The next brief reads it | The user |
 | `frameworks/` | The reference: template, workflow format, the starter workflows, default gate, inputs, board format, decision models | The module. Never edited by commands |
-| `wiki/brand/` | The brand brain from the Marketing Brain. Read, never written | The marketing-brain plugin |
+| `wiki/brand/`, or another plugin's `brand/` | The brand brain: from the Marketing Brain here, or a company plugin such as `cxl-plugin`. Read in place, never written | The marketing-brain plugin, or the plugin that ships it |
+| `daily-logs/` | The personal OS's daily logs. Read as context, never written | The personal-os plugin |
 
 ## The brand brain
 
-Read it before anything customer-facing, in this order: `wiki/brand/README.md`, `icp.md`, `positioning-messaging.md`, `voice-guide.md`, `vocabulary.md`. Read the `.md` files, never the pages in `projects/marketing-brain/outputs/`. The brand is defined once: never ask a voice, audience or messaging question the brain already answers. Check each file's `status`:
+**Find it first.** The brain can live in this folder (`wiki/brand/`), in another installed plugin's `brand/` folder (a company plugin such as `cxl-plugin`), or in another folder. Run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/find-context.sh" "$PWD"` (in the repo copy: `bash plugin/find-context.sh "$PWD"`) to list every source, then use the one recorded as `**Brand source:**` in `CLAUDE.md`; with several sources and nothing recorded, ask once and record the answer (section 2 of `frameworks/campaign-inputs.md`). Read a plugin's brand in place; never copy or edit it.
+
+Read it before anything customer-facing, in this order: the source's `README.md` if it has one, `icp.md`, `positioning-messaging.md`, `voice-guide.md`, `vocabulary.md`. Read the `.md` files, never the pages in `projects/marketing-brain/outputs/`. The brand is defined once: never ask a voice, audience or messaging question the brain already answers. Check each file's `status`:
 - `template`: empty. Say which, point to the Marketing Brain exercise that fills it (`/marketing-brain:icp-dossier`, `positioning-messaging`, `brand-voice`), and continue with what the brief collected, tagged (inferred).
 - `draft`: usable; say it has open tags and do not lean on a tagged line as proof. Lines tagged (inferred), (vague), hypothesis or proxy are direction only, never a claim or a proof point. An ICP at `stage: hypothesis` means the audience is a guess: say so.
 - `final`: use it.
-- No `wiki/brand/` here: ask once whether the user has a brain in another folder, and follow section 2 of `frameworks/campaign-inputs.md` (recommend running the engine there; otherwise a dated snapshot copy). Only with no brain anywhere: say so once. The brief's sections 3, 5 and 9 carry the audience, the angles and the voice rules instead, tagged (inferred). The engine does not need the Marketing Brain to run; it is better with it.
+- No brain in this folder or in any plugin: ask once whether the user has a brain in another folder, and follow section 2 of `frameworks/campaign-inputs.md` (recommend running the engine there; otherwise a dated snapshot copy). Only with no brain anywhere: say so once. The brief's sections 3, 5 and 9 carry the audience, the angles and the voice rules instead, tagged (inferred). The engine does not need the Marketing Brain to run; it is better with it.
 - `example` mode: `raw/campaigns/example/brand-brain/` stands in for `wiki/brand/`.
 
 **Who** comes from `icp.md`: "Who buys now" (older brains: the rich avatar and core segment), the exclusions (negative ICP), their words. **What to say** from `positioning-messaging.md`: the owned key message, the pillars, and the only proof points the drafts may use. **How to say it** from `voice-guide.md` and `vocabulary.md`. When files disagree, wording follows voice-guide > vocabulary > positioning-messaging > icp, facts the reverse; say when you hit one.
+
+## Daily logs
+
+If the personal-os plugin writes daily logs here (or `CLAUDE.md` records `**Daily logs:** <path>`), read them as context: decisions, commitments and launches that concern a campaign. They are never proof: a number found only in a log is a lead to its source, not a metric. Cite the log file. Never edit a log. Section 2b of `frameworks/campaign-inputs.md` says which command reads what.
 
 ## Rules that hold everywhere
 

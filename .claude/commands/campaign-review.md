@@ -16,7 +16,7 @@ Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (
 
 ## 1. Load
 
-The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables. If a decision-model output file exists for this campaign (`projects/campaigns/<slug>/gate-output.json`), load it too.
+The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables. If a decision-model output file exists for this campaign (`projects/campaigns/<slug>/gate-output.json`), load it too.
 
 ## 2. Score each draft
 

@@ -24,7 +24,7 @@ For a **big-C** brief: do not draft channels. Read section 14 and offer to creat
 ## 2. Load
 
 - The brief in full. Note the KPI action, the CTA, the angles with proof status, the buyer's thought, the exclusions, the handoff rule, the constraints.
-- The brand brain as the `campaign-engine` skill says: who, what to say, how to say it. In `example` mode, the example brain.
+- The brand brain from its recorded source (`**Brand source:**` in `CLAUDE.md`; run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/find-context.sh" "$PWD"` (in the repo copy: `bash plugin/find-context.sh "$PWD"`) if nothing is recorded), as the `campaign-engine` skill says: who, what to say, how to say it. In `example` mode, the example brain.
 - The inputs the workflow's "Pulls in" section names (files in `raw/campaigns/`, connected tools, read only).
 
 ## 3. Follow the workflow, one channel at a time

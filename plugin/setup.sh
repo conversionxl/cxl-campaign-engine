@@ -90,9 +90,8 @@ echo "Files created: $created. Existing files kept: $kept."
 [ -n "${map_gi:-}" ] && echo "$map_gi"
 [ -n "${cm_new:-}" ] && echo "CLAUDE.md: $cm_new"
 echo "CLAUDE.md Campaign Engine section: $cm"
-if [ -d "$brand" ]; then
-  echo "Brand brain: $brand/ found. The engine will read it."
-else
-  echo "Brand brain: no $brand/ here. The engine works without it; the brief collects the minimum itself. The marketing-brain plugin builds one: /marketing-brain:setup"
-fi
+echo
+bash "$ROOT/plugin/find-context.sh" "$TARGET"
+echo
+echo "Brand: with more than one source above, the first campaign command asks once which one this folder uses and records it in CLAUDE.md. With none, the brief collects the minimum itself; the marketing-brain plugin builds a brain: /marketing-brain:setup"
 [ -f .claude/personal-os.json ] || echo "Optional: the personal-os plugin adds daily logs, memory and its own commands: /personal-os:setup"

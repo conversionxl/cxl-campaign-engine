@@ -11,8 +11,9 @@ The board for every campaign in this repo. Read `frameworks/campaigns-board.md` 
 
 1. Read `projects/campaigns/campaigns.md`. If it is missing, create it from the framework.
 2. **Reconcile it with the folders.** For every folder in `projects/campaigns/`, check its files and set the stage the files prove: `brief.md` with `status: draft` is `brief`; `approved` is `approved`; a `workflows/` folder is `channels set`; a `drafts/` folder is `drafted`; `review.md` with `status: closed` is `reviewed`; `results.md` is `closed`. Add rows for folders the board does not list. Never move a stage backwards without saying why. Say in one line what you corrected.
-3. Show the active campaigns as a table, then the closed ones, then the examples. For each active campaign, the next command to run.
-4. Render the page (below).
+3. **Read the daily logs since the board's `last_updated`** (find them with `bash "${CLAUDE_PLUGIN_ROOT}/plugin/find-context.sh" "$PWD"` (in the repo copy: `bash plugin/find-context.sh "$PWD"`)). Where a log says a campaign launched, a send went out, a result came in or a campaign stopped, propose the board update with the log file as its source, and apply it only on a yes. A number found only in a log goes in as a lead ("log says 14 demos; confirm in the CRM"), not as the Actual.
+4. Show the active campaigns as a table, then the closed ones, then the examples. For each active campaign, the next command to run.
+5. Render the page (below).
 
 ## `refresh`
 
@@ -32,7 +33,7 @@ Ask for the launch date and confirm the channels that went live (some may have b
 ## `close <slug>`
 
 1. Ask for the final result against the KPI, or offer to pull it as in `refresh`.
-2. Ask three questions: what worked, what did not, and **the one lesson the next brief should start from**.
+2. Read every daily log across the campaign's dates and draft a short, dated account of what happened, with each line citing its log. Show it, then ask three questions, offering the draft as a starting point: what worked, what did not, and **the one lesson the next brief should start from**.
 3. Write `projects/campaigns/<slug>/results.md`: the result with its source, the answers, per-channel numbers if known, and the Gate 2 overrules from `review.md` with whether they turned out right.
 4. Move the row to **Closed** with the lesson. Copy `results.md` to `raw/campaigns/results/<slug>.md` so the next `/campaign-brief` reads it.
 5. If the lesson points at a criterion the gate does not have, or a weight that was wrong, suggest `/quality-gate` and name the row.
@@ -41,7 +42,7 @@ Ask for the launch date and confirm the channels that went live (some may have b
 
 Render only. The page follows "The page" in the framework: one card per active campaign with a stage progress bar, KPI against target, channel pills, the Gate 2 result and the next command; closed campaigns with their lessons below. Copy the styling rules from the framework; never invent colours.
 
-- If this session can publish an Artifact, publish it privately as "<Brand> Campaigns" (the brand from `wiki/brand/` or the user's "About me"; "My Campaigns" if neither), to the same link every time. Record the link at the top of `campaigns.md`.
+- If this session can publish an Artifact, publish it privately as "<Brand> Campaigns" (the brand from the recorded brand source or the user's "About me"; "My Campaigns" if neither), to the same link every time. Record the link at the top of `campaigns.md`.
 - Otherwise write `projects/campaigns/campaigns.html` and give the path.
 
 ## Rules
