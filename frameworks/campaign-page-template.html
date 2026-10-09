@@ -84,11 +84,17 @@ details[open] > summary { margin-bottom: 10px; }
 .group-title { font-family: var(--font-heading); font-weight: 900; font-size: 16px; margin: 20px 0 8px; }
 .rec { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .rec .lvl { grid-row: span 3; }
+.rec .act { padding-top: 2px; }
 .rec .where { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .rec .what { font-weight: 700; }
-.rec .prompt { display: flex; gap: 8px; align-items: flex-start; background: var(--soft); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
-.rec .prompt span { flex: 1; min-width: 0; }
-.copy { font: 700 12px var(--font-heading); border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 6px; padding: 3px 8px; cursor: pointer; white-space: nowrap; }
+.steps li .acts { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+/* Starter prompts: a copy pill; the prompt itself shows in a tooltip on hover or keyboard focus. */
+.cp { position: relative; display: inline-flex; align-items: center; gap: 5px; vertical-align: middle; padding: 1px 9px; border-radius: 999px; border: 1px solid var(--teal); background: transparent; color: var(--text); font: 700 12px var(--font-heading); cursor: pointer; white-space: nowrap; }
+.cp:hover, .cp:focus-visible { background: var(--teal); color: var(--on-teal); }
+.cp svg { width: 12px; height: 12px; flex: none; }
+.cp .tip { display: none; position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; width: max-content; max-width: min(44ch, 80vw); white-space: normal; text-align: left; font: 400 13px/1.45 var(--font-body); background: var(--text); color: var(--bg); padding: 8px 10px; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+.cp.left .tip { right: auto; left: 0; }
+.cp:hover .tip, .cp:focus-visible .tip, .cp.show .tip { display: block; }
 .empty { color: var(--muted); font-style: italic; margin: 0; }
 footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
 @media (max-width: 560px) { .tabs button { padding: 8px 10px; font-size: 14px; } th, td { padding: 6px; } .rec { grid-template-columns: 1fr; } .rec .lvl { grid-row: auto; } }
@@ -130,14 +136,14 @@ footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
   bindGroup('.views button', '.view');
   var start = (location.hash || '').slice(1);
   if (start && document.getElementById(start)) showMain(start);
-  document.querySelectorAll('.copy').forEach(function (btn) {
+  document.querySelectorAll('.cp').forEach(function (btn) {
+    var label = btn.querySelector('.lbl'), tip = btn.querySelector('.tip'), orig = label.textContent;
     btn.addEventListener('click', function () {
-      var text = btn.parentNode.querySelector('span').innerText;
-      function done(ok) { btn.textContent = ok ? 'Copied' : 'Select and copy'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+      function done(ok) { label.textContent = ok ? 'Copied' : 'Select and copy'; setTimeout(function () { label.textContent = orig; btn.classList.remove('show'); }, 2200); }
+      function selectIt() { btn.classList.add('show'); var r = document.createRange(); r.selectNodeContents(tip); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
       try {
-        navigator.clipboard.writeText(text).then(function () { done(true); }, function () { selectIt(); done(false); });
+        navigator.clipboard.writeText(btn.dataset.prompt).then(function () { done(true); }, function () { selectIt(); done(false); });
       } catch (e) { selectIt(); done(false); }
-      function selectIt() { var r = document.createRange(); r.selectNodeContents(btn.parentNode.querySelector('span')); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
     });
   });
 })();
