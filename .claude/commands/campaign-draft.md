@@ -59,7 +59,12 @@ sources: []          # brief sections, brain files, raw files used
 ---
 ```
 
-Then the content the workflow's Outputs section lists, in the order of the steps. Mark any line that rests on a (no proof) angle or an (inferred) brief line. If the file exists, write `<channel>-v2.md` and say so; never overwrite a draft.
+Then two parts, always in this order:
+
+- `## Pieces`: every piece of content a customer, a prospect or a rep will see, one `### <id> · <name>` heading each: `### Email 3 · 10 Nov: why a fixed week beats someday`, `### H1 · Hesh · LinkedIn post`, `### S2 · Short`, `### Sequence email 1`, `### Talk track`. One piece per heading, nothing else under it but the piece itself (subject lines, body, button, visual brief). Each piece folds on the campaign page and is checked on its own at review.
+- `## Plan and notes`: everything else the workflow produces (calendar, audiences, tracking, specs, decisions, open questions), with `###` subheadings.
+
+The content the workflow's Outputs section lists goes into those two parts. Mark any line that rests on a (no proof) angle or an (inferred) brief line. If the file exists, write `<channel>-v2.md` and say so; never overwrite a draft.
 
 ## 5. Hand over
 

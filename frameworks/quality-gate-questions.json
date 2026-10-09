@@ -1,0 +1,23 @@
+{
+  "about": "Decision-model questions for one piece of content (one email, post, Short, page section, sequence, ad set or blog post). One proposition per question, as TypeSafe and Cloudflare advise. Rows are the quality gate's Gate 2 rows; a row is asked only on channels where its weight is above 0. Rows not listed here (Workflow, Consistency, Audience, Sales handoff, Measurement, Distribution) need the workflow, the other pieces or the tools, so Claude's sheet judges them. Counting is done in code (code_checks), never by the model. The state sent with each question is the campaign header (goal, CTA, buyer's thought, approved proof) followed by the piece.",
+  "header_fields": ["Campaign goal", "Call to action", "Buyer's thought", "Approved proof"],
+  "questions": {
+    "G1": { "type": "noul", "instructions": "The piece asks the reader to take the call to action named in the campaign header, not only to read, watch or download something." },
+    "G2": { "type": "noul", "instructions": "Every number, customer name and quote in the piece also appears in the approved proof in the campaign header." },
+    "G4": { "type": "noul", "instructions": "The piece speaks to the buyer's thought quoted in the campaign header." },
+    "G5": { "type": "noul", "instructions": "The piece reads like one person talking plainly to another, not like a brand announcement." },
+    "G8": { "type": "noul", "instructions": "The piece makes one main point and asks for one action." },
+    "G9": { "type": "noul", "instructions": "The offer, its price or its date appears in the first two lines of the piece." },
+    "G10": { "type": "noul", "instructions": "The piece includes at least one quote or result from a customer or member, not only claims made by the brand." },
+    "G11": { "type": "noul", "instructions": "A competitor could not publish this piece unchanged, because it names something specific to this offer." },
+    "G12": { "type": "noul", "instructions": "The piece gives a real reason to act now, such as a date, a deadline or a price change." },
+    "G15": { "type": "noul", "instructions": "The piece can be skimmed in a few seconds: short paragraphs, and the key line stands out." }
+  },
+  "code_checks": {
+    "em_dash": "Fails if the piece contains an em dash (U+2014).",
+    "banned_words": "Fails if the piece contains a banned word from the brand brain's vocabulary (or the default list: unlock, seamless, game-changing, revolutionary, supercharge, best-in-class).",
+    "long_paragraph": "Fails if any paragraph has more than three sentences.",
+    "subject_length": "Email pieces only: fails if a subject line is over 45 characters."
+  },
+  "thresholds": { "fail_below": 0.5, "borderline_below": 0.65 }
+}

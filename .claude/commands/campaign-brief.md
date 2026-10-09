@@ -72,7 +72,7 @@ Fill the template section by section, in order, then write the At a glance block
 
 Fill the Gate 1 table from `frameworks/quality-gate.md`, row by row, with a pass or fail and a note. Any fail: show it, propose the fix, and ask. Do not ask for approval while a row fails. Typical fails: the KPI is an asset action (downloads) when the goal is meetings; no exclusions; an angle with no proof; no handoff time; no kill rule.
 
-If `CLAUDE.md` records `**Decision model:** jev`, `clef` or `both`, also run the Gate 1 rows through it (with `both`, through each) as `frameworks/decision-models.md` says, and add one line: "Decision model agrees" or the rows where it disagrees. It never overrides the table; the human decides.
+If `CLAUDE.md` records `**Decision model:** jev`, `clef` or `both`, also run the Gate 1 rows through it (with `both`, through each) as `frameworks/decision-models.md` says. Save the answers to `projects/campaigns/<slug>/gate-output.json` and say one line in the chat ("Jev and Clef agree", or the checks they both fail). Never write model results into the brief: they live in the review, where `/campaign-review` folds them into its recommendations under the step Brief. The models never override the table; the human decides.
 
 ## 5. Ask for approval
 
