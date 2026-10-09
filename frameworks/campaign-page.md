@@ -8,7 +8,9 @@ tags: [campaign-engine, campaign-page, sharing]
 
 One shareable page per campaign. Each step adds or updates its own tab, so the brief, the channels, the drafts, the review and the results end up in one place you can send to a teammate, a manager or sales.
 
-Template: `frameworks/campaign-page-template.html`. Copy its `<style>` and `<script>` unchanged; fill only the `{{...}}` slots.
+Template: `frameworks/campaign-page-template.html`. Copy its `<style>` and `<script>` unchanged; fill only the `{{...}}` slots. When publishing as an Artifact, drop the `<!doctype>`, `<html>`, `<head>` and `<body>` tags and keep everything inside them, `<title>` first: the Artifact adds its own skeleton.
+
+**Worked example:** the first real campaign page, the November AI Native Marketer sprint, is built this way: brief as an At a glance card and a two-column grid of sections, channels as one card each with "You" pills, drafts in closed sections, the review's scores with the decisions folded underneath.
 
 ## When it is offered
 
