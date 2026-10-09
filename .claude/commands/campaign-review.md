@@ -7,6 +7,8 @@ argument-hint: <campaign slug> [channel ...]
 
 Step 4 of the Campaign Engine, and Gate 2. The gate recommends; the human accepts or fixes. Nothing ships on vibes, and nothing ships because the gate said so either.
 
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+
 Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (the user's tuned copy; fall back to `frameworks/quality-gate.md` only if it is missing, and say so), then the brief, the workflows and the drafts.
 
 ## Mode
@@ -16,7 +18,7 @@ Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (
 
 ## 1. Load
 
-The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables. If a decision-model output file exists for this campaign (`projects/campaigns/<slug>/gate-output.json`), load it too.
+The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables. If `CLAUDE.md` records `**Decision model:** jev`, `clef` or `both`, run the draft rows through it (with `both`, through each, one column per model) as `frameworks/decision-models.md` says and save the answers to `projects/campaigns/<slug>/gate-output.json`; an existing file from an earlier run is loaded instead.
 
 ## 2. Score each draft
 
@@ -50,6 +52,9 @@ status: open          # open until every draft is SHIP or the human has overrule
 ---
 # Review: <campaign>
 
+## At a glance
+<!-- Three lines: how many drafts SHIP / REVIEW / FIX, the one biggest problem, what you decide next. -->
+
 ## Summary
 | Channel | Score | Route | Non-negotiable fails | Fixes proposed |
 
@@ -69,11 +74,14 @@ status: open          # open until every draft is SHIP or the human has overrule
 
 ## 5. Gate 2: the human decides
 
-Walk the fixes channel by channel. For each: **accept the fix, write your own, or overrule the gate.** Apply accepted fixes to a new version of the draft (`<channel>-v2.md`), never to the original. Record every decision in the Decisions table with the reason. An overrule needs a reason; say so.
+In the chat, show only the summary table (channel, score, route) and the At a glance lines; link the review file for the rest. Then walk the fixes one at a time, three short lines each: what failed, the proposed fix, and **"1 Use the fix · 2 Write my own · 3 Leave it as is"**. Ship-ready drafts are not walked. Say "the other N are fine" and move on. Apply accepted fixes to a new version of the draft (`<channel>-v2.md`), never to the original. Record every decision in the Decisions table with the reason. "Leave it as is" overrules the gate and needs a reason in a few words.
 
 When every draft is SHIP, or every remaining flag is overruled, set `status: closed`, update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section) with stage `reviewed` and the Gate 2 summary, and say what the human does next: load the drafts into the tools, run the test submission, start the campaign. Loading is theirs; this command never writes to a connected tool. Then the next step: once it is live, `/campaign-engine:campaigns running <slug>` marks it running on the board. Ask whether it is live yet, and on a yes run it.
 
 ## 6. Learn from it
+
+**Campaign page.** If the brief's `page:` is set (not `none`), update the Review tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link. Rep-only flags go under "For the team only".
+
 
 - Three overrules of the same row across campaigns means the weight is wrong, not the drafts: suggest `/quality-gate` and name the row.
 - A fail that the gate did not have a row for: suggest the row, with the line from this review that taught it.

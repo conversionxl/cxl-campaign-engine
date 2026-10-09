@@ -95,5 +95,19 @@ All self-reported by the people who ran them; none independently reproduced.
 
 ## In this module
 
-- `/quality-gate` ends with an optional step that writes the gate as a Jev or Clef question set (`projects/campaign-engine/quality-gate-questions.json`) alongside the sheet, so a team with API access can run it. Nothing in the workshop depends on it.
-- `/campaign-review` scores the sheet itself by reading the drafts. If a decision model has been run and its output file is present, the review shows both scores side by side and says where they disagree.
+**Asked once, at the start.** The first `/campaign-brief` in a folder asks whether to add a decision model as a second check, and records `**Decision model:** none | jev | clef | both` in `CLAUDE.md`. With `both`, every gate runs each model and shows where they agree with each other and with the sheet. Most people answer none: it needs an API key, and the workshop does not provide one. Change the line to switch.
+
+**Then it runs at both gates, without asking again.**
+
+| Gate | What the model checks | Why there |
+|---|---|---|
+| Gate 1, the brief | The Gate 1 rows, before anything is drafted | Eric Siu's lesson: gate before the expensive step. Drafting is the expensive step |
+| Gate 2, the drafts | The draft rows of your quality gate, on every draft | A second opinion beside Claude's scorecard, and the way to check 200 drafts, not 2 |
+
+- The question set is `projects/campaign-engine/quality-gate-questions.json`, written by `/quality-gate` from your gate. If it is missing when a gate runs, `/quality-gate` writes it first.
+- The model's answers show as one line per gate ("agrees", or the rows where it disagrees). It never changes a score, never overrides the sheet, and never approves anything. You decide.
+- No key, or the call fails: say so in one line and carry on with the sheet alone.
+
+**How a gate calls it.** `bash "${CLAUDE_PLUGIN_ROOT}/plugin/decision-model.sh" <jev|clef> <questions.json> <state-file>` (in the repo copy: `bash plugin/decision-model.sh ...`). The state file is the brief or the draft as plain text. The script prints the model's answers as JSON; save them to `projects/campaigns/<slug>/gate-output.json`, one key per model. `bash plugin/decision-model.sh check` says which models have a key.
+
+**Keys.** Kept in `~/.config/decision-models.env` (private to the user, outside every repo) or in the environment: `TYPESAFE_API_KEY` for Jev, from console.typesafe.ai/keys; `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_AUTH_TOKEN` for Clef, from the Cloudflare dashboard (an API token made from the Workers AI template). Never ask the user to paste a key into the chat; tell them to open the file and fill it in. TypeSafe also ships a Claude Code plugin with their own skill: `claude plugin marketplace add typesafe-ai/skills`, then `claude plugin install typesafe@typesafe-ai`.

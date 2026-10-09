@@ -7,6 +7,8 @@ argument-hint: [example | practice [idea] | campaign name]
 
 Step 1 of the Campaign Engine. Turn what the business already knows, plus the user's answers, into a brief that holds decisions and no copy, then stop at Gate 1 for a human to approve it.
 
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+
 Read `frameworks/campaign-brief-template.md`, `frameworks/campaign-inputs.md` and the Gate 1 table in `frameworks/quality-gate.md` in full first (with the plugin and no local copy, read them from `${CLAUDE_PLUGIN_ROOT}/frameworks/`). The `campaign-engine` skill says how the folders fit together.
 
 ## Mode
@@ -22,11 +24,19 @@ Do all of this before step 1, and wait for the answers. Skip it in `example` mod
 
 1. **Is the module set up here?** Look for a `## Campaign Engine` section in `CLAUDE.md` and for `projects/campaign-engine/quality-gate.md`, `projects/campaigns/campaigns.md` and `raw/campaigns/`. If any is missing and this session has the campaign-engine plugin, run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/setup.sh" "$PWD"` with the shell and show its output: it creates the folders, the `.gitignore` rule, your copies of the workflows and the gate, and the CLAUDE.md section, and never overwrites a file. Without the plugin, create only the missing folders and say so. Then **sort loose drops:** if files sit in the top level of `raw/` (anything but `README.md` and the subfolders), propose a folder for each from the table in section 1 of `frameworks/campaign-inputs.md`, as `file | folder | why`, and move them after the user confirms, verbatim, with a source and date line.
 2. **Brand and daily logs.** Run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/find-context.sh" "$PWD"` (in the repo copy: `bash plugin/find-context.sh "$PWD"`). It lists every brand source (this folder, other installed plugins such as a company plugin, a recorded folder) with each file's status, and where the daily logs are. Pick the brand source as section 2 of `frameworks/campaign-inputs.md` says: the one recorded as `**Brand source:**` in `CLAUDE.md`; else the only one found; else ask once, recommend one, and record the answer. For the logs, follow section 2b (ask once only if there are none and no personal OS here). Then check the chosen brain. Report its state in one line, including the ICP's stage if it has one. Filled files are not asked about again: skip every question in this brief that the brain answers. If no source holds a brain, ask once whether the user has one in another folder and follow the framework's row for that. If there is no brain anywhere, or a file is still a template, say the audience, messaging and voice sections will be collected here and tagged (inferred), and name the Marketing Brain command that would fill each gap. Continue either way.
-3. **The six questions.** Ask the six questions in section 5 of `frameworks/campaign-inputs.md` in one message: the one number and who set it; what the last campaign to this segment returned and what sales said; who must not be reached; what proof can be stood behind today; who owns the leads on the sales side and how fast; what is changing (price, launch, event, blackout). Write the answers down; the inputs test them.
-4. **Documents.** Ask for past briefs, the last readout, sales feedback and the calendar. Three ways in: dropped into `raw/campaigns/` (`past-briefs/`, `results/`, the folder itself), pasted into the chat for you to file, or named in a connected docs tool (Google Drive, Notion, ClickUp, Asana) for you to fetch and save with the link and date at the top.
-5. **Voice of customer for this campaign.** Ask for the three to five things customers in the target segment say about this problem, verbatim, and where they come from. Check `raw/voc/` and `wiki/brand/icp.md` (Their words) first and offer what is already there. Ask for lost reasons and objections from the CRM.
-6. **Connections.** Say which tools this session can already reach that matter for a brief (CRM, email, ads, analytics, docs, support). Ask which they use. For each one not connected, say how to connect it (section 4 of the framework) and offer to continue without it. Agree what to pull: pipeline, ACV and stage conversion from the CRM; list sizes and past open, click and reply rates from email; past CTR and cost per lead from ads; landing page conversion from GA4. Pulls are read only and go to `raw/campaigns/live/` as dated snapshots.
-7. **Go or wait.** Summarise what you now have in one line each (answers, documents, VOC, live data, brain) and ask whether to start or add more first. Nothing at all: offer `example`, or `practice` to make one up.
+3. **Show what you found, in three lines.** Brand (which source, its state), daily logs (how many, any that mention this campaign), files in `raw/campaigns/`. Do not list paths.
+4. **Ask for what is missing, one message at a time, three questions at most per message.** Work down this list and skip anything the brain, the logs, the files or a connected tool already answers:
+   1. The one number this campaign is accountable for, and by when.
+   2. What the last campaign to this audience returned, and what sales said. ("Drop the readout in `raw/campaigns/` or paste it here.")
+   3. Who must not get this.
+   4. What proof you can stand behind today: numbers, customers, quotes you are allowed to use.
+   5. Who on the sales side owns the leads, and how fast they act.
+   6. Anything changing: a price, a launch, an event, a blackout date.
+   7. What customers say about this problem, in their words, if the brain and `raw/voc/` have nothing.
+   Number the questions so the user can answer "1: 70 sales by 10 Nov, 3: existing customers". Accept "skip" and "don't know"; mark those fields (inferred) and move on.
+5. **Connections, only if they would answer something still missing.** Say in one line which tools this session can reach. Ask about others only when a missing answer lives there (a target needs the CRM, a baseline needs the email tool). Pulls are read only and saved to `raw/campaigns/live/`.
+6. **Decision model, once per folder.** If `CLAUDE.md` has no `**Decision model:**` line, ask once: "Do you want a second, automatic check from a decision model (Jev or Cloudflare's Clef) on the brief and every draft? It needs an API key. 1 No (most people) · 2 Jev · 3 Clef · 4 Both". Record the answer as `**Decision model:** none | jev | clef | both` in the Campaign Engine section of `CLAUDE.md`. Never ask again; `frameworks/decision-models.md` says how it runs.
+7. **Go.** Start drafting as soon as the goal, the audience and the offer are known. Everything else can be (inferred) and fixed at Gate 1. Nothing at all: offer `example`, or `practice` to make one up.
 
 ## 1. Read the inputs
 
@@ -44,10 +54,12 @@ Apply the rule from the template: the goal decides, and big-C needs a strategic 
 
 ## 3. Draft the brief
 
-Fill the template section by section, in order. Rules:
+Fill the template section by section, in order, then write the At a glance block last. Rules:
+
+- **Short.** One line per field, three lines per list at most, about 300 words above the Evidence section. Reasoning, maths, baselines, full source paths and open questions go to Evidence. If a field needs a paragraph, it is two decisions: split it or move the explanation to Evidence.
 
 - **Decisions, not copy.** No headlines, no email text, no ad lines. An angle is a claim plus its proof, in one line.
-- **Every line traces to an input**: a file (cite the path), a brain file (cite the section), a snapshot (cite the path and date range), or the user's answer (say so). Anything else is tagged **(inferred)**.
+- **Every line traces to an input**, with a short tag in the field (`(Metorik)`, `(icp.md)`, `(your answer)`) and the full source in Evidence or `sources`. Anything else is tagged **(inferred)**.
 - **Proof.** Each angle's proof comes from the hub's proof points row or a file in `raw/`. No proof: mark the angle **(no proof)**. Never state a number the inputs do not contain. A claim that needs legal or a sign-off goes in section 9.
 - **Audience.** Include from the ICP's core segment unless the user says otherwise. Exclude existing customers from acquisition offers, the negative ICP, anyone in an active sales conversation, and whatever the user named. State the size and its source.
 - **Buying stage.** Quote the buyer's thought verbatim from VOC, with its source. If none exists, leave it blank and say the brief is weaker for it.
@@ -60,20 +72,24 @@ Fill the template section by section, in order. Rules:
 
 Fill the Gate 1 table from `frameworks/quality-gate.md`, row by row, with a pass or fail and a note. Any fail: show it, propose the fix, and ask. Do not ask for approval while a row fails. Typical fails: the KPI is an asset action (downloads) when the goal is meetings; no exclusions; an angle with no proof; no handoff time; no kill rule.
 
+If `CLAUDE.md` records `**Decision model:** jev`, `clef` or `both`, also run the Gate 1 rows through it (with `both`, through each) as `frameworks/decision-models.md` says, and add one line: "Decision model agrees" or the rows where it disagrees. It never overrides the table; the human decides.
+
 ## 5. Ask for approval
 
-Show the brief in one screen: goal, approach, audience include and exclude, offer, angles with proof status, stage and thought, handoff rule, kill rule, classification. Then ask: **approve, change, or hold?**
+Show only the At a glance block, then one line per Gate 1 problem if any, then the link to the brief. Ask: **"1 Approve · 2 Change something · 3 Not yet"**. Do not show the full brief in the chat.
 
-- **Approve:** set `status: approved`, `approved_by`, `approved_on`. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `approved`. Then the next step: `/campaign-engine:campaign-channels <slug>` picks the channels and adjusts each one's steps. Ask **"Run it now?"**
-- **Change:** make the change, re-run Gate 1, ask again.
-- **Hold:** leave `status: draft` and list what is missing.
+- **1 Approve:** set `status: approved`, `approved_by`, `approved_on`. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `approved`. Then the next step: `/campaign-engine:campaign-channels <slug>` picks the channels and adjusts each one's steps. Ask **"Run it now?"**
+- **2 Change something:** ask what, make the change, re-run Gate 1, show the At a glance block again.
+- **3 Not yet:** leave `status: draft` and say in one line what is missing.
 
 Approval is the human's. Never set `approved` on your own, in any mode. In `example` mode, stop at the question and say that the practice brief ends here, ready to approve. Then the next step: `/campaign-engine:campaign-channels example` shows how a channel's steps get adjusted, on the same practice campaign. Ask **"Run it now?"**, and offer `/campaign-engine:campaign-brief <your campaign>` as the other way forward.
+
+**Campaign page.** After the approve question is answered (approve, change or not yet), ask once if the brief has no `page:` yet: "Want a page for this campaign you can share? Each step adds a tab to it. 1 Yes · 2 No". Follow `frameworks/campaign-page.md`: on Yes, build the page with the Brief tab filled and record `page:`; on No, record `page: none`. If `page:` is already set, update the Brief tab and give the link.
 
 ## 6. Checks
 
 Answer honestly from what you wrote:
-- Could someone read this brief in five minutes and know what to make and what not to make?
+- Could someone read the At a glance block in thirty seconds, and the brief in three minutes, and know what to make and what not to make? Is it under about 300 words above Evidence? If not, cut.
 - Does every CTA the drafts will carry lead to the KPI action, not to the asset?
 - How many (inferred) tags are open, and which single input would resolve the most?
 - Which channels does the brief propose, and which have no starter yet (so `/campaign-channels` will need the user's steps or a suggestion)?

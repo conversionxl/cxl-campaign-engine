@@ -29,6 +29,8 @@ The engine proposes; the user confirms in the brief review. Classification decid
 
 ## The file
 
+**Length.** Above the Evidence section, a small-c brief fits on one screen: about 300 words. Each field is one line; a list has three lines at most. Reasoning, maths, baselines and long source notes go to Evidence. Source tags in the fields are short: `(Metorik)`, `(icp.md)`, `(your answer)`; the full path is in Evidence or `sources`.
+
 ```markdown
 ---
 type: campaign-brief
@@ -39,6 +41,7 @@ owner:
 approved_by:
 approved_on:
 dates: { start: "", end: "" }
+page:                   # the campaign page link or path, or none (asked once at the end of /campaign-brief)
 channels: []            # proposed here, confirmed in /campaign-channels
 sources: []             # files, brain files, tool pulls with date range, user answers
 tags: [campaign]
@@ -46,64 +49,53 @@ tags: [campaign]
 
 # <Campaign name>
 
+## At a glance
+<!-- Six lines. Someone who reads only this knows what is decided. -->
+- **Goal:** <KPI, number, date>
+- **Who:** <who it is for> · **Not for:** <the main exclusion>
+- **Offer:** <what they get> → **CTA:** <the one action>
+- **Angle:** <the lead angle, one line>
+- **Channels:** <list>
+- **Gate 1:** <passes / what still fails>
+
 ## 1. Goal
-One KPI, a number, a date. Not three KPIs. Not "awareness".
-- **KPI:**
-- **Target number:**
-- **By:**
-- **Baseline and source:** <!-- where the current number comes from -->
-- **Why this number:** <!-- the math or the history behind it -->
+- **KPI:** <one action, counted>
+- **Target:** <number> by <date>
+- **Baseline:** <today's number> (<source tag>)
 
 ## 2. Approach
-One sentence: get [who] to [do what] by [mechanism].
+<One sentence: get [who] to [do what] by [mechanism].>
 
 ## 3. Audience
-From `wiki/brand/icp.md` when it exists. Otherwise collected here and tagged (inferred).
-- **Include:** <!-- segment, role, company type and size, buying context -->
-- **Exclude:** <!-- who this is not for: the negative ICP, existing customers, wrong stage -->
-- **Named accounts or list:** <!-- ABM: the account list and its source -->
-- **Size:** <!-- how many people or accounts, and where the number comes from -->
+- **Include:** <up to 3 lines, one segment each>
+- **Exclude:** <up to 3 lines>
+- **Size:** <about N> (<source tag>)
 
 ## 4. Offer
-- **Asset or offer:** <!-- what they get -->
-- **Destination:** <!-- the page or place the CTA lands -->
-- **CTA:** <!-- the one action -->
-- **Why they would miss it:** <!-- the test: would the segment forward it to a colleague? -->
+- **Offer:** <one line>
+- **Destination:** <page>
+- **CTA:** <the one action>
 
 ## 5. Messaging
-Three to five angles, each with proof. Proof comes from `wiki/brand/positioning-messaging.md` (proof points row) or a file in `raw/`. An angle with no proof is marked (no proof) and the draft may not state it as fact.
-
-| # | Angle | Proof | Source |
-|---|---|---|---|
-| 1 | | | |
-
-- **Owned key message used:** <!-- from the hub, verbatim -->
-- **Differentiation claim:** <!-- what makes this true of us and not the alternatives -->
+| # | Angle | Proof |
+|---|---|---|
+| 1 | <one line> | <one line, or (no proof)> |
 
 ## 6. Buying stage
-- **Stage:** <!-- unaware / problem aware / solution aware / product aware / most aware, or the team's own stage names -->
-- **The buyer's thought, quoted:** <!-- "I ..." in their words, from raw/voc/ or the ICP -->
-- **What moves them to the next stage:**
+- **Stage:** <one stage>
+- **Their words:** "<one quote>" (<source tag>)
 
-## 7. Sales enablement
-- **Lead definition:** <!-- MQL, meeting, hand-raise; what counts -->
-- **Handoff rule:** <!-- who is alerted, where, how fast (e.g. MQL called within one working day) -->
-- **Rep briefing needed:** yes / no
-- **Sequence and talk track needed:** yes / no
-- **Owner on the sales side:**
+## 7. Sales handoff
+- **Lead:** <what counts>
+- **Handoff:** <who, where, how fast>
 
 ## 8. Measurement
-- **Tracking:** <!-- UTM convention, conversion events, CRM fields, test submission done -->
-- **Report cadence:**
-- **Kill rule:** <!-- the number and date at which the campaign stops or changes -->
-- **Scale rule:** <!-- the number at which budget goes up -->
+- **Tracking:** <one line>
+- **Kill rule:** <number> by <date>
+- **Scale rule:** <number> by <date>
 
 ## 9. Constraints
-- **Assets available:**
-- **Brand and voice:** <!-- wiki/brand/voice-guide.md and vocabulary.md, or the rules given -->
-- **Legal, compliance, claims that need sign-off:**
-- **Budget:**
-- **Deadlines and dependencies:**
+<Up to 4 lines: budget, deadlines, claims that need sign-off, assets missing.>
 
 <!-- Sections 10 to 15: big-C only -->
 
@@ -145,6 +137,11 @@ The programs this plan runs, in phases. Each program becomes a small-c brief in 
 - **Roles and responsibilities:** <!-- who owns what, including sales, product, PR, events -->
 - **Budget by program:**
 - **Expected return:** <!-- against the pipeline math -->
+
+## Evidence
+<!-- Everything that supports the lines above and does not fit on one line: baselines in full, the maths behind the target, list sizes and how they were counted, past results, quotes, open questions. One bullet each, with its source. The only place where long goes. -->
+
+-
 
 ## Gate 1 check
 Filled by /campaign-brief before asking for approval. See frameworks/quality-gate.md, "Gate 1".

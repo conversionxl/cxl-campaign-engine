@@ -7,6 +7,8 @@ argument-hint: [refresh | running <slug> | close <slug> | page]
 
 The board for every campaign in this repo. Read `frameworks/campaigns-board.md` first (with the plugin and no local copy, `${CLAUDE_PLUGIN_ROOT}/frameworks/campaigns-board.md`).
 
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+
 ## No argument: show the board
 
 1. Read `projects/campaigns/campaigns.md`. If it is missing, create it from the framework.
@@ -36,11 +38,12 @@ Ask for the launch date and confirm the channels that went live (some may have b
 2. Read every daily log across the campaign's dates and draft a short, dated account of what happened, with each line citing its log. Show it, then ask three questions, offering the draft as a starting point: what worked, what did not, and **the one lesson the next brief should start from**.
 3. Write `projects/campaigns/<slug>/results.md`: the result with its source, the answers, per-channel numbers if known, and the Gate 2 overrules from `review.md` with whether they turned out right.
 4. Move the row to **Closed** with the lesson. Copy `results.md` to `raw/campaigns/results/<slug>.md` so the next `/campaign-brief` reads it.
-5. If the lesson points at a criterion the gate does not have, or a weight that was wrong, suggest `/quality-gate` and name the row.
+5. **Campaign page.** If the brief's `page:` is set (not `none`), update the Results tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
+6. If the lesson points at a criterion the gate does not have, or a weight that was wrong, suggest `/quality-gate` and name the row.
 
 ## `page`
 
-Render only. The page follows "The page" in the framework: one card per active campaign with a stage progress bar, KPI against target, channel pills, the Gate 2 result and the next command; closed campaigns with their lessons below. Copy the styling rules from the framework; never invent colours.
+Render only. The page follows "The page" in the framework: one card per active campaign, linked to its campaign page when it has one, with a stage progress bar, KPI against target, channel pills, the Gate 2 result and the next command; closed campaigns with their lessons below. Copy the styling rules from the framework; never invent colours.
 
 - If this session can publish an Artifact, publish it privately as "<Brand> Campaigns" (the brand from the recorded brand source or the user's "About me"; "My Campaigns" if neither), to the same link every time. Record the link at the top of `campaigns.md`.
 - Otherwise write `projects/campaigns/campaigns.html` and give the path.

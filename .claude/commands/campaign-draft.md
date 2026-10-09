@@ -7,6 +7,8 @@ argument-hint: <campaign slug> [channel ...]
 
 Step 3 of the Campaign Engine. Take an approved brief and draft each channel the way the participant's workflow says to, not the way you would.
 
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+
 Read the `campaign-engine` skill, then the brief, then each channel's workflow in `projects/campaigns/<slug>/workflows/` (written by `/campaign-channels`), then the brand brain, before writing a line.
 
 ## Mode
@@ -60,5 +62,8 @@ sources: []          # brief sections, brain files, raw files used
 Then the content the workflow's Outputs section lists, in the order of the steps. Mark any line that rests on a (no proof) angle or an (inferred) brief line. If the file exists, write `<channel>-v2.md` and say so; never overwrite a draft.
 
 ## 5. Hand over
+
+**Campaign page.** If the brief's `page:` is set (not `none`), update the Drafts tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
+
 
 For each channel: the file path, the decisions taken at each pause, and anything the gate will probably flag (say it now rather than wait). Then the next step: `/campaign-engine:campaign-review <slug>` (in `example` mode, `example`) scores each draft against your quality gate. Ask **"Run it now?"** Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.

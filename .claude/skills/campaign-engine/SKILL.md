@@ -43,6 +43,27 @@ Read it before anything customer-facing, in this order: the source's `README.md`
 
 If the personal-os plugin writes daily logs here (or `CLAUDE.md` records `**Daily logs:** <path>`), read them as context: decisions, commitments and launches that concern a campaign. They are never proof: a number found only in a log is a lead to its source, not a metric. Cite the log file. Never edit a log. Section 2b of `frameworks/campaign-inputs.md` says which command reads what.
 
+## Keep it short (every command, every file)
+
+The first cohort's main feedback was too much information. Every reply and every file this engine writes follows these rules.
+
+**In the chat**
+- **Lead with the answer.** First line: what happened or what you need. No preamble, no recap of what the user said.
+- **Eight lines at most, then one question.** If there is more, it goes in the file or on the campaign page, with a link.
+- **Mark the human checks.** A question where the user decides something that matters (Gate 1, a step they own, a Gate 2 fix, a skip that weakens the review) starts with **Your call:**. Other questions do not, so the real decisions stand out. `frameworks/human-checks.md` maps them all.
+- **One question at a time**, in plain words, with numbered choices where possible ("1 Approve · 2 Change something · 3 Not yet"). Never stack three questions in one message.
+- **Ask only for what is missing.** If a file, the brand brain, a daily log or a connected tool already answers it, use it and say so in a few words.
+- **Never paste a file back.** Say what is in it in one line and link it.
+- **Tables for anything with more than three items**; short rows, no paragraphs inside cells.
+- **Plain words.** No internal terms the user has not seen (layers, slots, frontmatter). Say "your version of the email workflow", not "the campaign-layer workflow file".
+- Round numbers in the chat (about 38,500, not 38,551). Exact figures live in the file.
+
+**In files**
+- **At a glance first:** every brief, review and results file opens with an "At a glance" block of six lines or fewer. Someone who reads only that block knows what is decided.
+- **One line per field.** Detail, reasoning, baselines and sources go to an "Evidence" section at the end, not into the field.
+- **Cut before adding.** If a section is longer than its cap, cut the least useful line; do not shrink the font of the idea.
+- No em dashes.
+
 ## Rules that hold everywhere
 
 - **The brief holds decisions, drafts hold copy.** Copy found in a brief is moved to a draft or cut. Specs (limits, counts, formats) live in the workflow, not the brief.
