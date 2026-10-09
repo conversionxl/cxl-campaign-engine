@@ -35,7 +35,7 @@ Do all of this before step 1, and wait for the answers. Skip it in `example` mod
    7. What customers say about this problem, in their words, if the brain and `raw/voc/` have nothing.
    Number the questions so the user can answer "1: 70 sales by 10 Nov, 3: existing customers". Accept "skip" and "don't know"; mark those fields (inferred) and move on.
 5. **Connections, only if they would answer something still missing.** Say in one line which tools this session can reach. Ask about others only when a missing answer lives there (a target needs the CRM, a baseline needs the email tool). Pulls are read only and saved to `raw/campaigns/live/`.
-6. **Decision model, once per folder.** If `CLAUDE.md` has no `**Decision model:**` line, ask once: "Do you want a second, automatic check from a decision model (Jev or Cloudflare's Clef) on the brief and every draft? It needs an API key. 1 No (most people) · 2 Jev · 3 Clef". Record the answer as `**Decision model:** none | jev | clef` in the Campaign Engine section of `CLAUDE.md`. Never ask again; `frameworks/decision-models.md` says how it runs.
+6. **Decision model, once per folder.** If `CLAUDE.md` has no `**Decision model:**` line, ask once: "Do you want a second, automatic check from a decision model (Jev or Cloudflare's Clef) on the brief and every draft? It needs an API key. 1 No (most people) · 2 Jev · 3 Clef · 4 Both". Record the answer as `**Decision model:** none | jev | clef | both` in the Campaign Engine section of `CLAUDE.md`. Never ask again; `frameworks/decision-models.md` says how it runs.
 7. **Go.** Start drafting as soon as the goal, the audience and the offer are known. Everything else can be (inferred) and fixed at Gate 1. Nothing at all: offer `example`, or `practice` to make one up.
 
 ## 1. Read the inputs
@@ -72,7 +72,7 @@ Fill the template section by section, in order, then write the At a glance block
 
 Fill the Gate 1 table from `frameworks/quality-gate.md`, row by row, with a pass or fail and a note. Any fail: show it, propose the fix, and ask. Do not ask for approval while a row fails. Typical fails: the KPI is an asset action (downloads) when the goal is meetings; no exclusions; an angle with no proof; no handoff time; no kill rule.
 
-If `CLAUDE.md` records `**Decision model:** jev` or `clef`, also run the Gate 1 rows through it as `frameworks/decision-models.md` says, and add one line: "Decision model agrees" or the rows where it disagrees. It never overrides the table; the human decides.
+If `CLAUDE.md` records `**Decision model:** jev`, `clef` or `both`, also run the Gate 1 rows through it (with `both`, through each) as `frameworks/decision-models.md` says, and add one line: "Decision model agrees" or the rows where it disagrees. It never overrides the table; the human decides.
 
 ## 5. Ask for approval
 

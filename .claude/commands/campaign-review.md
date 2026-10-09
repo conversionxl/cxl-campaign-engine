@@ -18,7 +18,7 @@ Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (
 
 ## 1. Load
 
-The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables. If `CLAUDE.md` records `**Decision model:** jev` or `clef`, run the draft rows through it as `frameworks/decision-models.md` says and save the answers to `projects/campaigns/<slug>/gate-output.json`; an existing file from an earlier run is loaded instead.
+The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables. If `CLAUDE.md` records `**Decision model:** jev`, `clef` or `both`, run the draft rows through it (with `both`, through each, one column per model) as `frameworks/decision-models.md` says and save the answers to `projects/campaigns/<slug>/gate-output.json`; an existing file from an earlier run is loaded instead.
 
 ## 2. Score each draft
 
