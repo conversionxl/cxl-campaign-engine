@@ -50,7 +50,7 @@ Short, like everything this engine writes. The page is a view of the files, not 
 
 Strip markdown from the cells. A recommendation's prompt is the Prompt column of the review, unchanged.
 
-**Reading a workflow file:** only the rows of its `## Steps` table are steps. Never read the "Changes from the version it was based on" table as steps.
+**Reading a workflow file:** only the rows of its `## Steps` table are steps. Never read the "Changes from the version it was based on" table as steps. Print each step's number from its `#` cell (`<span class="n">`), never from a CSS counter or list position: counters do not reset inside hidden tabs, so later channels would start at 6 or 10.
 
 ## Rules
 

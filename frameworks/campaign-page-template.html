@@ -64,9 +64,10 @@ th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--lin
 th { font-family: var(--font-heading); font-weight: 700; font-size: 14px; }
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .chmeta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 12px; color: var(--muted); font-size: 14px; }
-.steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
-.steps li { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--line); counter-increment: s; }
-.steps li::before { content: counter(s) "."; color: var(--muted); min-width: 1.6em; font-variant-numeric: tabular-nums; }
+.steps { list-style: none; padding: 0; margin: 0; }
+.steps li { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--line); }
+/* The step number comes from the workflow file, not a CSS counter: counters do not reset inside hidden tabs. */
+.steps li .n { color: var(--muted); min-width: 1.6em; font-variant-numeric: tabular-nums; }
 .steps li .t { flex: 1; min-width: 0; }
 /* Pills: capped width, full text on hover and in the title tooltip. */
 .pill { display: inline-block; max-width: 14em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; padding: 1px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--soft); color: var(--text); }
