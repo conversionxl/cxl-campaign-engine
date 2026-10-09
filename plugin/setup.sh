@@ -58,7 +58,8 @@ copy_tree() {
 for p in raw/campaigns raw/voc raw/brand raw/strategy raw/performance projects/campaigns \
          frameworks/campaign-brief-template.md frameworks/workflow-format.md \
          frameworks/campaign-inputs.md frameworks/quality-gate.md \
-         frameworks/decision-models.md frameworks/campaigns-board.md frameworks/workflows; do
+         frameworks/decision-models.md frameworks/campaigns-board.md frameworks/campaign-page.md frameworks/human-checks.md \
+         frameworks/campaign-page-template.html frameworks/workflows; do
   copy_tree "$p" "$(mp "$p")"
 done
 mkdir -p "$engine/workflows"

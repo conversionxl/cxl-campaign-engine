@@ -111,6 +111,18 @@ New versions don't install themselves on a personal marketplace. To update: **Pl
 
 **The rules that run through all of it:** the brief holds decisions and no copy; every line traces to a source or is tagged **(inferred)**; every claim in a draft traces to proof or is cut; every CTA moves the buyer to the goal, not to the asset; your workflow beats the default; and a human approves at both gates.
 
+## Where you decide
+
+Claude drafts; it never ships. You decide at Gate 1 (the brief), at every step marked "You" in a channel's workflow (26 of the 101 starter steps), and at Gate 2 (the review). Rules from CXL instructors sit in every step and in the quality gate, so a draft that breaks one is flagged. The full map, with a diagram: `frameworks/human-checks.md`.
+
+```mermaid
+flowchart LR
+  B["Brief"] --> G1{{"Gate 1: you approve"}} --> C["Channels"] --> D["Drafts"] --> R["Review"] --> G2{{"Gate 2: you decide"}} --> L["You launch"]
+  I["Instructor rules"] -.-> G1
+  I -.-> D
+  I -.-> G2
+```
+
 ## The quality gate
 
 `frameworks/quality-gate.md` is a sheet: 14 pass-or-fail checks for the brief, then 16 criteria × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and two non-negotiables (every CTA moves to the goal; nothing invented). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.

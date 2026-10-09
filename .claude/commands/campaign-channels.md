@@ -7,6 +7,8 @@ argument-hint: <campaign slug> [channel ...]
 
 Step 2 of the Campaign Engine. Every channel is a numbered, step-by-step workflow built from the CXL courses and Tyler Durman's briefs. This command shows each one, a step at a time, and turns it into the version this campaign runs.
 
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+
 Read `frameworks/workflow-format.md` first (with the plugin and no local copy, `${CLAUDE_PLUGIN_ROOT}/frameworks/workflow-format.md`). It defines the three layers, the file shape and the rules.
 
 ## Mode
@@ -31,23 +33,39 @@ Update the brief's `channels` field to match the final list, and say so.
 
 For each channel, in the order the campaign will use them. Start from the most specific layer that exists: the campaign's own copy if this is a re-run, else the user's default, else the starter. Say which one in one line.
 
-**First, the tools.** Ask once per channel: "Which tools do you use for this?" (for example the email platform, the CRM, the ad account, the CMS, the design tool). Note which this session can reach. Tools change the steps: a platform without threading changes the sequence step that threads replies; a CMS without a form builder moves the form step to a tool.
+**First, the tools.** One question per channel, with choices where you can guess them: "Which tool sends these emails? 1 Customer.io · 2 HubSpot · 3 Mailchimp · 4 Other". Note which this session can reach. A tool can change a step (no threading in the email tool, no form builder in the CMS); say so in the list below.
 
-**Then the steps, one at a time.** For each step show:
+**Then the whole channel at once, as a short list.** One line per step: number, what happens in plain words, who does it. No rules, sources or checks in the list.
 
 ```
-Step 3 of 9 · Write the subject lines                      Who: Claude
-Rule: under 45 characters, the offer in the first 25.     Source: Jessica Best, Copywriting
-Check: two options per email, both within the limit.
-Keep, change, or cut?
+Email sequence: 14 steps
+
+ 1  Pick what starts the sequence (a form fill, a download)      Claude
+ 2  Check the contact lands in one place, your CRM                 You
+ 3  Have the emails ready before the form goes live                You
+ 4  Check the form only asks for what you need                     Claude
+ 5  Plan 4 emails: give, help, help, ask                           Claude
+ ...
+14  Measure meetings booked, not opens                             Claude
+
+Anything to change or skip? Reply with step numbers (for example "3, 9"), or "looks good".
 ```
 
-- **Keep:** move on.
-- **Change:** ask what changes (the rule, who does it, the tool, the check), rewrite the step, show it back, and move on once confirmed.
-- **Cut:** cut it, and ask for the reason in a few words. If the step is one the gate depends on (an output the gate checks, or a "You" pause before anything is sent, published or claimed), say which gate row it feeds and ask once more.
-- **Add a step here:** the user can add a step after any step at any time.
+- **"Looks good":** keep every step and move to the next channel.
+- **Step numbers:** take them one at a time. For each, show the step in three short lines and one question:
 
-Go briskly. If the user says "keep the rest", keep the remaining steps of that channel and move on. Show the specs table at the end of each channel and ask the same question once for the whole table, adjusting limits to the tools named (a platform's own character limits win over the starter's).
+  ```
+  Step 9: Line it up with the sales team's calls
+  Why it's here: sales calls and emails land on the same days, so they back each other up (Jessica Best).
+  Do you want to 1 keep it · 2 change it · 3 skip it?
+  ```
+
+  - **2 Change it:** ask "What should it say instead?", rewrite the step in their words, show the new line, move on.
+  - **3 Skip it:** skip it and ask for a reason in a few words. If the step feeds the review or is a human check before anything is sent, published or claimed, say so in one line ("Without this, the review can't check the timing") and ask "Skip anyway? 1 Yes · 2 Keep it".
+- **"Add a step after 6":** ask what happens and who does it, add it, show the new line.
+- **Plain words.** Write every step and every question as a marketer would say it. The rule, its source and the check stay in the workflow file, not in the chat. Quote an instructor only in the "Why it's here" line, in a few words.
+
+The character limits and counts (the Specs table) are not walked step by step: say "Limits are set to Jessica Best's defaults (subject under 45 characters, and so on). Your tool's limits win where they differ", adjust them to the tool, and move on.
 
 ## 3. Write this campaign's version
 
@@ -58,6 +76,9 @@ For each channel, write `projects/campaigns/<slug>/workflows/<channel>.md` in th
 For each channel that changed, ask once: **"Save this as your default <channel>, so your next campaign starts from it?"** On a yes, write it to `projects/campaign-engine/workflows/<channel>.md` with `layer: default`, keeping the changes table. If a default already exists, show the diff and ask before replacing it. Never in `example` mode.
 
 ## 5. Update the board and hand over
+
+**Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
+
 
 - Set the campaign's stage to `channels set` in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing).
 - A channel with no column in `projects/campaign-engine/quality-gate.md` will be scored with the closest column. Name the channel and the column, and suggest `/quality-gate <channel>` to give it its own.

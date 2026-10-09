@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{CAMPAIGN_NAME}}</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Campaign page: one per campaign, one tab per step. Filled by the Campaign Engine
+   commands; copy this <style> block unchanged. CXL web styling. */
+:root {
+  --cxl-teal: #6ce5e8; --cxl-red: #d61f2c; --cxl-beige: #faf7ef; --cxl-black: #000000; --cxl-white: #ffffff;
+  --bg: var(--cxl-beige); --card: var(--cxl-white); --text: var(--cxl-black); --muted: #4a4a4a; --line: #e6e1d6;
+  --font-heading: 'Work Sans', system-ui, sans-serif; --font-body: 'Lato', system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #111111; --card: #1c1c1c; --text: #f5f5f5; --muted: #bdbdbd; --line: #333333; }
+}
+:root[data-theme="dark"] { --bg: #111111; --card: #1c1c1c; --text: #f5f5f5; --muted: #bdbdbd; --line: #333333; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 400 16px/1.55 var(--font-body); }
+.wrap { max-width: 920px; margin: 0 auto; padding: 32px 16px 64px; }
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 900; line-height: 1.15; margin: 0 0 12px; }
+h1 { font-size: clamp(28px, 5vw, 40px); }
+h2 { font-size: 24px; margin-top: 8px; }
+h3 { font-size: 18px; font-weight: 700; margin-top: 20px; }
+.meta { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+.stages { display: flex; gap: 4px; margin: 8px 0 24px; }
+.stages span { flex: 1; height: 8px; border-radius: 999px; background: var(--line); }
+.stages span.done { background: var(--cxl-teal); }
+.stages span.now { background: linear-gradient(90deg, var(--cxl-teal), var(--cxl-red)); }
+.stage-label { font-size: 13px; color: var(--muted); margin-top: -18px; margin-bottom: 20px; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 2px solid var(--line); margin-bottom: 20px; }
+.tabs button { font: 700 15px var(--font-heading); padding: 10px 14px; border: 0; background: none; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+.tabs button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--cxl-teal); }
+.tabs button[disabled] { opacity: .35; cursor: default; }
+.panel { display: none; }
+.panel.active { display: block; }
+.card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 16px; }
+.glance { border-left: 4px solid var(--cxl-teal); }
+.glance ul { margin: 0; padding-left: 18px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--font-heading); font-weight: 700; }
+.pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; background: var(--line); }
+.pill.ship { background: var(--cxl-teal); color: var(--cxl-black); }
+.pill.fix { background: var(--cxl-red); color: var(--cxl-white); }
+.pill.you { background: var(--cxl-black); color: var(--cxl-white); }
+details { margin: 8px 0; }
+summary { cursor: pointer; font-weight: 700; }
+.empty { color: var(--muted); font-style: italic; }
+footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
+@media (max-width: 560px) { .tabs button { padding: 8px 10px; font-size: 14px; } th, td { padding: 6px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>{{CAMPAIGN_NAME}}</h1>
+  <div class="meta">{{KPI_LINE}} · Updated {{UPDATED}}</div>
+  <!-- Seven stages: brief, approved, channels set, drafted, reviewed, running, closed. Mark done ones "done", the current one "now". -->
+  <div class="stages" aria-hidden="true">{{STAGE_SPANS}}</div>
+  <div class="stage-label">Stage: {{STAGE}}</div>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="brief">Brief</button>
+    <button role="tab" aria-selected="false" data-tab="channels">Channels</button>
+    <button role="tab" aria-selected="false" data-tab="drafts">Drafts</button>
+    <button role="tab" aria-selected="false" data-tab="review">Review</button>
+    <button role="tab" aria-selected="false" data-tab="results">Results</button>
+  </div>
+
+  <!-- Each command replaces only its own panel. A step not reached yet keeps the empty line. -->
+  <section class="panel active" id="brief" role="tabpanel">{{BRIEF_PANEL}}</section>
+  <section class="panel" id="channels" role="tabpanel">{{CHANNELS_PANEL}}</section>
+  <section class="panel" id="drafts" role="tabpanel">{{DRAFTS_PANEL}}</section>
+  <section class="panel" id="review" role="tabpanel">{{REVIEW_PANEL}}</section>
+  <section class="panel" id="results" role="tabpanel">{{RESULTS_PANEL}}</section>
+
+  <footer>Made with the CXL Campaign Engine. The files in the campaign folder are the source; this page is a view of them.</footer>
+</div>
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.tabs button');
+  function show(id) {
+    tabs.forEach(function (t) { t.setAttribute('aria-selected', t.dataset.tab === id ? 'true' : 'false'); });
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('active', p.id === id); });
+    try { history.replaceState(null, '', '#' + id); } catch (e) {}
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.dataset.tab); }); });
+  var start = (location.hash || '').slice(1);
+  if (start && document.getElementById(start)) show(start);
+})();
+</script>
+</body>
+</html>
