@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{CAMPAIGN_NAME}}</title>
+<title>{{TITLE}}</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;900&family=Lato:wght@400;700&display=swap">
 <style>
-/* Campaign page: one per campaign, one tab per step. CXL web system: teal primary, red for emphasis, beige ground, Work Sans 900 headings, Lato body. */
+/* Campaign page: one per campaign. Tabs: Brief, Channels (a sub-tab per channel, every piece folds), Review (one list of recommendations), Results.
+   CXL web system: teal primary, red for emphasis, beige ground, Work Sans 900 headings, Lato body. */
 :root {
   --teal: #6ce5e8; --red: #d61f2c; --bg: #faf7ef; --card: #ffffff; --text: #000000; --muted: #4f4a40; --line: #e7e1d3; --soft: #f2eee3;
   --on-teal: #000000; --on-red: #ffffff; --you-bg: #000000; --you-fg: #ffffff;
@@ -18,7 +19,7 @@
 :root[data-theme="dark"] { --bg: #121212; --card: #1d1d1b; --text: #f4f1ea; --muted: #b9b3a6; --line: #34322d; --soft: #24231f; --you-bg: #f4f1ea; --you-fg: #000000; color-scheme: dark; }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--text); font: 400 16px/1.55 var(--font-body); }
-.wrap { max-width: 960px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 64px; }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 64px; }
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.2; margin: 0 0 10px; text-wrap: balance; }
 h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 900; }
 h2 { font-size: 22px; font-weight: 900; }
@@ -39,12 +40,16 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
 .stages span.done { background: var(--teal); }
 .stages span.now { background: linear-gradient(90deg, var(--teal), var(--red)); }
 .stage-label { font-size: 13px; color: var(--muted); margin-bottom: 22px; }
-.tabs { display: flex; gap: 4px; flex-wrap: wrap; border-bottom: 2px solid var(--line); margin-bottom: 22px; }
+.tabs, .subtabs, .views { display: flex; gap: 4px; flex-wrap: wrap; }
+.tabs { border-bottom: 2px solid var(--line); margin-bottom: 22px; }
 .tabs button { font: 700 15px var(--font-heading); padding: 10px 14px; border: 0; background: none; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; }
 .tabs button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--teal); }
-.tabs button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-.panel { display: none; }
-.panel.active { display: block; }
+.subtabs, .views { margin-bottom: 18px; }
+.subtabs button, .views button { font: 700 14px var(--font-heading); padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--muted); cursor: pointer; }
+.subtabs button[aria-selected="true"], .views button[aria-selected="true"] { background: var(--teal); border-color: var(--teal); color: var(--on-teal); }
+button:focus-visible, summary:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.panel, .subpanel, .view { display: none; }
+.panel.active, .subpanel.active, .view.active { display: block; }
 .card { background: var(--card); border-radius: 12px; padding: 18px 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 16px; min-width: 0; }
 .glance { border-top: 4px solid var(--teal); }
 .glance ul { margin: 0; }
@@ -57,26 +62,43 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 18px 0; }
 table { width: 100%; border-collapse: collapse; font-size: 15px; }
 th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { font-family: var(--font-heading); font-weight: 700; font-size: 14px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
-.meta2 { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
-.steps { padding-left: 22px; }
-.steps li { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; padding: 4px 0; border-bottom: 1px solid var(--line); }
-.steps li::marker { color: var(--muted); }
-.steps li { display: list-item; }
-.steps li span:first-child { margin-right: 8px; }
-.steps li .pill { float: right; margin-left: 8px; }
-.pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--soft); color: var(--text); white-space: nowrap; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.chmeta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 12px; color: var(--muted); font-size: 14px; }
+.steps { list-style: none; padding: 0; margin: 0; }
+.steps li { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--line); }
+/* The step number comes from the workflow file, not a CSS counter: counters do not reset inside hidden tabs. */
+.steps li .n { color: var(--muted); min-width: 1.6em; font-variant-numeric: tabular-nums; }
+.steps li .t { flex: 1; min-width: 0; }
+/* Pills: capped width, full text on hover and in the title tooltip. */
+.pill { display: inline-block; max-width: 14em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; padding: 1px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--soft); color: var(--text); }
 .pill.you { background: var(--you-bg); color: var(--you-fg); }
+.pill.tool { background: transparent; border: 1px solid var(--line); }
 .pill.ship { background: var(--teal); color: var(--on-teal); }
-.pill.rev { background: var(--red); color: var(--on-red); }
-details { background: var(--card); border-radius: 12px; padding: 12px 18px; margin-bottom: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+.pill.fix { background: var(--red); color: var(--on-red); }
+.pill.check { background: var(--soft); border: 1px solid var(--red); }
+.pill.dm { background: var(--red); color: var(--on-red); font-size: 14px; }
+details { background: var(--card); border-radius: 10px; padding: 10px 16px; margin-bottom: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+details details { box-shadow: none; border: 1px solid var(--line); }
 summary { cursor: pointer; font-family: var(--font-heading); font-weight: 700; }
 summary .pill { margin-left: 8px; }
-details[open] summary { margin-bottom: 10px; }
-.draftbody { min-width: 0; }
+details[open] > summary { margin-bottom: 10px; }
+.group-title { font-family: var(--font-heading); font-weight: 900; font-size: 16px; margin: 20px 0 8px; }
+.rec { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.rec .lvl { grid-row: span 3; }
+.rec .act { padding-top: 2px; }
+.rec .where { font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.rec .what { font-weight: 700; }
+.steps li .acts { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+/* Starter prompts: a copy pill; the prompt itself shows in a tooltip on hover or keyboard focus. */
+.cp { position: relative; display: inline-flex; align-items: center; gap: 5px; vertical-align: middle; padding: 1px 9px; border-radius: 999px; border: 1px solid var(--teal); background: transparent; color: var(--text); font: 700 12px var(--font-heading); cursor: pointer; white-space: nowrap; }
+.cp:hover, .cp:focus-visible { background: var(--teal); color: var(--on-teal); }
+.cp svg { width: 12px; height: 12px; flex: none; }
+.cp .tip { display: none; position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; width: max-content; max-width: min(44ch, 80vw); white-space: normal; text-align: left; font: 400 13px/1.45 var(--font-body); background: var(--text); color: var(--bg); padding: 8px 10px; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+.cp.left .tip { right: auto; left: 0; }
+.cp:hover .tip, .cp:focus-visible .tip, .cp.show .tip { display: block; }
 .empty { color: var(--muted); font-style: italic; margin: 0; }
 footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
-@media (max-width: 560px) { .tabs button { padding: 8px 10px; font-size: 14px; } th, td { padding: 6px; } }
+@media (max-width: 560px) { .tabs button { padding: 8px 10px; font-size: 14px; } th, td { padding: 6px; } .rec { grid-template-columns: 1fr; } .rec .lvl { grid-row: auto; } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
 </style>
 </head>
@@ -86,30 +108,45 @@ footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
   <div class="meta">{{KPI_LINE}} · Updated {{UPDATED}}</div>
   <div class="stages" aria-hidden="true">{{STAGE_SPANS}}</div>
   <div class="stage-label">Stage: {{STAGE}}</div>
-  <div class="tabs" role="tablist">
+  <div class="tabs" role="tablist" data-group="main">
     <button role="tab" aria-selected="true" data-tab="brief">Brief</button>
     <button role="tab" aria-selected="false" data-tab="channels">Channels</button>
-    <button role="tab" aria-selected="false" data-tab="drafts">Drafts</button>
     <button role="tab" aria-selected="false" data-tab="review">Review</button>
     <button role="tab" aria-selected="false" data-tab="results">Results</button>
   </div>
   <section class="panel active" id="brief" role="tabpanel">{{BRIEF_PANEL}}</section>
   <section class="panel" id="channels" role="tabpanel">{{CHANNELS_PANEL}}</section>
-  <section class="panel" id="drafts" role="tabpanel">{{DRAFTS_PANEL}}</section>
   <section class="panel" id="review" role="tabpanel">{{REVIEW_PANEL}}</section>
   <section class="panel" id="results" role="tabpanel">{{RESULTS_PANEL}}</section>
   <footer>Made with the CXL Campaign Engine. The files in the campaign folder are the source; this page is a view of them.</footer>
 </div>
 <script>
 (function () {
-  var tabs = document.querySelectorAll('.tabs button');
-  function show(id) {
-    tabs.forEach(function (t) { t.setAttribute('aria-selected', t.dataset.tab === id ? 'true' : 'false'); });
-    document.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('active', p.id === id); });
+  function bindGroup(btnSel, paneSel, onShow) {
+    var btns = document.querySelectorAll(btnSel);
+    function show(id) {
+      btns.forEach(function (b) { b.setAttribute('aria-selected', b.dataset.tab === id ? 'true' : 'false'); });
+      document.querySelectorAll(paneSel).forEach(function (p) { p.classList.toggle('active', p.id === id); });
+      if (onShow) onShow(id);
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.tab); }); });
+    return show;
   }
-  tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.dataset.tab); try { history.replaceState(null, '', '#' + t.dataset.tab); } catch (e) {} }); });
+  var showMain = bindGroup('.tabs button', '.panel', function (id) { try { history.replaceState(null, '', '#' + id); } catch (e) {} });
+  bindGroup('.subtabs button', '.subpanel');
+  bindGroup('.views button', '.view');
   var start = (location.hash || '').slice(1);
-  if (start && document.getElementById(start)) show(start);
+  if (start && document.getElementById(start)) showMain(start);
+  document.querySelectorAll('.cp').forEach(function (btn) {
+    var label = btn.querySelector('.lbl'), tip = btn.querySelector('.tip'), orig = label.textContent;
+    btn.addEventListener('click', function () {
+      function done(ok) { label.textContent = ok ? 'Copied' : 'Select and copy'; setTimeout(function () { label.textContent = orig; btn.classList.remove('show'); }, 2200); }
+      function selectIt() { btn.classList.add('show'); var r = document.createRange(); r.selectNodeContents(tip); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+      try {
+        navigator.clipboard.writeText(btn.dataset.prompt).then(function () { done(true); }, function () { selectIt(); done(false); });
+      } catch (e) { selectIt(); done(false); }
+    });
+  });
 })();
 </script>
 </body>

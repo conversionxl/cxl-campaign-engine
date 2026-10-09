@@ -10,7 +10,7 @@ One shareable page per campaign. Each step adds or updates its own tab, so the b
 
 Template: `frameworks/campaign-page-template.html`. Copy its `<style>` and `<script>` unchanged; fill only the `{{...}}` slots. When publishing as an Artifact, drop the `<!doctype>`, `<html>`, `<head>` and `<body>` tags and keep everything inside them, `<title>` first: the Artifact adds its own skeleton.
 
-**Worked example:** the first real campaign page, the November AI Native Marketer sprint, is built this way: brief as an At a glance card and a two-column grid of sections, channels as one card each with "You" pills, drafts in closed sections, the review's scores with the decisions folded underneath.
+**Worked example:** the November AI Native Marketer sprint page in the CXL vault.
 
 ## When it is offered
 
@@ -34,13 +34,23 @@ Short, like everything this engine writes. The page is a view of the files, not 
 
 | Tab | Filled by | Shows |
 |---|---|---|
-| **Brief** | `/campaign-brief` | The At a glance block as a card, then sections 1 to 9 as a compact table (field, decision). Evidence folded in a `<details>` "Evidence and sources". Gate 1 result as one line |
-| **Channels** | `/campaign-channels` | One card per channel: the steps as a numbered list (step, who), with steps you own marked with a "You" pill. A line per change from the starter |
-| **Drafts** | `/campaign-draft` | One `<details>` per channel, closed by default, holding that channel's draft. The decisions you made at each pause, as a short list |
-| **Review** | `/campaign-review` | The summary table (channel, score, SHIP / REVIEW / FIX pill), then one `<details>` per channel with its failing rows and fixes. Your Gate 2 decisions |
+| **Brief** | `/campaign-brief` | The At a glance block as a card, then sections 1 to 9 as a compact grid. Evidence and the Gate 1 table folded. Never decision-model results |
+| **Channels** | `/campaign-channels`, `/campaign-draft` | A sub-tab per channel. In each: the tools as pills; the workflow folded ("Workflow: 14 steps"), each step with a pill for who does it and a "Prompt" copy pill beside it; then **every piece of content folded on its own** (each `###` under the draft's `## Pieces`: one email, post, Short, sequence, ad set); then "Plan and notes" folded |
+| **Review** | `/campaign-review` | The At a glance card; the scores table (Claude, and Jev and Clef when they ran); then **one list of recommendations** with a switch to group it by step, by channel or by piece. Each recommendation shows where, the problem, who flagged it, and a "Copy starter prompt" button. Scores by channel, dismissed model flags and the decisions log folded underneath |
 | **Results** | `/campaigns close` | KPI against target, what worked, what did not, the lesson |
 
 **Header:** the campaign name, the KPI line ("70 sales by 10 Nov · 12 so far"), the stage bar (seven stages: brief, approved, channels set, drafted, reviewed, running, closed), and the date updated.
+
+**Pills** are capped at about 14 characters wide; longer text is cut with an ellipsis and shown in full in the `title` tooltip. One pill per workflow step, for who does it. Notes never go in a pill.
+
+**Starter prompts** never show as text on the page. Each sits behind a copy pill (`<button class="cp">` with the copy icon, the prompt in `data-prompt` and again in a `.tip` span): the prompt shows in a tooltip on hover or keyboard focus, and a click copies it. Steps get a "Prompt" pill next to the who pill; recommendations get "Copy starter prompt" (class `cp left`, so the tooltip opens to the right). A step's prompt is built from its row, in this shape:
+
+- Claude or tool step: "Run step 5 of the Email workflow in projects/campaigns/<slug>/workflows/email-campaign.md: <Step>. Rule: <Rule>. Done when: <Check before moving on>. Show me the result before the next step."
+- Human step: "Help me with step 12 of ...: <Step>. Rule: <Rule>. Done when: <Check>. I make the call, so give me options, not a decision."
+
+Strip markdown from the cells. A recommendation's prompt is the Prompt column of the review, unchanged.
+
+**Reading a workflow file:** only the rows of its `## Steps` table are steps. Never read the "Changes from the version it was based on" table as steps. Print each step's number from its `#` cell (`<span class="n">`), never from a CSS counter or list position: counters do not reset inside hidden tabs, so later channels would start at 6 or 10.
 
 ## Rules
 

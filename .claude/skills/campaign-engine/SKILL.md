@@ -21,7 +21,8 @@ Brief in, reviewed campaign out, with a human at both gates. These are the rules
 | `projects/campaigns/<slug>/drafts/<channel>.md` | One draft per channel, following that channel's workflow | `/campaign-draft` |
 | `projects/campaigns/<slug>/review.md` | The scorecard and the human's decisions | `/campaign-review` |
 | `projects/campaigns/<slug>/results.md` | What it returned. The next brief reads it | The user |
-| `frameworks/` | The reference: template, workflow format, the starter workflows, default gate, inputs, board format, decision models | The module. Never edited by commands |
+| `frameworks/` (in the plugin, `${CLAUDE_PLUGIN_ROOT}/frameworks/`) | The reference: brief template, workflow format, the starter workflows, default gate, question set, inputs, board and page formats, decision models. Read from the plugin; never copied into the user's folder | The module. Never edited by commands |
+| `projects/campaigns/<slug>/` | **Everything a campaign makes:** brief, workflows, drafts, review, results, `gate-output.json`, `page.html`. Nothing a campaign makes goes anywhere else | The commands |
 | `wiki/brand/`, or another plugin's `brand/` | The brand brain: from the Marketing Brain here, or a company plugin such as `cxl-plugin`. Read in place, never written | The marketing-brain plugin, or the plugin that ships it |
 | `daily-logs/` | The personal OS's daily logs. Read as context, never written | The personal-os plugin |
 

@@ -38,7 +38,7 @@ fi
 
 # 2. Module files, skipping anything that exists. The default gate is copied
 #    into projects/campaign-engine/ so the user edits their own copy. The starter
-#    workflows stay in frameworks/workflows/; /campaign-channels makes each
+#    workflows stay in the plugin's frameworks/workflows/; /campaign-channels makes each
 #    campaign's copy, and saves the user's defaults to projects/campaign-engine/workflows/.
 created=0; kept=0
 copy_tree() {
@@ -55,11 +55,10 @@ copy_tree() {
     created=$((created+1))
   done < <(find "$ROOT/$1" -type f -print0)
 }
-for p in raw/campaigns raw/voc raw/brand raw/strategy raw/performance projects/campaigns \
-         frameworks/campaign-brief-template.md frameworks/workflow-format.md \
-         frameworks/campaign-inputs.md frameworks/quality-gate.md \
-         frameworks/decision-models.md frameworks/campaigns-board.md frameworks/campaign-page.md frameworks/human-checks.md \
-         frameworks/campaign-page-template.html frameworks/workflows; do
+# The reference files (frameworks/: templates, starter workflows, the default
+# gate, the question set) stay in the plugin and are read from there. Nothing is
+# copied into the user's frameworks folder: their folder only gets what is theirs.
+for p in raw/campaigns raw/voc raw/brand raw/strategy raw/performance projects/campaigns; do
   copy_tree "$p" "$(mp "$p")"
 done
 mkdir -p "$engine/workflows"

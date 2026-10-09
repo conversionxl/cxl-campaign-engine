@@ -108,6 +108,10 @@ All self-reported by the people who ran them; none independently reproduced.
 - The model's answers show as one line per gate ("agrees", or the rows where it disagrees). It never changes a score, never overrides the sheet, and never approves anything. You decide.
 - No key, or the call fails: say so in one line and carry on with the sheet alone.
 
+**Where results live.** Only in `gate-output.json` and in the review's one list of recommendations, merged with Claude's scores (step 3 of `/campaign-review`). Never in the brief, never as a separate report.
+
+**Piece by piece, one proposition per question.** The first real run (November sprint, 9 Oct 2026) sent whole draft files with the gate's multi-clause "passes when" text, and both models failed every channel Claude passed: long mixed inputs and compound questions, the two weaknesses the vendors document. So the gate now sends one piece at a time (one email, post, Short, sequence) with the one-sentence questions in `frameworks/quality-gate-questions.json`, and counting (em dashes, paragraph length, subject length) is done in code.
+
 **How a gate calls it.** `bash "${CLAUDE_PLUGIN_ROOT}/plugin/decision-model.sh" <jev|clef> <questions.json> <state-file>` (in the repo copy: `bash plugin/decision-model.sh ...`). The state file is the brief or the draft as plain text. The script prints the model's answers as JSON; save them to `projects/campaigns/<slug>/gate-output.json`, one key per model. `bash plugin/decision-model.sh check` says which models have a key.
 
 **Keys.** Kept in `~/.config/decision-models.env` (private to the user, outside every repo) or in the environment: `TYPESAFE_API_KEY` for Jev, from console.typesafe.ai/keys; `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_AUTH_TOKEN` for Clef, from the Cloudflare dashboard (an API token made from the Workers AI template). Never ask the user to paste a key into the chat; tell them to open the file and fill it in. TypeSafe also ships a Claude Code plugin with their own skill: `claude plugin marketplace add typesafe-ai/skills`, then `claude plugin install typesafe@typesafe-ai`.
