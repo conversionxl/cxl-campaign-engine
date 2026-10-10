@@ -42,6 +42,8 @@ approved_by:
 approved_on:
 dates: { start: "", end: "" }
 page:                   # the campaign page link or path, or none (asked once at the end of /campaign-brief)
+parent: none            # the main campaign's slug if this is a sub-campaign (frameworks/linked-campaigns.md)
+links: []               # campaigns alongside: - { campaign: <slug>, relation: feeds | fed-by | shares-audience | alongside, note: "" }
 channels: []            # proposed here, confirmed in /campaign-channels
 sources: []             # files, brain files, tool pulls with date range, user answers
 tags: [campaign]
@@ -57,6 +59,12 @@ tags: [campaign]
 - **Angle:** <the lead angle, one line>
 - **Channels:** <list>
 - **Gate 1:** <passes / what still fails>
+
+## Linked campaigns
+<!-- Leave out when it stands alone. Names only; each campaign's details stay in its own brief. -->
+- **Part of:** <main campaign, and the goal of it this one serves> or none
+- **Sub-campaigns:** <slugs, one line each with their goal> or none
+- **Alongside:** <slug: relation, one line> or none
 
 ## 1. Goal
 - **KPI:** <one action, counted>

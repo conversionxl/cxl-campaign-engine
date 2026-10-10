@@ -21,7 +21,7 @@ Read the `campaign-engine` skill, then the brief, then each channel's workflow i
 
 List the brief's `channels` and every file in `projects/campaigns/<slug>/workflows/` with its `status` (starter, suggested or adjusted) and `tools`. Ask which to draft now. No `workflows/` folder at all, or a channel in the brief with no file there: say it cannot be drafted until `/campaign-channels <slug>` sets it up, and offer to run it now. Do not fall back to a default or a starter silently, and do not improvise a workflow.
 
-For a **big-C** brief: do not draft channels. Read section 14 and offer to create the small-c brief folders it lists, each with `parent:` set, then stop. Channels are drafted from the small-c briefs.
+For a **big-C** brief: do not draft channels. Read section 14 and offer to create the small-c sub-campaign folders it lists **inside this campaign's folder**, at `campaigns/<sub-slug>/`, each with a stub `brief.md` (`parent:` set to this campaign, `status: draft`), and add them to the brief's Linked campaigns section and the board under this campaign (`frameworks/linked-campaigns.md`), then stop. Channels are drafted from the small-c briefs.
 
 ## 2. Load
 

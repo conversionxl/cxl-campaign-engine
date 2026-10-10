@@ -85,7 +85,7 @@ Claude has no memory between sessions by default. This repo fixes that with plai
 
 <!-- Added by /campaign-engine:setup. Edit freely. -->
 
-**Brief in, reviewed campaign out.** A campaign is a folder in `projects/campaigns/<slug>/`: a brief that holds decisions and no copy, the workflow it runs for each channel, one draft per channel, and a review. Run as many as you like; `projects/campaigns/campaigns.md` is the board that tracks them all. Two human gates: you approve the brief (Gate 1) and you accept or fix what the review flags (Gate 2). Nothing ships on vibes.
+**Brief in, reviewed campaign out.** A campaign is a folder in `projects/campaigns/<slug>/`: a brief that holds decisions and no copy, the workflow it runs for each channel, one draft per channel, and a review. Run as many as you like; `projects/campaigns/campaigns.md` is the board that tracks them all. Campaigns can be linked: a sub-campaign lives inside its main campaign's folder, and campaigns running alongside link both ways (`frameworks/linked-campaigns.md`). Every page shows the scale, small-c or big-C, next to the name. Two human gates: you approve the brief (Gate 1) and you accept or fix what the review flags (Gate 2). Nothing ships on vibes.
 
 **Context from other plugins.** The engine reads a brand brain wherever it lives: `wiki/brand/` here, another installed plugin's `brand/` folder (a company plugin such as `cxl-plugin`), or another folder. It also reads the personal OS's daily logs as context. Both are read in place, never copied or edited. With more than one brand source, the first command asks once and records the answer below; edit a line to change it.
 

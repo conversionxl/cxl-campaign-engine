@@ -97,6 +97,13 @@ details[open] > summary { margin-bottom: 10px; }
 .cp.left .tip { right: auto; left: 0; }
 .cp:hover .tip, .cp:focus-visible .tip, .cp.show .tip { display: block; }
 .empty { color: var(--muted); font-style: italic; margin: 0; }
+.scale { display: inline-block; vertical-align: middle; margin-left: 10px; padding: 2px 10px; border-radius: 999px; font: 900 14px var(--font-heading); letter-spacing: .02em; background: var(--teal); color: var(--on-teal); }
+.scale.big { background: var(--red); color: var(--on-red); }
+.family { font-size: 14px; color: var(--muted); margin: -8px 0 14px; }
+.family a { font-weight: 700; color: var(--text); }
+.links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.link-card { background: var(--card); border-radius: 12px; padding: 14px 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border-top: 4px solid var(--teal); min-width: 0; }
+.link-card .rel { font-size: 13px; color: var(--muted); }
 footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
 @media (max-width: 560px) { .tabs button { padding: 8px 10px; font-size: 14px; } th, td { padding: 6px; } .rec { grid-template-columns: 1fr; } .rec .lvl { grid-row: auto; } }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
@@ -104,7 +111,10 @@ footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
 </head>
 <body>
 <div class="wrap">
-  <h1>{{CAMPAIGN_NAME}}</h1>
+  <!-- The scale badge always sits next to the title: class "scale" for small-c, "scale big" for big-C. -->
+  <h1>{{CAMPAIGN_NAME}} <span class="{{SCALE_CLASS}}" title="Campaign scale">{{SCALE}}</span></h1>
+  <!-- Family line: only when the campaign has a main campaign, sub-campaigns or links. Each name links to its page. -->
+  {{FAMILY_LINE}}
   <div class="meta">{{KPI_LINE}} · Updated {{UPDATED}}</div>
   <div class="stages" aria-hidden="true">{{STAGE_SPANS}}</div>
   <div class="stage-label">Stage: {{STAGE}}</div>
@@ -113,11 +123,13 @@ footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
     <button role="tab" aria-selected="false" data-tab="channels">Channels</button>
     <button role="tab" aria-selected="false" data-tab="review">Review</button>
     <button role="tab" aria-selected="false" data-tab="results">Results</button>
+    {{LINKED_TAB_BUTTON}}
   </div>
   <section class="panel active" id="brief" role="tabpanel">{{BRIEF_PANEL}}</section>
   <section class="panel" id="channels" role="tabpanel">{{CHANNELS_PANEL}}</section>
   <section class="panel" id="review" role="tabpanel">{{REVIEW_PANEL}}</section>
   <section class="panel" id="results" role="tabpanel">{{RESULTS_PANEL}}</section>
+  {{LINKED_PANEL}}
   <footer>Made with the CXL Campaign Engine. The files in the campaign folder are the source; this page is a view of them.</footer>
 </div>
 <script>

@@ -11,6 +11,18 @@ projects/campaigns/<slug>/
   results.md        what it returned and the lesson, written by /campaigns close; the next brief reads it
 ```
 
-A big-C plan is a campaign folder too. Its section 14 lists the programs it spawns; each becomes its own small-c folder here, with `parent:` in its frontmatter pointing back.
+**Linked campaigns** (`frameworks/linked-campaigns.md`). Sub-campaigns live inside their main campaign; campaigns that run alongside each other keep their own folders and link both ways in their briefs.
+
+```
+projects/campaigns/
+  cxl-ai-native-leader/              main campaign (big-C)
+    brief.md
+    campaigns/
+      ai-native-sprint-nov26/        sub-campaign, parent: cxl-ai-native-leader
+      webinar-series-nov26/          sub-campaign, links: feeds ai-native-sprint-nov26
+  q4-partner-launch/                 stands alone
+```
+
+Two levels only. Slugs are unique across the board.
 
 Campaign folders are committed. They hold decisions and copy, never customer lists or personal data; those stay in `raw/`.
