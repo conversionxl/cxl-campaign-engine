@@ -91,11 +91,24 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+## What you bring, what Claude asks
+
+Setup takes one command. The back and forth happens inside each step, and it is short by design: Claude reads what it can find first, then asks only for what is still missing.
+
+| Step | Bring this (drop it in `raw/campaigns/` or paste it in the chat) | Claude asks | Who else is involved |
+|---|---|---|---|
+| Brief | The goal and its date, last campaign's readout, proof you are allowed to use, the budget, the competitors buyers mention | Up to eight questions, three per message, numbered so you can answer "1: 70 sales by 10 Nov, 3: existing customers". Skipped when your brand brain, daily logs, files or a connected tool already answer them | Sales agrees the lead definition and the handoff in writing before you approve |
+| Channels | The tools you send with (email tool, CMS, ad accounts) | One question per channel for the tool, then "anything to change or skip?" on a short list of steps | Nobody yet |
+| Drafts | Your call at every step marked "You" | It stops at each one and waits | The sales lead approves the enablement assets; a designer or Claude Design makes the ad creative |
+| Review | Accept, fix or overrule each flag | One list of recommendations, each with a prompt to fix it | Whoever signs off the claims |
+
+**Good input, fast.** Drop files in before you run a command, not halfway through. "Don't know" and "skip" are fine answers: the line is tagged (inferred) and Gate 1 tells you which ones matter. Claude never contacts your team; the brief names who signs off what, and you take it to them.
+
 ## The Campaign Engine
 
 | | Step | Run | You bring | It writes |
 |---|---|---|---|---|
-| 1 | Brief, Gate 1 | `/campaign-brief` | Past briefs, results and sales feedback in `raw/campaigns/`; your answers to six questions; a brand brain if you have one | `projects/campaigns/<slug>/brief.md`, approved by you |
+| 1 | Brief, Gate 1 | `/campaign-brief` | Past briefs, results and sales feedback in `raw/campaigns/`; your answers to up to eight questions (budget and competitors included); a brand brain if you have one | `projects/campaigns/<slug>/brief.md`, approved by you |
 | 2 | Channels | `/campaign-channels <slug>` | Which channels, then keep, change or cut each step for your campaign and tools; any other channel, your steps or a suggestion | `projects/campaigns/<slug>/workflows/<channel>.md`, and your default if you say so |
 | 3 | Drafts | `/campaign-draft <slug>` | Your decisions at every human pause | `projects/campaigns/<slug>/drafts/<channel>.md` |
 | 4 | Review, Gate 2 | `/campaign-review <slug>` | Your accept, fix or overrule per flag | `projects/campaigns/<slug>/review.md` |
@@ -125,7 +138,7 @@ flowchart LR
 
 ## The quality gate
 
-`frameworks/quality-gate.md` is a sheet: 14 pass-or-fail checks for the brief, then 16 criteria × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and two non-negotiables (every CTA moves to the goal; nothing invented). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.
+`frameworks/quality-gate.md` is a sheet: 16 pass-or-fail checks for the brief, then 16 criteria × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and two non-negotiables (every CTA moves to the goal; nothing invented). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.
 
 Optionally, the gate can be written as a question set for a decision model (TypeSafe's Jev or Cloudflare's Clef) so it runs on every draft in under a second. `frameworks/decision-models.md` explains what those are, what they are not, and how to calibrate one before trusting it.
 

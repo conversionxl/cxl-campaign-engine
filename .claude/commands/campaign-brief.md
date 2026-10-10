@@ -31,8 +31,9 @@ Do all of this before step 1, and wait for the answers. Skip it in `example` mod
    3. Who must not get this.
    4. What proof you can stand behind today: numbers, customers, quotes you are allowed to use.
    5. Who on the sales side owns the leads, and how fast they act.
-   6. Anything changing: a price, a launch, an event, a blackout date.
-   7. What customers say about this problem, in their words, if the brain and `raw/voc/` have nothing.
+   6. The budget: a total, and what goes to paid channels. And anything changing: a price, a launch, an event, a blackout date.
+   7. What buyers compare you with: a named competitor, doing it themselves, or doing nothing.
+   8. What customers say about this problem, in their words, if the brain and `raw/voc/` have nothing.
    Number the questions so the user can answer "1: 70 sales by 10 Nov, 3: existing customers". Accept "skip" and "don't know"; mark those fields (inferred) and move on.
 5. **Connections, only if they would answer something still missing.** Say in one line which tools this session can reach. Ask about others only when a missing answer lives there (a target needs the CRM, a baseline needs the email tool). Pulls are read only and saved to `raw/campaigns/live/`.
 6. **Decision model, once per folder.** If `CLAUDE.md` has no `**Decision model:**` line, ask once: "Do you want a second, automatic check from a decision model (Jev or Cloudflare's Clef) on the brief and every draft? It needs an API key. 1 No (most people) · 2 Jev · 3 Clef · 4 Both". Record the answer as `**Decision model:** none | jev | clef | both` in the Campaign Engine section of `CLAUDE.md`. Never ask again; `frameworks/decision-models.md` says how it runs.
@@ -50,7 +51,7 @@ Do all of this before step 1, and wait for the answers. Skip it in `example` mod
 
 ## 2. Classify
 
-Apply the rule from the template: the goal decides, and big-C needs a strategic goal plus at least one more trigger. Show the five triggers with a yes or no and the evidence for each, propose small-c or big-C, and ask the user to confirm. Big-C: sections 10 to 15 are filled and section 14 lists the small-c briefs the plan will spawn. Small-c: sections 10 to 15 are omitted.
+Apply the rule from the template: the goal decides, and big-C needs a strategic goal plus at least one more trigger. Show the five triggers with a yes or no and the evidence for each, propose small-c or big-C, and ask the user to confirm. Write the result and its reason in a few words on the At a glance Goal line ("Scale: small-c, one tactical goal in 8 weeks"), so anyone reading the brief or the campaign page sees which kind it is. Big-C: sections 10 to 15 are filled and section 14 lists the small-c briefs the plan will spawn. Small-c: sections 10 to 15 are omitted.
 
 ## 3. Draft the brief
 
@@ -62,7 +63,9 @@ Fill the template section by section, in order, then write the At a glance block
 - **Every line traces to an input**, with a short tag in the field (`(Metorik)`, `(icp.md)`, `(your answer)`) and the full source in Evidence or `sources`. Anything else is tagged **(inferred)**.
 - **Proof.** Each angle's proof comes from the hub's proof points row or a file in `raw/`. No proof: mark the angle **(no proof)**. Never state a number the inputs do not contain. A claim that needs legal or a sign-off goes in section 9.
 - **Audience.** Include from the ICP's core segment unless the user says otherwise. Exclude existing customers from acquisition offers, the negative ICP, anyone in an active sales conversation, and whatever the user named. State the size and its source.
-- **Buying stage.** Quote the buyer's thought verbatim from VOC, with its source. If none exists, leave it blank and say the brief is weaker for it.
+- **Buying stage.** Quote the buyer's thought verbatim from VOC, with its source. If none exists, leave it blank and say the brief is weaker for it. **Weighing against:** name up to three alternatives the buyer compares (a competitor's product or cohort, doing it themselves, doing nothing) from VOC, sales notes or the brand brain's competitor notes. Never invent a competitor's offer or price; a name with no source is tagged (inferred).
+- **Constraints.** Budget is always the first line: a total and the paid channels' share, with its source, or "not set". Then events or launches running at the same time.
+- **Offer.** One destination per offer. A campaign needs one landing page, two at most; a third needs a different offer or audience, named in Evidence.
 - **Sales enablement.** Write the lead definition and the handoff rule in the form Tyler Durman uses: what counts as a lead, who is alerted, where (CRM to Slack), and the time limit (default: an MQL is called within one working day; a meeting is confirmed, researched and prepped). Name the sales owner.
 - **Measurement.** UTM convention, conversion events, the fields sales needs, the test submission before traffic. Kill rule and scale rule, each with a number and a date.
 - **Big-C (sections 10 to 15).** Pipeline math from the CRM snapshot; every number cited or left blank. TAM check as IF / AND / THEN with the numbers. Journey map with the buyer's thought per stage. Architecture as phases, each a small-c brief to come. Team and budget: roles (responsible, accountable, supporting), budget by program, expected return against the math. Sections the inputs cannot fill are drafted from the rest of the plan and tagged (inferred), because those are the sections that stay blank otherwise.

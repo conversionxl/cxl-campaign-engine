@@ -29,6 +29,8 @@ Add the Campaign Engine module to the folder this session is in, then get the us
    > | 5 | `/campaign-engine:campaign-review <campaign>` | Each draft is scored: ship, review or fix. You decide. |
    >
    > Any time: `/campaign-engine:campaigns` shows every campaign on one board.
+   >
+   > **What it asks of you.** Each step reads what it can find first (your brand docs, daily logs, files in `raw/campaigns/`, connected tools), then asks only for what is missing: at most three numbered questions at a time. Before your first brief, have these ready or drop them in `raw/campaigns/`: the one number and its date, last campaign's results, proof you can use, the budget, and who buyers compare you with. "Don't know" is a fine answer. Claude never contacts your team: the brief says who signs off what (sales agrees the lead definition in writing), and you take it to them.
 
    Then ask one question: **"Where do you want to start: the Acme practice run, a campaign you make up now, or your own campaign?"**
    - **Acme practice run:** run `/campaign-engine:campaign-brief example` now, in this session.
