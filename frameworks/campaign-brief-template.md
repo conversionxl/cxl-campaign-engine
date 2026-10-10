@@ -51,7 +51,7 @@ tags: [campaign]
 
 ## At a glance
 <!-- Six lines. Someone who reads only this knows what is decided. -->
-- **Goal:** <KPI, number, date>
+- **Goal:** <KPI, number, date> · **Scale:** <small-c | big-C>, <the reason in a few words>
 - **Who:** <who it is for> · **Not for:** <the main exclusion>
 - **Offer:** <what they get> → **CTA:** <the one action>
 - **Angle:** <the lead angle, one line>
@@ -73,7 +73,7 @@ tags: [campaign]
 
 ## 4. Offer
 - **Offer:** <one line>
-- **Destination:** <page>
+- **Destination:** <page; one per offer, two at most>
 - **CTA:** <the one action>
 
 ## 5. Messaging
@@ -84,6 +84,7 @@ tags: [campaign]
 ## 6. Buying stage
 - **Stage:** <one stage>
 - **Their words:** "<one quote>" (<source tag>)
+- **Weighing against:** <up to 3 alternatives they would choose instead: a named competitor, doing it themselves, doing nothing> (<source tag>)
 
 ## 7. Sales handoff
 - **Lead:** <what counts>
@@ -95,7 +96,8 @@ tags: [campaign]
 - **Scale rule:** <number> by <date>
 
 ## 9. Constraints
-<Up to 4 lines: budget, deadlines, claims that need sign-off, assets missing.>
+- **Budget:** <total, and the paid channels' share; or "not set"> (<source tag>)
+<Up to 3 more lines: deadlines, events running at the same time, claims that need sign-off, assets missing.>
 
 <!-- Sections 10 to 15: big-C only -->
 
@@ -156,6 +158,8 @@ Filled by /campaign-brief before asking for approval. See frameworks/quality-gat
 | Offer passes the "would they miss it" test | | |
 | Handoff rule names a person, a place and a time | | |
 | Kill rule has a number and a date | | |
+| Budget is stated, or "not set" with no paid channel | | |
+| The alternatives they weigh are named | | |
 
 ## Sources
 

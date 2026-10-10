@@ -26,7 +26,7 @@ Aagaard's six characteristics of an effective landing page run through every ste
 
 | # | Step | Who | Rule | Source | Check before moving on |
 |---|---|---|---|---|---|
-| 1 | Write the page brief | Claude | Scope, who signs off, the business goal, the traffic sources with the ads and emails that point here, and who builds what | Aagaard, L03 LPO Process | Sign-off owner named |
+| 1 | Write the page brief | Claude | How many pages: one per offer, so one for most campaigns and two at most; every CTA in the campaign points at one of them. A third page needs its own offer or audience, named here. Then scope, who signs off, the business goal, the traffic sources with the ads and emails that point here, and who builds what | Aagaard, L03 LPO Process; Tyler Durman, Campaign Engine review, 9 Oct 2026 ("we probably only need one to two") | Page count and sign-off owner named |
 | 2 | Set the awareness level and the conversion goal | Claude | State the visitor's awareness level (unaware, problem, solution, product, most aware) and how complex, costly and risky the goal is. Both decide how much the page has to say | Aagaard, L05 Awareness Levels and Conversion Goals | Matches the brief's buying stage |
 | 3 | Pull the baseline | Google Analytics 4 | For an existing page: users, conversions, conversion rate, device split, source and medium, drop-off. Work out the sample size first to know whether an A/B test is possible | Aagaard, L08 Quantitative Research | Baseline recorded, or "new page" |
 | 4 | Design for the dominant device | Claude | If most visitors are on mobile, plan and write the page mobile first | Aagaard, L01 and L08 | Device split stated |
@@ -47,6 +47,7 @@ Aagaard's six characteristics of an effective landing page run through every ste
 
 | Element | Spec | Source |
 |---|---|---|
+| Pages per campaign | One per offer; two at most unless a different offer or audience needs its own | Tyler Durman, 9 Oct 2026 |
 | Headline | What they get, plain words, matches the ad; 2 alternates | Aagaard, L11 |
 | First two screens | Value proposition, main points, the CTA | Aagaard, L10 |
 | Navigation | None | Aagaard, L10 |

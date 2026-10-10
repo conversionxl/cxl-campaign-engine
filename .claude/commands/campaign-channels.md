@@ -21,7 +21,7 @@ Read `frameworks/workflow-format.md` first (with the plugin and no local copy, `
 
 Show one table: each starter in `frameworks/workflows/`, whether the user has a default for it in `projects/campaign-engine/workflows/`, and whether this campaign already has its own copy. Mark the channels the brief lists in its `channels` field.
 
-Ask which channels this campaign needs. Suggest from the brief: the KPI and the stage decide (a meetings goal almost always needs a sequence and sales enablement; a problem-unaware audience needs content before an offer; every CTA needs a destination, so usually a landing page). Say why in one line each. Then ask: **any channel that is not in the list?**
+Ask which channels this campaign needs. Suggest from the brief: the KPI and the stage decide (a meetings goal almost always needs a sequence and sales enablement; a problem-unaware audience needs content before an offer; every CTA needs a destination, so usually a landing page: one per offer, two at most). Say why in one line each. Then ask: **any channel that is not in the list?**
 
 For each extra channel, offer two routes and wait for the choice:
 - **Your steps.** "Type your process, one step per line, in the order you do it." Then ask, per step: who does it (Claude, you or a named role, or a tool), and what the check is before moving on. Format it as a workflow, `status: adjusted`, source "your team".

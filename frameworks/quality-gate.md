@@ -37,6 +37,8 @@ Pass or fail, all of them. `/campaign-brief` will not ask for approval while any
 | 12 | Sales has agreed the lead definition and the metric in writing | Marketing wrote it alone | Cosby: the first ABM failure cause is misalignment; the Acme sales feedback |
 | 13 | A kill rule and a scale rule, each with a number and a date | "Review at end of quarter" | Tyler's 2022 proposal: track leading indicators to optimize or adjust; Best: name the winning metric before the test |
 | 14 | Consistent with the positioning | The angle contradicts the owned key message, or claims a difference tied to no struggle | Grenier: "different for the sake of being different is a fool's errand" |
+| 15 | Budget is stated: a total, and the paid channels' share | No budget line; a paid channel with no spend cap. "Not set" passes only when no channel is paid | Tyler Durman, Campaign Engine review, 9 Oct 2026: budget is a constraint ("if we only have $10,000 to spend in ads, or if we are trying to run an event at the same time"); Wilcox: size the budget to the metric you will judge |
+| 16 | The alternatives the buyer weighs are named | The buying stage is solution aware or later and the brief names no competitor, do-it-yourself or do-nothing option | Tyler Durman, Campaign Engine review, 9 Oct 2026 ("why wouldn't I do a Reforge cohort?") |
 
 ## Gate 2: the drafts
 
