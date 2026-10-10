@@ -91,6 +91,10 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+## Linked campaigns
+
+Campaigns can belong together. A **sub-campaign** sits inside its main campaign's folder: the November sprint inside a bigger push to make CXL the leader in AI training for marketers. Campaigns that run **alongside** each other keep their own folders and link both ways: the webinar series feeds the sprint. `/campaign-brief` asks about both, reads every linked brief, and every campaign page shows the family, with the scale badge (small-c or big-C) next to each name. Rules and folder layout: `frameworks/linked-campaigns.md`.
+
 ## What you bring, what Claude asks
 
 Setup takes one command. The back and forth happens inside each step, and it is short by design: Claude reads what it can find first, then asks only for what is still missing.

@@ -30,9 +30,11 @@ last_updated: ""
 
 # Campaigns
 
-| Campaign | Scale | Stage | KPI | Target | Actual | Dates | Channels | Gate 2 | Next |
-|---|---|---|---|---|---|---|---|---|---|
-| [agency-upgrade](agency-upgrade/brief.md) | small-c | drafted | Demos booked | 25 by 31 Oct | | 7 to 31 Oct | email-sequence, sales-enablement, landing-page | | `/campaign-review agency-upgrade` |
+| Campaign | Scale | Stage | KPI | Target | Actual | Dates | Channels | Links | Gate 2 | Next |
+|---|---|---|---|---|---|---|---|---|---|---|
+| [h2-category-plan](h2-category-plan/brief.md) | big-C | approved | Pipeline | $1.2M by 31 Dec | | Jul to Dec | | | | `/campaigns refresh` |
+| ↳ [agency-upgrade](h2-category-plan/campaigns/agency-upgrade/brief.md) | small-c | drafted | Demos booked | 25 by 31 Oct | | 7 to 31 Oct | email-sequence, sales-enablement, landing-page | fed-by agency-webinar | | `/campaign-review agency-upgrade` |
+| ↳ [agency-webinar](h2-category-plan/campaigns/agency-webinar/brief.md) | small-c | brief | Registrations | 300 by 20 Oct | | 1 to 20 Oct | | feeds agency-upgrade | | `/campaign-brief agency-webinar` |
 
 ## Closed
 
@@ -43,11 +45,11 @@ last_updated: ""
 - **Campaign** links to the brief. **Gate 2** is the review's summary (for example "3 SHIP, 1 REVIEW") with a link to `review.md`.
 - **Actual** is blank until a result is pulled or entered, and always says where it came from (a snapshot in `raw/campaigns/live/` or "entered by you, date").
 - Example and practice campaigns (`example-*`, `practice-*`) get their own section, **Examples**, so they never mix with real ones.
-- A big-C plan is a row too; its small-c children are rows below it, with the parent's slug in front (`h2-plan / phase-2-upgrade`).
+- **Families stay together** (`frameworks/linked-campaigns.md`): a main campaign's row, then its sub-campaigns below it with `↳`, linked to their nested folders. **Links** lists the alongside relations. The board rows above are an illustration of the layout.
 
 ## The page
 
-`/campaigns` renders the board as one self-contained HTML page in the CXL web styling: Work Sans 900 headings, Lato body, the teal, red, beige, black and white tokens, cards at 8 to 16 px radius. One card per active campaign, showing the stage as a progress bar across the seven stages, the KPI against the target, the channels as pills, the Gate 2 result, and the next command. Closed campaigns as a table below, with their lessons. No em dashes.
+`/campaigns` renders the board as one self-contained HTML page in the CXL web styling: Work Sans 900 headings, Lato body, the teal, red, beige, black and white tokens, cards at 8 to 16 px radius. One card per active campaign, grouped by family (a main campaign's card with its sub-campaigns' cards inside it), each with its scale badge next to the name, showing the stage as a progress bar across the seven stages, the KPI against the target, the channels as pills, the Gate 2 result, and the next command. Closed campaigns as a table below, with their lessons. No em dashes.
 
 Where it goes:
 - **Claude app, Cowork, or Claude Code with the Artifact tool:** published as a private Artifact titled "<Brand> Campaigns". Each refresh republishes to the same link. The link is recorded at the top of `campaigns.md`.

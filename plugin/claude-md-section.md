@@ -6,7 +6,7 @@
 
 <!-- Added by /campaign-engine:setup. Edit freely. -->
 
-**Brief in, reviewed campaign out.** A campaign is a folder in `projects/campaigns/<slug>/`: a brief that holds decisions and no copy, the workflow it runs for each channel, one draft per channel, and a review. Run as many as you like; `projects/campaigns/campaigns.md` is the board that tracks them all. Two human gates: you approve the brief (Gate 1) and you accept or fix what the review flags (Gate 2). Nothing ships on vibes.
+**Brief in, reviewed campaign out.** A campaign is a folder in `projects/campaigns/<slug>/`: a brief that holds decisions and no copy, the workflow it runs for each channel, one draft per channel, and a review. Run as many as you like; `projects/campaigns/campaigns.md` is the board that tracks them all. Campaigns can be linked: a sub-campaign lives inside its main campaign's folder, and campaigns running alongside link both ways (`frameworks/linked-campaigns.md`). Every page shows the scale, small-c or big-C, next to the name. Two human gates: you approve the brief (Gate 1) and you accept or fix what the review flags (Gate 2). Nothing ships on vibes.
 
 | Folder | What goes in it |
 |---|---|

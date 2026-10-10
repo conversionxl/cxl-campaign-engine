@@ -24,7 +24,7 @@ Every later command checks `page:`. If there is one, it updates its own tab and 
 ## Where it goes
 
 - **The Claude app, Cowork, or Claude Code with Artifacts:** publish as a private Artifact titled "<Campaign name>". Each update republishes to the same link, so the link never changes.
-- **Anywhere else:** write `projects/campaigns/<slug>/page.html` and give the path. It opens in any browser and can be emailed.
+- **Anywhere else:** write `page.html` in the campaign's folder (nested inside its main campaign for a sub-campaign) and give the path. Links between pages are then relative file links. It opens in any browser and can be emailed.
 
 The campaign board (`/campaigns`) links each campaign to its page.
 
@@ -37,9 +37,12 @@ Short, like everything this engine writes. The page is a view of the files, not 
 | **Brief** | `/campaign-brief` | The At a glance block as a card, then sections 1 to 9 as a compact grid. Evidence and the Gate 1 table folded. Never decision-model results |
 | **Channels** | `/campaign-channels`, `/campaign-draft` | A sub-tab per channel. In each: the tools as pills; the workflow folded ("Workflow: 14 steps"), each step with a pill for who does it and a "Prompt" copy pill beside it; then **every piece of content folded on its own** (each `###` under the draft's `## Pieces`: one email, post, Short, sequence, ad set); then "Plan and notes" folded |
 | **Review** | `/campaign-review` | The At a glance card; the scores table (Claude, and Jev and Clef when they ran); then **one list of recommendations** with a switch to group it by step, by channel or by piece. Each recommendation shows where, the problem, who flagged it, and a "Copy starter prompt" button. Scores by channel, dismissed model flags and the decisions log folded underneath |
-| **Results** | `/campaigns close` | KPI against target, what worked, what did not, the lesson |
+| **Results** | `/campaigns close` | KPI against target, what worked, what did not, the lesson. On a main campaign, its sub-campaigns' KPIs rolled up against its goal tree |
+| **Linked** | Every command, when the campaign has a main campaign, sub-campaigns or links | One card per linked campaign, grouped as Main campaign, Sub-campaigns, Alongside: name with its scale badge, the relation in plain words, stage bar, KPI against target, dates, link to its page. Left out when the campaign stands alone |
 
-**Header:** the campaign name, the KPI line ("70 sales by 10 Nov · 12 so far"), the stage bar (seven stages: brief, approved, channels set, drafted, reviewed, running, closed), and the date updated.
+**Header:** the campaign name with the **scale badge next to it, always** (`small-c` in teal, `big-C` in red), so anyone opening the page knows at once which kind of campaign it is. Then the family line when the campaign is linked (below), the KPI line ("70 sales by 10 Nov · 12 so far"), the stage bar (seven stages: brief, approved, channels set, drafted, reviewed, running, closed), and the date updated.
+
+**Linked campaigns** (`frameworks/linked-campaigns.md`): under the title, one line, "Part of: <main> · Sub-campaigns: <a>, <b> · Alongside: <x> (feeds this)", each name linking to its page. A main campaign's page carries every sub-campaign's card in its Linked tab, so one link reaches the whole family. When a command updates a sub-campaign's page, it also refreshes that card on the main campaign's page and on each alongside campaign's page, without asking.
 
 **Pills** are capped at about 14 characters wide; longer text is cut with an ellipsis and shown in full in the `title` tooltip. One pill per workflow step, for who does it. Notes never go in a pill.
 
