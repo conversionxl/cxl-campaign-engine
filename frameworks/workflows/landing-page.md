@@ -13,7 +13,7 @@ tags: [campaign-engine, workflow, landing-page]
 
 The page every CTA in the campaign points at. Its job is the brief's KPI action.
 
-Built from Michael Aagaard's CXL course, Landing Page Optimization (Eurekos 4460), with the form rules from Jessica Best. No English transcripts of Aagaard's course exist; the rules come from his course slides and, where marked, from the course's subtitle track.
+Built from Michael Aagaard's CXL course, Landing Page Optimization (Eurekos 4460), with the form rules from Jessica Best. No English transcripts of Aagaard's course exist; the rules come from the course slides and, where marked, from the course's subtitle track.
 
 Aagaard's six characteristics of an effective landing page run through every step: a relevant follow-up to the ad; matches the visitor's awareness level; reinforces their motivation; answers their questions; reduces friction; a clear path to conversion.
 
