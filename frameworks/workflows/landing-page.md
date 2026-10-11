@@ -13,7 +13,7 @@ tags: [campaign-engine, workflow, landing-page]
 
 The page every CTA in the campaign points at. Its job is the brief's KPI action.
 
-Built from Michael Aagaard's CXL course, Landing Page Optimization (Eurekos 4460), with the form rules from Jessica Best. No English transcripts of Aagaard's course exist; the rules come from his course slides and, where marked, from the course's subtitle track.
+Built from Michael Aagaard's CXL course, Landing Page Optimization (Eurekos 4460), with the form rules from Jessica Best. No English transcripts of Aagaard's course exist; the rules come from the course slides and, where marked, from the course's subtitle track.
 
 Aagaard's six characteristics of an effective landing page run through every step: a relevant follow-up to the ad; matches the visitor's awareness level; reinforces their motivation; answers their questions; reduces friction; a clear path to conversion.
 
@@ -60,6 +60,7 @@ Aagaard's six characteristics of an effective landing page run through every ste
 
 ## Outputs
 - `projects/campaigns/<slug>/drafts/landing-page.md`: page brief, research notes by friction type, outline, headline and alternates, page copy section by section, proof blocks with sources, form and button, thank-you page, tracking notes, test plan
+- **One section per page.** With more than one page, the draft opens with a table of the pages (number, name, URL or "not built yet", the campaign it belongs to, who builds and signs off, state), then one `## Page N: <name>` section per page. Each section holds everything for that page and nothing for another: its brief, research, edits or copy, thank-you page, tests, review items and flags. A page that belongs to a linked campaign says so in its heading line and moves to that campaign's draft once it is briefed. Where a workflow step's adjustment differs by page, the note names the page.
 
 ## Changes from the version it was based on
 | Step | Change | Why |

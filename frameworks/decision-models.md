@@ -1,6 +1,6 @@
 ---
 type: framework
-source: Eric Siu, "9 Jev Use Cases for Work" (X post 2026-10-02, YouTube 2026-09-29) and his X Article "How to Build Fast AI Evals With Jev, Grok Bots, and Grill Me" (2026-09-27); Cloudflare, "Introducing Clef" (2026-10-01); TypeSafe AI docs; Claire Vo on Lenny Rachitsky's How I AI (2026-09-28). Compiled 2026-10-06. Full research notes with every URL in the Campaign Engine workshop deck sources.
+source: Eric Siu, "9 Jev Use Cases for Work" (X post 2026-10-02, YouTube 2026-09-29) and Siu's X Article "How to Build Fast AI Evals With Jev, Grok Bots, and Grill Me" (2026-09-27); Cloudflare, "Introducing Clef" (2026-10-01); TypeSafe AI docs; Claire Vo on Lenny Rachitsky's How I AI (2026-09-28). Compiled 2026-10-06. Full research notes with every URL in the Campaign Engine workshop deck sources.
 used_by: /quality-gate (optional step), /campaign-review (optional step)
 tags: [campaign-engine, quality-gate, decision-models, jev, clef]
 ---
@@ -59,11 +59,11 @@ Cloudflare's example request, verbatim from the post:
 2. **Weights stay in the sheet.** Weighted score = sum over rows of (weight for this channel × probability). A Noul on a non-negotiable row below its floor (say 0.5) is a HOLD regardless of the total.
 3. **Thresholds by the cost of being wrong.** TypeSafe's guidance, inherited by Clef: high confidence acts, the middle band goes to a human, low does not act. Raise the floor on a question where a false pass is expensive (an invented statistic), lower it where a missed pass only costs a re-read.
 4. **Three routes, not two.** SHIP above the top threshold; REVIEW in the band around it, with the failing questions listed; FIX below the floor, back to the draft.
-5. **Gate before the expensive step, then again after.** Eric Siu's lesson: he was classifying after the costly work (outreach sent, frontier-model analysis run). Move the gate in front of it (which briefs are worth drafting, which drafts are worth a human's review) and keep a second gate before anything ships or sends.
+5. **Gate before the expensive step, then again after.** Eric Siu's lesson: the classifying ran after the costly work (outreach sent, frontier-model analysis run). Move the gate in front of it (which briefs are worth drafting, which drafts are worth a human's review) and keep a second gate before anything ships or sends.
 
 ## Calibrate before you trust it
 
-From Eric Siu's eval checklist (his words: "proposed starting settings, not performance we achieved") and Buena AI's small published test:
+From Eric Siu's eval checklist (Siu's words: "proposed starting settings, not performance we achieved") and Buena AI's small published test:
 
 1. Pick 20 to 30 real past drafts or briefs: clear passes, clear fails, boundary cases. One owner labels the expected route and says why. Freeze the labels before running anything. Keep "missing evidence" separate from "evidence against".
 2. Hold some back, unseen, for after tuning.
@@ -80,7 +80,7 @@ Then **measure the hit rate of what passes.** Half of the transcript chunks that
 - Anything that needs a reason, a rewrite or an open-ended answer. The gate can say a headline fails "outcome-led"; it cannot say what the outcome should be. That is Claude's job in `/campaign-review`, and the human's at Gate 2.
 - Decisions whose options are not known up front: positioning, strategy, which campaign to run.
 - Compound questions, counting, dates, very long noisy inputs.
-- Auto-approving anything with a real cost: a send, a publish, a budget change. Eric Siu's "send door" rule: nothing sends as him without a yes or a locked rule with a daily cap.
+- Auto-approving anything with a real cost: a send, a publish, a budget change. Eric Siu's "send door" rule: nothing sends in Siu's name without a yes or a locked rule with a daily cap.
 
 ## What the people who tested it report
 
