@@ -58,6 +58,7 @@ Strip markdown from the cells. A recommendation's prompt is the Prompt column of
 ## Rules
 
 - No personal data on the page: no lead names or email addresses, ever. Companies and segments only.
+- Social proof follows the `campaign-engine` skill: private outputs are never shown or quoted, only mentioned as unnamed anecdotes.
 - Never put the rep-only flags (missing data, assumptions, verify before sending) in a tab that might reach a prospect. They go in the Review tab, under a heading "For the team only".
 - Example and practice campaigns can have a page; title it "Practice: <name>".
 - The visual style is CXL's web system (Work Sans 900 headings, Lato body, teal, red, beige, black, white). Do not restyle.
