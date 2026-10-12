@@ -18,7 +18,7 @@ Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (
 
 ## 1. Load
 
-The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the non-negotiables.
+The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the must-pass rows.
 
 ## 2. Score each draft
 
@@ -32,7 +32,7 @@ For every row with a weight above 0 for the draft's channel, give a score of 0, 
 - **Consistency:** put the headline, offer and CTA of every draft side by side. Do they agree?
 - The remaining rows as the gate's "Passes when" column says.
 
-Compute the weighted score and the route (SHIP, REVIEW, FIX). A 0 on a non-negotiable row is FIX whatever the total.
+Compute the weighted score and the route (SHIP, REVIEW, FIX). A 0 on a must-pass row is FIX whatever the total.
 
 ## 2b. Second check: decision models (only if `CLAUDE.md` records one)
 

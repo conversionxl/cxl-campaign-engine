@@ -116,7 +116,7 @@ Setup takes one command. The back and forth happens inside each step, and it is 
 | 2 | Channels | `/campaign-channels <slug>` | Which channels, then keep, change or cut each step for your campaign and tools; any other channel, your steps or a suggestion | `projects/campaigns/<slug>/workflows/<channel>.md`, and your default if you say so |
 | 3 | Drafts | `/campaign-draft <slug>` | Your decisions at every human pause | `projects/campaigns/<slug>/drafts/<channel>.md` |
 | 4 | Review, Gate 2 | `/campaign-review <slug>` | Your accept, fix or overrule per flag | `projects/campaigns/<slug>/review.md` |
-| + | Tune the gate | `/quality-gate` | Your channels, your last miss, your sign-off rules | `projects/campaign-engine/quality-gate.md` |
+| + | Tune the gate | `/quality-gate` | Your channels, your last campaign that missed its goal, your sign-off rules | `projects/campaign-engine/quality-gate.md` |
 | + | Track them all | `/campaigns` | Results from connected tools, or the number; the lesson when one closes | `projects/campaigns/campaigns.md` and a board page |
 
 **Before the workshop**, fill the inputs. The checklist is in `projects/campaign-engine/campaign-engine.md`, and `raw/campaigns/README.md` says what goes in.
@@ -142,7 +142,7 @@ flowchart LR
 
 ## The quality gate
 
-`frameworks/quality-gate.md` is a sheet: 16 pass-or-fail checks for the brief, then 16 criteria × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and two non-negotiables (every CTA moves to the goal; nothing invented). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.
+`frameworks/quality-gate.md` is a sheet: 16 pass-or-fail checks for the brief, then 16 criteria × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and two must-pass rows (every CTA moves to the goal; nothing invented). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.
 
 Optionally, the gate can be written as a question set for a decision model (TypeSafe's Jev or Cloudflare's Clef) so it runs on every draft in under a second. `frameworks/decision-models.md` explains what those are, what they are not, and how to calibrate one before trusting it.
 
