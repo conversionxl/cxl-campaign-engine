@@ -30,19 +30,19 @@ The campaign board (`/campaigns`) links each campaign to its page.
 
 ## What goes in each tab
 
-Short, like everything this engine writes. The page is a view of the files, not a copy of them: the files stay the source.
+Short, like everything this engine writes. The page is a view of the files, not a copy of them: the files stay the source. **These five tabs are the whole page.** Anything outside them (a tab, a section, a badge, a header line) is asked about first, and every update is checked against the budgets: the `keep-it-compact` skill.
 
 | Tab | Filled by | Shows |
 |---|---|---|
 | **Brief** | `/campaign-brief` | The At a glance block as a card, then sections 1 to 9 as a compact grid. Evidence and the Gate 1 table folded. Never decision-model results |
-| **Channels** | `/campaign-channels`, `/campaign-draft` | A sub-tab per channel. In each: the tools as pills; the workflow folded ("Workflow: 14 steps"), each step with a pill for who does it and a "Prompt" copy pill beside it; then **every piece of content folded on its own** (each `###` under the draft's `## Pieces`: one email, post, Short, sequence, ad set); then "Plan and notes" folded. **Landing pages:** with more than one page, the sub-tab opens with a table of the pages, then one section per page (numbered badge, name, URL, the campaign it belongs to, builder and sign-off, state), each holding only that page's plan, edits, launch steps and flags. Pieces and notes for different pages never share a fold |
+| **Channels** | `/campaign-channels`, `/campaign-draft` | A sub-tab per channel. In each: the tools as pills; the workflow folded ("Workflow: 14 steps"), each step with a pill for who does it and a "Prompt" copy pill beside it; then **every piece of content folded on its own** (each `###` under the draft's `## Pieces`: one email, post, Short, sequence, ad set); then "Plan and notes" folded. **Landing pages:** one per offer, two at most. With two, the sub-tab opens with a table of the pages, then one section per page (numbered badge, name, URL, the campaign it belongs to, builder and sign-off, state), each holding only that page's plan, edits, launch steps and flags. Pieces and notes for different pages never share a fold |
 | **Review** | `/campaign-review` | The At a glance card; the scores table (Claude, and Jev and Clef when they ran); then **one list of recommendations** with a switch to group it by step, by channel or by piece. Each recommendation shows where, the problem, who flagged it, and a "Copy starter prompt" button. Scores by channel, dismissed model flags and the decisions log folded underneath |
 | **Results** | `/campaigns close` | KPI against target, what worked, what did not, the lesson. On a main campaign, its sub-campaigns' KPIs rolled up against its goal tree |
 | **Linked** | Every command, when the campaign has a main campaign, sub-campaigns or links | One card per linked campaign, grouped as Main campaign, Sub-campaigns, Alongside: name with its scale badge, the relation in plain words, stage bar, KPI against target, dates, link to its page. Left out when the campaign stands alone |
 
-**Header:** the campaign name with the **scale badge next to it, always** (`small-c` in teal, `big-C` in red), so anyone opening the page knows at once which kind of campaign it is. Then the family line when the campaign is linked (below), the KPI line ("70 sales by 10 Nov · 12 so far"), the stage bar (seven stages: brief, approved, channels set, drafted, reviewed, running, closed), and the date updated.
+**Header, three lines under the title and nothing else:** the campaign name with the **scale badge next to it, always** (`small-c` in teal, `big-C` in red); one line with the KPI, the dates and, when linked, "Part of: <main>" ("70 sales by 10 Nov · 12 so far · Part of: CXL leader"); the stage bar (seven stages: brief, approved, channels set, drafted, reviewed, running, closed) with its label. No other badges, counts, notes or to-dos: a to-do goes in one line at the top of its tab.
 
-**Linked campaigns** (`frameworks/linked-campaigns.md`): under the title, one line, "Part of: <main> · Sub-campaigns: <a>, <b> · Alongside: <x> (feeds this)", each name linking to its page. A main campaign's page carries every sub-campaign's card in its Linked tab, so one link reaches the whole family. When a command updates a sub-campaign's page, it also refreshes that card on the main campaign's page and on each alongside campaign's page, without asking.
+**Linked campaigns** (`frameworks/linked-campaigns.md`): the header line carries "Part of: <main>" only. Sub-campaigns and campaigns alongside are in the Linked tab, each name linking to its page. A main campaign's page carries every sub-campaign's card in its Linked tab, so one link reaches the whole family. When a command updates a sub-campaign's page, it also refreshes that card on the main campaign's page and on each alongside campaign's page, without asking.
 
 **Pills** are capped at about 14 characters wide; longer text is cut with an ellipsis and shown in full in the `title` tooltip. One pill per workflow step, for who does it. Notes never go in a pill.
 
@@ -56,6 +56,8 @@ Strip markdown from the cells. A recommendation's prompt is the Prompt column of
 **Reading a workflow file:** only the rows of its `## Steps` table are steps. Never read the "Changes from the version it was based on" table as steps. Print each step's number from its `#` cell (`<span class="n">`), never from a CSS counter or list position: counters do not reset inside hidden tabs, so later channels would start at 6 or 10.
 
 ## Rules
+
+- **Base template and budgets:** follow the `keep-it-compact` skill on every update, and run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/page-check.sh" <page>` before publishing. Fix every FLAG or ask about it.
 
 - No personal data on the page: no lead names or email addresses, ever. Companies and segments only.
 - Social proof follows the `campaign-engine` skill: private outputs are never shown or quoted, only mentioned as unnamed anecdotes.
