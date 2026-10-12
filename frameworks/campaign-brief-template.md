@@ -81,7 +81,7 @@ tags: [campaign]
 
 ## 4. Offer
 - **Offer:** <one line>
-- **Destination:** <page; one per offer, two at most>
+- **Destination:** <page; one per offer, two at most; with more than one, each page gets its own section in the draft and on the campaign page>
 - **CTA:** <the one action>
 
 ## 5. Messaging
