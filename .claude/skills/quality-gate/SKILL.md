@@ -17,7 +17,7 @@ Gate 1 checks a brief: pass or fail, every row, before approval. Gate 2 scores a
 2. **Load the workflow** for the channel: its Outputs and Specs. Missing outputs and spec breaches are the Workflow row.
 3. **Load the brand brain** (or the example brain). Voice, vocabulary, proof points, their words.
 4. **Score every row with a weight above 0** for this channel. Quote the line that earned the score in the note. A score without a quoted line is a guess.
-5. **Arithmetic:** weighted = sum(score × weight) ÷ sum(2 × weight). Route by the thresholds in the file. A 0 on a non-negotiable row (marked \*) is FIX regardless.
+5. **Arithmetic:** weighted = sum(score × weight) ÷ sum(2 × weight). Route by the thresholds in the file. A 0 on a must-pass row is FIX regardless.
 6. **Propose a fix for every 0 and 1**, in the brand's voice, from the brief's proof. Fidelity fails are cut or cited, never softened. Goal fails get the ask attached where the asset is.
 
 ## The rows that need judgment
@@ -31,7 +31,7 @@ Gate 1 checks a brief: pass or fail, every row, before approval. Gate 2 scores a
 
 ## Tuning the gate
 
-The weights are an opinion to be corrected by the user's misses. Add a row when a readout shows a failure the gate had no row for, and cite the readout. Raise to 3 or non-negotiable the row that would have stopped the last miss. Cut or lower a row the user overrules every time. Add a column per channel they run. Record every change in the Changes table with the reason in their words. Three overrules of one row across campaigns is a weight problem, not a draft problem.
+The weights are an opinion to be corrected by the user's campaigns that missed their goal. Add a row when a results report shows a failure the gate had no row for, and cite the report. Raise to 3, or make must pass, the row that would have stopped the last campaign that missed. Cut or lower a row the user overrules every time. Add a column per channel they run. Record every change in the Changes table with the reason in their words. Three overrules of one row across campaigns is a weight problem, not a draft problem.
 
 ## Decision models
 

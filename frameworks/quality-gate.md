@@ -15,7 +15,7 @@ Two gates, two moments. **Gate 1** checks the brief before any copy exists. **Ga
 
 A 2024 campaign for an HR tech SaaS platform set out to book 5 meetings. It drove 17 downloads, 4 of them qualified, and booked none. LinkedIn cost $371 per lead, Google $70. The team's own readout: "we need a more direct approach", and the fix was a product-based funnel with a four-step email sequence that builds value and then asks for the demo. (Tyler Durman, TAP campaign plan, October 2024. The client stays unnamed.)
 
-Every channel converted on the asset and stopped. Nothing moved the buyer to the goal. That is the failure the **Goal** row exists to catch, and why it is a non-negotiable.
+Every channel converted on the asset and stopped. Nothing moved the buyer to the goal. That is the failure the **Goal** row exists to catch, and why it is a must-pass row.
 
 ## Gate 1: the brief
 
@@ -44,14 +44,16 @@ Pass or fail, all of them. `/campaign-brief` will not ask for approval while any
 
 Every draft is scored on every row that has a weight above 0 for its channel. A channel with no column of its own (a webinar, a partner email you added with `/campaign-channels`) is scored with the closest column until you add one with `/quality-gate`. The engine (or you) gives each row a score, the sheet does the arithmetic.
 
-**Score per row:** 0 fails, 1 partly, 2 passes. **Weight per channel:** 0 not checked, 1 matters, 2 matters a lot, 3 decides it. **Weighted score** = sum of (score × weight) ÷ sum of (2 × weight), as a percentage.
+**Two numbers, two jobs.** The numbers in the table below are **weights**: how much a check counts for that channel. 0 not checked, 1 matters, 2 matters a lot, 3 decides it. The engine then gives each draft a **score** on every row: 0 fails, 1 partly, 2 passes.
 
-**Routes:** SHIP at 85% and above. REVIEW from 70% to 84%, with the failing rows listed. FIX below 70%. A score of 0 on a row marked **\*** (non-negotiable) is FIX regardless of the total. These thresholds are yours to move.
+**The percentage** = sum of (score × weight) ÷ sum of (2 × weight). Example: with the default weights an email sequence can score at most 70, so a draft that scores 54 is 77%, and goes to REVIEW.
+
+**Routes:** SHIP at 85% and above. REVIEW from 70% to 84%, with the failing rows listed. FIX below 70%. A score of 0 on a row marked **must pass** is FIX, whatever the percentage. These thresholds are yours to move.
 
 | # | Criterion | Passes when | Email seq | Email camp | Sales enablement | Landing page | Ad tests | Blog post | Social | Source |
 |---|---|---|---|---|---|---|---|---|---|---|
-| G1\* | **Goal** | Every CTA moves the reader to the brief's KPI action, every email in a sequence carries the ask, and the sequence or page ends on it, not on the asset | 3 | 3 | 3 | 3 | 3 | 2 | 2 | Tyler, TAP plan: "a more direct approach"; the 2022 rewrite attached the calendar ask to the asset in the same sentence |
-| G2\* | **Fidelity** | Every statistic, customer, quote and case study traces to the brief's proof column or the brand brain; nothing invented; an unverified claim is flagged, not softened | 3 | 3 | 3 | 3 | 3 | 3 | 3 | Tyler's video: "supporting sources"; workshop page: "make an unverified claim fail loudly"; Eric Siu's draft gate: "invented stats" |
+| G1 | **Goal** (must pass) | Every CTA moves the reader to the brief's KPI action, every email in a sequence carries the ask, and the sequence or page ends on it, not on the asset | 3 | 3 | 3 | 3 | 3 | 2 | 2 | Tyler, TAP plan: "a more direct approach"; the 2022 rewrite attached the calendar ask to the asset in the same sentence |
+| G2 | **Fidelity** (must pass) | Every statistic, customer, quote and case study traces to the brief's proof column or the brand brain; nothing invented; an unverified claim is flagged, not softened | 3 | 3 | 3 | 3 | 3 | 3 | 3 | Tyler's video: "supporting sources"; workshop page: "make an unverified claim fail loudly"; Eric Siu's draft gate: "invented stats" |
 | G3 | **Workflow** | Every output the channel's workflow names exists, within its specs (counts, character limits, formats, timing) | 3 | 2 | 2 | 2 | 3 | 2 | 2 | Tyler's briefs retype LinkedIn 150/70/100 every time; now the workflow holds them |
 | G4 | **Stage** | The copy fits the buyer's quoted thought at the stated stage, and its ask fits that stage's exit: no product-specific messaging to accounts still at awareness or initial engagement | 3 | 2 | 2 | 3 | 2 | 3 | 2 | Tyler's journey map; Cosby, Mapping your Playbooks to the Account Progression Model |
 | G5 | **Voice** | Passes every Always and Never in `voice-guide.md`, no banned word in `vocabulary.md`, in the buyer's words from `icp.md`; no AI tells (em dashes, "it's not X, it's Y") | 2 | 2 | 1 | 2 | 3 | 2 | 3 | The brand brain; Eric Siu's draft gate; the Acme Q2 "unlock" variants |
@@ -84,12 +86,12 @@ A REVIEW or FIX always comes with the failing rows, the line in the draft that f
 
 ## Tuning it: the exercise
 
-The default weights are a reasonable B2B demand gen opinion. Yours should match the campaigns you run. In the workshop, and again whenever a campaign misses:
+The default weights are a reasonable B2B demand gen opinion. Yours should match the campaigns you run. In the workshop, and again whenever a campaign misses its goal:
 
 1. **Which channel is missing?** Add a column for it. Give every row a weight, 0 included.
-2. **Which row did your last miss fail?** If it is not here, add it, with the line from the readout that taught you.
+2. **What did your last campaign that missed its goal fail on?** If no row covers it, add one, with the line from the results report that explains why.
 3. **Which row do you overrule every time?** Lower its weight or cut it. A criterion nobody honours is noise.
-4. **Which row would have stopped the miss?** Raise it to 3, or mark it non-negotiable.
+4. **Which row would have stopped that campaign from missing?** Raise it to 3, or make it must pass.
 5. **Where should the lines sit?** A team that ships daily might set SHIP at 80%. A team with legal review might set REVIEW to start at 60% so more goes past a human.
 6. Record the change and the reason in the Changes section below. `/quality-gate` walks through all six.
 

@@ -56,7 +56,7 @@ Cloudflare's example request, verbatim from the post:
 ## From the gate sheet to questions
 
 1. **Every row of `quality-gate.md` becomes one question.** Pass / fail rows become Nouls. Graded rows become Scores with the levels written out. Keep the row's wording; the question is the criterion.
-2. **Weights stay in the sheet.** Weighted score = sum over rows of (weight for this channel × probability). A Noul on a non-negotiable row below its floor (say 0.5) is a HOLD regardless of the total.
+2. **Weights stay in the sheet.** Weighted score = sum over rows of (weight for this channel × probability). A Noul on a must-pass row below its floor (say 0.5) is a HOLD regardless of the total.
 3. **Thresholds by the cost of being wrong.** TypeSafe's guidance, inherited by Clef: high confidence acts, the middle band goes to a human, low does not act. Raise the floor on a question where a false pass is expensive (an invented statistic), lower it where a missed pass only costs a re-read.
 4. **Three routes, not two.** SHIP above the top threshold; REVIEW in the band around it, with the failing questions listed; FIX below the floor, back to the draft.
 5. **Gate before the expensive step, then again after.** Eric Siu's lesson: the classifying ran after the costly work (outreach sent, frontier-model analysis run). Move the gate in front of it (which briefs are worth drafting, which drafts are worth a human's review) and keep a second gate before anything ships or sends.
