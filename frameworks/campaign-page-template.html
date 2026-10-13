@@ -113,9 +113,8 @@ footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
 <div class="wrap">
   <!-- The scale badge always sits next to the title: class "scale" for small-c, "scale big" for big-C. -->
   <h1>{{CAMPAIGN_NAME}} <span class="{{SCALE_CLASS}}" title="Campaign scale">{{SCALE}}</span></h1>
-  <!-- Family line: only when the campaign has a main campaign, sub-campaigns or links. Each name links to its page. -->
-  {{FAMILY_LINE}}
-  <div class="meta">{{KPI_LINE}} · Updated {{UPDATED}}</div>
+  <!-- One line: KPI and progress, dates, and "Part of: <main>" (linked to its page) only when the campaign has a main campaign. Nothing else goes above the tabs. -->
+  <div class="meta">{{KPI_LINE}}{{PART_OF}} · Updated {{UPDATED}}</div>
   <div class="stages" aria-hidden="true">{{STAGE_SPANS}}</div>
   <div class="stage-label">Stage: {{STAGE}}</div>
   <div class="tabs" role="tablist" data-group="main">

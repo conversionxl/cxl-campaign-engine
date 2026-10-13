@@ -73,11 +73,11 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 3. Copy these paths from campaign-engine/main, skipping any file I already have:
    .claude/commands/campaign-brief.md, .claude/commands/campaign-channels.md, .claude/commands/campaigns.md,
    .claude/commands/campaign-draft.md, .claude/commands/campaign-review.md,
-   .claude/commands/quality-gate.md, .claude/skills/campaign-engine/, .claude/skills/quality-gate/,
+   .claude/commands/quality-gate.md, .claude/skills/campaign-engine/, .claude/skills/quality-gate/, .claude/skills/keep-it-compact/,
    raw/campaigns/, projects/campaigns/, projects/campaign-engine/,
    frameworks/campaign-brief-template.md, frameworks/workflow-format.md, frameworks/workflows/,
    frameworks/quality-gate.md, frameworks/campaign-inputs.md, frameworks/decision-models.md,
-   frameworks/campaigns-board.md
+   frameworks/campaigns-board.md, frameworks/battlecard.md
 4. Copy frameworks/quality-gate.md to projects/campaign-engine/quality-gate.md (my copy to edit) and
    create projects/campaign-engine/workflows/ (empty: my channel defaults are saved there later),
    skipping anything I already have.
@@ -176,7 +176,7 @@ team-updates/        Weekly standup updates built from your logs
   commands/          /start, /brief, /ingest, /shutdown, /lint, /team-update,
                      /campaign-brief, /campaign-channels, /campaign-draft, /campaign-review,
                      /quality-gate, /campaigns
-  skills/            Know-how Claude applies automatically (my-voice, campaign-engine, quality-gate)
+  skills/            Know-how Claude applies automatically (my-voice, campaign-engine, quality-gate, keep-it-compact)
   agents/            Specialists Claude hands whole jobs to (example: researcher)
   hooks/             Scripts that run on session start, compaction, and end
   memory/            Standing facts, indexed by MEMORY.md

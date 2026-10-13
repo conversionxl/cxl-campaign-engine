@@ -64,6 +64,7 @@ The first cohort's main feedback was too much information. Every reply and every
 - **At a glance first:** every brief, review and results file opens with an "At a glance" block of six lines or fewer. Someone who reads only that block knows what is decided.
 - **One line per field.** Detail, reasoning, baselines and sources go to an "Evidence" section at the end, not into the field.
 - **Cut before adding.** If a section is longer than its cap, cut the least useful line; do not shrink the font of the idea.
+- **Base template, budgets and the check:** the `keep-it-compact` skill. Ask before adding a tab, section or file the template does not have; change in place, never append "(changed)" or "new 11 Oct"; run `plugin/page-check.sh` before every publish.
 - No em dashes.
 
 ## Rules that hold everywhere
