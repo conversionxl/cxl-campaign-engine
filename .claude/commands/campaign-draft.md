@@ -1,5 +1,5 @@
 ---
-description: Campaign Engine step 3. Draft every channel of an approved campaign by following this campaign's own workflow for that channel, step by step, pausing at every step a person owns. Writes one draft per channel.
+description: Campaign Engine step 3. Draft every channel of an approved campaign by following this campaign's own workflow for that channel, step by step, pausing at every step a person owns. Writes one draft per channel, then runs the review (Gate 2) on them automatically.
 argument-hint: <campaign slug> [channel ...]
 ---
 
@@ -71,4 +71,10 @@ The content the workflow's Outputs section lists goes into those two parts. Mark
 **Campaign page.** If the brief's `page:` is set (not `none`), update the Drafts tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
 
 
-For each channel: the file path, the decisions taken at each pause, and anything the gate will probably flag (say it now rather than wait). Then the next step: `/campaign-engine:campaign-review <slug>` (in `example` mode, `example`) scores each draft against your quality gate. Ask **"Run it now?"** Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.
+For each channel: the file path and the decisions taken at each pause. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.
+
+## 6. Review the drafts (Gate 2), without asking
+
+Do not stop to ask whether to review. Once every chosen channel is drafted, run the review on the drafts you just wrote: follow `.claude/commands/campaign-review.md` (in the plugin, `${CLAUDE_PLUGIN_ROOT}/.claude/commands/campaign-review.md`) from its step 1, in the same mode and for the same channels. Read the `quality-gate` skill and the user's gate first, as that command says. It writes `review.md` and the one list of recommendations, then waits for the human at Gate 2 as usual.
+
+Close with one line: edited a draft by hand? Run `/campaign-engine:campaign-review <slug>` (in the repo copy, `/campaign-review <slug>`) to score it again.

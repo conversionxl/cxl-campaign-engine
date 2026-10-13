@@ -1,11 +1,11 @@
 ---
-description: Campaign Engine step 4, Gate 2. Score every draft with your weighted quality gate, check every piece with the decision models if you use them, and merge it all into one list of recommendations, each with a starter prompt. Wait for the human to accept or overrule.
+description: Campaign Engine step 4, Gate 2. Score every draft with your weighted quality gate, check every piece with the decision models if you use them, and merge it all into one list of recommendations, each with a starter prompt. Wait for the human to accept or overrule. Runs automatically at the end of /campaign-draft; run it yourself to score again after editing a draft.
 argument-hint: <campaign slug> [channel ...]
 ---
 
 # /campaign-review
 
-Step 4 of the Campaign Engine, and Gate 2. The gate recommends; the human accepts or fixes. Nothing ships on vibes, and nothing ships because the gate said so either.
+Step 4 of the Campaign Engine, and Gate 2. `/campaign-draft` runs it automatically on the drafts it just wrote; run it on its own to score again after you edit a draft by hand, or to review only some channels. The gate recommends; the human accepts or fixes. Nothing ships on vibes, and nothing ships because the gate said so either.
 
 **Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
 

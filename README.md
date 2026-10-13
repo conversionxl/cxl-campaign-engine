@@ -114,8 +114,8 @@ Setup takes one command. The back and forth happens inside each step, and it is 
 |---|---|---|---|---|
 | 1 | Brief, Gate 1 | `/campaign-brief` | Past briefs, results and sales feedback in `raw/campaigns/`; your answers to up to eight questions (budget and competitors included); a brand brain if you have one | `projects/campaigns/<slug>/brief.md`, approved by you |
 | 2 | Channels | `/campaign-channels <slug>` | Which channels, then keep, change or cut each step for your campaign and tools; any other channel, your steps or a suggestion | `projects/campaigns/<slug>/workflows/<channel>.md`, and your default if you say so |
-| 3 | Drafts | `/campaign-draft <slug>` | Your decisions at every human pause | `projects/campaigns/<slug>/drafts/<channel>.md` |
-| 4 | Review, Gate 2 | `/campaign-review <slug>` | Your accept, fix or overrule per flag | `projects/campaigns/<slug>/review.md` |
+| 3 | Drafts, then review | `/campaign-draft <slug>` | Your decisions at every human pause | `projects/campaigns/<slug>/drafts/<channel>.md`, then the review runs on its own |
+| 4 | Review, Gate 2 | Automatic after drafts; `/campaign-review <slug>` to score again after edits | Your accept, fix or overrule per flag | `projects/campaigns/<slug>/review.md` |
 | + | Tune the gate | `/quality-gate` | Your channels, your last campaign that missed its goal, your sign-off rules | `projects/campaign-engine/quality-gate.md` |
 | + | Track them all | `/campaigns` | Results from connected tools, or the number; the lesson when one closes | `projects/campaigns/campaigns.md` and a board page |
 
