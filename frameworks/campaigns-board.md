@@ -15,7 +15,7 @@ tags: [campaign-engine, campaigns, board]
 | `brief` | `/campaign-brief` writes a draft brief | `/campaign-brief <slug>` to finish and approve |
 | `approved` | You approve the brief at Gate 1 | `/campaign-channels <slug>` |
 | `channels set` | `/campaign-channels` writes the campaign's workflows | `/campaign-draft <slug>` |
-| `drafted` | `/campaign-draft` writes the drafts | `/campaign-review <slug>` |
+| `drafted` | `/campaign-draft` writes the drafts and runs the review | Your call at Gate 2; `/campaign-review <slug>` after editing a draft |
 | `reviewed` | `/campaign-review` closes Gate 2 | Load the drafts, start the campaign, then `/campaigns running <slug>` |
 | `running` | You say it is live | `/campaigns refresh` to pull the KPI |
 | `closed` | `/campaigns close <slug>`: the result and the lesson are recorded | The next brief reads `results.md` |

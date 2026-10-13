@@ -25,8 +25,8 @@ Add the Campaign Engine module to the folder this session is in, then get the us
    > | 1 | `/campaign-engine:campaign-brief example` | A practice run on Acme Deals, a made-up company with sample data. You see what a finished brief looks like. Nothing of yours is touched. Or `practice` to make up a campaign of your own on the spot. |
    > | 2 | `/campaign-engine:campaign-brief <your campaign>` | Your first real brief. It asks for what it needs as it goes (past campaigns, results, what customers say): drop files into `raw/campaigns/` or paste them in the chat. You approve it before anything gets written. |
    > | 3 | `/campaign-engine:campaign-channels <campaign>` | Pick the channels (email, landing page, ads, and so on) and adjust each one's steps to how you work. |
-   > | 4 | `/campaign-engine:campaign-draft <campaign>` | Claude drafts every channel, pausing where a step is yours. |
-   > | 5 | `/campaign-engine:campaign-review <campaign>` | Each draft is scored: ship, review or fix. You decide. |
+   > | 4 | `/campaign-engine:campaign-draft <campaign>` | Claude drafts every channel, pausing where a step is yours, then scores each draft: ship, review or fix. You decide. |
+   > | 5 | `/campaign-engine:campaign-review <campaign>` | Only after you edit a draft by hand: scores it again. |
    >
    > Any time: `/campaign-engine:campaigns` shows every campaign on one board.
    >

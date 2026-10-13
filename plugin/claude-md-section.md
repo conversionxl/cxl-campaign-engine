@@ -27,7 +27,7 @@
 | 1. Brief | `/campaign-engine:campaign-brief [example] [name]` | `raw/campaigns/`, the brand brain, connected tools, your answers | `projects/campaigns/<slug>/brief.md`, status `approved` only on your yes (Gate 1) |
 | 2. Channels | `/campaign-engine:campaign-channels <slug>` | The approved brief, the starter workflows (or your defaults), your tools | `projects/campaigns/<slug>/workflows/<channel>.md`, adjusted step by step in the chat; optionally saved as your default |
 | 3. Drafts | `/campaign-engine:campaign-draft <slug>` | The approved brief, your workflow per channel, the brand brain | `projects/campaigns/<slug>/drafts/<channel>.md`, pausing at every human lane |
-| 4. Review | `/campaign-engine:campaign-review <slug>` | The drafts, the brief, your quality gate | `projects/campaigns/<slug>/review.md`: weighted score per draft, SHIP / REVIEW / FIX (Gate 2) |
+| 4. Review | Automatic after drafts; `/campaign-engine:campaign-review <slug>` to rerun | The drafts, the brief, your quality gate | `projects/campaigns/<slug>/review.md`: weighted score per draft, SHIP / REVIEW / FIX (Gate 2) |
 | Tune | `/campaign-engine:quality-gate [example]` | Your campaigns, channels and past misses | `projects/campaign-engine/quality-gate.md`, optionally a Jev or Clef question set |
 | Track | `/campaign-engine:campaigns [refresh\|running\|close]` | Every campaign folder, connected tools for results | `projects/campaigns/campaigns.md` and a board page (Artifact, or an HTML file) |
 

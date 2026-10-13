@@ -74,8 +74,8 @@ Claude has no memory between sessions by default. This repo fixes that with plai
 | `/team-update [this-week\|last-week\|today]` | When you owe someone a status update. | Turns your daily logs into a short standup update in `team-updates/`. |
 | `/campaign-brief [example] [name]` | Campaign Engine step 1. | Writes or adjusts a brief from your history, the brand brain, connected tools and your answers; classifies it; runs Gate 1; stops for your approval. |
 | `/campaign-channels <slug>` | Campaign Engine step 2. | Pick the channels; walk each one's steps in the chat and adjust them to your campaign and tools. Optionally save as your default. |
-| `/campaign-draft <slug>` | Campaign Engine step 3. | Drafts every channel by following your workflow, pausing at every human lane. |
-| `/campaign-review <slug>` | Campaign Engine step 4, Gate 2. | Scores every draft with your weighted gate, routes SHIP / REVIEW / FIX, proposes fixes, waits for you. |
+| `/campaign-draft <slug>` | Campaign Engine step 3. | Drafts every channel by following your workflow, pausing at every human lane, then runs the review automatically. |
+| `/campaign-review <slug>` | Campaign Engine step 4, Gate 2. Runs automatically after `/campaign-draft`; rerun it after editing a draft. | Scores every draft with your weighted gate, routes SHIP / REVIEW / FIX, proposes fixes, waits for you. |
 | `/campaigns [refresh\|running <slug>\|close <slug>]` | Any time. | The board: every campaign, its stage, KPI against target, next step. Pulls results from connected tools; renders a page. |
 | `/quality-gate [example]` | Whenever a campaign misses, and in the workshop. | Tunes the gate to your campaigns: criteria, channels, weights, thresholds. Optionally writes it as a decision-model question set. |
 
@@ -99,7 +99,7 @@ Claude has no memory between sessions by default. This repo fixes that with plai
 | 1. Brief | `/campaign-brief [example] [name]` | `raw/campaigns/`, the brand brain, connected tools, your answers | `projects/campaigns/<slug>/brief.md`, status `approved` only on your yes (Gate 1) |
 | 2. Channels | `/campaign-channels <slug>` | The approved brief, the starter workflows (or your defaults), your tools | `projects/campaigns/<slug>/workflows/<channel>.md`, adjusted step by step in the chat; optionally saved as your default |
 | 3. Drafts | `/campaign-draft <slug>` | The approved brief, your workflow per channel, the brand brain | `projects/campaigns/<slug>/drafts/<channel>.md`, pausing at every human lane |
-| 4. Review | `/campaign-review <slug>` | The drafts, the brief, your quality gate | `projects/campaigns/<slug>/review.md`: weighted score per draft, SHIP / REVIEW / FIX (Gate 2) |
+| 4. Review | Automatic after drafts; `/campaign-review <slug>` to rerun | The drafts, the brief, your quality gate | `projects/campaigns/<slug>/review.md`: weighted score per draft, SHIP / REVIEW / FIX (Gate 2) |
 | Tune | `/quality-gate [example]` | Your campaigns, channels and past misses | `projects/campaign-engine/quality-gate.md`, optionally a Jev or Clef question set |
 | Track | `/campaigns [refresh\|running\|close]` | Every campaign folder, connected tools for results | `projects/campaigns/campaigns.md` and a board page (Artifact, or an HTML file) |
 

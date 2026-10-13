@@ -35,7 +35,7 @@ Fill the inputs. Each takes a few minutes and the engine is only as good as they
 - [ ] **Connections.** Which of these can Claude reach in your setup: CRM (HubSpot, Salesforce, Pipedrive), email (Customer.io, Klaviyo, Mailchimp), ads (LinkedIn, Google, Meta), analytics (GA4), docs (Drive, Notion, ClickUp), Slack. Connect what you can in Customize, then Connectors. None is required.
 - [ ] **Brand brain.** If you did the Marketing Brain workshop, `wiki/brand/` should have `status: draft` or `final` on all four files. If not, the brief collects the minimum itself.
 - [ ] **The campaign you will run.** Pick one real small-c campaign for the session: one goal, one offer, two or three channels. Bring the number it has to hit.
-- [ ] **A dry run.** `/campaign-brief example`, then `/campaign-channels example-agency-upgrade`, `/campaign-draft example-agency-upgrade`, `/campaign-review example-agency-upgrade`, and `/campaigns` to see the board. Fifteen minutes, and you will know the shape of every file.
+- [ ] **A dry run.** `/campaign-brief example`, then `/campaign-channels example-agency-upgrade`, `/campaign-draft example-agency-upgrade` (it runs the review on its own), and `/campaigns` to see the board. Fifteen minutes, and you will know the shape of every file.
 
 **Agencies:** bring your own agency's campaign or the Acme example, not a client's. `raw/campaigns/` stays on your machine, but your screen does not.
 
@@ -48,7 +48,7 @@ Fill the inputs. Each takes a few minutes and the engine is only as good as they
 | 0:25 | Write or adjust your brief with `/campaign-brief`, approve it | Yes |
 | 0:40 | Pick your channels and adjust their steps with `/campaign-channels` | Yes |
 | 0:55 | Tune the gate with `/quality-gate`: your criteria, your channels, your weights | Yes |
-| 1:05 | `/campaign-draft`, then `/campaign-review`: read the scorecard, fix one draft; `/campaigns` to see it on the board | Yes |
+| 1:05 | `/campaign-draft`, which runs the review on its own: read the scorecard, fix one draft; `/campaigns` to see it on the board | Yes |
 | 1:25 | Share-outs, Demo Day assignment | |
 
 ## Current status
