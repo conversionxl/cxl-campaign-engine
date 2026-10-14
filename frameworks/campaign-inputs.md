@@ -81,7 +81,7 @@ The personal-os plugin writes a daily log per working session (`daily-logs/YYYY-
 Rules:
 - **Logs are context, not proof.** A number in a log is a lead to the source it came from, never a metric for the brief or the board, unless the log names a snapshot or report that can be opened. Say so when a number only exists in a log.
 - **Cite the file**, for example `(daily-logs/2026-10-07-convo.md)`.
-- **No logs in this folder:** the finder says so. If `.claude/personal-os.json` is missing, ask once whether a personal OS lives in another folder, and record the answer in the Campaign Engine section of `CLAUDE.md` as `**Daily logs:** <path>`, or `**Daily logs:** none` to stop asking. Read that folder in place.
+- **No logs in this folder:** the finder says so. If the folder is not a personal OS (no `.claude/personal-os.json` and no `.claude/hooks/auto-shutdown.sh`), ask once whether a personal OS lives in another folder, and record the answer in the Campaign Engine section of `CLAUDE.md` as `**Daily logs:** <path>`, or `**Daily logs:** none` to stop asking. Read that folder in place.
 - Logs can hold names and details of people. Nothing personal is copied from a log into a brief, a draft or the board.
 
 ## 3. Voice of customer for this campaign

@@ -72,6 +72,7 @@ Claude has no memory between sessions by default. This repo fixes that with plai
 | `/shutdown` | End of the working day. | Reconciles what got done, routes new commitments into project files, writes a rich daily log, offers to push to GitHub. |
 | `/lint` | Weekly. A reminder appears at session start when it is overdue. | Health check: contradictions, stale claims, orphan notes, missing concepts, neglected projects, unsourced claims, folder-map drift, loose and temp files, and a folder cleanup plan. Reports first, fixes on confirmation. |
 | `/team-update [this-week\|last-week\|today]` | When you owe someone a status update. | Turns your daily logs into a short standup update in `team-updates/`. |
+| `/update` | When CXL announces an update, or any month. | Downloads the latest CXL template, shows which hooks, commands, skills and frameworks changed, and applies them on your yes. Merges `CLAUDE.md` and settings by hand with you. Never touches your projects, logs, memory or brand brain. Works for a template repo, a fork or a ZIP. |
 | `/campaign-brief [example] [name]` | Campaign Engine step 1. | Writes or adjusts a brief from your history, the brand brain, connected tools and your answers; classifies it; runs Gate 1; stops for your approval. |
 | `/campaign-channels <slug>` | Campaign Engine step 2. | Pick the channels; walk each one's steps in the chat and adjust them to your campaign and tools. Optionally save as your default. |
 | `/campaign-draft <slug>` | Campaign Engine step 3. | Drafts every channel by following your workflow, pausing at every human lane, then runs the review automatically. |
@@ -152,7 +153,7 @@ Configured in `.claude/settings.json`, scripts in `.claude/hooks/`. They need `j
 
 ## GitHub is optional
 
-Without GitHub (a ZIP download, or a folder you never push), everything in this repo still works on one machine. What you give up: version history (no undoing a bad edit to a brief or a workflow), sync across machines, template updates from CXL, and the more complex setups later in the cohort that build on git, such as shared team repos and pull-request reviews. You can add GitHub later: `git init`, create a private repo, and push.
+Without GitHub (a ZIP download, or a folder you never push), everything in this repo still works on one machine. What you give up: version history (no undoing a bad edit to a brief or a workflow), sync across machines, and the more complex setups later in the cohort that build on git, such as shared team repos and pull-request reviews. You can add GitHub later: `git init`, create a private repo, and push.
 
 ## Memory
 
