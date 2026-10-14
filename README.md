@@ -6,20 +6,45 @@ The [CXL Personal OS](https://github.com/conversionxl/cxl-personal-os) with the 
 
 It stacks with the [Marketing Brain](https://github.com/conversionxl/cxl-marketing-brain): if you built a brand brain in `wiki/brand/`, the engine reads it. If not, the brief collects the minimum itself. Neither module needs the other.
 
-**Three ways in:**
-- **Using Claude?** Install the module as a plugin: see [Plugin route](#plugin-route) below. No code editor, no terminal. It works on its own, and best alongside the personal-os and marketing-brain plugins.
-- **Starting fresh, or want a clean copy?** Follow [Set up](#set-up-10-minutes) below.
-- **Already set up the personal OS repo and want to keep your logs and projects?** Skip to [Add the module to your existing repo](#add-the-module-to-your-existing-repo).
+## Plugin or repository: pick one
+
+This repository is two different things, and you use **one of them per folder**:
+
+| | The **campaign-engine** plugin (recommended) | The starter repo |
+|---|---|---|
+| What it is | The Campaign Engine commands and skills, installed into Claude | The personal OS with the Campaign Engine built in, as a folder of files |
+| How you get it | Install it from **Customize** in Claude (below). **Don't download or clone this repository** | **Use this template** to make your own private copy (see [Set up](#set-up-10-minutes)) |
+| Your work lives in | A folder of your own, where you run `/campaign-engine:setup` | Your copy of the repo |
+| Needs | Claude (desktop app, Cowork, VS Code or terminal) | Claude Code in VS Code or a terminal |
+
+**Installing the plugin is not the same as downloading this repository.** A downloaded or cloned copy of this repository is the starter repo, not the plugin: Claude doesn't load it as a plugin, and `/campaign-engine:...` commands don't appear. Opening that copy *and* installing the plugin gives you every command twice.
+
+Already set up the personal OS repo and want to keep your logs and projects? Skip to [Add the module to your existing repo](#add-the-module-to-your-existing-repo).
 
 ## Plugin route
 
 Works in any folder. For daily logs, memory and the personal OS commands, also set up the **personal-os** plugin with `/personal-os:setup` (see [its README](https://github.com/conversionxl/cxl-personal-os-plugins)). For a brand brain, the **marketing-brain** plugin (`/marketing-brain:setup`). Both are recommended, not required.
 
-1. In Claude, open **Customize**, then **Browse plugins**, **Personal**, **+**, **Add marketplace from GitHub**. Enter `https://github.com/conversionxl/cxl-campaign-engine` with **Sync automatically** on, then add **campaign-engine**. This is its own marketplace, separate from the ones you added for personal-os and marketing-brain.
-   (Terminal or VS Code instead: `/plugin marketplace add conversionxl/cxl-campaign-engine`, then `/plugin install campaign-engine@cxl-campaign-engine`.)
+1. In Claude (claude.ai or the desktop app), open **Customize**, then **Browse plugins**, **Personal**, **+**, **Add marketplace from GitHub**. Enter `https://github.com/conversionxl/cxl-campaign-engine` with **Sync automatically** on, then add **campaign-engine**. This is its own marketplace, separate from the ones you added for personal-os.
 2. Open your personal OS folder (or any folder for this project) in Cowork, or in the desktop app's Code tab with Environment: Local, and type `/campaign-engine:setup`.
 
+The plugin is saved to your claude.ai account and Claude syncs it to chat, Cowork, the desktop app, VS Code and the terminal. You install it once, and you never download this repository for it.
+
+**Only if you can't use Customize:** in the Claude chat in VS Code or a terminal (start `claude` first), type `/plugin marketplace add conversionxl/cxl-campaign-engine`, then `/plugin install campaign-engine@cxl-campaign-engine`. This makes a second, local copy on this computer only. Never use it as well as the Customize route.
+
 Setup adds `raw/campaigns/`, `projects/campaigns/` with an empty campaigns board, your own copy of the default quality gate in `projects/campaign-engine/`, the seven starter channel workflows, the frameworks, the project file, and a Campaign Engine section in your `CLAUDE.md`. It never overwrites a file, and it adds the `.gitignore` rule that keeps your campaign data local before anything lands in `raw/campaigns/`. The commands are then `/campaign-engine:campaign-brief`, `campaign-channels`, `campaign-draft`, `campaign-review`, `quality-gate` and `campaigns`, and the skills load by themselves.
+
+### Troubleshooting: a local copy and a synced copy
+
+| Copy | How it got there | Listed in `/plugin` as |
+|---|---|---|
+| **Synced** (the one to keep) | Added in **Customize** on claude.ai or the desktop app | `campaign-engine@synced` |
+| **Local** | Typed `/plugin marketplace add` and `/plugin install` in a terminal or VS Code | `campaign-engine@cxl-campaign-engine` |
+
+- **Every `/campaign-engine:` command listed twice?** You have both. Keep the synced copy. Ask Claude: *"Remove the local copy of the campaign-engine plugin and its cxl-campaign-engine marketplace. Keep the synced one."* Then fully quit and reopen Claude. (By hand: `/plugin uninstall campaign-engine@cxl-campaign-engine`, then `/plugin marketplace remove cxl-campaign-engine`.)
+- **Commands listed both as `/campaign-brief` and `/campaign-engine:campaign-brief`?** You opened a copy of this repository and installed the plugin too. Pick one: either work in your own folder with the plugin, or in your copy of the starter repo without it.
+- **Not showing up after you added it?** After **Sync**, the plugin isn't added until you click **Add** in the menu that opens. This step is easy to miss. In VS Code or the terminal, the sync can take a few minutes: fully quit and reopen. Don't fix it by adding the local copy: that's how you end up with two.
+
 
 ## Set up (10 minutes)
 
