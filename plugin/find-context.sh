@@ -78,6 +78,6 @@ if [ "$n" -gt 0 ]; then
   echo "\`$logs\`: $n logs, ${oldest%%-convo.md} to ${newest%%-convo.md}."
 else
   echo "None in \`$logs\`."
-  [ -f .claude/personal-os.json ] || echo "No personal OS in this folder. If one lives elsewhere, the commands ask once where."
+  { [ -f .claude/personal-os.json ] || [ -f .claude/hooks/auto-shutdown.sh ]; } || echo "No personal OS in this folder. If one lives elsewhere, the commands ask once where."
 fi
 exit 0
