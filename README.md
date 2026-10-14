@@ -13,7 +13,7 @@ This repository is two different things, and you use **one of them per folder**:
 | | The **campaign-engine** plugin (recommended) | The starter repo |
 |---|---|---|
 | What it is | The Campaign Engine commands and skills, installed into Claude | The personal OS with the Campaign Engine built in, as a folder of files |
-| How you get it | Install it from **Customize** in Claude (below). **Don't download or clone this repository** | **Use this template** to make your own private copy (see [Set up](#set-up-10-minutes)) |
+| How you get it | Install it from **Settings → Plugins** in Claude (below). **Don't download or clone this repository** | **Use this template** to make your own private copy (see [Set up](#set-up-10-minutes)) |
 | Your work lives in | A folder of your own, where you run `/campaign-engine:setup` | Your copy of the repo |
 | Needs | Claude (desktop app, Cowork, VS Code or terminal) | Claude Code in VS Code or a terminal |
 
@@ -25,12 +25,12 @@ Already set up the personal OS repo and want to keep your logs and projects? Ski
 
 Works in any folder. For daily logs, memory and the personal OS commands, also set up the **personal-os** plugin with `/personal-os:setup` (see [its README](https://github.com/conversionxl/cxl-personal-os-plugins)). For a brand brain, the **marketing-brain** plugin (`/marketing-brain:setup`). Both are recommended, not required.
 
-1. In Claude (claude.ai or the desktop app), open **Customize**, then **Browse plugins**, **Personal**, **+**, **Add marketplace from GitHub**. Enter `https://github.com/conversionxl/cxl-campaign-engine` with **Sync automatically** on, then add **campaign-engine**. This is its own marketplace, separate from the ones you added for personal-os.
+1. In Claude (claude.ai or the desktop app), open **Settings → Plugins**, click **Add → Add marketplace**, and choose the GitHub repo option. Enter `conversionxl/cxl-campaign-engine`, then add **Campaign engine**. It then shows under **From marketplaces you added**. This is its own marketplace, separate from the ones you added for personal-os.
 2. Open your personal OS folder (or any folder for this project) in Cowork, or in the desktop app's Code tab with Environment: Local, and type `/campaign-engine:setup`.
 
 The plugin is saved to your claude.ai account and Claude syncs it to chat, Cowork, the desktop app, VS Code and the terminal. You install it once, and you never download this repository for it.
 
-**Only if you can't use Customize:** in the Claude chat in VS Code or a terminal (start `claude` first), type `/plugin marketplace add conversionxl/cxl-campaign-engine`, then `/plugin install campaign-engine@cxl-campaign-engine`. This makes a second, local copy on this computer only. Never use it as well as the Customize route.
+**Only if you can't use Settings → Plugins:** in the Claude chat in VS Code or a terminal (start `claude` first), type `/plugin marketplace add conversionxl/cxl-campaign-engine`, then `/plugin install campaign-engine@cxl-campaign-engine`. This makes a second, local copy on this computer only. Never use it as well as the Settings → Plugins route.
 
 Setup adds `raw/campaigns/`, `projects/campaigns/` with an empty campaigns board, your own copy of the default quality gate in `projects/campaign-engine/`, the seven starter channel workflows, the frameworks, the project file, and a Campaign Engine section in your `CLAUDE.md`. It never overwrites a file, and it adds the `.gitignore` rule that keeps your campaign data local before anything lands in `raw/campaigns/`. The commands are then `/campaign-engine:campaign-brief`, `campaign-channels`, `campaign-draft`, `campaign-review`, `quality-gate` and `campaigns`, and the skills load by themselves.
 
@@ -38,12 +38,12 @@ Setup adds `raw/campaigns/`, `projects/campaigns/` with an empty campaigns board
 
 | Copy | How it got there | Listed in `/plugin` as |
 |---|---|---|
-| **Synced** (the one to keep) | Added in **Customize** on claude.ai or the desktop app | `campaign-engine@synced` |
+| **Synced** (the one to keep) | Added in **Settings → Plugins** on claude.ai or the desktop app | `campaign-engine@synced` |
 | **Local** | Typed `/plugin marketplace add` and `/plugin install` in a terminal or VS Code | `campaign-engine@cxl-campaign-engine` |
 
 - **Every `/campaign-engine:` command listed twice?** You have both. Keep the synced copy. Ask Claude: *"Remove the local copy of the campaign-engine plugin and its cxl-campaign-engine marketplace. Keep the synced one."* Then fully quit and reopen Claude. (By hand: `/plugin uninstall campaign-engine@cxl-campaign-engine`, then `/plugin marketplace remove cxl-campaign-engine`.)
 - **Commands listed both as `/campaign-brief` and `/campaign-engine:campaign-brief`?** You opened a copy of this repository and installed the plugin too. Pick one: either work in your own folder with the plugin, or in your copy of the starter repo without it.
-- **Not showing up after you added it?** After **Sync**, the plugin isn't added until you click **Add** in the menu that opens. This step is easy to miss. In VS Code or the terminal, the sync can take a few minutes: fully quit and reopen. Don't fix it by adding the local copy: that's how you end up with two.
+- **Not showing up after you added it?** After you add the marketplace, the plugin isn't installed until you click **Add** next to it. This step is easy to miss. In VS Code or the terminal, the sync can take a few minutes: fully quit and reopen. Don't fix it by adding the local copy: that's how you end up with two.
 
 
 ## Set up (10 minutes)
@@ -114,7 +114,7 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 ## Updating
 
-New versions don't install themselves on a personal marketplace. To update: **Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
+New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
 ## Linked campaigns
 
