@@ -39,7 +39,9 @@ Compute the weighted score and the route (SHIP, REVIEW, FIX). A 0 on a must-pass
 If `**Decision model:**` is `jev`, `clef` or `both`, check **every piece**, not whole files: each `### ` heading under `## Pieces` in a draft is one piece (older drafts without a Pieces section: one piece per `### ` heading that holds customer-facing copy). Also check the brief's Gate 1 rows.
 
 - **Questions:** `frameworks/quality-gate-questions.json`, one proposition each, asked only for rows with a weight above 0 on the piece's channel. Never send the long "passes when" text: compound questions are less accurate.
-- **State:** a short header (the brief's goal, CTA, buyer's thought, and the approved proof as a list), then the piece.
+- **State:** a header, then the piece. The header carries the brief's goal, CTA, who it is for, buyer's thought, objections and approved proof (as a list), the lines that won and lost in testing, and blocks the value prop rows read: **ICP top priorities** and **ICP** (from `wiki/brand/icp.md`), **Brand voice** (the Always and Never rules from `wiki/brand/voice-guide.md`), **Known terms** (from `wiki/brand/vocabulary.md`) and **Positioning and messaging** (owned key message, pillars, differentiators, alternatives and rules from `wiki/brand/positioning-messaging.md`). Keep each block to its points; the models only see what is in the header.
+- **Ads are one piece:** the image text (pill, headline, supporting line, offer line, CTA) and its ad text together, as the platform shows them. Ads use V1A, not V1.
+- **Report the value prop rows on their own** beside the total (the VP rows' weighted score, and the want score from VP7: 1 + 2 x the sum of its four answers), so they are not averaged away.
 - **Run:** `bash "${CLAUDE_PLUGIN_ROOT}/plugin/decision-model.sh" <jev|clef> <questions.json> <state-file>` per piece and per model. Run the `code_checks` in code (em dashes, banned words, long paragraphs, subject length), not through the model.
 - **Save** every answer to `projects/campaigns/<slug>/gate-output.json`: per piece, per row, per model. This file and the review are the only places the results live; the brief never shows them.
 

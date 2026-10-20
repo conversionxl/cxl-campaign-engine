@@ -1,17 +1,197 @@
 {
-  "about": "Decision-model questions for one piece of content (one email, post, Short, page section, sequence, ad set or blog post). One proposition per question, as TypeSafe and Cloudflare advise. Rows are the quality gate's Gate 2 rows; a row is asked only on channels where its weight is above 0. Rows not listed here (Workflow, Consistency, Audience, Sales handoff, Measurement, Distribution) need the workflow, the other pieces or the tools, so Claude's sheet judges them. Counting is done in code (code_checks), never by the model. The state sent with each question is the campaign header (goal, CTA, buyer's thought, approved proof) followed by the piece.",
-  "header_fields": ["Campaign goal", "Call to action", "Buyer's thought", "Approved proof"],
+  "about": "Decision-model questions for one piece of content (one email, post, Short, page section, sequence, ad set or blog post). One proposition per question, as TypeSafe and Cloudflare advise. Rows are the quality gate's Gate 2 rows; a row is asked only on channels where its weight is above 0. Rows not listed here (Workflow, Consistency, Audience, Sales handoff, Measurement, Distribution) need the workflow, the other pieces or the tools, so Claude's sheet judges them. Counting is done in code (code_checks), never by the model. The state sent with each question is the campaign header (goal, CTA, buyer's thought, approved proof) followed by the piece. Value prop rows added 20 Oct 2026 (V1 to V17, V1A, VP1 to VP10 with VP7 asked as four thresholds, B1 to B3): see quality-gate.md. The B rows and VP6, V12 and V13 read blocks in the header (ICP top priorities, ICP, Brand voice, Known terms, Positioning and messaging, Objections) that /campaign-review fills from the brief and wiki/brand/. An ad is one piece: the image and its ad text together.",
+  "header_fields": [
+    "Campaign goal",
+    "Call to action",
+    "Buyer's thought",
+    "Approved proof",
+    "Who it is for",
+    "ICP top priorities",
+    "ICP",
+    "Brand voice",
+    "Known terms",
+    "Positioning and messaging",
+    "Objections",
+    "Lines that won in testing",
+    "Lines that lost in testing"
+  ],
   "questions": {
-    "G1": { "type": "noul", "instructions": "The piece asks the reader to take the call to action named in the campaign header, not only to read, watch or download something." },
-    "G2": { "type": "noul", "instructions": "Every number, customer name and quote in the piece also appears in the approved proof in the campaign header." },
-    "G4": { "type": "noul", "instructions": "The piece speaks to the buyer's thought quoted in the campaign header." },
-    "G5": { "type": "noul", "instructions": "The piece reads like one person talking plainly to another, not like a brand announcement." },
-    "G8": { "type": "noul", "instructions": "The piece makes one main point and asks for one action." },
-    "G9": { "type": "noul", "instructions": "The offer, its price or its date appears in the first two lines of the piece." },
-    "G10": { "type": "noul", "instructions": "The piece includes at least one quote or result from a customer or member, not only claims made by the brand." },
-    "G11": { "type": "noul", "instructions": "A competitor could not publish this piece unchanged, because it names something specific to this offer." },
-    "G12": { "type": "noul", "instructions": "The piece gives a real reason to act now, such as a date, a deadline or a price change." },
-    "G15": { "type": "noul", "instructions": "The piece can be skimmed in a few seconds: short paragraphs, and the key line stands out." }
+    "G1": {
+      "type": "noul",
+      "instructions": "The piece asks the reader to take the call to action named in the campaign header, not only to read, watch or download something."
+    },
+    "G2": {
+      "type": "noul",
+      "instructions": "Every number, customer name and quote in the piece also appears in the approved proof in the campaign header."
+    },
+    "G4": {
+      "type": "noul",
+      "instructions": "The piece speaks to the buyer's thought quoted in the campaign header."
+    },
+    "G5": {
+      "type": "noul",
+      "instructions": "The piece reads like one person talking plainly to another, not like a brand announcement."
+    },
+    "G8": {
+      "type": "noul",
+      "instructions": "The piece makes one main point and asks for one action."
+    },
+    "G9": {
+      "type": "noul",
+      "instructions": "The offer, its price or its date appears in the first two lines of the piece."
+    },
+    "G10": {
+      "type": "noul",
+      "instructions": "The piece includes at least one quote or result from a customer or member, not only claims made by the brand."
+    },
+    "G11": {
+      "type": "noul",
+      "instructions": "A competitor could not publish this piece unchanged, because it names something specific to this offer."
+    },
+    "G12": {
+      "type": "noul",
+      "instructions": "The piece gives a real reason to act now, such as a date, a deadline or a price change."
+    },
+    "G15": {
+      "type": "noul",
+      "instructions": "The piece can be skimmed in a few seconds: short paragraphs, and the key line stands out."
+    },
+    "V1": {
+      "type": "noul",
+      "instructions": "The first two lines of the piece make clear what is being offered and what the reader will get or learn."
+    },
+    "V1A": {
+      "type": "noul",
+      "instructions": "Read the creative as a whole (the pill, headline, supporting line and offer or event line on the image): together they make clear what is offered and what the reader will get or learn."
+    },
+    "V2": {
+      "type": "noul",
+      "instructions": "The piece makes clear who it is for, either by naming the reader or by naming work only they do and own."
+    },
+    "V3": {
+      "type": "noul",
+      "instructions": "After one read, a reader could repeat the main benefit of the piece to a colleague in one plain sentence."
+    },
+    "V4": {
+      "type": "noul",
+      "instructions": "Each benefit claim in the piece is tied to a concrete example, a number, a named person or a named tool, rather than a general promise such as saving time or working smarter."
+    },
+    "V5": {
+      "type": "noul",
+      "instructions": "No claim about cost, speed or outcome in the piece would strike a skeptical reader as unrealistic, evasive or cheap-sounding."
+    },
+    "V6": {
+      "type": "noul",
+      "instructions": "The piece makes clear why this is better than what the reader does today, and not only what it covers."
+    },
+    "V7": {
+      "type": "noul",
+      "instructions": "The headline of the piece can be read and understood in about five seconds and carries one promise that not every competitor could make; qualifiers such as free, the dates or the length sit in the line under it."
+    },
+    "V8": {
+      "type": "noul",
+      "instructions": "The piece runs in order: the reader's problem, then what they get, then the next step, without doubling back or jumping between them."
+    },
+    "V9": {
+      "type": "noul",
+      "instructions": "The sessions, products or examples in the piece read as parts of one offer with a single thread, rather than as unrelated topics."
+    },
+    "V10": {
+      "type": "noul",
+      "instructions": "The piece keeps the exact words, names and examples listed under 'Lines that won in testing' in the campaign header, rather than a simplified or more general version of them."
+    },
+    "V11": {
+      "type": "noul",
+      "instructions": "The piece promises something specific the reader learns to do, sets up or gets, rather than a recap of what the company has learned or thinks."
+    },
+    "V12": {
+      "type": "noul",
+      "instructions": "The piece uses words the buyer would use about their own work, explains any product or tool name on first use except the terms under 'Known terms' in the campaign header, and leaves no internal label unexplained."
+    },
+    "V13": {
+      "type": "noul",
+      "instructions": "The piece answers at least one objection listed under 'Objections' in the campaign header, in a way a skeptical reader would accept."
+    },
+    "V14": {
+      "type": "noul",
+      "instructions": "The headline and first line of the piece lead with what the reader does or gets; the product, tool or AI appears as the means, not as the subject or the promise."
+    },
+    "V15": {
+      "type": "noul",
+      "instructions": "Every example in the piece names the person or company, rather than anonymising them as 'a B2B agency' or 'a founder'."
+    },
+    "V16": {
+      "type": "noul",
+      "instructions": "Nothing in the piece is said twice: each example, fact and promise appears once."
+    },
+    "V17": {
+      "type": "noul",
+      "instructions": "The piece says when the reader would use what it offers, not only what it does."
+    },
+    "VP1": {
+      "type": "noul",
+      "instructions": "The headline promises an outcome the buyer already names as a goal of their job, such as one listed under 'ICP top priorities' in the campaign header, and not a fix for a problem they may not know they have."
+    },
+    "VP2": {
+      "type": "noul",
+      "instructions": "If every mention of the product, tool or method were removed from the headline, what is left would still name something the reader gains, and not only a problem avoided."
+    },
+    "VP3": {
+      "type": "noul",
+      "instructions": "The piece is about a job the reader already does and owns, not a new check, safeguard or task they would have to take on."
+    },
+    "VP4": {
+      "type": "noul",
+      "instructions": "The piece shows the new way as faster, cheaper or better than how the reader gets the same outcome today, with one example."
+    },
+    "VP5": {
+      "type": "noul",
+      "instructions": "The piece states the outcome before any problem, and does not assume the reader already knows about the problem it solves."
+    },
+    "VP6": {
+      "type": "noul",
+      "instructions": "The value proposition in the piece serves at least one of the priorities listed under 'ICP top priorities' in the campaign header, as the reader would see it, not only as the company would argue it."
+    },
+    "VP7_3": {
+      "type": "noul",
+      "instructions": "A reader who matches 'Who it is for' in the campaign header, asked how badly they want what this piece offers on a scale of 1 to 10, would answer 3 or higher."
+    },
+    "VP7_5": {
+      "type": "noul",
+      "instructions": "A reader who matches 'Who it is for' in the campaign header, asked how badly they want what this piece offers on a scale of 1 to 10, would answer 5 or higher."
+    },
+    "VP7_7": {
+      "type": "noul",
+      "instructions": "A reader who matches 'Who it is for' in the campaign header, asked how badly they want what this piece offers on a scale of 1 to 10, would answer 7 or higher."
+    },
+    "VP7_9": {
+      "type": "noul",
+      "instructions": "A reader who matches 'Who it is for' in the campaign header, asked how badly they want what this piece offers on a scale of 1 to 10, would answer 9 or higher."
+    },
+    "VP8": {
+      "type": "noul",
+      "instructions": "The headline names a piece of work the reader already owns and is judged on, in the words they use for it, not an artifact the offer invents (a list, a framework, a check, a report format)."
+    },
+    "VP9": {
+      "type": "noul",
+      "instructions": "The piece names the specific way the reader does this today, in a concrete detail they would recognize from their own week, and makes clear the new way beats it."
+    },
+    "VP10": {
+      "type": "noul",
+      "instructions": "The piece names the reader's own data or tools the work runs on, so they can picture it running on their own setup."
+    },
+    "B1": {
+      "type": "noul",
+      "instructions": "The piece is written for the reader described under 'ICP' in the campaign header: it speaks to one of their pains or wants in words they would use, and would not read as written for someone else."
+    },
+    "B2": {
+      "type": "noul",
+      "instructions": "The piece follows 'Brand voice' in the campaign header: it reads like a practitioner who built it, or studied closely how others built it, lets numbers carry the weight, follows the Always rules and breaks none of the Never rules listed there."
+    },
+    "B3": {
+      "type": "noul",
+      "instructions": "The piece carries at least one message from 'Positioning and messaging' in the campaign header (the owned key message, a pillar or a differentiator), in substance if not in words, follows its rules, and contradicts none of it."
+    }
   },
   "code_checks": {
     "em_dash": "Fails if the piece contains an em dash (U+2014).",
@@ -19,5 +199,17 @@
     "long_paragraph": "Fails if any paragraph has more than three sentences.",
     "subject_length": "Email pieces only: fails if a subject line is over 45 characters."
   },
-  "thresholds": { "fail_below": 0.5, "borderline_below": 0.65 }
+  "thresholds": {
+    "fail_below": 0.5,
+    "borderline_below": 0.65
+  },
+  "must_pass": [
+    "G1",
+    "G2",
+    "V1",
+    "V1A",
+    "VP1",
+    "VP3",
+    "VP8"
+  ]
 }
