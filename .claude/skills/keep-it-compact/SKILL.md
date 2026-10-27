@@ -9,7 +9,7 @@ Every campaign file and page gets longer as you iterate unless something stops i
 
 ## 1. The base template is fixed
 
-**Campaign page:** five tabs, in this order, and no others: **Brief, Channels, Review, Results**, plus **Linked** only when the campaign has a main campaign, sub-campaigns or links. Template: `frameworks/campaign-page-template.html`.
+**Campaign page:** these tabs, in this order, and no others: **Brief, Touchpoints, Content, Workflow, Results**, plus **Linked** only when the campaign has a main campaign, sub-campaigns or links. A page built before 0.12.0 (Brief, Channels, Review, Results) is rebuilt on these tabs at its next update. Template: `frameworks/campaign-page-template.html`.
 
 **Header, at most three lines under the title:**
 1. The campaign name with its scale badge.
@@ -24,7 +24,7 @@ No other badges, counts, notes or to-dos above the tabs. A to-do goes at the top
 
 A new tab, section, header line, badge, file, or a block that is not in the template: **ask first**, in one line, and wait.
 
-> "That would add a <Social proof tab> to the page, outside the base template. 1 Add it · 2 Put it in <Channels, as one fold> · 3 Skip"
+> "That would add a <Social proof tab> to the page, outside the base template. 1 Add it · 2 Put it in <Content, as one fold> · 3 Skip"
 
 Record a yes in the brief's frontmatter as `page_extras: [social-proof]`, so it is not asked again. Never add an extra because it seemed useful.
 
@@ -36,9 +36,10 @@ Visible words, not counting starter prompts and tooltips. Over budget: cut the l
 |---|---|
 | Page header (title to tabs) | 40 words |
 | Brief tab | 800 words |
-| A channel sub-tab | 3,500 words, of which notes and plans 200 |
+| Touchpoints tab | 400 words |
+| A channel sub-tab (Content or Workflow) | 3,500 words, of which notes and plans 200 |
 | One piece (an email, a post, a page edit) | the copy, plus 2 lines of notes at most |
-| Review tab | 900 words; 10 recommendations open, the rest folded |
+| Review summary (top of Content) | 300 words: the top three fixes and the scores table; the full list folded below the channels |
 | Results tab | 400 words |
 | Linked tab | 300 words |
 | `brief.md` | 900 words before `## Sources` (`## Evidence` in briefs before 0.10.0) |

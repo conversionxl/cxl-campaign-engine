@@ -24,6 +24,8 @@ The brief (KPI action, CTA, key message and supporting messages with their proof
 
 **Assumed calls (fast mode).** If the brief says `run: fast`, collect every `decisions` entry marked (assumed) from the drafts. They go first in the one list of recommendations, under the step they came from, as "I chose <the call> at step <n>. Keep it, or change it?", each with a starter prompt to change it. The user accepts or changes them at Gate 2 with the rest.
 
+**Pieces built elsewhere.** A draft whose frontmatter lists `external:` links (see "Built elsewhere" in `frameworks/campaign-page.md`): open each link if you can (a public page with the web fetch tool, an image or file in this folder with the file reader) and score what it shows as that piece. If you cannot open it, add one recommendation: "Could not open <link>: paste the copy here or add the file to the campaign folder."
+
 ## 2. Score each draft
 
 For every row with a weight above 0 for the draft's channel, give a score of 0, 1 or 2 and a note that quotes the line in the draft that earned it. Rules for the rows that need judgment:
@@ -70,6 +72,8 @@ Every recommendation is one row with:
 
 Order the list by step, then channel, then piece. Group it on the page three ways (by step, by channel, by piece) from the same list.
 
+**Top three fixes.** Then pick the three recommendations that would change the campaign most, in this order: a must-pass fail; a root problem that repeats across pieces or channels (one fix, many pieces: say how many it touches); then the highest-weighted fail. One line each, with its prompt. These lead the review file, the chat and the page, so the person approving sees the root problems before the full list.
+
 ## 4. Write the review
 
 `projects/campaigns/<slug>/review.md`:
@@ -87,9 +91,12 @@ status: open          # open until every draft is SHIP or the human has overrule
 ## At a glance
 <!-- Three lines: how many drafts SHIP / REVIEW / FIX, the one biggest problem, what you decide next. -->
 
+## Top three fixes
+<!-- Three numbered lines: where, the problem, how many pieces it touches. The prompts are in the Recommendations table. -->
+
 ## Summary
-| Channel | Claude | Jev | Clef | Route | Recommendations |
-<!-- Jev and Clef columns only when they ran. -->
+| Channel | Claude (self-review) | Jev | Clef | Route | Recommendations |
+<!-- Jev and Clef columns only when they ran. Under the table, always this line: "Claude scored drafts it wrote: read its score as a signal, not a check. The decision models and you are the check." -->
 
 ## Recommendations
 | # | Step | Channel | Piece | Problem | Flagged by | Prompt |
@@ -107,13 +114,13 @@ status: open          # open until every draft is SHIP or the human has overrule
 
 ## 5. Gate 2: the human decides
 
-In the chat, show only the summary table (channel, score, route) and the At a glance lines; link the review file for the rest. Then walk the recommendations one at a time, Fix before Check, three short lines each: where, what failed, and **"Your call: 1 Use the fix · 2 Write my own · 3 Leave it as is"**. Offer to run the starter prompt for a Use the fix. Ship-ready drafts are not walked. Say "the other N are fine" and move on. Apply accepted fixes to a new version of the draft (`<channel>-v2.md`), never to the original. Record every decision in the Decisions table with the reason. "Leave it as is" overrules the gate and needs a reason in a few words.
+In the chat, show the At a glance lines and the top three fixes first, then the summary table (channel, Claude's self-review score, the models' scores when they ran, route); link the review file for the rest. Ask: **"1 Walk the top three · 2 Walk all <N> · 3 I'll read the page first"**. In fast mode, the calls Claude made at the user's steps are walked before anything else. Then walk the recommendations one at a time, Fix before Check, three short lines each: where, what failed, and **"Your call: 1 Use the fix · 2 Write my own · 3 Leave it as is"**. Offer to run the starter prompt for a Use the fix. Ship-ready drafts are not walked. Say "the other N are fine" and move on. Apply accepted fixes to a new version of the draft (`<channel>-v2.md`), never to the original. Record every decision in the Decisions table with the reason. "Leave it as is" overrules the gate and needs a reason in a few words.
 
 When every draft is SHIP, or every remaining flag is overruled, set `status: closed`, update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section) with stage `reviewed` and the Gate 2 summary, and say what the human does next: load the drafts into the tools, run the test submission, start the campaign. Loading is theirs; this command never writes to a connected tool. Then the next step: once it is live, `/campaign-engine:campaigns running <slug>` marks it running on the board. Ask whether it is live yet, and on a yes run it.
 
 ## 6. Learn from it
 
-**Campaign page.** If the brief's `page:` is set (not `none`), update the Review tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link. Rep-only flags go under "For the team only".
+**Campaign page.** If the brief's `page:` is set (not `none`), update the Content tab and the header: the review summary at the top, each piece's route and review items inside its fold, and the full list folded at the bottom as `frameworks/campaign-page.md` says, without asking, and end your reply with the link. Rep-only flags go under "For the team only".
 
 
 - Three overrules of the same row across campaigns means the weight is wrong, not the drafts: suggest `/quality-gate` and name the row.
