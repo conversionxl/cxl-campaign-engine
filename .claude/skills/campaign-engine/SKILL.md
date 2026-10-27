@@ -56,6 +56,8 @@ The first cohort's main feedback was too much information. Every reply and every
 - **One round of questions per step.** Everything a step needs from the user goes in one message: up to three questions, numbered, in plain words, each with numbered choices or a suggested answer where possible, so one reply settles them all ("1: yes · 2: HubSpot · 3: ok"). Then do the step. Never ask again what an answer already settled.
 - **Ask only for what is missing.** If a file, the brand brain, a daily log or a connected tool already answers it, use it and say so in a few words.
 - **Never paste a file back.** Say what is in it in one line and link it.
+- **Say where it went.** End every step with the files it wrote or changed, as links in one line ("Wrote: brief.md, campaign page"). Every file goes inside the folder the user opened, at its mapped name; never write to the plugin's folder, the home folder or anywhere else.
+- **Say where you are.** During a run, start each message with the place in it: "Brief · 1 of 4", and inside a channel "Email sequence · step 5 of 14 · channel 2 of 3".
 - **Tables for anything with more than three items**; short rows, no paragraphs inside cells.
 - **Plain words.** No internal terms the user has not seen (layers, slots, frontmatter). Say "your version of the email workflow", not "the campaign-layer workflow file".
 - Round numbers in the chat (about 38,500, not 38,551). Exact figures live in the file.
@@ -74,16 +76,21 @@ The aim is a complete first draft fast, then better drafts with real data. Membe
 - **Ask only what blocks the draft.** Before asking, check whether a reasonable assumption would do. If it would, make it, tag it **(inferred)** in the file, and list the assumptions in one line at the end of the step ("I assumed: 2 sends a week, HubSpot, no paid budget. Change any?"). The (inferred) rule still holds: metrics, customers, quotes and proof are never assumed; missing means blank.
 - **What always blocks:** the goal and its number, who it is for, the offer, and anything a person must approve before it is sent, published or paid for. Everything else can wait for Gate 1 or Gate 2.
 - **Steps that need the built or live asset are launch tasks, not pauses.** A workflow step marked "at launch" (in its Who cell), or any step whose rule needs a live page, a loaded email, a running ad, a lead arriving or a sales call, is not done and not waited for while drafting. It goes to the draft's `### Launch tasks` with its owner, its rule and its check, and drafting moves on.
-- **Two run modes,** chosen once per campaign at the start of `/campaign-brief` and recorded as `run:` in the brief's frontmatter:
+- **Three run modes,** chosen once per campaign at the start of `/campaign-brief` and recorded as `run:` in the brief's frontmatter:
 
   | Mode | Steps a person owns | Best for |
   |---|---|---|
   | **Fast** | Claude makes the call it would recommend, records it in the draft's `decisions` marked (assumed), and keeps going. Every assumed call is listed first in the review, for the user to accept or change at Gate 2 | A practice run, a demo, a first draft to react to. Default for `example` and `practice` |
-  | **Full** | Claude stops at each one and decides with the user, one round of questions per step | A campaign you will launch, when you want to shape every step. Default for your own campaigns |
+  | **Balanced** | Claude stops only where a mistake costs money or a relationship: a step that sets spend or bids, changes the offer or the ask, chooses who gets contacted (a list, an audience, an exclusion), or approves something before it is sent, published or paid for. Every other step a person owns is made and recorded as in fast mode | A campaign you will launch, with a small team. Default for your own campaigns |
+  | **Full** | Claude stops at each one and decides with the user, one round of questions per step | When you want to shape every step |
 
-  Both modes stop at Gate 1 and Gate 2: approving the brief and accepting the review are always the human's. Neither mode sends, publishes or spends anything. Switch by changing `run:` in the brief, or by saying "go fast" or "go full" at any point.
+  Both modes stop at Gate 1 and Gate 2: approving the brief and accepting the review are always the human's. Neither mode sends, publishes or spends anything. Switch by changing `run:` in the brief, or by saying "go fast", "go balanced" or "go full" at any point.
+- **The team decides who a person is.** `/campaign-brief` asks once who works on the campaign and records `team: solo | small | split` in the brief. **Solo:** every named role (Sales lead, Rep, Designer) is the user; steps that only pass work between people (agree the deal with sales, start with a few sellers, line up with sales touches) are merged into one note or cut in `/campaign-channels`, with the reason in the workflow's changes table. **Small:** named roles stay, but one person may hold several. **Split:** marketing and a separate sales team, as the starters are written.
+- **Guard the scope.** A small-c campaign has two or three channels and the pieces its campaign structure lists. When a step or the user adds a channel or a piece beyond that, say so in one line before adding it: "That makes 5 channels for a small-c campaign. 1 Add it · 2 Keep it for a follow-up campaign".
 
 ## Rules that hold everywhere
+
+- **When the plugin updates mid-session.** If a file under the plugin's folder is missing at the path you have, the plugin was updated during the session and its folder moved. Find the current one with `find ~/.claude/plugins -maxdepth 6 -name plugin.json -path '*campaign-engine*'` (newest first), use that folder for the rest of the session, and say in one line that a new session picks up the update properly. Never stop a run for it.
 
 - **The brief holds decisions, drafts hold copy.** Copy found in a brief is moved to a draft or cut. Specs (limits, counts, formats) live in the workflow, not the brief.
 - **The campaign's workflow is the one that runs.** Draft by following `projects/campaigns/<slug>/workflows/<channel>.md` step by step. At every step a person owns, stop and wait in full mode, or make and record the call in fast mode (see "Draft first"); launch tasks never stop drafting. Write tool steps as instructions for the person. No workflow file for a channel: do not improvise one or fall back silently; point to `/campaign-channels <slug>`. Layers, most specific first: this campaign, the user's default, the starter (`frameworks/workflow-format.md`).

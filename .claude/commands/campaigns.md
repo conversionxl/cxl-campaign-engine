@@ -1,6 +1,6 @@
 ---
 description: The Campaign Engine board. See every campaign, its stage, KPI against target, channels and next step; refresh results from connected tools; mark a campaign running or closed; render the board as a page.
-argument-hint: [refresh | running <slug> | close <slug> | page]
+argument-hint: [resume [slug] | refresh | running <slug> | close <slug> | page]
 ---
 
 # /campaigns
@@ -16,6 +16,14 @@ The board for every campaign in this repo. Read `frameworks/campaigns-board.md` 
 3. **Read the daily logs since the board's `last_updated`** (find them with `bash "${CLAUDE_PLUGIN_ROOT}/plugin/find-context.sh" "$PWD"` (in the repo copy: `bash plugin/find-context.sh "$PWD"`)). Where a log says a campaign launched, a send went out, a result came in or a campaign stopped, propose the board update with the log file as its source, and apply it only on a yes. A number found only in a log goes in as a lead ("log says 14 demos; confirm in the CRM"), not as the Actual.
 4. Show the active campaigns as a table, families together (a main campaign, then its sub-campaigns with `↳`), each with its scale, then the closed ones, then the examples. For each active campaign, the next command to run.
 5. Render the page (below).
+
+## `resume [slug]`
+
+Picks up a campaign where the last session stopped, for when a long run was split across sessions. No slug: the campaign changed most recently.
+
+1. Read the campaign's folder: the brief's `status`, `run:` and `team:`, the workflows, each draft's `stopped_at:` and `decisions`, the review's `status`, and the last daily log that mentions it.
+2. Say in three lines where it stands: the stage, the last thing done, and the next step ("Email sequence drafted to step 7 of 14; landing page not started").
+3. Ask once: **"Carry on from there? 1 Yes · 2 Something else"**, and on a yes run that command from that point (`/campaign-draft` continues from `stopped_at:`).
 
 ## `refresh`
 

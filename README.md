@@ -114,7 +114,14 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 ## Updating
 
-New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
+New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
+
+**New in 0.14.0**, for smaller teams and longer runs:
+- **A balanced mode**, now the default for your own campaigns: Claude stops only where a mistake costs money or a relationship (the budget, the offer, who gets contacted, anything before it goes out) and makes the other calls for you to check at the review.
+- **Your team size counts:** on your own, the named roles in the workflows become you and the handoffs between people are merged.
+- **`/campaign-engine:campaigns resume`** picks up a campaign where the last session stopped, and each step says where you are and which files it wrote.
+- **`/campaign-engine:campaign-channels default <channel>`** changes your default workflow without starting a campaign. Defaults are yours: plugin updates never change them.
+- Setup offers to bring over work from folders you cloned or downloaded separately.
 
 **New in 0.13.0**, rows for the misses the reviews caught by hand:
 - **Checks across the campaign:** the budgets add up, the offer in the ads and emails matches the landing page, and every CTA lands on the destination.

@@ -1,6 +1,6 @@
 ---
 description: Campaign Engine step 2. Pick the channels this campaign needs, then walk each channel's workflow step by step in the chat and adjust it to your campaign and your tools. Writes this campaign's own version of each workflow, and offers to save it as your default.
-argument-hint: <campaign slug> [channel ...]
+argument-hint: <campaign slug> [channel ...] | default <channel>
 ---
 
 # /campaign-channels
@@ -16,6 +16,7 @@ Read `frameworks/workflow-format.md` first (with the plugin and no local copy, `
 - **`<slug>`:** `projects/campaigns/<slug>/brief.md` must exist with `status: approved`. If it is a draft, say so and point to `/campaign-brief <slug>`. No slug: read `projects/campaigns/campaigns.md`, list the approved campaigns, and ask which one.
 - **`example-agency-upgrade`** (or `example`): the Acme campaign. Pick the channels from its brief, walk one channel (the email sequence) in full as a demonstration with the example answers, and copy the rest unchanged. Never save an example workflow as a default.
 - **Channels named as arguments:** skip step 1 and go straight to those.
+- **`default <channel>`:** change your default for a channel without a campaign. Start from your default if there is one, else the starter; walk it as in step 2; write it to `projects/campaign-engine/workflows/<channel>.md` with `layer: default` (show the diff first if one exists). Every campaign after this starts from it. Plugin skills cannot be edited this way, because updates replace them: put a rule you want kept in your default workflow, or in the Campaign Engine section of `CLAUDE.md`.
 
 ## 1. Pick the channels
 
@@ -31,7 +32,9 @@ Update the brief's `channels` field to match the final list, and say so.
 
 ## 2. Walk each channel, step by step
 
-For each channel, in the order the campaign will use them. **Fast mode** (`run: fast` in the brief): ask the tools for every channel in one message, then show every channel's list together and ask once, "Anything to change or skip? Name the channel and step numbers, or 'looks good'". Steps marked "at launch" are labelled so in the list. **Full mode:** one channel at a time, as below. Start from the most specific layer that exists: the campaign's own copy if this is a re-run, else the user's default, else the starter. Say which one in one line.
+For each channel, in the order the campaign will use them. **Fast and balanced modes** (`run: fast` or `balanced` in the brief): ask the tools for every channel in one message, then show every channel's list together and ask once, "Anything to change or skip? Name the channel and step numbers, or 'looks good'". Steps marked "at launch" are labelled so in the list. **Full mode:** one channel at a time, as below. Start from the most specific layer that exists: the campaign's own copy if this is a re-run, else the user's default, else the starter. Say which one in one line.
+
+**The team.** If the brief says `team: solo`, every named role in the workflow becomes "You", and steps that only pass work between people are merged into one line or cut. Show those changes in the list and record each in the changes table with the reason "solo team".
 
 **First, the tools.** One question per channel, with choices where you can guess them: "Which tool sends these emails? 1 Customer.io · 2 HubSpot · 3 Mailchimp · 4 Other". Note which this session can reach. A tool can change a step (no threading in the email tool, no form builder in the CMS); say so in the list below.
 
@@ -73,7 +76,7 @@ For each channel, write `projects/campaigns/<slug>/workflows/<channel>.md` in th
 
 ## 4. Save as your default?
 
-For each channel that changed, ask once: **"Save this as your default <channel>, so your next campaign starts from it?"** On a yes, write it to `projects/campaign-engine/workflows/<channel>.md` with `layer: default`, keeping the changes table. If a default already exists, show the diff and ask before replacing it. Never in `example` mode.
+For each channel that changed, ask once: **"Save this as your default <channel>, so your next campaign starts from it?"** On a yes, write it to `projects/campaign-engine/workflows/<channel>.md` with `layer: default`, keeping the changes table, and say: "It's yours: plugin updates never change it."  If a default already exists, show the diff and ask before replacing it. Never in `example` mode.
 
 ## 5. Update the board and hand over
 
