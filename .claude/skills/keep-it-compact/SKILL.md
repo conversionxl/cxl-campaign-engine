@@ -41,7 +41,7 @@ Visible words, not counting starter prompts and tooltips. Over budget: cut the l
 | Review tab | 900 words; 10 recommendations open, the rest folded |
 | Results tab | 400 words |
 | Linked tab | 300 words |
-| `brief.md` | 900 words before `## Evidence` |
+| `brief.md` | 900 words before `## Sources` (`## Evidence` in briefs before 0.10.0) |
 | `review.md` | 800 words |
 | Landing pages | one per offer, two at most |
 

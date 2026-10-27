@@ -13,7 +13,7 @@ Gate 1 checks a brief: pass or fail, every row, before approval. Gate 2 scores a
 
 ## Scoring a draft
 
-1. **Load the brief first.** The KPI action, the CTA, the angles and their proof status, the buyer's thought, the exclusions, the handoff rule. Without the brief there is nothing to score against; say so and stop.
+1. **Load the brief first.** The KPI action, the CTA, the key message and supporting messages with their proof status, the buyer's thought, the exclusions, the handoff rule. Without the brief there is nothing to score against; say so and stop.
 2. **Load the workflow** for the channel: its Outputs and Specs. Missing outputs and spec breaches are the Workflow row.
 3. **Load the brand brain** (or the example brain). Voice, vocabulary, proof points, their words.
 4. **Score every row with a weight above 0** for this channel. Quote the line that earned the score in the note. A score without a quoted line is a guess.

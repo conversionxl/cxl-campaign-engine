@@ -20,7 +20,7 @@ The board for every campaign in this repo. Read `frameworks/campaigns-board.md` 
 ## `refresh`
 
 For every campaign at `running`:
-1. Read the brief's KPI, the tracking in section 8, and the tools it names.
+1. Read the brief's KPI, the leading metrics and kill and scale rules in section 1 (Measurement in briefs before 0.10.0), the tracking in each channel's workflow, and the tools they name.
 2. Say which of those tools this session can reach. For each, propose the read-only pull that answers the KPI over the campaign's dates (demos booked from the CRM by campaign source; replies and clicks from the email tool; leads and cost from the ad account). Wait for a yes.
 3. Save each pull to `raw/campaigns/live/<slug>-<tool>-<date>.md` with the tool, the query, the date range and today's date at the top. Aggregates only, no personal data.
 4. Write the number into the board's **Actual** with the snapshot path. A tool that is not connected: ask the user for the number, or leave it blank.

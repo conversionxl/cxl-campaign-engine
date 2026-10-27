@@ -61,7 +61,7 @@ Every command finds the brand sources first by running `bash "${CLAUDE_PLUGIN_RO
 | All four files present in the chosen source with `status: draft` or `final` | Reads them. Audience, messaging and voice sections of the brief start from the brain; the gate checks drafts against it |
 | Files present but `status: template` | Says which are empty, points to the Marketing Brain exercise that fills each (`/marketing-brain:icp-dossier`, `positioning-messaging`, `brand-voice`), and offers to continue |
 | No brain in this folder or in a plugin, but the user has one in another folder (another repo, their personal OS) | Asks once where it is, and records it as the brand source. Recommends running the engine in that folder, so there is one brain and nothing to keep in step. If the user wants to stay here, copies the four `.md` files into `wiki/brand/` as a snapshot, with a line at the top of `wiki/brand/README.md` naming the source folder and date, and says to copy again after the brain changes. Never asks the questions the brain answers |
-| No brain anywhere | Says so once, then collects the minimum in the brief itself: who it is for and who it is not for, the three to five angles with proof, the voice rules to follow. Every such line is tagged (inferred) until a brain or a source confirms it |
+| No brain anywhere | Says so once, then collects the minimum in the brief itself: who it is for and who it is not for, the key message and three to five supporting messages with proof, the voice rules to follow. Every such line is tagged (inferred) until a brain or a source confirms it |
 | `example` mode | Reads `raw/campaigns/example/brand-brain/` (Acme Deals) instead |
 
 **Tagged lines are unconfirmed.** Lines tagged (inferred), (vague), hypothesis or proxy in the brain steer direction but never become a claim, a number or a proof point in a draft. An ICP with `stage: hypothesis` means the whole audience is a guess: say so in the brief. The ICP's "Who buys now" (or, in older brains, "The rich avatar") is the audience; "Who you want next" is used only when the brief targets that shift, and tagged.
@@ -89,7 +89,7 @@ Rules:
 A brief states the buyer's thought at the buying stage, quoted. That line comes from a customer, not from the marketer. Before the brief is written, ask for:
 
 - The three to five things customers in the target segment say about the problem this campaign addresses, verbatim. Sources: `raw/voc/`, `wiki/brand/icp.md` (Their words), support tickets, call recordings, review pages, reply emails.
-- Any message test, survey or interview that touched this offer or angle (`raw/voc/research/`).
+- Any message test, survey or interview that touched this offer or message (`raw/voc/research/`).
 - Lost reasons and objections from the CRM for this segment.
 
 Quotes stay verbatim: grammar, slang, typos. Each carries its source. The gate's "Stage" and "Fidelity" rows read them.

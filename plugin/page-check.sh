@@ -18,9 +18,9 @@ budget() { # name words max
 case "$f" in
   *.md)
     name=$(basename "$f")
-    words=$(sed '/^## Evidence/,$d' "$f" | wc -w | tr -d ' ')
+    words=$(sed -E '/^## (Sources|Evidence)/,$d' "$f" | wc -w | tr -d ' ')
     case "$name" in
-      brief.md)   budget "$name before Evidence" "$words" 900 ;;
+      brief.md)   budget "$name before Sources" "$words" 900 ;;
       review.md)  budget "$name" "$words" 800 ;;
       results.md) budget "$name" "$words" 400 ;;
       *)          ok "$name: $words words (no budget for this file)" ;;

@@ -116,6 +116,11 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+**New in 0.10.0**, from the review of 28 cohort demos and members' feedback on the brief:
+- **A new brief layout** in seven sections: goal and metrics, audience, offer and proof, messages, campaign structure, sales handoff, constraints. It asks why now and why you over each alternative, proposes key messages for you to choose from, works back from the goal to weekly volume, and sets kill and scale rules on early signals. Briefs you already wrote keep their layout until you ask to move them.
+- **Gate 1 checks the gaps the reviews found** (22 checks, up from 16), and Gate 2 adds three rows: one specific CTA, offer claims proven, named alternatives answered. Your own copy of the gate keeps your weights: `/campaign-review` offers to add the new rows.
+- **Landing pages come out as a laid-out HTML mock-up**, linked from the campaign page, not only as copy in sections. A landing page workflow you saved as your default keeps your steps; copy step 14 from the starter to get the mock-up.
+
 ## Linked campaigns
 
 Campaigns can belong together. A **sub-campaign** sits inside its main campaign's folder: the November sprint inside a bigger push to make CXL the leader in AI training for marketers. Campaigns that run **alongside** each other keep their own folders and link both ways: the webinar series feeds the sprint. `/campaign-brief` asks about both, reads every linked brief, and every campaign page shows the family, with the scale badge (small-c or big-C) next to each name. Rules and folder layout: `frameworks/linked-campaigns.md`.
@@ -126,7 +131,7 @@ Setup takes one command. The back and forth happens inside each step, and it is 
 
 | Step | Bring this (drop it in `raw/campaigns/` or paste it in the chat) | Claude asks | Who else is involved |
 |---|---|---|---|
-| Brief | The goal and its date, last campaign's readout, proof you are allowed to use, the budget, the competitors buyers mention | Up to eight questions, three per message, numbered so you can answer "1: 70 sales by 10 Nov, 3: existing customers". Skipped when your brand brain, daily logs, files or a connected tool already answer them | Sales agrees the lead definition and the handoff in writing before you approve |
+| Brief | The goal and its date, last campaign's readout, proof you are allowed to use, the budget, the competitors buyers mention | Up to nine questions, three per message, numbered so you can answer "1: 70 sales by 10 Nov, 3: existing customers". Skipped when your brand brain, daily logs, files or a connected tool already answer them | Sales agrees the lead definition and the handoff in writing before you approve |
 | Channels | The tools you send with (email tool, CMS, ad accounts) | One question per channel for the tool, then "anything to change or skip?" on a short list of steps | Nobody yet |
 | Drafts | Your call at every step marked "You" | It stops at each one and waits | The sales lead approves the enablement assets; a designer or Claude Design makes the ad creative |
 | Review | Accept, fix or overrule each flag | One list of recommendations, each with a prompt to fix it | Whoever signs off the claims |
@@ -137,7 +142,7 @@ Setup takes one command. The back and forth happens inside each step, and it is 
 
 | | Step | Run | You bring | It writes |
 |---|---|---|---|---|
-| 1 | Brief, Gate 1 | `/campaign-brief` | Past briefs, results and sales feedback in `raw/campaigns/`; your answers to up to eight questions (budget and competitors included); a brand brain if you have one | `projects/campaigns/<slug>/brief.md`, approved by you |
+| 1 | Brief, Gate 1 | `/campaign-brief` | Past briefs, results and sales feedback in `raw/campaigns/`; your answers to up to nine questions (budget, competitors and why now included); a brand brain if you have one | `projects/campaigns/<slug>/brief.md`, approved by you |
 | 2 | Channels | `/campaign-channels <slug>` | Which channels, then keep, change or cut each step for your campaign and tools; any other channel, your steps or a suggestion | `projects/campaigns/<slug>/workflows/<channel>.md`, and your default if you say so |
 | 3 | Drafts, then review | `/campaign-draft <slug>` | Your decisions at every human pause | `projects/campaigns/<slug>/drafts/<channel>.md`, then the review runs on its own |
 | 4 | Review, Gate 2 | Automatic after drafts; `/campaign-review <slug>` to score again after edits | Your accept, fix or overrule per flag | `projects/campaigns/<slug>/review.md` |
@@ -155,7 +160,7 @@ Setup takes one command. The back and forth happens inside each step, and it is 
 
 ## Where you decide
 
-Claude drafts; it never ships. You decide at Gate 1 (the brief), at every step marked "You" in a channel's workflow (26 of the 101 starter steps), and at Gate 2 (the review). Rules from CXL instructors sit in every step and in the quality gate, so a draft that breaks one is flagged. The full map, with a diagram: `frameworks/human-checks.md`.
+Claude drafts; it never ships. You decide at Gate 1 (the brief), at every step marked "You" in a channel's workflow (26 of the 102 starter steps), and at Gate 2 (the review). Rules from CXL instructors sit in every step and in the quality gate, so a draft that breaks one is flagged. The full map, with a diagram: `frameworks/human-checks.md`.
 
 ```mermaid
 flowchart LR
@@ -167,7 +172,7 @@ flowchart LR
 
 ## The quality gate
 
-`frameworks/quality-gate.md` is a sheet: 16 pass-or-fail checks for the brief, then 16 criteria × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and two must-pass rows (every CTA moves to the goal; nothing invented). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.
+`frameworks/quality-gate.md` is a sheet: 22 pass-or-fail checks for the brief, then 50 criteria × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and must-pass rows (every CTA moves to the goal; nothing invented; every claim about the offer proven). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.
 
 Optionally, the gate can be written as a question set for a decision model (TypeSafe's Jev or Cloudflare's Clef) so it runs on every draft in under a second. `frameworks/decision-models.md` explains what those are, what they are not, and how to calibrate one before trusting it.
 

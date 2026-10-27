@@ -16,7 +16,7 @@ One-off or short-run sends to a list you already have (customers, subscribers, a
 Built from Jessica Best's CXL course, Email Marketing Fundamentals (all 14 lessons).
 
 ## Pulls in
-- The brief: 1 Goal, 3 Audience (include and exclude), 4 Offer, 5 Messaging, 8 Measurement, 9 Constraints
+- The brief: 1 Goal and metrics, 2 Audience (include and exclude), 3 Offer and proof, 4 Messages, 5 Campaign structure, 7 Constraints
 - The brand brain: `voice-guide.md`, `vocabulary.md`, `positioning-messaging.md` (proof points), `icp.md` (their words)
 - The email platform, if connected: list sizes, last send date, bounce, unsubscribe and complaint rates, past subject line performance
 - `raw/campaigns/`: past campaign results and the marketing calendar
@@ -47,13 +47,13 @@ Built from Jessica Best's CXL course, Email Marketing Fundamentals (all 14 lesso
 | Emails | 1 to 3 (announcement, reminder, last call) | Campaign Engine default |
 | Subject line | Under 45 characters; offer or first name in the first 25; 2 options per email | Best, Copywriting |
 | Preheader | Extends the subject; never repeats it | Best, Copywriting |
-| Body | Under 200 words; paragraphs of 2 to 3 sentences; one angle | Best, Copywriting |
+| Body | Under 200 words; paragraphs of 2 to 3 sentences; one message | Best, Copywriting |
 | Button | One primary action; at least 40 px; literal copy | Best, Design |
 | Text | Live text, 14 pt or larger; alt text on every image | Best, Design |
 | Width | Designed at 600 px, built at 1,200 px for retina | Best, Being Ready |
 | Deliverability floor | A send in the last 30 days; hard bounces under 1.5%, unsubscribes under 1%, complaints under 0.1% | Best, Deliverability |
 | Footer | Sender, working unsubscribe, physical address | Best, Legal and Privacy |
-| UTM | Source, medium, campaign from the brief's section 8 | Campaign Engine rule |
+| UTM | Lowercase; source the email tool, medium email, campaign the campaign's slug | Campaign Engine rule |
 
 ## Outputs
 - `projects/campaigns/<slug>/drafts/email-campaign.md`: segment and suppression, deliverability check, each email (two subject lines, preheader, body, button, alt text), send dates, the test plan, UTMs

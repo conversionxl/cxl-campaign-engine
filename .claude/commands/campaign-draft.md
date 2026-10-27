@@ -21,11 +21,11 @@ Read the `campaign-engine` skill, then the brief, then each channel's workflow i
 
 List the brief's `channels` and every file in `projects/campaigns/<slug>/workflows/` with its `status` (starter, suggested or adjusted) and `tools`. Ask which to draft now. No `workflows/` folder at all, or a channel in the brief with no file there: say it cannot be drafted until `/campaign-channels <slug>` sets it up, and offer to run it now. Do not fall back to a default or a starter silently, and do not improvise a workflow.
 
-For a **big-C** brief: do not draft channels. Read section 14 and offer to create the small-c sub-campaign folders it lists **inside this campaign's folder**, at `campaigns/<sub-slug>/`, each with a stub `brief.md` (`parent:` set to this campaign, `status: draft`), and add them to the brief's Linked campaigns section and the board under this campaign (`frameworks/linked-campaigns.md`), then stop. Channels are drafted from the small-c briefs.
+For a **big-C** brief: do not draft channels. Read section 12 (Architecture; section 14 in briefs before 0.10.0) and offer to create the small-c sub-campaign folders it lists **inside this campaign's folder**, at `campaigns/<sub-slug>/`, each with a stub `brief.md` (`parent:` set to this campaign, `status: draft`), and add them to the brief's Linked campaigns section and the board under this campaign (`frameworks/linked-campaigns.md`), then stop. Channels are drafted from the small-c briefs.
 
 ## 2. Load
 
-- The brief in full. Note the KPI action, the CTA, the angles with proof status, the buyer's thought, the exclusions, the handoff rule, the constraints.
+- The brief in full. Note the KPI action, the CTA, the At a glance block (the engine writes every piece from it), the key message and supporting messages with their proof status, the alternatives, the buyer's thought, the exclusions, the handoff rule, the constraints.
 - The brand brain from its recorded source (`**Brand source:**` in `CLAUDE.md`; run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/find-context.sh" "$PWD"` (in the repo copy: `bash plugin/find-context.sh "$PWD"`) if nothing is recorded), as the `campaign-engine` skill says: who, what to say, how to say it. In `example` mode, the example brain.
 - The inputs the workflow's "Pulls in" section names (files in `raw/campaigns/`, connected tools, read only).
 
@@ -37,7 +37,7 @@ For each channel, walk the Steps table in order:
 - **A step owned by a person (`You` or a named role):** **stop.** Show the work so far and the decision the step asks for. Wait for the answer. Record it. Do not continue past a pause on your own, and do not batch two pauses into one question.
 - **A step owned by a tool (HubSpot, the CMS, the ad account):** do not do it. Write into the draft exactly what the person loads where, and move on.
 - **Specs:** check every element against the Specs table as you write it. Count characters and words. Fix before moving on.
-- **Angles and proof:** each asset carries one angle. A claim is written only with its proof from the brief; a (no proof) angle is written as an opinion, never as a fact or a number. Nothing from outside the brief or the brain.
+- **Messages and proof:** each asset carries the key message or one supporting message. A claim is written only with its proof from the brief's proof table; a (no proof) message is written as an opinion, never as a fact or a number. Nothing from outside the brief or the brain.
 - **CTA:** every CTA leads to the brief's destination and KPI action. Email 1 of a sequence may deliver the asset, but the sequence ends on the ask.
 - **Voice:** the brain's voice guide and vocabulary. No em dashes. No hype words. The buyer's words from the ICP where they fit.
 - **Exclusions and personal data:** no names of non-public people, no email addresses. Segments and companies only.
@@ -64,7 +64,7 @@ Then two parts, always in this order:
 - `## Pieces`: every piece of content a customer, a prospect or a rep will see, one `### <id> · <name>` heading each: `### Email 3 · 10 Nov: why a fixed week beats someday`, `### H1 · Hesh · LinkedIn post`, `### S2 · Short`, `### Sequence email 1`, `### Talk track`. One piece per heading, nothing else under it but the piece itself (subject lines, body, button, visual brief). Each piece folds on the campaign page and is checked on its own at review.
 - `## Plan and notes`: everything else the workflow produces (calendar, audiences, tracking, specs, decisions, open questions), with `###` subheadings.
 
-The content the workflow's Outputs section lists goes into those two parts. Mark any line that rests on a (no proof) angle or an (inferred) brief line. If the file exists, write `<channel>-v2.md` and say so; never overwrite a draft.
+The content the workflow's Outputs section lists goes into those two parts. An Output the workflow names as its own file (the landing page mock-up, `drafts/landing-page-mockup.html`) is written next to the draft, built from the draft's copy, and rebuilt whenever that copy changes. Mark any line that rests on a (no proof) message or an (inferred) brief line. If the file exists, write `<channel>-v2.md` and say so; never overwrite a draft.
 
 ## 5. Hand over
 

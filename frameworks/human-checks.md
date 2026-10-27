@@ -17,7 +17,7 @@ flowchart LR
   G2 --> L["You load it<br/>and launch"] --> X["Close: you name<br/>the lesson"]
   I1["Tyler Durman<br/>brief rules"] -.-> G1
   I2["Instructor rules<br/>in every step"] -.-> D
-  I3["Quality gate:<br/>16 criteria from<br/>the instructors"] -.-> G2
+  I3["Quality gate:<br/>50 criteria from<br/>instructors and reviews"] -.-> G2
 ```
 
 ## Where you decide
@@ -26,7 +26,7 @@ flowchart LR
 |---|---|---|
 | Brief | Approve, change, or not yet (Gate 1) | Approve its own brief |
 | Channels | Which channels; keep, change or skip each step; save as your default | Add or drop a check you didn't ask for |
-| Drafts | Every step marked "You" in a workflow: 26 of 101 steps across the seven starters | Carry on past a step you own |
+| Drafts | Every step marked "You" in a workflow: 26 of 102 steps across the seven starters | Carry on past a step you own |
 | Review | Use the fix, write your own, or leave it as is (Gate 2) | Ship a draft, or send anything |
 | Launch | Load the drafts into your tools, run the test, go live | Write to your email, ad or CRM tool |
 | Close | The result and the one lesson for next time | Estimate a result it can't source |
