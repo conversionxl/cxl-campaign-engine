@@ -30,7 +30,7 @@ Record a yes in the brief's frontmatter as `page_extras: [social-proof]`, so it 
 
 ## 3. Budgets
 
-Visible words, not counting starter prompts and tooltips. Over budget: cut the least useful line. Never shrink the font to fit.
+Visible words, not counting starter prompts and tooltips. Over budget by more than 10%: cut the least useful lines, once, and check once more. Up to 10% over, or still over after one cut: publish and say by how much in one line. Never trim and re-check in a loop. Never shrink the font to fit.
 
 | Where | Budget |
 |---|---|

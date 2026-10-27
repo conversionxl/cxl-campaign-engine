@@ -64,6 +64,15 @@ Strip markdown from the cells. A recommendation's prompt is the Prompt column of
 
 **Reading a workflow file:** only the rows of its `## Steps` table are steps. Never read the "Changes from the version it was based on" table as steps. Print each step's number from its `#` cell (`<span class="n">`), never from a CSS counter or list position: counters do not reset inside hidden tabs, so later channels would start at 6 or 10.
 
+## A share-safe copy
+
+For a demo, a manager outside the team, or an organisation that blocks shared Artifacts. `/campaigns page <slug> share-safe` builds a second page, `page-share-safe.html` in the campaign's folder, that anyone can open in a browser or print to PDF:
+
+- **Names are replaced on every build, from one local list:** `raw/campaigns/share-safe/<slug>.md`, one line per name, `Real name -> Stand-in` (`Northwind Health -> a regional hospital group`). The list stays in `raw/`, which never goes to git, so the real names never reach a committed file. The engine offers names to add (companies, people, products, places it finds in the files) and the user approves the list.
+- **It is rebuilt from the files each time,** with the list applied, so a rebuild never undoes the anonymising.
+- No starter prompts, no rep-only flags, no "For the team only" sections, and no links to files the reader cannot open.
+- Run `page-check.sh` on it, then search it for every real name on the list; any hit is fixed before it is shared.
+
 ## Rules
 
 - **Base template and budgets:** follow the `keep-it-compact` skill on every update, and run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/page-check.sh" <page>` before publishing. Fix every FLAG or ask about it.
