@@ -38,14 +38,16 @@ For every row with a weight above 0 for the draft's channel, give a score of 0, 
 - **Consistency:** put the headline, offer and CTA of every draft side by side. Do they agree?
 - The remaining rows as the gate's "Passes when" column says.
 
-Compute the weighted score and the route (SHIP, REVIEW, FIX). A 0 on a must-pass row is FIX whatever the total.
+Compute the weighted score and the route (SHIP, REVIEW, FIX). A 0 on a must-pass row is FIX whatever the total. G21 Compliance is scored only when the brief's Regulated line names a regulated area.
+
+**Then the checks across the campaign** (X1 to X3 in the gate): add up the spend across the drafts and workflows against the brief's budget; put every offer, price, date and trial in the ads and emails beside the landing page; follow every link and button to the brief's destination. Each fail is a Fix, flagged by Code, under the step Drafts and "all pieces".
 
 ## 2b. Second check: decision models (only if `CLAUDE.md` records one)
 
 If `**Decision model:**` is `jev`, `clef` or `both`, check **every piece**, not whole files: each `### ` heading under `## Pieces` in a draft is one piece (older drafts without a Pieces section: one piece per `### ` heading that holds customer-facing copy). Also check the brief once, with the questions in `frameworks/brief-gate-questions.json` and the brief as the state.
 
 - **Questions:** `frameworks/quality-gate-questions.json`, one proposition each, asked only for rows with a weight above 0 on the piece's channel. Never send the long "passes when" text: compound questions are less accurate.
-- **State:** a header, then the piece. The header carries the brief's goal, CTA, who it is for, buyer's thought, objections, the **Alternatives** (the Weighing against line and the alternatives table, for G19) and approved proof (as a list, from the proof table), the lines that won and lost in testing, and blocks the value prop rows read: **ICP top priorities** and **ICP** (from `wiki/brand/icp.md`), **Brand voice** (the Always and Never rules from `wiki/brand/voice-guide.md`), **Known terms** (from `wiki/brand/vocabulary.md`) and **Positioning and messaging** (owned key message, pillars, differentiators, alternatives and rules from `wiki/brand/positioning-messaging.md`). Keep each block to its points; the models only see what is in the header.
+- **State:** a header, then the piece. The header carries the brief's goal, CTA, who it is for, buyer's thought, objections, the **Alternatives** (the Weighing against line and the alternatives table, for G19), the **Regulated** line (for G21) and approved proof (as a list, from the proof table), the lines that won and lost in testing, and blocks the value prop rows read: **ICP top priorities** and **ICP** (from `wiki/brand/icp.md`), **Brand voice** (the Always and Never rules from `wiki/brand/voice-guide.md`), **Known terms** (from `wiki/brand/vocabulary.md`) and **Positioning and messaging** (owned key message, pillars, differentiators, alternatives and rules from `wiki/brand/positioning-messaging.md`). Keep each block to its points; the models only see what is in the header.
 - **Ads are one piece:** the image text (pill, headline, supporting line, offer line, CTA) and its ad text together, as the platform shows them. Ads use V1A, not V1.
 - **Report the value prop rows on their own** beside the total (the VP rows' weighted score, and the want score from VP7: 1 + 2 x the sum of its four answers), so they are not averaged away.
 - **Run:** `bash "${CLAUDE_PLUGIN_ROOT}/plugin/decision-model.sh" <jev|clef> <questions.json> <state-file>` per piece and per model. Run the `code_checks` in code (em dashes, banned words, long paragraphs, subject length), not through the model.
@@ -68,7 +70,7 @@ Every recommendation is one row with:
 - **Where:** the step (Brief, Channels, Drafts, Launch), the channel, and the piece (`Email 6`, `H3`, `S2`, `Talk track`); "all pieces" when it applies to a whole channel.
 - **Problem:** one line, quoting the words that fail.
 - **Flagged by:** Claude, Jev, Clef, Code (whichever agree).
-- **Prompt:** a starter prompt the user can paste back into Claude to make the fix, naming the file and the piece: "In drafts/email-campaign-v2.md, rewrite Email 6's subject line so the 10 Nov date comes first. Keep the angle and stay under 45 characters." One sentence or two. For a Fidelity problem, the prompt cuts or cites the claim, never softens it. For a Goal problem, it attaches the ask where the asset is.
+- **Prompt:** a starter prompt the user can paste back into Claude to make the fix, naming the file and the piece: "In drafts/email-campaign-v2.md, rewrite Email 6's subject line so the 10 Nov date comes first. Keep the angle and stay under 45 characters." One sentence or two. For a Fidelity problem, the prompt cuts or cites the claim, never softens it. When the problem is missing proof, the recommendation also says how to get it (a customer quote, before-and-after numbers, a source from a parallel industry written as an opinion) or how to lead with the value instead, and adds it to the launch tasks. For a Goal problem, it attaches the ask where the asset is.
 
 Order the list by step, then channel, then piece. Group it on the page three ways (by step, by channel, by piece) from the same list.
 

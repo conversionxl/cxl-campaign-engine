@@ -114,6 +114,8 @@ tags: [campaign]
 |---|---|---|
 | P1 | <a number, a customer, a quote you may use> | <source tag> |
 
+**Proof to collect** (leave out when every message has proof): <for each (no proof) message, the proof that would carry it and how to get it: a customer quote, before-and-after numbers, a pilot, a third-party source> → launch tasks. Until then the message is written as an opinion, or the piece leads with the value instead.
+
 ## 4. Messages
 - **Key message:** <why the buyer should take the offer, in their terms: not how the product works, not a product description, not the story of the content>
 - **Supporting messages:** <up to 4, each one line, each citing the proof it rests on (P1, P2) or marked (no proof)>
@@ -140,7 +142,8 @@ tags: [campaign]
 
 ## 7. Constraints
 - **Budget:** <total, and the paid channels' share; or "not set"> (<source tag>)
-<Up to 3 more lines: deadlines, events running at the same time, claims that need sign-off, assets missing.>
+- **Regulated:** <a regulated area (health, finance, legal, insurance) or a platform's special ad category (housing, employment, credit, politics), the rules it brings, and who signs off> or none
+<Up to 2 more lines: deadlines, events running at the same time, claims that need sign-off, assets missing.>
 
 <!-- Sections 8 to 13: big-C only -->
 
@@ -174,9 +177,11 @@ IF [the segment is this size] AND [we can reach this share at this conversion] T
 ## 12. Architecture
 The programs this plan runs, in phases. Each program becomes a small-c brief in `projects/campaigns/`.
 
-| Phase | Program (small-c brief) | Goal | Dates | Status |
-|---|---|---|---|---|
-| 1 | | | | not started |
+Programs run in parallel where they can (a launch event, a lead magnet, analyst relations, paid, outbound), and each channel keeps a cadence for the whole plan, not one burst.
+
+| Phase | Program (small-c brief) | Goal | Dates | Cadence | Status |
+|---|---|---|---|---|---|
+| 1 | | | | <per channel, per week> | not started |
 
 ## 13. Team and budget
 - **Roles and responsibilities:** <!-- who owns what, including sales, product, PR, events -->

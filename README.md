@@ -116,6 +116,12 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+**New in 0.13.0**, rows for the misses the reviews caught by hand:
+- **Checks across the campaign:** the budgets add up, the offer in the ads and emails matches the landing page, and every CTA lands on the destination.
+- **Platform rules and compliance:** a Regulated line in the brief switches on a check for special ad categories (Meta locks age and postcode targeting for housing, for example) and a compliance check for regulated industries.
+- **A proof plan instead of a dead end:** a message with no proof gets a plan to collect it, added to the launch tasks.
+- **Gate 1 also checks** thin evidence (most proof from one or two customers) and a big-C goal planned as one small-c set of pieces. Ad tests keep spare drafts for the next test, and LinkedIn messages open with relevance and leave the pitch for later.
+
 **New in 0.12.0**, because members found the review heavy to read:
 - **The campaign page has new tabs:** Brief, Touchpoints (where and when each piece reaches the buyer), Content (every piece shown as it will look, with its review inside it), Workflow (the steps, launch tasks and notes), Results. Pages made earlier are rebuilt on these tabs at their next update.
 - **The review leads with the top three fixes**, then the scores, with Claude's score labelled as a self-review next to the decision models and you.
@@ -182,7 +188,7 @@ flowchart LR
 
 ## The quality gate
 
-`frameworks/quality-gate.md` is a sheet: 22 pass-or-fail checks for the brief, then 50 criteria × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and must-pass rows (every CTA moves to the goal; nothing invented; every claim about the offer proven). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.
+`frameworks/quality-gate.md` is a sheet: 24 pass-or-fail checks for the brief, then 52 criteria and 3 checks across the campaign × 7 channels × a weight of 0 to 3 for the drafts, with SHIP, REVIEW and FIX thresholds and must-pass rows (every CTA moves to the goal; nothing invented; every claim about the offer proven). It is built around a real miss: 17 downloads, 0 meetings, because nothing asked for the meeting. The workshop exercise is to make the sheet yours: your channels, your weights, the row your last miss failed on.
 
 Optionally, the gate can be written as a question set for a decision model (TypeSafe's Jev or Cloudflare's Clef) so it runs on every draft in under a second. `frameworks/decision-models.md` explains what those are, what they are not, and how to calibrate one before trusting it.
 

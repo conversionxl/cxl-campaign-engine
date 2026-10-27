@@ -17,7 +17,7 @@ flowchart LR
   G2 --> L["You load it<br/>and launch"] --> X["Close: you name<br/>the lesson"]
   I1["Tyler Durman<br/>brief rules"] -.-> G1
   I2["Instructor rules<br/>in every step"] -.-> D
-  I3["Quality gate:<br/>50 criteria from<br/>instructors and reviews"] -.-> G2
+  I3["Quality gate:<br/>52 criteria from<br/>instructors and reviews"] -.-> G2
 ```
 
 ## Where you decide

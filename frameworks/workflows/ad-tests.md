@@ -48,7 +48,9 @@ Built from AJ Wilcox's CXL course, Validate and Scale your LinkedIn Ads (Eurekos
 | Intro text | About 160 characters | Wilcox, Ad Formats |
 | Headline | Under 70 characters; asset type in brackets | Wilcox, Ad Formats |
 | Image text | Seven words or fewer | Wilcox, Ad Formats |
-| Ads per campaign | 2; 4 at most | Wilcox, Ad Creation Scaling |
+| Ads per campaign | 2 live in a test; 4 at most | Wilcox, Ad Creation Scaling |
+| Drafts per campaign | The 2 live ads plus 2 in reserve for the next test, per stage and per audience, so a large campaign has enough to keep testing | Tyler Durman, demo reviews, 21 Oct 2026: "only a couple of ads is a little bit smaller" for a large campaign |
+| Platform rules | If the brief's Regulated line names a special ad category or a regulated area, follow the platform's targeting limits (on Meta, those categories lock age, gender, postcode and lookalike targeting) and check the current list before launch | Gate row G20 |
 | Audience per test | 20,000 to 100,000 | Wilcox, Audience and Cost Management Part 1 |
 | Settings | Permanent location; no Audience Expansion; no Audience Network; manual CPC | Wilcox, Audience and Cost Management Part 2 |
 | Budget | $1,000 (clicks), $5,000+ (leads), $30,000+ (revenue) | Wilcox, Channel Validation |
