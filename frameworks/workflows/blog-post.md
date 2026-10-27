@@ -16,7 +16,7 @@ A campaign post that earns attention and hands the reader to the campaign's dest
 Built from Andy Crestodina's CXL courses, Content Strategy for Demand Generation (Eurekos 5178) and Build Optimized B2B Content Funnels with AI (11639), with distribution rules from Tycho Luijten's B2B Demand Generation course. The SEO lesson of Crestodina's course is not in the transcripts, so this starter sets no word count or keyword placement rule.
 
 ## Pulls in
-- The brief: 1 Goal, 3 Audience, 4 Offer, 5 Messaging (one angle), 6 Buying stage
+- The brief: 1 Goal and metrics, 2 Audience (with the buying stage), 3 Offer and proof, 4 Messages (one supporting message), 5 Campaign structure
 - The brand brain: `icp.md` (their words), `positioning-messaging.md` (owned key message, pillars, proof), `voice-guide.md`, `vocabulary.md`
 - `raw/`: original data, research, customer stories the post can cite; Search Console and GA4 if connected
 

@@ -16,7 +16,7 @@ A deliberate set of paid ads that tests one thing at a time against the ICP, set
 Built from AJ Wilcox's CXL course, Validate and Scale your LinkedIn Ads (Eurekos 9354), with the legacy LinkedIn Experimentation course (Rob Muldoon) for testing and evaluation, and Nick Christensen's ad scoring. Where the two LinkedIn instructors disagree, this follows Wilcox, whose course is current. Google and Meta are not covered by these courses: for those, add a channel with `/campaign-channels` or use CXL's Meta (9348) and PPC (10226) courses.
 
 ## Pulls in
-- The brief: 1 Goal, 3 Audience (targeting and exclusions), 4 Offer, 5 Messaging (angles), 8 Measurement (kill rule, budget), 9 Constraints
+- The brief: 1 Goal and metrics (kill and scale rules), 2 Audience (targeting and exclusions), 3 Offer and proof, 4 Messages, 5 Campaign structure (spend, return target and learning-phase runway per paid channel), 7 Constraints
 - The brand brain: `icp.md` (their words, roles, company types), `voice-guide.md`, `vocabulary.md`, `positioning-messaging.md`
 - LinkedIn Campaign Manager, if connected: past CTR, CPC and conversion by ad; audience sizes
 - `raw/campaigns/`: past ad results; the landing page draft in this campaign

@@ -5,7 +5,7 @@ layer: starter
 based_on: ""
 status: starter
 tools: [CMS or page builder, GA4, PageSpeed Insights]
-last_updated: "2026-10-06"
+last_updated: "2026-10-27"
 tags: [campaign-engine, workflow, landing-page]
 ---
 
@@ -18,7 +18,7 @@ Built from Michael Aagaard's CXL course, Landing Page Optimization (Eurekos 4460
 Aagaard's six characteristics of an effective landing page run through every step: a relevant follow-up to the ad; matches the visitor's awareness level; reinforces their motivation; answers their questions; reduces friction; a clear path to conversion.
 
 ## Pulls in
-- The brief: 1 Goal, 3 Audience, 4 Offer (destination and CTA), 5 Messaging, 6 Buying stage, 7 Sales enablement (what happens after the form), 8 Measurement
+- The brief: 1 Goal and metrics, 2 Audience (with the buying stage), 3 Offer and proof (destination and CTA), 4 Messages, 6 Sales handoff (what happens after the form)
 - The brand brain: `positioning-messaging.md` (value proposition, pillars, proof points), `icp.md` (their words, objections), `voice-guide.md`, `vocabulary.md`
 - The ads and emails that will point here (drafts in this campaign); GA4 for the existing page if there is one; reviews and sales notes in `raw/voc/` and `raw/campaigns/`
 
@@ -38,10 +38,11 @@ Aagaard's six characteristics of an effective landing page run through every ste
 | 10 | Answer the questions, remove the doubt | Claude | Answer the questions from step 6 on the page (for a demo: when, how it is scheduled, who reaches out, what happens, why you ask for a phone number). Keep the price and the promise the same as the ad. No dark patterns | Aagaard, L02 Characteristics; L06 User Friction | Every top question answered or deliberately left out |
 | 11 | Put the proof where the doubt is | Claude | Place 3 to 4 proof blocks (customer voice, numbers, logos) next to the claims they support; only proof from the brief or the brand brain | Aagaard, L10 (trust components); Best, Copywriting (customer voice) | Every proof block traces to the brief |
 | 12 | Write the form and the button | Claude | Ask only for the fields sales needs now; marketing opt-in unchecked and separate. Button copy finishes "When I click the button, I want to ___", starts with a verb, says what they get, and never says "Click here", "Submit" or "Buy now" | Aagaard, L11 Copy Tips; Best, Optimizing Opt-in Forms | Every extra field justified; button passes the sentence test |
-| 13 | Write the thank-you page | Claude | Say what happens next and when, from the brief's sales enablement section (who will reach out, within what time) | The brief's section 7; Tyler Durman (MQL called within one business day) | Next step and time limit stated |
-| 14 | Check speed and tracking | You | Run PageSpeed Insights and hand fixes to whoever builds the page. Conversion event, UTMs and CRM field mapping written down; one test submission before any traffic | Aagaard, L08; Campaign Engine rule | Test submission passed |
-| 15 | Walk sign-off through the research | You | Before publishing, check the page against the six characteristics and walk the sign-off owner through the research and the outline (Aagaard budgets 1 to 2 hours) | Aagaard, L02, L03 | Sign-off recorded |
-| 16 | Keep learning after launch | Claude | A/B test if traffic allows, otherwise compare periods. On the thank-you page, ask one question after 20 to 30 seconds ("Was there anything that almost kept you from booking today?") until 100 or more replies | Aagaard, L03, L09 | Test or comparison plan written; poll set |
+| 13 | Write the thank-you page | Claude | Say what happens next and when, from the brief's sales handoff section (who will reach out, within what time) | The brief's section 6; Tyler Durman (MQL called within one business day) | Next step and time limit stated |
+| 14 | Lay out the mock-up | Claude | Build the page as a visitor will see it, as one HTML file: the first screen (headline, subhead, CTA), every section of the outline in order with its copy in place, proof blocks beside the claims they support, the form with its fields and button, then the thank-you page under a divider marked "After the form". Mobile first when step 4 says so. Images are grey boxes labelled with what goes there. The copy in the draft stays the source: rebuild the mock-up whenever the copy changes | Cohort demo reviews, 19 Oct 2026: a page delivered as sections of copy could not be judged for flow; Aagaard, L10 Structure and Components | The mock-up opens in a browser and matches the draft's copy word for word |
+| 15 | Check speed and tracking | You | Run PageSpeed Insights and hand fixes to whoever builds the page. Conversion event, UTMs and CRM field mapping written down; one test submission before any traffic | Aagaard, L08; Campaign Engine rule | Test submission passed |
+| 16 | Walk sign-off through the research | You | Before publishing, check the page against the six characteristics and walk the sign-off owner through the research and the outline (Aagaard budgets 1 to 2 hours) | Aagaard, L02, L03 | Sign-off recorded |
+| 17 | Keep learning after launch | Claude | A/B test if traffic allows, otherwise compare periods. On the thank-you page, ask one question after 20 to 30 seconds ("Was there anything that almost kept you from booking today?") until 100 or more replies | Aagaard, L03, L09 | Test or comparison plan written; poll set |
 
 ## Specs
 
@@ -54,12 +55,14 @@ Aagaard's six characteristics of an effective landing page run through every ste
 | Proof | 3 to 4 blocks next to the claims they support; only from the brief | Aagaard, L10; Campaign Engine rule |
 | Button | Verb first, names the outcome; not "Click here", "Submit" or "Buy now"; same wording each time it repeats | Aagaard, L11 |
 | Form | Only fields needed now; each extra field justified; opt-in unchecked | Best, Optimizing Opt-in Forms |
-| Thank-you page | What happens next, who, and when | Brief section 7 |
+| Thank-you page | What happens next, who, and when | Brief section 6 |
 | Speed | PageSpeed Insights run; fixes handed over (the course sets no threshold) | Aagaard, L08 |
 | Tracking | Conversion event, UTMs, CRM mapping, one test submission | Campaign Engine rule |
+| Mock-up | One self-contained HTML file per page; the brand's own colours and fonts from the brand brain (its visual guide when there is one), otherwise neutral greys and system fonts; a thin bar at the top saying "Mock-up, not the live page"; no scripts, no tracking, no generated or stock images, no logo the user did not supply; fonts from Google Fonts only | Campaign Engine rule |
 
 ## Outputs
-- `projects/campaigns/<slug>/drafts/landing-page.md`: page brief, research notes by friction type, outline, headline and alternates, page copy section by section, proof blocks with sources, form and button, thank-you page, tracking notes, test plan
+- `projects/campaigns/<slug>/drafts/landing-page.md`: page brief, research notes by friction type, outline, headline and alternates, page copy section by section, proof blocks with sources, form and button, thank-you page, tracking notes, test plan. The gate scores this file.
+- `projects/campaigns/<slug>/drafts/landing-page-mockup.html`: the laid-out page (step 14), linked from the campaign page. With more than one page, one file each: `landing-page-1-mockup.html`, `landing-page-2-mockup.html`
 - **One section per page.** With more than one page, the draft opens with a table of the pages (number, name, URL or "not built yet", the campaign it belongs to, who builds and signs off, state), then one `## Page N: <name>` section per page. Each section holds everything for that page and nothing for another: its brief, research, edits or copy, thank-you page, tests, review items and flags. A page for a linked campaign (a webinar series, an app) is never drafted here: it waits in that campaign's brief, and this draft says so in one line. Where a workflow step's adjustment differs by page, the note names the page.
 
 ## Changes from the version it was based on

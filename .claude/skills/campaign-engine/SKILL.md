@@ -61,8 +61,8 @@ The first cohort's main feedback was too much information. Every reply and every
 - Round numbers in the chat (about 38,500, not 38,551). Exact figures live in the file.
 
 **In files**
-- **At a glance first:** every brief, review and results file opens with an "At a glance" block of six lines or fewer. Someone who reads only that block knows what is decided.
-- **One line per field.** Detail, reasoning, baselines and sources go to an "Evidence" section at the end, not into the field.
+- **At a glance first:** every brief, review and results file opens with an "At a glance" block: seven lines or fewer in a brief, six in a review or results file. Someone who reads only that block knows what is decided.
+- **One line per field.** Detail, reasoning, baselines and sources go to the "Sources" section at the end, not into the field.
 - **Cut before adding.** If a section is longer than its cap, cut the least useful line; do not shrink the font of the idea.
 - **Base template, budgets and the check:** the `keep-it-compact` skill. Ask before adding a tab, section or file the template does not have; change in place, never append "(changed)" or "new 11 Oct"; run `plugin/page-check.sh` before every publish.
 - No em dashes.
@@ -75,9 +75,9 @@ The first cohort's main feedback was too much information. Every reply and every
 - **Scale next to the name.** Wherever a campaign is named on a page or the board, its scale badge (small-c or big-C) sits next to the name.
 - **Many campaigns at once.** Everything about a campaign lives in its folder. Keep the board in `projects/campaigns/campaigns.md` current: every command that changes a campaign's stage updates its row.
 - **Approval is human.** `status: approved` on a brief and the decisions in a review are set only after the user says so, in every mode including `example`.
-- **The (inferred) and (no proof) rules.** Every brief line traces to a file, a brain section, a snapshot, or the user's answer, or it is tagged (inferred). Every claim in a draft traces to the brief's proof column or the brain, or it is cut. An angle marked (no proof) is written as an opinion, never as a fact or a number. Metrics, customers, quotes and case studies are never generated.
+- **The (inferred) and (no proof) rules.** Every brief line traces to a file, a brain section, a snapshot, or the user's answer, or it is tagged (inferred). Every claim in a draft traces to the brief's proof table or the brain, or it is cut. A message marked (no proof) is written as an opinion, never as a fact or a number. Metrics, customers, quotes and case studies are never generated.
 - **The ask, not the asset.** Every CTA moves the reader to the brief's KPI action. A sequence ends on the ask. A page whose only CTA is the download, when the goal is meetings, fails the gate.
-- **Sales handoff in writing.** Lead definition, who is alerted, where, and the time limit (default: an MQL is called within one working day). The sales owner is named.
+- **Sales handoff in writing.** Lead definition, who is alerted, where, the time limit (default: an MQL is called within one working day), and what sales does with the lead. The sales owner is named, and asked, never inferred.
 - **Read only in tools.** Pulls from a CRM, email, ad or analytics tool are read only and saved as dated snapshots in `raw/campaigns/live/`. Loading a draft anywhere is the human's step, after Gate 2.
 - **Social proof.** Quotes are word for word; spoken quotes drop fillers and mark cuts with an ellipsis, never adding words. A member's private outputs are never shown or quoted: mention them only as unnamed anecdotes. Match the format to the channel: a whole demo in a blog, one story per email or founder post, several short quotes on a landing page or carousel, one idea per Short. Record who still has to sign off in the draft.
 - **No personal data in campaign folders.** Leads and customers by company, segment or ID. Email addresses stay in `raw/`. The HR tech example in the gate stays unnamed.

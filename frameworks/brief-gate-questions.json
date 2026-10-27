@@ -1,0 +1,54 @@
+{
+  "about": "Decision-model questions for a campaign brief, asked at Gate 1 with the brief as the state. They are the R rows of the Gate 1 table in quality-gate.md, from the review of 28 cohort demos (19 Oct 2026), written one proposition each as TypeSafe and Cloudflare advise; a compound row is split into parts (R1A and R1B, R5A and R5B). The rest of Gate 1 is judged by Claude's table. A model answer never passes or fails a brief on its own: it shows beside the table, and the human decides. R1, R2 and R3 matter most, because the engine writes every draft from the At a glance block.",
+  "questions": {
+    "R1A": {
+      "type": "noul",
+      "instructions": "The brief states what the buyer gets from the offer and why it is worth their time, in the buyer's terms rather than as an internal name for the offer."
+    },
+    "R1B": {
+      "type": "noul",
+      "instructions": "The brief gives a reason for the buyer to take the offer now rather than at any other time, such as a deadline, a price change or an event."
+    },
+    "R2": {
+      "type": "noul",
+      "instructions": "The brief names the buyer's main alternatives (a named competitor, a free tool, doing it themselves or doing nothing) and gives a reason to choose this offer over each one."
+    },
+    "R3": {
+      "type": "noul",
+      "instructions": "The key message, and the message each audience segment leads with, gives the buyer a reason to take the offer, rather than describing how the product works, describing the product, using an internal label or telling the story of the content."
+    },
+    "R4": {
+      "type": "noul",
+      "instructions": "The brief cites a past campaign, send or page showing that this target, offer or time window can be reached, or says plainly that there is no past data and explains how the target was set."
+    },
+    "R5A": {
+      "type": "noul",
+      "instructions": "Each kill and scale rule names a metric that moves before the goal metric, such as page visits, clicks or replies, together with a threshold, a check date and the action to take."
+    },
+    "R5B": {
+      "type": "noul",
+      "instructions": "The scale rule triggers on being ahead of pace before the goal date, such as half the goal by the halfway point, and not on reaching the goal."
+    },
+    "R6": {
+      "type": "noul",
+      "instructions": "The brief works back from the goal to a weekly volume per channel (sends, posts, ads or budget) and an expected conversion at each step, and shows that this volume reaches the target or names the gap."
+    },
+    "R7": {
+      "type": "noul",
+      "instructions": "The brief says how the goal compares with the size of the market it targets and with how much work the team can deliver in the time."
+    },
+    "R8": {
+      "type": "noul",
+      "instructions": "Every paid channel in the brief has its own spend, its own return target and a timeline that leaves room for the platform's learning phase before the goal date. A brief with no paid channel passes."
+    },
+    "R13": {
+      "type": "noul",
+      "instructions": "A colleague reading only this brief could explain what the offer is worth to the buyer and what the key message is, and the brief contains no raw answers to questions, no internal labels and no undefined terms."
+    }
+  },
+  "must_pass": [],
+  "thresholds": {
+    "fail_below": 0.5,
+    "borderline_below": 0.65
+  }
+}

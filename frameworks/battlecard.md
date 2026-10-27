@@ -21,14 +21,14 @@ Keep each card to one screen: about 300 words. Every fact has a source and the d
 | 3 | **Snapshot** | Offer and format · price and deal structure (contract, trials, discounts) · who they target (roles, segments) · their positioning, quoted from their own site |
 | 4 | **Deal presence** | Low, medium or high, from your CRM or sales. Deals won from them, lost to them. Blank until sales fills it |
 | 5 | **Questions to ask your prospect** | Three to five questions that make the prospect weigh what matters, where we are stronger. Never name the competitor in them |
-| 6 | **Proof points and landmines** | Two or three pairs, each under a claim we can make. **Landmine:** their weakness, as a fact with a source. **Proof:** our answer, from the brief's proof column or the brand brain |
+| 6 | **Proof points and landmines** | Two or three pairs, each under a claim we can make. **Landmine:** their weakness, as a fact with a source. **Proof:** our answer, from the brief's proof table or the brand brain |
 | 7 | **They say, you say** | Two or three of their selling lines, quoted, each with the fact-checked reply |
 | 8 | **How to beat them** | One line |
 
 ## Rules
 
 - **Sources:** the competitor's own public pages first (pricing, product, about), then reviews and press. Cite each with the date checked. Facts go stale: a rep re-checks the price before quoting it.
-- **Our side comes only from proof we may use:** the brief's proof column, the brand brain's proof points, or the approved claims list. Missing proof means the landmine stays out.
+- **Our side comes only from proof we may use:** the brief's proof table, the brand brain's proof points, or the approved claims list. Missing proof means the landmine stays out.
 - **No trash talk.** Every landmine is a checkable fact about their offer, not an opinion of the company.
 - **Short.** Over about 300 words, cut the snapshot first. A card that does not fit one screen does not get read on a call.
 - No em dashes.

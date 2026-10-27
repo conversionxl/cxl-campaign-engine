@@ -16,7 +16,7 @@ Everything sales needs so a lead from this campaign gets the right call, fast: a
 The spine is how Tyler Durman runs enablement with reps and SDRs. On top of it: Steve Armenti's CXL course, Create sales enablement assets with AI (Eurekos 12556), and Mason Cosby's CXL courses, ABM: Get ROI in 6 Weeks (8364) and Align sales, marketing and leadership in B2B (10783).
 
 ## Pulls in
-- The brief: 1 Goal, 3 Audience, 4 Offer, 5 Messaging (angles and proof), 6 Buying stage, 7 Sales enablement, 8 Measurement
+- The brief: 1 Goal and metrics, 2 Audience (buying stage and Weighing against), 3 Offer and proof (the alternatives table and the proof), 4 Messages, 6 Sales handoff (what sales does with the lead)
 - The brand brain: `positioning-messaging.md` (what you are allowed to claim, proof points, competitive alternatives), `icp.md` (their words, objections), `voice-guide.md`, `vocabulary.md`
 - `raw/voc/`: call transcripts and customer interviews; `raw/campaigns/`: sales feedback, past sequences, the CRM snapshot (stages, stall and loss reasons)
 

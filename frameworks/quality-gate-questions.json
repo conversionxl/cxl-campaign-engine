@@ -1,5 +1,5 @@
 {
-  "about": "Decision-model questions for one piece of content (one email, post, Short, page section, sequence, ad set or blog post). One proposition per question, as TypeSafe and Cloudflare advise. Rows are the quality gate's Gate 2 rows; a row is asked only on channels where its weight is above 0. Rows not listed here (Workflow, Consistency, Audience, Sales handoff, Measurement, Distribution) need the workflow, the other pieces or the tools, so Claude's sheet judges them. Counting is done in code (code_checks), never by the model. The state sent with each question is the campaign header (goal, CTA, buyer's thought, approved proof) followed by the piece. Value prop rows added 20 Oct 2026 (V1 to V17, V1A, VP1 to VP10 with VP7 asked as four thresholds, B1 to B3): see quality-gate.md. The B rows and VP6, V12 and V13 read blocks in the header (ICP top priorities, ICP, Brand voice, Known terms, Positioning and messaging, Objections) that /campaign-review fills from the brief and wiki/brand/. An ad is one piece: the image and its ad text together.",
+  "about": "Decision-model questions for one piece of content (one email, post, Short, page section, sequence, ad set or blog post). One proposition per question, as TypeSafe and Cloudflare advise. Rows are the quality gate's Gate 2 rows; a row is asked only on channels where its weight is above 0. Rows not listed here (Workflow, Consistency, Audience, Sales handoff, Measurement, Distribution) need the workflow, the other pieces or the tools, so Claude's sheet judges them. Counting is done in code (code_checks), never by the model. The state sent with each question is the campaign header (goal, CTA, buyer's thought, approved proof) followed by the piece. Value prop rows added 20 Oct 2026 (V1 to V17, V1A, VP1 to VP10 with VP7 asked as four thresholds, B1 to B3): see quality-gate.md. The B rows and VP6, V12 and V13 read blocks in the header (ICP top priorities, ICP, Brand voice, Known terms, Positioning and messaging, Objections) that /campaign-review fills from the brief and wiki/brand/. An ad is one piece: the image and its ad text together. Rows from the demo reviews added 27 Oct 2026: G17 One specific CTA, G18 Offer claims proven (must pass), G19 Named alternatives answered (sales enablement only, reads the 'Alternatives' block: the brief's Weighing against line and its alternatives table). The brief's own review rows are in frameworks/brief-gate-questions.json.",
   "header_fields": [
     "Campaign goal",
     "Call to action",
@@ -12,6 +12,7 @@
     "Known terms",
     "Positioning and messaging",
     "Objections",
+    "Alternatives",
     "Lines that won in testing",
     "Lines that lost in testing"
   ],
@@ -38,7 +39,7 @@
     },
     "G9": {
       "type": "noul",
-      "instructions": "The offer, its price or its date appears in the first two lines of the piece."
+      "instructions": "If the piece asks the reader to take the offer, the offer itself is named in its subject line, headline or first line of the body, not only in the pre-header or near the end."
     },
     "G10": {
       "type": "noul",
@@ -55,6 +56,18 @@
     "G15": {
       "type": "noul",
       "instructions": "The piece can be skimmed in a few seconds: short paragraphs, and the key line stands out."
+    },
+    "G17": {
+      "type": "noul",
+      "instructions": "The piece ends with one specific action the reader can take, such as booking a named call or starting a trial, and not a vague prompt such as 'learn more'."
+    },
+    "G18": {
+      "type": "noul",
+      "instructions": "Every claim the piece makes about what the offer is worth is backed by an item in the approved proof in the campaign header, or is clearly written as an opinion."
+    },
+    "G19": {
+      "type": "noul",
+      "instructions": "The piece gives a reason to choose this offer over each competitor named under 'Alternatives' in the campaign header."
     },
     "V1": {
       "type": "noul",
@@ -206,6 +219,7 @@
   "must_pass": [
     "G1",
     "G2",
+    "G18",
     "V1",
     "V1A",
     "VP1",

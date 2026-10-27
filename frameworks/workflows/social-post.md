@@ -11,12 +11,12 @@ tags: [campaign-engine, workflow, social]
 
 # Social (LinkedIn posts and document carousels)
 
-Organic posts that carry the campaign's angle to the people the brief targets, from the people they trust. A small set of posts around one idea, not a content calendar.
+Organic posts that carry the campaign's key message to the people the brief targets, from the people they trust. A small set of posts around one idea, not a content calendar.
 
 Built from Andy Crestodina's CXL course, Content Strategy for Demand Generation (Eurekos 5178), and Tycho Luijten's B2B Demand Generation (8506). The courses do not teach LinkedIn post length, hook length or hashtags, so this starter sets no rule for them; the carousel step borrows AJ Wilcox's advice on paid document ads.
 
 ## Pulls in
-- The brief: 3 Audience, 4 Offer, 5 Messaging, 6 Buying stage
+- The brief: 2 Audience (with the buying stage), 3 Offer and proof, 4 Messages, 5 Campaign structure
 - The brand brain: `icp.md` (their words), `positioning-messaging.md` (pillars, proof), `voice-guide.md` (tone for social), `vocabulary.md`
 - Other drafts in this campaign (the blog post, the research) as source material; GA4 for which topics and networks bring engaged traffic
 
@@ -42,7 +42,7 @@ Built from Andy Crestodina's CXL course, Content Strategy for Demand Generation 
 
 | Element | Spec | Source |
 |---|---|---|
-| Posts | 3 to 5 per campaign, one angle each | Campaign Engine default |
+| Posts | 3 to 5 per campaign, one message each | Campaign Engine default |
 | Poster | A named expert's personal profile first | Luijten |
 | Topic | One of the brand's 3 to 5 core topics, with its point of view | Luijten |
 | People | Named, quoted or tagged in every post | Crestodina, L2 |

@@ -11,6 +11,8 @@ Step 4 of the Campaign Engine, and Gate 2. `/campaign-draft` runs it automatical
 
 Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (the user's tuned copy; fall back to `frameworks/quality-gate.md` only if it is missing, and say so), then the brief, the workflows and the drafts.
 
+**New default rows.** Compare the row IDs in the user's copy with the default gate (`${CLAUDE_PLUGIN_ROOT}/frameworks/quality-gate.md`, or `frameworks/quality-gate.md` in the repo copy). If the default has rows the copy lacks (G17 to G19 arrived in 0.10.0), say so in one line and ask once: "Add them with the default weights? 1 Yes · 2 No". On yes, add only the missing rows and a line in its Changes table; never change a weight, a threshold or a row the user already has. On no, score with the user's copy as it is.
+
 ## Mode
 
 - **`<slug>`:** reviews every file in `projects/campaigns/<slug>/drafts/`, or only the channels named. Writes `projects/campaigns/<slug>/review.md`; if one exists, `review-v2.md`.
@@ -18,14 +20,14 @@ Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (
 
 ## 1. Load
 
-The brief (KPI action, CTA, angles and proof, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the must-pass rows.
+The brief (KPI action, CTA, key message and supporting messages with their proof, alternatives, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the must-pass rows.
 
 ## 2. Score each draft
 
 For every row with a weight above 0 for the draft's channel, give a score of 0, 1 or 2 and a note that quotes the line in the draft that earned it. Rules for the rows that need judgment:
 
 - **Goal:** read every CTA. Does it move the reader to the KPI action? A sequence that ends on the asset, a page whose CTA is the download when the KPI is demos: 0.
-- **Fidelity:** list every statistic, customer, quote and case study in the draft. Each must appear in the brief's proof column or in the brain. One invented or unsourced item: 0, and name it. A claim the brief marked (no proof) that is stated as fact: 0.
+- **Fidelity:** list every statistic, customer, quote and case study in the draft. Each must appear in the brief's proof table or in the brain. One invented or unsourced item: 0, and name it. A claim the brief marked (no proof) that is stated as fact: 0.
 - **Workflow:** compare against the Outputs list and every Specs row. Count characters and words. A missing output or a spec breach: 1 if minor, 0 if an output is missing.
 - **Stage:** read the buyer's thought in the brief; does the copy answer it, at that stage?
 - **Voice:** run every Always and Never in the voice guide, every banned word, the AI tells (em dashes, "it's not X, it's Y", stacked adjectives).
@@ -36,10 +38,10 @@ Compute the weighted score and the route (SHIP, REVIEW, FIX). A 0 on a must-pass
 
 ## 2b. Second check: decision models (only if `CLAUDE.md` records one)
 
-If `**Decision model:**` is `jev`, `clef` or `both`, check **every piece**, not whole files: each `### ` heading under `## Pieces` in a draft is one piece (older drafts without a Pieces section: one piece per `### ` heading that holds customer-facing copy). Also check the brief's Gate 1 rows.
+If `**Decision model:**` is `jev`, `clef` or `both`, check **every piece**, not whole files: each `### ` heading under `## Pieces` in a draft is one piece (older drafts without a Pieces section: one piece per `### ` heading that holds customer-facing copy). Also check the brief once, with the questions in `frameworks/brief-gate-questions.json` and the brief as the state.
 
 - **Questions:** `frameworks/quality-gate-questions.json`, one proposition each, asked only for rows with a weight above 0 on the piece's channel. Never send the long "passes when" text: compound questions are less accurate.
-- **State:** a header, then the piece. The header carries the brief's goal, CTA, who it is for, buyer's thought, objections and approved proof (as a list), the lines that won and lost in testing, and blocks the value prop rows read: **ICP top priorities** and **ICP** (from `wiki/brand/icp.md`), **Brand voice** (the Always and Never rules from `wiki/brand/voice-guide.md`), **Known terms** (from `wiki/brand/vocabulary.md`) and **Positioning and messaging** (owned key message, pillars, differentiators, alternatives and rules from `wiki/brand/positioning-messaging.md`). Keep each block to its points; the models only see what is in the header.
+- **State:** a header, then the piece. The header carries the brief's goal, CTA, who it is for, buyer's thought, objections, the **Alternatives** (the Weighing against line and the alternatives table, for G19) and approved proof (as a list, from the proof table), the lines that won and lost in testing, and blocks the value prop rows read: **ICP top priorities** and **ICP** (from `wiki/brand/icp.md`), **Brand voice** (the Always and Never rules from `wiki/brand/voice-guide.md`), **Known terms** (from `wiki/brand/vocabulary.md`) and **Positioning and messaging** (owned key message, pillars, differentiators, alternatives and rules from `wiki/brand/positioning-messaging.md`). Keep each block to its points; the models only see what is in the header.
 - **Ads are one piece:** the image text (pill, headline, supporting line, offer line, CTA) and its ad text together, as the platform shows them. Ads use V1A, not V1.
 - **Report the value prop rows on their own** beside the total (the VP rows' weighted score, and the want score from VP7: 1 + 2 x the sum of its four answers), so they are not averaged away.
 - **Run:** `bash "${CLAUDE_PLUGIN_ROOT}/plugin/decision-model.sh" <jev|clef> <questions.json> <state-file>` per piece and per model. Run the `code_checks` in code (em dashes, banned words, long paragraphs, subject length), not through the model.

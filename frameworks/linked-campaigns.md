@@ -24,7 +24,7 @@ Relations for `links:`:
 
 **Two levels only.** A main campaign holds sub-campaigns; a sub-campaign does not hold its own. Anything deeper is a sub-campaign with `links:` to its neighbours. This keeps every path readable.
 
-**Usually the main campaign is big-C and its sub-campaigns are small-c**, because a big-C plan spawns small-c programs (template section 14). A small-c campaign can still be a main campaign with one or two subs, for example a launch with a separate partner push.
+**Usually the main campaign is big-C and its sub-campaigns are small-c**, because a big-C plan spawns small-c programs (template section 12, Architecture). A small-c campaign can still be a main campaign with one or two subs, for example a launch with a separate partner push.
 
 ## Folders
 
