@@ -5,7 +5,7 @@ layer: starter
 based_on: ""
 status: starter
 tools: [LinkedIn Campaign Manager, LinkedIn Insight Tag]
-last_updated: "2026-10-06"
+last_updated: "2026-10-27"
 tags: [campaign-engine, workflow, ads]
 ---
 
@@ -36,7 +36,7 @@ Built from AJ Wilcox's CXL course, Validate and Scale your LinkedIn Ads (Eurekos
 | 9 | Decide what this test changes | You | Test in this order: ad type, objective, offer, creative, copy, landing page. Within the ad: format, then intro text, then image; the headline last. Change one thing per test | Wilcox, Audience Validation; Ad Creation and Validation | One variable named |
 | 10 | Write the ads | Claude | Intro text about 160 characters with what's in it for them and a direct ask; headline under 70 characters with the asset type in brackets; image text seven words or fewer, in colours that stand out from LinkedIn blue. Each ad carries one angle in the buyer's words | Wilcox, Ad Formats; Muldoon, Best Practices for Ad Copy and Creative | Every ad within the limits |
 | 11 | Score every ad before it runs | Claude | Score each ad 1 to 5 on their words, outcome-led and voice; cut anything under 4 and say why | Nick Christensen, ad-copy skill (Marketing Brain) | Scores shown; cuts explained |
-| 12 | Launch a clean A/B | You | Two ads per campaign (four at most); launch the variants together; name each ad with its launch date and A or B | Wilcox, Ad Creation Scaling; Ongoing Management | Two ads per campaign, named |
+| 12 | Launch a clean A/B | You, at launch | Two ads per campaign (four at most); launch the variants together; name each ad with its launch date and A or B | Wilcox, Ad Creation Scaling; Ongoing Management | Two ads per campaign, named |
 | 13 | Set and walk the bid | LinkedIn Campaign Manager | Bid well below LinkedIn's suggested range. After 2 to 4 business days, raise the bid if under-spending, lower it if spending in full. Below 1% CTR, always bid per click | Wilcox, Cost Management Validation; Muldoon, Understanding Bidding | Bid date and rule written |
 | 14 | Judge the result | Claude | Not before 3,000 impressions per variant and a frequency of 6 to 8 a month. Judge on link CTR, link CPC and click conversions; compare single-image CTR with the 0.45% benchmark. Log the test in a testing journal | Muldoon, Evaluating Results; Wilcox, Performance Tracking; Ad Formats | Decision rule and journal entry written |
 | 15 | Refresh and scale | Claude | Refresh creative every 28 to 33 days or when CTR falls and CPC rises. Scale in this order: new audiences, new targeting types, new ad types or offers, then bids and budget last | Wilcox, Ad Creation and Validation; Scale your Audience; Channel Scaling | Refresh date and next scaling step written |

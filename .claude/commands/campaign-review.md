@@ -7,7 +7,7 @@ argument-hint: <campaign slug> [channel ...]
 
 Step 4 of the Campaign Engine, and Gate 2. `/campaign-draft` runs it automatically on the drafts it just wrote; run it on its own to score again after you edit a draft by hand, or to review only some channels. The gate recommends; the human accepts or fixes. Nothing ships on vibes, and nothing ships because the gate said so either.
 
-**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one round of questions at a time, detail in the file. Draft first, as that skill says.
 
 Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (the user's tuned copy; fall back to `frameworks/quality-gate.md` only if it is missing, and say so), then the brief, the workflows and the drafts.
 
@@ -21,6 +21,8 @@ Read the `quality-gate` skill, then `projects/campaign-engine/quality-gate.md` (
 ## 1. Load
 
 The brief (KPI action, CTA, key message and supporting messages with their proof, alternatives, buyer's thought, exclusions, handoff rule, constraints). Each draft's workflow from `projects/campaigns/<slug>/workflows/` (Specs and Outputs). The brand brain from its recorded source (or example brain). The gate: its rows, each channel's weights, the thresholds, the must-pass rows.
+
+**Assumed calls (fast mode).** If the brief says `run: fast`, collect every `decisions` entry marked (assumed) from the drafts. They go first in the one list of recommendations, under the step they came from, as "I chose <the call> at step <n>. Keep it, or change it?", each with a starter prompt to change it. The user accepts or changes them at Gate 2 with the rest.
 
 ## 2. Score each draft
 

@@ -7,7 +7,7 @@ argument-hint: [example] [channel]
 
 The exercise behind Gate 2. The default gate in `frameworks/quality-gate.md` is one B2B demand gen opinion. This command makes `projects/campaign-engine/quality-gate.md` yours.
 
-**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one round of questions at a time, detail in the file. Draft first, as that skill says.
 
 Read the `quality-gate` skill and both gate files first. If `projects/campaign-engine/quality-gate.md` is missing, copy the default there and say so.
 

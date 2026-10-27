@@ -44,6 +44,7 @@ The engine proposes; the user confirms in the brief review. Classification decid
 type: campaign-brief
 campaign: <slug>
 scale: small-c | big-C
+run: full | fast           # full: Claude stops at every step you own; fast: Claude makes those calls and lists them for Gate 2
 status: draft | approved | running | closed    # approved only after Gate 1, by a human
 owner:
 approved_by:

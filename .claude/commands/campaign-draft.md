@@ -7,9 +7,9 @@ argument-hint: <campaign slug> [channel ...]
 
 Step 3 of the Campaign Engine. Take an approved brief and draft each channel the way the participant's workflow says to, not the way you would.
 
-**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one round of questions at a time, detail in the file. Draft first, as that skill says.
 
-Read the `campaign-engine` skill, then the brief, then each channel's workflow in `projects/campaigns/<slug>/workflows/` (written by `/campaign-channels`), then the brand brain, before writing a line.
+Read the `campaign-engine` skill (its "Draft first" section sets how this command runs), then the brief (its `run:` line is the mode: `full` if missing), then each channel's workflow in `projects/campaigns/<slug>/workflows/` (written by `/campaign-channels`), then the brand brain, before writing a line.
 
 ## Mode
 
@@ -34,7 +34,9 @@ For a **big-C** brief: do not draft channels. Read section 12 (Architecture; sec
 For each channel, walk the Steps table in order:
 
 - **A step owned by `Claude`:** do the step exactly as written, following its rule. Meet the step's "Check before moving on" before the next step.
-- **A step owned by a person (`You` or a named role):** **stop.** Show the work so far and the decision the step asks for. Wait for the answer. Record it. Do not continue past a pause on your own, and do not batch two pauses into one question.
+- **A step owned by a person (`You` or a named role), in full mode:** **stop.** Show the work so far and the decision the step asks for, with your recommendation. Wait for the answer. Record it. Do not continue past a pause on your own, and do not batch two pauses into one question.
+- **A step owned by a person, in fast mode:** do not stop. Make the call you would recommend, write it into the draft, record it in `decisions` as `step <n>: <the call> (assumed)`, and move on. A call that needs something only the person has (a named expert, a list, a sign-off) is written as a placeholder, `[expert to name]`, and recorded the same way. `/campaign-review` lists every assumed call first, for the user to accept or change.
+- **A launch task, in both modes:** a step marked "at launch" in its Who cell, or a step whose rule needs the built or live asset (a live page, a loaded email, a running ad, a lead arriving, a sales call). Do not do it and do not wait for it. Add it to `### Launch tasks` under the draft's Plan and notes, as `step <n> · <owner> · <what to do> · done when <check>`, and move on. Say in one line at the end how many launch tasks each channel has.
 - **A step owned by a tool (HubSpot, the CMS, the ad account):** do not do it. Write into the draft exactly what the person loads where, and move on.
 - **Specs:** check every element against the Specs table as you write it. Count characters and words. Fix before moving on.
 - **Messages and proof:** each asset carries the key message or one supporting message. A claim is written only with its proof from the brief's proof table; a (no proof) message is written as an opinion, never as a fact or a number. Nothing from outside the brief or the brain.
@@ -62,7 +64,7 @@ sources: []          # brief sections, brain files, raw files used
 Then two parts, always in this order:
 
 - `## Pieces`: every piece of content a customer, a prospect or a rep will see, one `### <id> · <name>` heading each: `### Email 3 · 10 Nov: why a fixed week beats someday`, `### H1 · Hesh · LinkedIn post`, `### S2 · Short`, `### Sequence email 1`, `### Talk track`. One piece per heading, nothing else under it but the piece itself (subject lines, body, button, visual brief). Each piece folds on the campaign page and is checked on its own at review.
-- `## Plan and notes`: everything else the workflow produces (calendar, audiences, tracking, specs, decisions, open questions), with `###` subheadings.
+- `## Plan and notes`: everything else the workflow produces (calendar, audiences, tracking, specs, decisions, open questions), with `###` subheadings. `### Launch tasks` comes last: the steps left for launch, in order, each with its owner and its check.
 
 The content the workflow's Outputs section lists goes into those two parts. An Output the workflow names as its own file (the landing page mock-up, `drafts/landing-page-mockup.html`) is written next to the draft, built from the draft's copy, and rebuilt whenever that copy changes. Mark any line that rests on a (no proof) message or an (inferred) brief line. If the file exists, write `<channel>-v2.md` and say so; never overwrite a draft.
 
@@ -71,7 +73,7 @@ The content the workflow's Outputs section lists goes into those two parts. An O
 **Campaign page.** If the brief's `page:` is set (not `none`), update the Drafts tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
 
 
-For each channel: the file path and the decisions taken at each pause. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.
+For each channel: the file path, the decisions taken at each pause (in fast mode, how many calls you made and that the review lists them first), and the number of launch tasks. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.
 
 ## 6. Review the drafts (Gate 2), without asking
 
