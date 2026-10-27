@@ -7,7 +7,7 @@ argument-hint: <campaign slug> [channel ...]
 
 Step 2 of the Campaign Engine. Every channel is a numbered, step-by-step workflow built from the CXL courses and Tyler Durman's briefs. This command shows each one, a step at a time, and turns it into the version this campaign runs.
 
-**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one round of questions at a time, detail in the file. Draft first, as that skill says.
 
 Read `frameworks/workflow-format.md` first (with the plugin and no local copy, `${CLAUDE_PLUGIN_ROOT}/frameworks/workflow-format.md`). It defines the three layers, the file shape and the rules.
 
@@ -31,7 +31,7 @@ Update the brief's `channels` field to match the final list, and say so.
 
 ## 2. Walk each channel, step by step
 
-For each channel, in the order the campaign will use them. Start from the most specific layer that exists: the campaign's own copy if this is a re-run, else the user's default, else the starter. Say which one in one line.
+For each channel, in the order the campaign will use them. **Fast mode** (`run: fast` in the brief): ask the tools for every channel in one message, then show every channel's list together and ask once, "Anything to change or skip? Name the channel and step numbers, or 'looks good'". Steps marked "at launch" are labelled so in the list. **Full mode:** one channel at a time, as below. Start from the most specific layer that exists: the campaign's own copy if this is a re-run, else the user's default, else the starter. Say which one in one line.
 
 **First, the tools.** One question per channel, with choices where you can guess them: "Which tool sends these emails? 1 Customer.io · 2 HubSpot · 3 Mailchimp · 4 Other". Note which this session can reach. A tool can change a step (no threading in the email tool, no form builder in the CMS); say so in the list below.
 
@@ -89,5 +89,5 @@ For each channel that changed, ask once: **"Save this as your default <channel>,
 
 - Never write to `frameworks/workflows/`. The starters stay the reference.
 - Every step keeps a source. A changed rule keeps the original source and adds "adjusted: <reason>". A new step cites "your team".
-- Every "You" pause the user keeps becomes a stop in `/campaign-draft`. Do not add pauses they did not ask for; do not drop the ones they kept.
+- Every "You" pause the user keeps becomes a stop in `/campaign-draft` in full mode, and a call Claude makes and lists for Gate 2 in fast mode. Do not add pauses they did not ask for; do not drop the ones they kept.
 - No em dashes in any file this command writes.

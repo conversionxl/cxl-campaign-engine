@@ -5,7 +5,7 @@ layer: starter
 based_on: ""
 status: starter
 tools: [LinkedIn, GA4]
-last_updated: "2026-10-06"
+last_updated: "2026-10-27"
 tags: [campaign-engine, workflow, social]
 ---
 
@@ -35,7 +35,7 @@ Built from Andy Crestodina's CXL course, Content Strategy for Demand Generation 
 | 9 | Build the carousel, if there is one | Claude | Slides made for the format, each "big and beautiful, making one point and inviting someone to scroll"; never a text-heavy PDF | Wilcox, Validate and Scale your LinkedIn Ads, Ad Formats (paid document ads, applied to organic) | One point per slide |
 | 10 | Tag the people | You | Tag everyone quoted, cited or who contributed, ideally people active on LinkedIn | Crestodina, Content Strategy L2 | Tags listed per post |
 | 11 | Point to the destination | Claude | Posts that link carry UTMs; LinkedIn traffic is checked under both social and referral in GA4 | Crestodina, Conversions lesson; Social Media Analytics | UTMs match the brief |
-| 12 | Approve and schedule | You | Approve each post, its poster and its date; space them across the campaign dates | Campaign Engine | Schedule written |
+| 12 | Approve and schedule | You, at launch | Approve each post, its poster and its date; space them across the campaign dates | Campaign Engine | Schedule written |
 | 13 | Re-share what works | Claude | Keep the best posts in rotation; give an underperformer one more try, then stop | Crestodina, Social Media Analytics; Conversions lesson | Review date set |
 
 ## Specs

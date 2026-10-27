@@ -116,6 +116,11 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+**New in 0.11.0**, because the most reported problem was hours of back and forth before the first draft:
+- **Fast or full, per campaign.** `/campaign-brief` asks once. Fast: Claude makes the calls at the steps you own and lists every one first in the review, for you to keep or change at Gate 2 (about 90 minutes, brief to review). Full: Claude stops at each of those steps and decides with you (about two hours). Example and practice runs default to fast. Both stop at the two gates, and neither sends anything.
+- **One round of questions per step**, with a suggested answer where Claude can make one, and assumptions tagged (inferred) instead of asked.
+- **Launch tasks.** Steps that need the built page, a loaded email or a running ad (marked "at launch" in the starters) go on a list in the draft instead of stopping it.
+
 **New in 0.10.0**, from the review of 28 cohort demos and members' feedback on the brief:
 - **A new brief layout** in seven sections: goal and metrics, audience, offer and proof, messages, campaign structure, sales handoff, constraints. It asks why now and why you over each alternative, proposes key messages for you to choose from, works back from the goal to weekly volume, and sets kill and scale rules on early signals. Briefs you already wrote keep their layout until you ask to move them.
 - **Gate 1 checks the gaps the reviews found** (22 checks, up from 16), and Gate 2 adds three rows: one specific CTA, offer claims proven, named alternatives answered. Your own copy of the gate keeps your weights: `/campaign-review` offers to add the new rows.

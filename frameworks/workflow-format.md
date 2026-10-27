@@ -83,7 +83,7 @@ The files this workflow writes, under `projects/campaigns/<slug>/drafts/`.
 
 ## Rules
 
-- **Who is one of three things.** `Claude` (the engine does it), `You` or a named role such as `Sales lead` (a person decides; the engine stops and waits), or a tool such as `HubSpot` (a person does it in that tool, outside the engine; the draft notes what to load where).
+- **Who is one of three things.** `Claude` (the engine does it), `You` or a named role such as `Sales lead` (a person decides; the engine stops and waits), or a tool such as `HubSpot` (a person does it in that tool, outside the engine; the draft notes what to load where). Add **", at launch"** to the Who cell (`You, at launch`) when the step needs the built or live asset: a live page, a loaded email, a running ad, a lead arriving. `/campaign-draft` lists those steps as launch tasks instead of stopping for them.
 - **Every step has a rule and a source.** A starter step that cannot name its source is not in the starter. A step you add cites "your team" and the reason you gave.
 - **Every "You" step is a real decision.** If the marketer would only glance at it, cut the pause.
 - **Specs live here, not in the brief.** The gate checks drafts against them.

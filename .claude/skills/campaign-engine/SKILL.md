@@ -51,9 +51,9 @@ The first cohort's main feedback was too much information. Every reply and every
 
 **In the chat**
 - **Lead with the answer.** First line: what happened or what you need. No preamble, no recap of what the user said.
-- **Eight lines at most, then one question.** If there is more, it goes in the file or on the campaign page, with a link.
+- **Eight lines at most, then the questions.** If there is more, it goes in the file or on the campaign page, with a link.
 - **Mark the human checks.** A question where the user decides something that matters (Gate 1, a step they own, a Gate 2 fix, a skip that weakens the review) starts with **Your call:**. Other questions do not, so the real decisions stand out. `frameworks/human-checks.md` maps them all.
-- **One question at a time**, in plain words, with numbered choices where possible ("1 Approve · 2 Change something · 3 Not yet"). Never stack three questions in one message.
+- **One round of questions per step.** Everything a step needs from the user goes in one message: up to three questions, numbered, in plain words, each with numbered choices or a suggested answer where possible, so one reply settles them all ("1: yes · 2: HubSpot · 3: ok"). Then do the step. Never ask again what an answer already settled.
 - **Ask only for what is missing.** If a file, the brand brain, a daily log or a connected tool already answers it, use it and say so in a few words.
 - **Never paste a file back.** Say what is in it in one line and link it.
 - **Tables for anything with more than three items**; short rows, no paragraphs inside cells.
@@ -67,10 +67,26 @@ The first cohort's main feedback was too much information. Every reply and every
 - **Base template, budgets and the check:** the `keep-it-compact` skill. Ask before adding a tab, section or file the template does not have; change in place, never append "(changed)" or "new 11 Oct"; run `plugin/page-check.sh` before every publish.
 - No em dashes.
 
+## Draft first (every command)
+
+The aim is a complete first draft fast, then better drafts with real data. Members of the first cohort spent hours, some of them days, going back and forth before seeing a draft. A full run, brief to review, should take about 90 minutes in fast mode and two hours in full mode.
+
+- **Ask only what blocks the draft.** Before asking, check whether a reasonable assumption would do. If it would, make it, tag it **(inferred)** in the file, and list the assumptions in one line at the end of the step ("I assumed: 2 sends a week, HubSpot, no paid budget. Change any?"). The (inferred) rule still holds: metrics, customers, quotes and proof are never assumed; missing means blank.
+- **What always blocks:** the goal and its number, who it is for, the offer, and anything a person must approve before it is sent, published or paid for. Everything else can wait for Gate 1 or Gate 2.
+- **Steps that need the built or live asset are launch tasks, not pauses.** A workflow step marked "at launch" (in its Who cell), or any step whose rule needs a live page, a loaded email, a running ad, a lead arriving or a sales call, is not done and not waited for while drafting. It goes to the draft's `### Launch tasks` with its owner, its rule and its check, and drafting moves on.
+- **Two run modes,** chosen once per campaign at the start of `/campaign-brief` and recorded as `run:` in the brief's frontmatter:
+
+  | Mode | Steps a person owns | Best for |
+  |---|---|---|
+  | **Fast** | Claude makes the call it would recommend, records it in the draft's `decisions` marked (assumed), and keeps going. Every assumed call is listed first in the review, for the user to accept or change at Gate 2 | A practice run, a demo, a first draft to react to. Default for `example` and `practice` |
+  | **Full** | Claude stops at each one and decides with the user, one round of questions per step | A campaign you will launch, when you want to shape every step. Default for your own campaigns |
+
+  Both modes stop at Gate 1 and Gate 2: approving the brief and accepting the review are always the human's. Neither mode sends, publishes or spends anything. Switch by changing `run:` in the brief, or by saying "go fast" or "go full" at any point.
+
 ## Rules that hold everywhere
 
 - **The brief holds decisions, drafts hold copy.** Copy found in a brief is moved to a draft or cut. Specs (limits, counts, formats) live in the workflow, not the brief.
-- **The campaign's workflow is the one that runs.** Draft by following `projects/campaigns/<slug>/workflows/<channel>.md` step by step. Stop at every step a person owns and wait; write tool steps as instructions for the person. No workflow file for a channel: do not improvise one or fall back silently; point to `/campaign-channels <slug>`. Layers, most specific first: this campaign, the user's default, the starter (`frameworks/workflow-format.md`).
+- **The campaign's workflow is the one that runs.** Draft by following `projects/campaigns/<slug>/workflows/<channel>.md` step by step. At every step a person owns, stop and wait in full mode, or make and record the call in fast mode (see "Draft first"); launch tasks never stop drafting. Write tool steps as instructions for the person. No workflow file for a channel: do not improvise one or fall back silently; point to `/campaign-channels <slug>`. Layers, most specific first: this campaign, the user's default, the starter (`frameworks/workflow-format.md`).
 - **Linked campaigns.** A sub-campaign lives inside its main campaign's folder (`parent:`); campaigns alongside each other keep their own folders and are linked on both briefs (`links:`). Two levels only. Read every linked brief before writing one. Rules: `frameworks/linked-campaigns.md`.
 - **Scale next to the name.** Wherever a campaign is named on a page or the board, its scale badge (small-c or big-C) sits next to the name.
 - **Many campaigns at once.** Everything about a campaign lives in its folder. Keep the board in `projects/campaigns/campaigns.md` current: every command that changes a campaign's stage updates its row.

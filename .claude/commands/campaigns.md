@@ -7,7 +7,7 @@ argument-hint: [refresh | running <slug> | close <slug> | page]
 
 The board for every campaign in this repo. Read `frameworks/campaigns-board.md` first (with the plugin and no local copy, `${CLAUDE_PLUGIN_ROOT}/frameworks/campaigns-board.md`).
 
-**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one question at a time, detail in the file.
+**Keep it short.** Follow "Keep it short" in the `campaign-engine` skill for every reply and file: answer first, eight lines at most, one round of questions at a time, detail in the file. Draft first, as that skill says.
 
 ## No argument: show the board
 
