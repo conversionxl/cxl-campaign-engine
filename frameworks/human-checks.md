@@ -26,7 +26,7 @@ flowchart LR
 |---|---|---|
 | Brief | Approve, change, or not yet (Gate 1) | Approve its own brief |
 | Channels | Which channels; keep, change or skip each step; save as your default | Add or drop a check you didn't ask for |
-| Drafts | Every step marked "You" in a workflow: 26 of 102 steps across the seven starters. In fast mode Claude makes these calls and lists them for you at Gate 2; steps marked "at launch" become launch tasks | Carry on past a step you own in full mode; hide a call it made in fast mode |
+| Drafts | Every step marked "You" in a workflow: 26 of 102 steps across the seven starters. In fast mode Claude makes these calls and lists them for you at Gate 2, and in balanced mode it stops only where money or a relationship is at stake; steps marked "at launch" become launch tasks | Carry on past a step you own in full mode; hide a call it made in fast mode |
 | Review | Use the fix, write your own, or leave it as is (Gate 2) | Ship a draft, or send anything |
 | Launch | Load the drafts into your tools, run the test, go live | Write to your email, ad or CRM tool |
 | Close | The result and the one lesson for next time | Estimate a result it can't source |

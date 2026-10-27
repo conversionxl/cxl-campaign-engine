@@ -44,7 +44,8 @@ The engine proposes; the user confirms in the brief review. Classification decid
 type: campaign-brief
 campaign: <slug>
 scale: small-c | big-C
-run: full | fast           # full: Claude stops at every step you own; fast: Claude makes those calls and lists them for Gate 2
+run: balanced | fast | full   # fast: Claude makes the calls at your steps and lists them for Gate 2; balanced: stops only where money or a relationship is at stake; full: stops at every step you own
+team: solo | small | split    # who works on it: decides who the named roles in the workflows are
 status: draft | approved | running | closed    # approved only after Gate 1, by a human
 owner:
 approved_by:

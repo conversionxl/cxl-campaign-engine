@@ -31,10 +31,13 @@ For a **big-C** brief: do not draft channels. Read section 12 (Architecture; sec
 
 ## 3. Follow the workflow, one channel at a time
 
+**Picking up where it stopped.** If a channel's draft exists with `stopped_at:` set, say "Email sequence: picking up at step 7 of 14", read the decisions already recorded, and continue from the next step. Never redo a step the draft already holds. Update `stopped_at:` after every step, and clear it when the channel is done.
+
 For each channel, walk the Steps table in order:
 
 - **A step owned by `Claude`:** do the step exactly as written, following its rule. Meet the step's "Check before moving on" before the next step.
 - **A step owned by a person (`You` or a named role), in full mode:** **stop.** Show the work so far and the decision the step asks for, with your recommendation. Wait for the answer. Record it. Do not continue past a pause on your own, and do not batch two pauses into one question.
+- **A step owned by a person, in balanced mode:** stop as in full mode only when the step sets spend or bids, changes the offer or the ask, chooses who gets contacted, or approves something before it is sent, published or paid for. Otherwise, do as in fast mode.
 - **A step owned by a person, in fast mode:** do not stop. Make the call you would recommend, write it into the draft, record it in `decisions` as `step <n>: <the call> (assumed)`, and move on. A call that needs something only the person has (a named expert, a list, a sign-off) is written as a placeholder, `[expert to name]`, and recorded the same way. `/campaign-review` lists every assumed call first, for the user to accept or change.
 - **A launch task, in both modes:** a step marked "at launch" in its Who cell, or a step whose rule needs the built or live asset (a live page, a loaded email, a running ad, a lead arriving, a sales call). Do not do it and do not wait for it. Add it to `### Launch tasks` under the draft's Plan and notes, as `step <n> · <owner> · <what to do> · done when <check>`, and move on. Say in one line at the end how many launch tasks each channel has.
 - **A step owned by a tool (HubSpot, the CMS, the ad account):** do not do it. Write into the draft exactly what the person loads where, and move on.
@@ -58,6 +61,7 @@ status: draft
 last_updated: ""
 decisions: []        # every answer at a step a person owns, with the step number
 sources: []          # brief sections, brain files, raw files used
+stopped_at:          # the last step finished when a session ended partway, so a rerun continues from the next one
 external: []         # pieces built outside the engine: - { piece: "<id>", link: "<URL or path>", added: "<date>" }
 ---
 ```
@@ -74,7 +78,7 @@ The content the workflow's Outputs section lists goes into those two parts. An O
 **Campaign page.** If the brief's `page:` is set (not `none`), update the Content tab (every piece, with its preview), the Workflow tab (launch tasks and the calls made in fast mode), the Touchpoints tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
 
 
-For each channel: the file path, the decisions taken at each pause (in fast mode, how many calls you made and that the review lists them first), and the number of launch tasks. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.
+For each channel: the file path, the decisions taken at each pause (in fast or balanced mode, how many calls you made and that the review lists them first), and the number of launch tasks. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.
 
 ## 6. Review the drafts (Gate 2), without asking
 
