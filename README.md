@@ -116,6 +116,11 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns and workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+**New in 0.12.0**, because members found the review heavy to read:
+- **The campaign page has new tabs:** Brief, Touchpoints (where and when each piece reaches the buyer), Content (every piece shown as it will look, with its review inside it), Workflow (the steps, launch tasks and notes), Results. Pages made earlier are rebuilt on these tabs at their next update.
+- **The review leads with the top three fixes**, then the scores, with Claude's score labelled as a self-review next to the decision models and you.
+- **Pieces you built elsewhere** (a page in your CMS, ads in Figma or Canva) can be linked to the campaign with "link <piece> <URL or file>", and the review checks them.
+
 **New in 0.11.0**, because the most reported problem was hours of back and forth before the first draft:
 - **Fast or full, per campaign.** `/campaign-brief` asks once. Fast: Claude makes the calls at the steps you own and lists every one first in the review, for you to keep or change at Gate 2 (about 90 minutes, brief to review). Full: Claude stops at each of those steps and decides with you (about two hours). Example and practice runs default to fast. Both stop at the two gates, and neither sends anything.
 - **One round of questions per step**, with a suggested answer where Claude can make one, and assumptions tagged (inferred) instead of asked.

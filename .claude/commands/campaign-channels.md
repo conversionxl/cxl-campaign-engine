@@ -77,7 +77,7 @@ For each channel that changed, ask once: **"Save this as your default <channel>,
 
 ## 5. Update the board and hand over
 
-**Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
+**Campaign page.** If the brief's `page:` is set (not `none`), update the Workflow tab (each channel's steps and tools), the Touchpoints tab (the planned touchpoints from the brief's campaign structure) and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
 
 
 - Set the campaign's stage to `channels set` in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing).
