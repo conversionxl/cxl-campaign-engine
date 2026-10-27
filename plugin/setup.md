@@ -1,5 +1,5 @@
 ---
-description: Add the Campaign Engine to your personal OS. Adds raw/campaigns, projects/campaigns with an empty campaigns board, your copy of the quality gate, the seven starter channel workflows, the frameworks, the project file, and a Campaign Engine section in CLAUDE.md. Never overwrites your files. Ends by starting your first brief: the Acme example, one made up on the spot, or your own.
+description: Add the Campaign Engine to your personal OS. Adds raw/campaigns, projects/campaigns with an empty campaigns board, your copy of the quality gate, the eight starter channel workflows, the frameworks, the project file, and a Campaign Engine section in CLAUDE.md. Never overwrites your files. Ends by starting your first brief: the Acme example, one made up on the spot, or your own.
 ---
 
 # /campaign-engine:setup

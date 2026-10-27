@@ -25,6 +25,10 @@ Picks up a campaign where the last session stopped, for when a long run was spli
 2. Say in three lines where it stands: the stage, the last thing done, and the next step ("Email sequence drafted to step 7 of 14; landing page not started").
 3. Ask once: **"Carry on from there? 1 Yes · 2 Something else"**, and on a yes run that command from that point (`/campaign-draft` continues from `stopped_at:`).
 
+## A weekly results routine
+
+When a campaign is marked `running`, offer once to run `refresh` every Monday as a scheduled routine: a Claude Code routine on this folder, which can read the campaign files (a Cowork scheduled task cannot read the repo, so it misses the kill and scale rules). The routine's prompt: "In <this folder>, run /campaign-engine:campaigns refresh. Save the snapshots, check every running campaign against its kill and scale rules, update the board, and post a one-line summary per campaign." Create it only on the user's yes.
+
 ## `refresh`
 
 For every campaign at `running`:

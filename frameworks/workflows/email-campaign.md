@@ -53,7 +53,7 @@ Built from Jessica Best's CXL course, Email Marketing Fundamentals (all 14 lesso
 | Width | Designed at 600 px, built at 1,200 px for retina | Best, Being Ready |
 | Deliverability floor | A send in the last 30 days; hard bounces under 1.5%, unsubscribes under 1%, complaints under 0.1% | Best, Deliverability |
 | Footer | Sender, working unsubscribe, physical address | Best, Legal and Privacy |
-| UTM | Lowercase; source the email tool, medium email, campaign the campaign's slug | Campaign Engine rule |
+| UTM | Lowercase; source the email tool, medium email, campaign the campaign's slug, content the email's ID | The tracking convention in `frameworks/workflow-format.md` |
 
 ## Outputs
 - `projects/campaigns/<slug>/drafts/email-campaign.md`: segment and suppression, deliverability check, each email (two subject lines, preheader, body, button, alt text), send dates, the test plan, UTMs

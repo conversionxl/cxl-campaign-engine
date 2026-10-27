@@ -32,7 +32,7 @@ The plugin is saved to your claude.ai account and Claude syncs it to chat, Cowor
 
 **Only if you can't use Settings → Plugins:** in the Claude chat in VS Code or a terminal (start `claude` first), type `/plugin marketplace add conversionxl/cxl-campaign-engine`, then `/plugin install campaign-engine@cxl-campaign-engine`. This makes a second, local copy on this computer only. Never use it as well as the Settings → Plugins route.
 
-Setup adds `raw/campaigns/`, `projects/campaigns/` with an empty campaigns board, your own copy of the default quality gate in `projects/campaign-engine/`, the seven starter channel workflows, the frameworks, the project file, and a Campaign Engine section in your `CLAUDE.md`. It never overwrites a file, and it adds the `.gitignore` rule that keeps your campaign data local before anything lands in `raw/campaigns/`. The commands are then `/campaign-engine:campaign-brief`, `campaign-channels`, `campaign-draft`, `campaign-review`, `quality-gate` and `campaigns`, and the skills load by themselves.
+Setup adds `raw/campaigns/`, `projects/campaigns/` with an empty campaigns board, your own copy of the default quality gate in `projects/campaign-engine/`, the eight starter channel workflows, the frameworks, the project file, and a Campaign Engine section in your `CLAUDE.md`. It never overwrites a file, and it adds the `.gitignore` rule that keeps your campaign data local before anything lands in `raw/campaigns/`. The commands are then `/campaign-engine:campaign-brief`, `campaign-channels`, `campaign-draft`, `campaign-review`, `quality-gate` and `campaigns`, and the skills load by themselves.
 
 ### Troubleshooting: a local copy and a synced copy
 
@@ -116,6 +116,14 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+**New in 0.15.0**, the drafting craft members added by hand:
+- **A Google Ads starter** (search), cited to Google Ads Help and marked suggested until you walk it.
+- **A page pack on every landing page:** URL, title tag, meta description, Open Graph, schema, sections that stand on their own for AI answers, message match and a conversion target.
+- **One tracking convention:** every link carries full UTMs (campaign slug, platform, channel, piece ID) and jump links use the page's anchors.
+- **Match your existing copy:** drop approved copy or live pages in `raw/campaigns/approved-copy/`. An optional copy style sits beside the brand voice, and copy in another language gets an English summary for the team.
+- **After Gate 2:** a load sheet per tool, field by field, a creative handoff for the pieces with a visual, and a weekly results routine that checks the kill and scale rules.
+- Ads add a matched audience from your own list, sales enablement checks what ChatGPT and Claude say about you before the first send, and a one-channel campaign gets a suggestion for more mileage.
+
 **New in 0.14.0**, for smaller teams and longer runs:
 - **A balanced mode**, now the default for your own campaigns: Claude stops only where a mistake costs money or a relationship (the budget, the offer, who gets contacted, anything before it goes out) and makes the other calls for you to check at the review.
 - **Your team size counts:** on your own, the named roles in the workflows become you and the handoffs between people are merged.
@@ -142,7 +150,7 @@ New versions don't install themselves on a personal marketplace. To update: **Se
 **New in 0.10.0**, from the review of 28 cohort demos and members' feedback on the brief:
 - **A new brief layout** in seven sections: goal and metrics, audience, offer and proof, messages, campaign structure, sales handoff, constraints. It asks why now and why you over each alternative, proposes key messages for you to choose from, works back from the goal to weekly volume, and sets kill and scale rules on early signals. Briefs you already wrote keep their layout until you ask to move them.
 - **Gate 1 checks the gaps the reviews found** (22 checks, up from 16), and Gate 2 adds three rows: one specific CTA, offer claims proven, named alternatives answered. Your own copy of the gate keeps your weights: `/campaign-review` offers to add the new rows.
-- **Landing pages come out as a laid-out HTML mock-up**, linked from the campaign page, not only as copy in sections. A landing page workflow you saved as your default keeps your steps; copy step 14 from the starter to get the mock-up.
+- **Landing pages come out as a laid-out HTML mock-up**, linked from the campaign page, not only as copy in sections. A landing page workflow you saved as your default keeps your steps; copy the mock-up step from the starter to get it.
 
 ## Linked campaigns
 
@@ -183,7 +191,7 @@ Setup takes one command. The back and forth happens inside each step, and it is 
 
 ## Where you decide
 
-Claude drafts; it never ships. You decide at Gate 1 (the brief), at every step marked "You" in a channel's workflow (26 of the 102 starter steps), and at Gate 2 (the review). Rules from CXL instructors sit in every step and in the quality gate, so a draft that breaks one is flagged. The full map, with a diagram: `frameworks/human-checks.md`.
+Claude drafts; it never ships. You decide at Gate 1 (the brief), at every step marked "You" in a channel's workflow (29 of the 117 starter steps), and at Gate 2 (the review). Rules from CXL instructors sit in every step and in the quality gate, so a draft that breaks one is flagged. The full map, with a diagram: `frameworks/human-checks.md`.
 
 ```mermaid
 flowchart LR
@@ -219,7 +227,7 @@ raw/                 Inbox for unstructured dumps, processed by /ingest
   voc/, brand/,      Marketing Brain input folders, shared with that module
   strategy/, performance/
 daily-logs/          One log per day, written automatically
-frameworks/          The reference: brief template, workflow format, seven starter workflows,
+frameworks/          The reference: brief template, workflow format, eight starter workflows,
                      the default gate, campaign inputs, campaigns board, decision models
 wiki/                Durable reference: people, tools, concepts
   brand/             The brand brain, if you built one (read, never written)
