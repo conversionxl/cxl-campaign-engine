@@ -1,6 +1,6 @@
 ---
 description: The Campaign Engine board. See every campaign, its stage, KPI against target, channels and next step; refresh results from connected tools; mark a campaign running or closed; render the board as a page.
-argument-hint: [resume [slug] | refresh | running <slug> | close <slug> | page]
+argument-hint: [resume [slug] | refresh | running <slug> | close <slug> | page [<slug> share-safe]]
 ---
 
 # /campaigns
@@ -59,6 +59,10 @@ Render only. The page follows "The page" in the framework: one card per active c
 
 - If this session can publish an Artifact, publish it privately as "<Brand> Campaigns" (the brand from the recorded brand source or the user's "About me"; "My Campaigns" if neither), to the same link every time. Record the link at the top of `campaigns.md`.
 - Otherwise write `projects/campaigns/campaigns.html` and give the path.
+
+## `page <slug> share-safe`
+
+Build the share-safe copy of a campaign's page as "A share-safe copy" in `frameworks/campaign-page.md` says. First time: list the names found in the campaign's files (companies, people, products, places), propose a stand-in for each, and write `raw/campaigns/share-safe/<slug>.md` after the user approves it. Then build `page-share-safe.html`, check it for every real name, and give the path. It is a file, not an Artifact, so it opens anywhere and prints to PDF.
 
 ## Rules
 

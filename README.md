@@ -116,6 +116,8 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+**New in 0.16.0:** word budgets allow 10% over without a flag, so pages are no longer trimmed and re-checked in a loop; `/campaign-engine:campaigns page <campaign> share-safe` builds a page with real names swapped for stand-ins, from a list that stays on your machine, kept through every rebuild; and the review writes approval messages for the people who sign off on pieces, for you to send.
+
 **New in 0.15.0**, the drafting craft members added by hand:
 - **A Google Ads starter** (search), cited to Google Ads Help and marked suggested until you walk it.
 - **A page pack on every landing page:** URL, title tag, meta description, Open Graph, schema, sections that stand on their own for AI answers, message match and a conversion target.

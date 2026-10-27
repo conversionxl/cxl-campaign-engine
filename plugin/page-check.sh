@@ -11,8 +11,10 @@ em=$(printf '\342\200\224')   # the em dash, written as bytes so this file has n
 flag() { echo "FLAG: $*"; status=1; }
 ok()   { echo "ok:   $*"; }
 visible_words() { sed -E 's/data-prompt="[^"]*"//g; s/<span class="tip"[^>]*>[^<]*<\/span>//g; s/<[^>]*>/ /g' | wc -w | tr -d ' '; }
-budget() { # name words max
-  if [ "$2" -gt "$3" ]; then flag "$1: $2 words, budget $3. Cut the least useful lines"; else ok "$1: $2 words (budget $3)"; fi
+budget() { # name words max. Up to 10% over is a note, not a flag, so a page is not trimmed and re-checked in a loop.
+  if [ "$2" -gt $(( $3 * 11 / 10 )) ]; then flag "$1: $2 words, budget $3. Cut the least useful lines, once"
+  elif [ "$2" -gt "$3" ]; then echo "note: $1: $2 words, a little over the budget of $3. Fine to publish"
+  else ok "$1: $2 words (budget $3)"; fi
 }
 
 case "$f" in
