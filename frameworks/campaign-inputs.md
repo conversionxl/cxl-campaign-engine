@@ -24,6 +24,7 @@ Ask for every relevant document before drafting. Four ways in, all equal:
 |---|---|---|
 | Past campaign briefs, plans, launch docs | `raw/campaigns/past-briefs/` | No |
 | Campaign results and readouts | `raw/campaigns/results/` | No |
+| Approved copy and live pages to match (tone, page structure) | `raw/campaigns/approved-copy/` | No |
 | Sales and SDR feedback on leads, call notes about campaign leads | `raw/campaigns/` | No |
 | Marketing calendar, launch dates, blackout dates | `raw/campaigns/` | No |
 | Pulls from a CRM, email, ad or analytics tool made for a campaign | `raw/campaigns/live/` | No |

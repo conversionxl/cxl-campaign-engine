@@ -57,6 +57,7 @@ The spine is how Tyler Durman runs enablement with reps and SDRs. On top of it: 
 | Missing numbers | Written as [NEEDS DATA] and flagged, never estimated | Armenti, one-pager skill |
 | Review time | Rep clears flags in under two minutes; a human sends | Armenti |
 | Ad warm-up | 1 to 2 weeks before outbound; LinkedIn at least 300 matched contacts | Cosby, Real-World Playbook Example |
+| AI answer check | A launch task before the first send: ask ChatGPT and Claude "What is <brand>?" and "What does <brand> sell?". If an answer describes an older product, price or company, flag it, and hand the fix to the AI visibility work. Buyers look the company up after a call, more of them in an AI tool | Cohort thread, 22 Oct 2026 |
 | LinkedIn messages | Open with why you are writing to this person (one relevant detail), keep it conversational, and leave the pitch until they reply. LinkedIn is a conversation channel, not a selling one | Tyler Durman, demo reviews, 21 Oct 2026 |
 | Slack alert | Campaign name, what the lead did, the play, the time limit | Tyler Durman |
 | Response time | MQL called within one business day | Tyler Durman |

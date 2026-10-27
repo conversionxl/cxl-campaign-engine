@@ -44,6 +44,10 @@ For each channel, walk the Steps table in order:
 - **Specs:** check every element against the Specs table as you write it. Count characters and words. Fix before moving on.
 - **Messages and proof:** each asset carries the key message or one supporting message. A claim is written only with its proof from the brief's proof table; a (no proof) message is written as an opinion, never as a fact or a number. Nothing from outside the brief or the brain.
 - **CTA:** every CTA leads to the brief's destination and KPI action. Email 1 of a sequence may deliver the asset, but the sequence ends on the ask.
+- **Tracking:** every link is the full destination URL with UTMs, following the convention in `frameworks/workflow-format.md`, and jump links use the landing page's anchor IDs. Never "link here".
+- **Copy style (optional):** if the brief has `style:` (direct response, story-led, data-led, contrarian, or the user's own), write in that style within the voice guide; the voice guide wins where they conflict.
+- **Approved copy:** if `raw/campaigns/approved-copy/` holds approved copy or live pages (or the user points to some), read them and match their tone and page structure wherever the voice guide is silent.
+- **Another language:** a piece in a language other than English gets a one-line English summary under it, marked "Summary for the team", outside the piece itself.
 - **Voice:** the brain's voice guide and vocabulary. No em dashes. No hype words. The buyer's words from the ICP where they fit.
 - **Exclusions and personal data:** no names of non-public people, no email addresses. Segments and companies only.
 

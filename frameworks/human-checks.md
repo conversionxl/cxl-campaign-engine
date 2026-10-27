@@ -26,7 +26,7 @@ flowchart LR
 |---|---|---|
 | Brief | Approve, change, or not yet (Gate 1) | Approve its own brief |
 | Channels | Which channels; keep, change or skip each step; save as your default | Add or drop a check you didn't ask for |
-| Drafts | Every step marked "You" in a workflow: 26 of 102 steps across the seven starters. In fast mode Claude makes these calls and lists them for you at Gate 2, and in balanced mode it stops only where money or a relationship is at stake; steps marked "at launch" become launch tasks | Carry on past a step you own in full mode; hide a call it made in fast mode |
+| Drafts | Every step marked "You" in a workflow: 29 of 117 steps across the eight starters. In fast mode Claude makes these calls and lists them for you at Gate 2, and in balanced mode it stops only where money or a relationship is at stake; steps marked "at launch" become launch tasks | Carry on past a step you own in full mode; hide a call it made in fast mode |
 | Review | Use the fix, write your own, or leave it as is (Gate 2) | Ship a draft, or send anything |
 | Launch | Load the drafts into your tools, run the test, go live | Write to your email, ad or CRM tool |
 | Close | The result and the one lesson for next time | Estimate a result it can't source |
@@ -40,8 +40,9 @@ flowchart LR
 | Blog post | 4 of 13: search or social; bring in experts; add what AI can't; a named author |
 | Social | 3 of 13: who posts; who's tagged; approve and schedule |
 | Sales enablement | 7 of 16: the agreement with sales; the pilot sellers; the sales briefing; the sales lead approves; reps call within a day, prep meetings, follow up |
-| Landing page | 3 of 16: walk it from the ad; speed and tracking; sign-off |
+| Landing page | 3 of 18: walk it from the ad; speed and tracking; sign-off |
 | Ad tests | 3 of 15: is LinkedIn worth it; what this test changes; launch |
+| Google Ads | 3 of 14: the budget; the bidding; launch |
 
 ## Where the instructors' rules act as gates
 

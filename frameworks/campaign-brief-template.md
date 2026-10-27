@@ -46,6 +46,7 @@ campaign: <slug>
 scale: small-c | big-C
 run: balanced | fast | full   # fast: Claude makes the calls at your steps and lists them for Gate 2; balanced: stops only where money or a relationship is at stake; full: stops at every step you own
 team: solo | small | split    # who works on it: decides who the named roles in the workflows are
+style:                        # optional copy style: direct response, story-led, data-led, contrarian, or your own; the voice guide wins
 status: draft | approved | running | closed    # approved only after Gate 1, by a human
 owner:
 approved_by:
