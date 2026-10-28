@@ -26,7 +26,7 @@ Already set up the personal OS repo and want to keep your logs and projects? Ski
 Works in any folder. For daily logs, memory and the personal OS commands, also set up the **personal-os** plugin with `/personal-os:setup` (see [its README](https://github.com/conversionxl/cxl-personal-os-plugins)). For a brand brain, the **marketing-brain** plugin (`/marketing-brain:setup`). Both are recommended, not required.
 
 1. In Claude (claude.ai or the desktop app), open **Settings → Plugins**, click **Add → Add marketplace**, and choose the GitHub repo option. Enter `conversionxl/cxl-campaign-engine`, then add **Campaign engine**. It then shows under **From marketplaces you added**. This is its own marketplace, separate from the ones you added for personal-os.
-2. Open your personal OS folder (or any folder for this project) in Cowork, or in the desktop app's Code tab with Environment: Local, and type `/campaign-engine:setup`.
+2. Open your personal OS folder in Cowork, or in the desktop app's Code tab with Environment: Local, and type `/campaign-engine:setup`. Use the same folder for every module, so the engine reads your brand brain. Setup then coaches you through brief, channels, drafts and review, on the Acme example, a campaign you make up, or your own. Type it again any time: it picks up where you left off.
 
 The plugin is saved to your claude.ai account and Claude syncs it to chat, Cowork, the desktop app, VS Code and the terminal. You install it once, and you never download this repository for it.
 
