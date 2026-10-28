@@ -26,7 +26,7 @@ flowchart LR
 |---|---|---|
 | Brief | Approve, change, or not yet (Gate 1) | Approve its own brief |
 | Channels | Which channels; keep, change or skip each step; save as your default | Add or drop a check you didn't ask for |
-| Drafts | Every step marked "You" in a workflow: 29 of 117 steps across the eight starters. In fast mode Claude makes these calls and lists them for you at Gate 2, and in balanced mode it stops only where money or a relationship is at stake; steps marked "at launch" become launch tasks | Carry on past a step you own in full mode; hide a call it made in fast mode |
+| Drafts | Every step marked "You" in a workflow: 30 of 121 steps across the eight starters. In fast mode Claude makes these calls and lists them for you at Gate 2, and in balanced mode it stops only where money or a relationship is at stake; steps marked "at launch" become launch tasks | Carry on past a step you own in full mode; hide a call it made in fast mode |
 | Review | Use the fix, write your own, or leave it as is (Gate 2) | Ship a draft, or send anything |
 | Launch | Load the drafts into your tools, run the test, go live | Write to your email, ad or CRM tool |
 | Close | The result and the one lesson for next time | Estimate a result it can't source |
@@ -42,7 +42,7 @@ flowchart LR
 | Sales enablement | 7 of 16: the agreement with sales; the pilot sellers; the sales briefing; the sales lead approves; reps call within a day, prep meetings, follow up |
 | Landing page | 3 of 18: walk it from the ad; speed and tracking; sign-off |
 | Ad tests | 3 of 15: is LinkedIn worth it; what this test changes; launch |
-| Google Ads | 3 of 14: the budget; the bidding; launch |
+| Google Ads | 4 of 18: the budget tier; the bidding; the landing page before spend; launch |
 
 ## Where the instructors' rules act as gates
 
@@ -55,6 +55,7 @@ Every step in a workflow carries a rule and the instructor it comes from. The ru
 | Andy Crestodina | Content Strategy for Demand Generation | Original data or an opinion you can disagree with; the 3 Ps sign-up offer; link to the money page | Blog post; social |
 | Tycho Luijten | B2B Demand Generation | A named expert posts, not only the company page; core topics with a point of view | Blog post; social; Gate 2 row Distribution |
 | Michael Aagaard | Landing Page Optimization | Clear beats clever; answer their questions on the page; the button says what they get | Landing page |
+| Jack Paxton | Validate and Scale Your Google Ads | Budget tiers and the 60/30/10 split; match types and brand share; bid strategy thresholds; fix the landing page before spending; when to step in | Google Ads |
 | AJ Wilcox | Validate and Scale your LinkedIn Ads | Fix LinkedIn's defaults; test one thing at a time; 3,000 impressions before judging | Ad tests |
 | Steve Armenti | Create sales enablement assets with AI | Approved claims only; a mismatched case study is worse than none; flags the rep clears; a human sends | Sales enablement |
 | Mason Cosby | ABM: Get ROI in 6 Weeks; Align sales and marketing | A written agreement with sales; assets matched to the account's stage | Sales enablement; Gate 2 row Stage |

@@ -116,10 +116,12 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
 
+**New in 0.16.1:** the Google Ads starter is rebuilt on Jack Paxton's CXL course, Validate and Scale Your Google Ads: budget tiers, the 60/30/10 split, match types and brand share, bid thresholds, headline jobs, landing page fixes before spend, and when to step in.
+
 **New in 0.16.0:** word budgets allow 10% over without a flag, so pages are no longer trimmed and re-checked in a loop; `/campaign-engine:campaigns page <campaign> share-safe` builds a page with real names swapped for stand-ins, from a list that stays on your machine, kept through every rebuild; and the review writes approval messages for the people who sign off on pieces, for you to send.
 
 **New in 0.15.0**, the drafting craft members added by hand:
-- **A Google Ads starter** (search), cited to Google Ads Help and marked suggested until you walk it.
+- **A Google Ads starter** for B2B search, built from Jack Paxton's CXL course, Validate and Scale Your Google Ads.
 - **A page pack on every landing page:** URL, title tag, meta description, Open Graph, schema, sections that stand on their own for AI answers, message match and a conversion target.
 - **One tracking convention:** every link carries full UTMs (campaign slug, platform, channel, piece ID) and jump links use the page's anchors.
 - **Match your existing copy:** drop approved copy or live pages in `raw/campaigns/approved-copy/`. An optional copy style sits beside the brand voice, and copy in another language gets an English summary for the team.
@@ -193,7 +195,7 @@ Setup takes one command. The back and forth happens inside each step, and it is 
 
 ## Where you decide
 
-Claude drafts; it never ships. You decide at Gate 1 (the brief), at every step marked "You" in a channel's workflow (29 of the 117 starter steps), and at Gate 2 (the review). Rules from CXL instructors sit in every step and in the quality gate, so a draft that breaks one is flagged. The full map, with a diagram: `frameworks/human-checks.md`.
+Claude drafts; it never ships. You decide at Gate 1 (the brief), at every step marked "You" in a channel's workflow (30 of the 121 starter steps), and at Gate 2 (the review). Rules from CXL instructors sit in every step and in the quality gate, so a draft that breaks one is flagged. The full map, with a diagram: `frameworks/human-checks.md`.
 
 ```mermaid
 flowchart LR
@@ -212,7 +214,7 @@ Optionally, the gate can be written as a question set for a decision model (Type
 ## Credits
 
 - **Brief structure, sales enablement process, email sequence pattern, campaign lessons:** Tyler Durman, Ignition Growth Consulting, from campaign briefs and plans written 2020 to 2025 and shared for this workshop.
-- **Channel workflows and gate criteria:** CXL course instructors Jessica Best (email), Andy Crestodina (B2B content), Steve Armenti (sales enablement), AJ Wilcox (LinkedIn ads), Michael Aagaard (landing page optimization), Tycho Luijten (B2B demand generation), Mason Cosby (ABM), Louis Grenier (positioning and differentiation). Each step cites its lesson in `frameworks/workflows/`; each gate row in `frameworks/quality-gate.md`.
+- **Channel workflows and gate criteria:** CXL course instructors Jessica Best (email), Andy Crestodina (B2B content), Steve Armenti (sales enablement), AJ Wilcox (LinkedIn ads), Jack Paxton (Google Ads), Michael Aagaard (landing page optimization), Tycho Luijten (B2B demand generation), Mason Cosby (ABM), Louis Grenier (positioning and differentiation). Each step cites its lesson in `frameworks/workflows/`; each gate row in `frameworks/quality-gate.md`.
 - **Acme Deals example data and ad scoring:** Nick Christensen, [ship-icp-ads-automate-monitoring](https://github.com/nickyc1/ship-icp-ads-automate-monitoring), MIT license (copy in `raw/voc/example/LICENSE`). The campaign history in `raw/campaigns/example/` is CXL's fictional extension.
 - **Decision models:** Eric Siu, Cloudflare, TypeSafe AI, Claire Vo and Lenny Rachitsky; sources in `frameworks/decision-models.md`.
 - **Personal OS:** [conversionxl/cxl-personal-os](https://github.com/conversionxl/cxl-personal-os).
