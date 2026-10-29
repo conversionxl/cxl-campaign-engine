@@ -100,6 +100,10 @@ Say two things the brief will ask: whether this campaign links to another (a big
 
 **Tell me when:** "brief approved" (or "ready to approve" on Acme).
 
+**Then ask one question:** "**Your brief is done, and that's all the workshop prep needs.** Do you want to carry on and build the full campaign (channels, drafts and review), or end the demo here and move on to the Reporting agent?"
+- **Carry on:** step C.
+- **End here:** step E, the close-out.
+
 ### Step C: channels
 
 **Input card:** which channels the campaign needs, and which tools each runs on (their email platform, ad accounts, CMS). Every call to action needs somewhere to land, so most campaigns need a landing page: one per offer, two at most. A channel not on the list: they can ask for it ("Add webinars to the list and use it for this campaign").
@@ -126,13 +130,21 @@ Then: **"Ready to draft every channel?"** On a yes, run the drafts command with 
 - **Every value claim has proof** that the brief lists as approved.
 Then the recommendations, one at a time: "1 Use the fix · 2 Write my own · 3 Leave it as is". Fixes go to a new version of the draft, never the original. Edited a draft by hand later? `/campaign-engine:campaign-review <campaign>` scores it again.
 
-**Tell me when:** "review done".
+**Tell me when:** "review done". Then step E, the close-out.
 
-### Step E: launch, track, and what's next
+### Step E: close out
 
-1. **Launch (real campaigns only):** loading the drafts into their tools is their step. Then mark it live with `/campaign-engine:campaigns running <campaign>`. `refresh` pulls results from connected tools and warns when a kill rule trips; `close` records the result and the one learning the next brief starts from.
-2. **Done for the workshop:** one brief through Gate 1, in any mode (approved, or ready to approve on Acme). Channels, drafts and review are a bonus. Say so plainly.
-3. **Next module:** if `/reporting-agent:setup` is available in this session, offer to start it now (in a new chat after a long session). If it isn't, say the Reporting agent plugin is the next one to add, at https://github.com/conversionxl/cxl-reporting-agent (Customize › Plugins › + Add › Add from a repository; after Sync, click **Add**).
-4. **Their brand brain is still a template** (the setup output said so): mention once that `/marketing-brain:setup` builds it, and the next brief will read it.
+Close out after the brief when they chose to end there, or after the review of their first drafts when they carried on. Show this, and nothing after it:
 
-If the user has done all of this already, say so in one line, show the table from "Where they are", and offer step A for a new campaign.
+   > **You're finished with the Campaign Engine demo.** <After the brief: "Your brief is approved (or ready to approve, on Acme)." After the drafts: "Your campaign has a brief, a workflow per channel, drafts and a scored review.">
+   >
+   > For later: a real campaign goes live when you load the drafts into your tools and type `/campaign-engine:campaigns running <campaign>`; `/campaign-engine:campaigns` shows every campaign on one board. Type `/campaign-engine:setup` any time to start another.
+   >
+   > **Next: the Reporting agent.**
+   > 1. Not added yet? In the Claude app or on claude.ai: **Customize › Plugins › + Add › Add from a repository**, paste `https://github.com/conversionxl/cxl-reporting-agent`, click **Sync**, then click **Add**.
+   > 2. Start a new session in this same folder.
+   > 3. Type `/reporting-agent:setup`.
+
+If their brand brain is still a template (the setup output said so), add one line before **Next**: `/marketing-brain:setup` builds it, and the next brief reads it. Never start the Reporting agent in this session.
+
+If the user has done all of this already, say so in one line, show the table from "Where they are", show the close-out again, and offer step A for a new campaign.
