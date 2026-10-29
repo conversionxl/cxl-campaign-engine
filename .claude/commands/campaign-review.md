@@ -131,4 +131,6 @@ When every draft is SHIP, or every remaining flag is overruled, set `status: clo
 - A fail that the gate did not have a row for: suggest the row, with the line from this review that taught it.
 - When the campaign is live, `/campaigns running <slug>`; when it ends, `/campaigns close <slug>` records the result and the lesson the next brief reads.
 
-In `example` mode, stop after step 4 and say the practice run ends with the scorecard; Gate 2 is theirs to practise on their own campaign. Then the next step: `/campaign-engine:campaign-brief <your campaign>` starts their own. Ask for the campaign's name in a few words and offer to run it now.
+In `example` mode, stop after step 4 and say the practice run ends with the scorecard; Gate 2 is theirs to practise on their own campaign.
+
+**Close out.** If `/campaign-engine:setup` started this run, go back to its step E. Otherwise, with the plugin, when this is the first campaign in this folder to reach a review: "**You're finished with the Campaign Engine demo.** Next: the Reporting agent. Add the plugin if you haven't (Customize › Plugins › + Add › Add from a repository, `https://github.com/conversionxl/cxl-reporting-agent`, Sync, then Add), start a new session in this same folder, and type `/reporting-agent:setup`." Then one line: `/campaign-engine:campaign-brief <your campaign>` starts a campaign of their own any time.

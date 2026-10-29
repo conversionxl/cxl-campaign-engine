@@ -104,7 +104,7 @@ Answer honestly from what you wrote:
 - How many (inferred) tags are open, and which single input would resolve the most?
 - Which channels does the brief propose, and which have no starter yet (so `/campaign-channels` will need the user's steps or a suggestion)?
 
-Then the file path and the next step, as the `campaign-engine` skill's hand-off rule says.
+Then the file path and the next step, as the `campaign-engine` skill's hand-off rule says. If `/campaign-engine:setup` started this run, go back to its checkpoint. Otherwise, once the brief is approved (or ready to approve, in `example` mode) and the plugin is installed, offer the two ways on in one line: build the full campaign with `/campaign-engine:campaign-channels <slug>`, or end the demo here and move on to the Reporting agent (add the plugin if needed, start a new session in this folder, and type `/reporting-agent:setup`).
 
 ## Last. Connect it to the repo
 
