@@ -114,7 +114,7 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 ## Updating
 
-New versions don't install themselves on a personal marketplace. To update: **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched. (Automatic sync needs the Claude GitHub App to have access to the repo; that is not set up.)
+Keep automatic sync on in Claude and new versions reach you on their own. Not seeing an update yet? Go to **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched.
 
 **New in 0.16.1:** the Google Ads starter is rebuilt on Jack Paxton's CXL course, Validate and Scale Your Google Ads: budget tiers, the 60/30/10 split, match types and brand share, bid thresholds, headline jobs, landing page fixes before spend, and when to step in.
 
