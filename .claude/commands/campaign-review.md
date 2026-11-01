@@ -124,7 +124,7 @@ When every draft is SHIP, or every remaining flag is overruled, set `status: clo
 
 ## 6. Learn from it
 
-**Campaign page.** If the brief's `page:` is set (not `none`), update the Content tab and the header: the review summary at the top, each piece's route and review items inside its fold, and the full list folded at the bottom as `frameworks/campaign-page.md` says, without asking, and end your reply with the link. Rep-only flags go under "For the team only".
+**Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab and the header: each piece's route and review items inside its fold, and the review summary and full list in the closed fold at the bottom of the tab as `frameworks/campaign-page.md` says, without asking, and end your reply with the link. Rep-only flags go under "For the team only".
 
 
 - Three overrules of the same row across campaigns means the weight is wrong, not the drafts: suggest `/quality-gate` and name the row.

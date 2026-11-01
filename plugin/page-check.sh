@@ -38,9 +38,9 @@ flat=$(tr '\n' ' ' < "$f")
 tabs=$(printf '%s' "$flat" | sed -E 's/.*data-group="main"//; s/<\/div>.*//' | grep -o 'data-tab="[^"]*"' | cut -d'"' -f2)
 extra=""
 old=""
-for t in $tabs; do case "$t" in brief|touchpoints|content|workflow|results|linked) ;; channels|review) old=1 ;; *) extra="$extra $t" ;; esac; done
+for t in $tabs; do case "$t" in brief|touchpoints|channels|todos|results|linked) ;; content|workflow|review) old=1 ;; *) extra="$extra $t" ;; esac; done
 if [ -n "$extra" ]; then flag "tabs outside the base template:$extra. Ask the user before adding a tab"; else ok "tabs: base template only"; fi
-[ -n "$old" ] && echo "note: built before 0.12.0 (Channels and Review tabs). Rebuild it on Brief, Touchpoints, Content, Workflow and Results at the next update"
+[ -n "$old" ] && echo "note: built before 0.19.0. Rebuild it on Brief, Touchpoints, Channels, To-dos and Results at the next update"
 
 # 2. Header: title to tabs
 hdr=$(printf '%s' "$flat" | sed -E 's/.*<h1/<h1/; s/<div class="tabs".*//' | visible_words)
@@ -49,12 +49,12 @@ budget "header" "$hdr" 40
 # 3. Tabs and channel sub-tabs
 # A tab runs to its closing </section>. In Review (pages before 0.12.0), only the open grouping view counts (the switch shows one at a time).
 panel() { printf '%s' "$flat" | sed -E "s/.*id=\"$1\" role=\"tabpanel\">//; s/<\/section>.*//" | perl -0pe 's/<div class="view" id="[^"]*">.*?(?=<details|$)//gs'; }
-for p in brief touchpoints review results linked; do
+for p in brief touchpoints todos review results linked; do
   printf '%s' "$flat" | grep -q "id=\"$p\" role=\"tabpanel\"" || continue
-  case "$p" in brief) max=800 ;; touchpoints) max=400 ;; review) max=900 ;; results) max=400 ;; linked) max=300 ;; esac
+  case "$p" in brief) max=800 ;; touchpoints) max=400 ;; todos) max=500 ;; review) max=900 ;; results) max=400 ;; linked) max=300 ;; esac
   budget "$p tab" "$(panel "$p" | visible_words)" "$max"
 done
-# The review summary at the top of Content is budgeted on its own; the pieces are budgeted per channel below.
+# The review summary at the bottom of Channels is budgeted on its own; the pieces are budgeted per channel below.
 if printf '%s' "$flat" | grep -q 'class="card qa-summary"'; then
   budget "review summary" "$(printf '%s' "$flat" | sed -E 's/.*class="card qa-summary">//; s/<!-- \/qa-summary -->.*//' | visible_words)" 300
 fi
