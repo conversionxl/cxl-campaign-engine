@@ -20,7 +20,7 @@ budget() { # name words max. Up to 10% over is a note, not a flag, so a page is 
 case "$f" in
   *.md)
     name=$(basename "$f")
-    words=$(sed -E '1{/^---$/,/^---$/d;}; /^## (Sources|Evidence)/,$d' "$f" | wc -w | tr -d ' ')
+    words=$(perl -0pe 's/\A---\n.*?\n---\n//s; s/^## (Sources|Evidence).*//ms' "$f" | wc -w | tr -d ' ')
     case "$name" in
       brief.md)   budget "$name before Sources" "$words" 800 ;;
       review.md)  budget "$name" "$words" 800 ;;
