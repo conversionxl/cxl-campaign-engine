@@ -116,6 +116,8 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 Keep automatic sync on in Claude and new versions reach you on their own. Not seeing an update yet? Go to **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched.
 
+**New in 0.19.0:** the campaign page tabs are now Brief, Touchpoints, Channels, To-dos, Results and Linked. Channels gives each channel its own tab, with its content first and how it runs below. The review sits in a closed fold at the bottom. To-dos puts everything a person still has to do in one table. Pages you already made pick this up at their next update.
+
 **New in 0.18.0:** touchpoints are now the customer's. A touchpoint is a moment the buyer meets the campaign, so the Touchpoints tab maps that path in order and leaves out your team's work: alerts, handoffs, launch tasks, and pieces marked (team only) such as a talk track or a battlecard. The brief's campaign structure gains a "How they fit" line, and Gate 1 checks both. Pages you already made pick this up at their next update; approved briefs keep what they have.
 
 **New in 0.16.1:** the Google Ads starter is rebuilt on Jack Paxton's CXL course, Validate and Scale Your Google Ads: budget tiers, the 60/30/10 split, match types and brand share, bid thresholds, headline jobs, landing page fixes before spend, and when to step in.
@@ -144,7 +146,7 @@ Keep automatic sync on in Claude and new versions reach you on their own. Not se
 - **Gate 1 also checks** thin evidence (most proof from one or two customers) and a big-C goal planned as one small-c set of pieces. Ad tests keep spare drafts for the next test, and LinkedIn messages open with relevance and leave the pitch for later.
 
 **New in 0.12.0**, because members found the review heavy to read:
-- **The campaign page has new tabs:** Brief, Touchpoints (where and when each piece reaches the buyer), Content (every piece shown as it will look, with its review inside it), Workflow (the steps, launch tasks and notes), Results. Pages made earlier are rebuilt on these tabs at their next update.
+- **The campaign page has new tabs:** Brief, Touchpoints (where and when each piece reaches the buyer), Channels (every piece shown as it will look, with its review inside it, and how the channel runs), To-dos (what a person still has to do), Results. Pages made earlier are rebuilt on these tabs at their next update.
 - **The review leads with the top three fixes**, then the scores, with Claude's score labelled as a self-review next to the decision models and you.
 - **Pieces you built elsewhere** (a page in your CMS, ads in Figma or Canva) can be linked to the campaign with "link <piece> <URL or file>", and the review checks them.
 
