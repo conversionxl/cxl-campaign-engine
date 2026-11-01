@@ -35,8 +35,8 @@ Visible words, not counting starter prompts and tooltips. Over budget by more th
 | Where | Budget |
 |---|---|
 | Page header (title to tabs) | 40 words |
-| Brief tab | 800 words |
-| Touchpoints tab | 400 words |
+| Brief tab | 800 visible words; everything else in closed folds |
+| Touchpoints tab | 400 words, one column per stage |
 | A channel sub-tab | 3,500 words, of which the plan 600 |
 | To-dos tab | 500 words |
 | Calendar sub-tab | The timeline, one fold and one short section: no notes on the timeline |
@@ -44,7 +44,7 @@ Visible words, not counting starter prompts and tooltips. Over budget by more th
 | Review summary (closed fold at the bottom of Channels) | 300 words: the top three fixes and the scores table; the full list folded below the channels |
 | Results tab | 400 words |
 | Linked tab | 300 words |
-| `brief.md` | 900 words before `## Sources` (`## Evidence` in briefs before 0.10.0) |
+| `brief.md` | 800 words before `## Sources` (`## Evidence` in briefs before 0.10.0) |
 | `review.md` | 800 words |
 | Landing pages | one per offer, two at most |
 

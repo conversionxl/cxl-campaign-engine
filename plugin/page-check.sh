@@ -20,9 +20,9 @@ budget() { # name words max. Up to 10% over is a note, not a flag, so a page is 
 case "$f" in
   *.md)
     name=$(basename "$f")
-    words=$(sed -E '/^## (Sources|Evidence)/,$d' "$f" | wc -w | tr -d ' ')
+    words=$(sed -E '1{/^---$/,/^---$/d;}; /^## (Sources|Evidence)/,$d' "$f" | wc -w | tr -d ' ')
     case "$name" in
-      brief.md)   budget "$name before Sources" "$words" 900 ;;
+      brief.md)   budget "$name before Sources" "$words" 800 ;;
       review.md)  budget "$name" "$words" 800 ;;
       results.md) budget "$name" "$words" 400 ;;
       *)          ok "$name: $words words (no budget for this file)" ;;
@@ -48,7 +48,8 @@ budget "header" "$hdr" 40
 
 # 3. Tabs and channel sub-tabs
 # A tab runs to its closing </section>. In Review (pages before 0.12.0), only the open grouping view counts (the switch shows one at a time).
-panel() { printf '%s' "$flat" | sed -E "s/.*id=\"$1\" role=\"tabpanel\">//; s/<\/section>.*//" | perl -0pe 's/<div class="view" id="[^"]*">.*?(?=<details|$)//gs'; }
+# Closed folds do not count: the budget is what the reader sees when the tab opens.
+panel() { printf '%s' "$flat" | sed -E "s/.*id=\"$1\" role=\"tabpanel\">//; s/<\/section>.*//" | perl -0pe 's/<div class="view" id="[^"]*">.*?(?=<details|$)//gs; s/<details(?! open)[^>]*>.*?<\/details>//gs'; }
 for p in brief touchpoints todos review results linked; do
   printf '%s' "$flat" | grep -q "id=\"$p\" role=\"tabpanel\"" || continue
   case "$p" in brief) max=800 ;; touchpoints) max=400 ;; todos) max=500 ;; review) max=900 ;; results) max=400 ;; linked) max=300 ;; esac
