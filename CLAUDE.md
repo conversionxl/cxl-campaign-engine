@@ -29,7 +29,7 @@ Claude has no memory between sessions by default. This repo fixes that with plai
 |---|---|
 | `projects/` | One folder per active project, each with a canonical project file. The primary structure for all work. Start from `projects/_template.md`. |
 | `projects/campaign-engine/` | The engine's settings: `quality-gate.md` (criteria × channel × weight, yours to tune) and `workflows/` (your default version of each channel, saved from a campaign when you say so). |
-| `projects/campaigns/` | `campaigns.md`, the board, plus one folder per campaign: `brief.md`, `workflows/`, `drafts/`, `review.md`, `results.md`. Committed. |
+| `projects/campaigns/` | `campaigns.md`, the board, plus one folder per campaign: `brief.md`, `calendar.md`, `workflows/`, `drafts/`, `review.md`, `results.md`. Committed. |
 | `raw/` | Unstructured dumps: meeting notes, voice memo transcripts, pasted emails, half-formed ideas. `/ingest` processes and files them, and moves module inputs into `raw/campaigns/`, `raw/voc/`, `raw/strategy/`, `raw/performance/`, or `raw/brand/`. Files already in those folders stay put. |
 | `raw/campaigns/` | Your campaign history: past briefs, results, sales feedback on leads, CRM and email pulls (`live/`), the marketing calendar. Gitignored except the README and the Acme Deals example. |
 | `raw/voc/` | Voice of customer: customer exports, reviews, tickets, call notes, survey answers. Gitignored except the README and the Acme Deals example. |

@@ -36,7 +36,7 @@ Short, like everything this engine writes. The page is a view of the files, not 
 |---|---|---|
 | **Brief** | `/campaign-brief` | The At a glance block as a card, then sections 1 to 7 as a compact grid (a brief from before 0.10.0: its own sections). Sources and the Gate 1 table folded. Never decision-model results |
 | **Touchpoints** | `/campaign-channels`, `/campaign-draft` | The buyer's journey, in the order they meet the campaign. It opens on **one row of stages** (`.path`), by default Discover, Consider, Come back, Buy, After, so the journey reads in five seconds. Each stage is then a closed fold holding one table with **three columns:** the moment as the buyer meets it ("Webinar lead ads on Meta", "Lands on the sprint page"), when, and what it leads to. Merge repeats into one row ("4 webinars, 19 Nov to 7 Jan", "Hesh's LinkedIn posts, 3 a week"). No owners, build status or message detail: those live in To-dos and Channels. **Customer touchpoints only.** Your team's work never gets a row: alerts, handoffs, launch tasks, tracking, and pieces the buyer never sees (marked (team only) in the draft). Ad variants in one test are one row. Built from the brief's campaign structure (its "How they fit" line sets the order) and each draft's calendar |
-| **Channels** | `/campaign-channels`, `/campaign-draft`, `/campaign-review` | Everything about a channel sits in that channel's tab, and nowhere else. **A sub-tab per channel**, named as the buyer would name it (Email, Landing page, Paid, Social). It opens on **the channel's plan**, shown open: the draft's `## Plan and notes` without its launch tasks, such as the campaign structure, budget, audiences, calendar and tracking. Before a draft exists, the plan is what `/campaign-channels` settled. Then **every piece folded on its own** (each `###` under the draft's `## Pieces`), its route pill in the fold's summary, with the (team only) pieces behind them. Open, a piece shows its **preview** first (see below), then its copy fields with their counts, then its own review items. Below the pieces, one closed fold, **"Steps"**: the tools as pills; the steps, each with a pill for who does it and a "Prompt" copy pill beside it; the steps Claude made a call on in fast or balanced mode marked with an "assumed" pill. A channel with no draft yet says "Not drafted yet" in one line under its plan. **The review is an appendix, never the first thing on the tab.** Below the channels, one folded section, closed by default, holds what checked the content (after `/campaign-review`): the top three fixes, each with its "Copy starter prompt" pill; the scores table, one row per channel with the route, and a column per checker: **"Claude (self-review)"**, then Jev and Clef when they ran, then "You" once the user has accepted the review; the full list of recommendations, with the switch to group it by step, by channel or by piece; and the decisions log. **Landing pages:** one per offer, two at most; each opens with an "Open the mock-up" link to its laid-out HTML mock-up (the mock-up step of the landing page workflow): as an Artifact, publish the mock-up with the page as a supporting file at `mockups/<draft file name>` and link to that relative path; as a file, link to the mock-up in `drafts/`. With two, a table of the pages, then one section per page (numbered badge, name, URL, the campaign it belongs to, builder and sign-off, state); pieces for different pages never share a fold. A piece built outside the engine shows its link (see "Built elsewhere") |
+| **Channels** | `/campaign-channels`, `/campaign-draft`, `/campaign-review` | Everything about a channel sits in that channel's tab, and nowhere else. **The first sub-tab is Calendar:** every stream on one timeline (see "The calendar"). Then **a sub-tab per channel**, named as the buyer would name it (Email, Landing page, Paid, Social). It opens on **the channel's plan**, shown open: the draft's `## Plan and notes` without its launch tasks, such as the campaign structure, budget, audiences, calendar and tracking. Before a draft exists, the plan is what `/campaign-channels` settled. Then **every piece folded on its own** (each `###` under the draft's `## Pieces`), its route pill in the fold's summary, with the (team only) pieces behind them. Open, a piece shows its **preview** first (see below), then its copy fields with their counts, then its own review items. Below the pieces, one closed fold, **"Steps"**: the tools as pills; the steps, each with a pill for who does it and a "Prompt" copy pill beside it; the steps Claude made a call on in fast or balanced mode marked with an "assumed" pill. A channel with no draft yet says "Not drafted yet" in one line under its plan. **The review is an appendix, never the first thing on the tab.** Below the channels, one folded section, closed by default, holds what checked the content (after `/campaign-review`): the top three fixes, each with its "Copy starter prompt" pill; the scores table, one row per channel with the route, and a column per checker: **"Claude (self-review)"**, then Jev and Clef when they ran, then "You" once the user has accepted the review; the full list of recommendations, with the switch to group it by step, by channel or by piece; and the decisions log. **Landing pages:** one per offer, two at most; each opens with an "Open the mock-up" link to its laid-out HTML mock-up (the mock-up step of the landing page workflow): as an Artifact, publish the mock-up with the page as a supporting file at `mockups/<draft file name>` and link to that relative path; as a file, link to the mock-up in `drafts/`. With two, a table of the pages, then one section per page (numbered badge, name, URL, the campaign it belongs to, builder and sign-off, state); pieces for different pages never share a fold. A piece built outside the engine shows its link (see "Built elsewhere") |
 | **To-dos** | `/campaign-brief`, `/campaign-channels`, `/campaign-draft` | Only what a person still has to do, across every channel, in one table in date order: launch tasks from the drafts, steps a person owns that are not done, and approvals still open. No plans, budgets or structures: those stay in the channel's tab. Columns: to-do, channel, owner, due, and done when. Steps a person owns get a "Prompt" copy pill. No sub-tabs. Finished to-dos leave the table |
 | **Results** | `/campaigns close` | KPI against target, what worked, what did not, the lesson. On a main campaign, its sub-campaigns' KPIs rolled up against its goal tree |
 | **Linked** | Every command, when the campaign has a main campaign, sub-campaigns or links | One card per linked campaign, grouped as Main campaign, Sub-campaigns, Alongside: name with its scale badge, the relation in plain words, stage bar, KPI against target, dates, link to its page. Left out when the campaign stands alone |
@@ -60,9 +60,41 @@ Short, like everything this engine writes. The page is a view of the files, not 
 
 Strip markdown from the cells. A recommendation's prompt is the Prompt column of the review, unchanged.
 
-**Sub-tab IDs** are unique across the page: `ch-<channel>` in Channels (`ch-email-campaign`).
+**Sub-tab IDs** are unique across the page: `ch-calendar`, then `ch-<channel>` in Channels (`ch-email-campaign`).
 
 **Reading a workflow file:** only the rows of its `## Steps` table are steps. Never read the "Changes from the version it was based on" table as steps. Print each step's number from its `#` cell (`<span class="n">`), never from a CSS counter or list position: counters do not reset inside hidden tabs, so later channels would start at 6 or 10.
+
+## The calendar
+
+One view of everything the campaign does, so the gaps and clashes show. It is built from `projects/campaigns/<slug>/calendar.md`: one table with the columns Date (`YYYY-MM-DD`), Stream and What. `/campaign-channels` writes it from the brief and the workflows, and `/campaign-draft` updates it as dates firm up. Items not yet drafted still get a row.
+
+**The timeline** opens the sub-tab, and the whole campaign fits on one screen:
+
+- **Columns:** one per week from the campaign's first Monday to its end, with a faint line per day and a stronger line per week, so an empty day is easy to see.
+- **Rows:** one per stream, using only the streams the campaign has. Put things that work together next to each other. The usual order: the offer, key moments, events, event follow-up, ads to events, full-list emails, newsletter, other paid, then social, one row per poster.
+- **Dots for single sends.** One dot per send, with no text. Text sits on a marker only when it fits, such as events a week or more apart. Hovering or focusing shows the date and the name.
+- **Bars for anything that spans days:** the offer, a sale weekend, an event, an ad flight, a nurture sequence.
+
+Markup, with `SPAN` as the number of days from the first Monday to the end, and `DAY` as a date's index from zero:
+
+```html
+<div class="tw"><div class="tlw">
+  <div class="tgrid"><i class="w" style="left:0%"></i><i style="left:1.43%"></i></div>
+  <div class="tr th"><div class="tl-n"></div><div class="tw-h"><span>2 Nov</span><span>9 Nov</span></div></div>
+  <div class="tr"><div class="tl-n">Full-list emails</div><div class="tt" style="height:31px">
+    <span class="tm e dot" tabindex="0" style="left:0.71%" data-t="2 Nov: E1 Launch" aria-label="2 Nov: E1 Launch"></span>
+  </div></div>
+</div></div>
+```
+
+- `.tgrid` holds one `<i>` per day at `DAY / SPAN × 100`, with class `w` on each Monday. `.tw-h` holds one `<span>` per week.
+- A dot sits at `(DAY + 0.5) / SPAN × 100`. Marker classes: `e` email, `n` newsletter, `w` event, `h` a person's posts, `c` company posts. Add `end` past 84% and `start` under 14%, so the label stays on the grid. Leave out `dot` when the text fits.
+- A bar is `<span class="tb" style="left:..%;width:..%;top:4px">Label</span>`, with class `o` offer, `k` key moment, `h` holidays, `p` paid or `nu` nurture.
+
+**Under the timeline:**
+
+- **Day by day**, folded: a Monday to Sunday table (`.cal`) with a chip per item and stream filters (`.calf`).
+- **How they work together:** who gets what and when it stops, a table of sends per week, the heaviest week, and any day two emails reach the same person.
 
 ## A share-safe copy
 

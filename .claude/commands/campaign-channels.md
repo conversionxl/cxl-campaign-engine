@@ -74,13 +74,15 @@ The character limits and counts (the Specs table) are not walked step by step: s
 
 For each channel, write `projects/campaigns/<slug>/workflows/<channel>.md` in the shape from the framework: `layer: campaign`, `campaign: <slug>`, `based_on` the layer it started from, `status: adjusted` (or `starter` if nothing changed, `suggested` if it came from the suggestion route and was not adjusted), `tools`, today's date. Fill the "Changes from the version it was based on" table with every change and cut and its reason. If the file exists, show the diff and ask before replacing it.
 
+**The calendar.** Write `projects/campaigns/<slug>/calendar.md`: one table with the columns Date (`YYYY-MM-DD`), Stream and What, one row per send, post, event and key date the workflows and the brief imply, whether drafted or not. Say in one line any week with no sends and any day two emails reach the same person.
+
 ## 4. Save as your default?
 
 For each channel that changed, ask once: **"Save this as your default <channel>, so your next campaign starts from it?"** On a yes, write it to `projects/campaign-engine/workflows/<channel>.md` with `layer: default`, keeping the changes table, and say: "It's yours: plugin updates never change it."  If a default already exists, show the diff and ask before replacing it. Never in `example` mode.
 
 ## 5. Update the board and hand over
 
-**Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab (a sub-tab per channel, with its plan, steps and tools), the To-dos tab (steps a person owns), the Touchpoints tab (the planned customer touchpoints from the brief's campaign structure) and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
+**Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab (the calendar, then a sub-tab per channel, with its plan, steps and tools), the To-dos tab (steps a person owns), the Touchpoints tab (the planned customer touchpoints from the brief's campaign structure) and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
 
 
 - Set the campaign's stage to `channels set` in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing).

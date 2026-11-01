@@ -12,7 +12,7 @@
 |---|---|
 | `raw/campaigns/` | Your campaign history: past briefs, results, sales feedback on leads, CRM and email pulls (`live/`), the marketing calendar. Gitignored except the README and the Acme Deals example. Files dropped loose in the top of `raw/` are moved here by the next command you run, or by `/personal-os:ingest`. |
 | `projects/campaign-engine/` | The engine's settings: `quality-gate.md` (criteria × channel × weight, yours to tune) and `workflows/` (your default version of each channel, saved from a campaign when you say so). |
-| `projects/campaigns/` | `campaigns.md`, the board, plus one folder per campaign: `brief.md`, `workflows/`, `drafts/`, `review.md`, `results.md`. Committed. |
+| `projects/campaigns/` | `campaigns.md`, the board, plus one folder per campaign: `brief.md`, `calendar.md`, `workflows/`, `drafts/`, `review.md`, `results.md`. Committed. |
 | `wiki/brand/` | The brand brain from the Marketing Brain workshop, if you have it. The engine reads it and never writes to it. Without it, the brief collects the minimum itself and tags those lines (inferred). |
 
 **Context from other plugins.** The engine reads a brand brain wherever it lives: `wiki/brand/` here, another installed plugin's `brand/` folder (a company plugin such as `cxl-plugin`), or another folder. It also reads the personal OS's daily logs as context. Both are read in place, never copied or edited. With more than one brand source, the first command asks once and records the answer below; edit a line to change it.
