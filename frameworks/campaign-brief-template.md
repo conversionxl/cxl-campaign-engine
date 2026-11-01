@@ -9,13 +9,13 @@ tags: [campaign-engine, brief]
 
 The brief holds **decisions only, no copy.** Copy lives in the drafts, so the brief stays reviewable in five minutes and gives the quality gate something to check drafts against. Sections 1 to 7 apply to every campaign. Sections 8 to 13 are filled only when the campaign is classified big-C.
 
-The seven sections answer seven questions, in order: what are we trying to achieve, and how will we know early (1)? Who are we targeting (2)? What are we offering, and why should they believe it (3)? How do we say it (4)? Where and when does it reach them, and is that enough to hit the goal (5)? What does sales do with a lead (6)? What limits us (7)?
+The seven sections answer seven questions, in order: what are we trying to achieve, and how will we know early (1)? Who are we targeting (2)? What are we offering, and why should they believe it (3)? What do we believe, and how do we say it (4)? Where and when does it reach them, and is that enough to hit the goal (5)? What does sales do with a lead (6)? What limits us (7)?
 
 Every line traces to an input: a file in `raw/campaigns/`, the brand brain in `wiki/brand/`, a connected tool, or the user's own answer. Anything else is tagged **(inferred)**. Metrics, customers, quotes and case studies are never generated: missing means blank.
 
 **How-to stays out of the brief.** UTM conventions, tracking setup, test submissions and character limits live in each channel's workflow. The brief says what is decided; the workflow says how it is done.
 
-**Briefs written before 0.10.0** use the earlier nine sections (Approach, Messaging with angles, Buying stage, Measurement, Evidence). Read them by section name. Never restructure one unless the user asks; when they do, move each line to its new section and change no decision.
+**Briefs written before 0.10.0** use the earlier nine sections (Approach, Messaging with angles, Buying stage, Measurement, Evidence). **Briefs from 0.10.0 to 0.23** have section 4 as Messages, with no point of view or story. Read them by section name. Never restructure one unless the user asks; when they do, move each line to its new section and change no decision.
 
 ## Small-c or big-C
 
@@ -37,7 +37,7 @@ The engine proposes; the user confirms in the brief review. Classification decid
 
 **Length.** Above the Sources section, a small-c brief fits on one screen: about 350 words, and 800 at the very most. Dates go on the calendar and tasks in To-dos. Volumes, segment detail and reasoning go to Sources, and proof can be one line. Each field is one line; a list has three lines at most. Reasoning, maths, baselines and long source notes go to Sources. Source tags in the fields are short: `(Metorik)`, `(icp.md)`, `(your answer)`; the full path is in Sources.
 
-**The cold-colleague test.** A colleague who reads only this brief can say what the offer is worth to the buyer and what the key message is, without asking. So the brief holds no raw answers to the engine's questions, no internal labels and no undefined terms.
+**The cold-colleague test.** A colleague who reads only this brief can say what the offer is worth to the buyer, what the point of view is and what the key message is, without asking. So the brief holds no raw answers to the engine's questions, no internal labels and no undefined terms.
 
 ```markdown
 ---
@@ -63,12 +63,13 @@ tags: [campaign]
 # <Campaign name>
 
 ## At a glance
-<!-- Seven lines. Someone who reads only this knows what is decided. The engine writes every draft from these lines, so a weak offer or key message here weakens every piece. -->
+<!-- Eight lines. Someone who reads only this knows what is decided. The engine writes every draft from these lines, so a weak offer or key message here weakens every piece. -->
 - **Goal:** <KPI, number, date> · **Scale:** <small-c | big-C>, <the reason in a few words>
 - **Who:** <who it is for> · **Not for:** <the main exclusion>
 - **Offer:** <what they get> → **CTA:** <the one action>
 - **Why take it now:** <what it is worth to them, and why now rather than any time>
 - **Why us:** <why this over the main alternative, in a few words>
+- **Point of view:** <what we believe about their world that the campaign argues, one line>
 - **Key message:** <the buyer's reason to take the offer, one line>
 - **Channels:** <list> · **Gate 1:** <passes / what still fails>
 
@@ -118,13 +119,20 @@ tags: [campaign]
 
 **Proof to collect** (leave out when every message has proof): <for each (no proof) message, the proof that would carry it and how to get it: a customer quote, before-and-after numbers, a pilot, a third-party source> → launch tasks. Until then the message is written as an opinion, or the piece leads with the value instead.
 
-## 4. Messages
-- **Key message:** <why the buyer should take the offer, in their terms: not how the product works, not a product description, not the story of the content>
-- **Supporting messages:** <up to 4, each one line, each citing the proof it rests on (P1, P2) or marked (no proof)>
+## 4. Narrative and messages
+<!-- The most read section after At a glance. It sits open on the Brief tab, so anyone can see the argument without opening a draft. If the campaign keeps a longer narrative with evidence and objections, it goes in narrative.md in the campaign folder; this section stays the short version. -->
+**Point of view:** <two or three sentences: what has changed in the buyer's world, what that means for them, and why our way in is the right one. A belief someone could disagree with, not a description of the product>
 
-| Segment | Leads with | Why it lands for them |
-|---|---|---|
-| <from Include> | <supporting message number> | <one line, from their words> |
+**The story, in order:**
+1. <up to 7 beats, one short line each. Starts in the buyer's world and ends on the offer. A long piece follows this order; a short piece carries one beat>
+
+**Key message:** <why the buyer should take the offer, in their terms: not how the product works, not a product description, not the story of the content>
+
+**Supporting messages:** <up to 4, each one line, each citing the proof it rests on (P1, P2) or marked (no proof)>
+
+**Who leads with what:** <segment: the supporting message it leads with, and why it lands, from their words. Leave out with one segment; move to Sources when long>
+
+**We never:** <up to 3 lines: what the copy must not lead with, promise or pretend>
 
 ## 5. Campaign structure
 <!-- What the campaign consists of, worked back from the goal. Not an execution plan: the steps live in each channel's workflow.

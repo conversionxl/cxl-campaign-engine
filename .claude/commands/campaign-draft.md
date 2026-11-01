@@ -25,7 +25,7 @@ For a **big-C** brief: do not draft channels. Read section 12 (Architecture; sec
 
 ## 2. Load
 
-- The brief in full. Note the KPI action, the CTA, the At a glance block (the engine writes every piece from it), the key message and supporting messages with their proof status, the alternatives, the buyer's thought, the exclusions, the handoff rule, the constraints.
+- The brief in full. Note the KPI action, the CTA, the At a glance block (the engine writes every piece from it), the point of view, the story, the key message and supporting messages with their proof status, the We never line, the alternatives, the buyer's thought, the exclusions, the handoff rule, the constraints.
 - The brand brain from its recorded source (`**Brand source:**` in `CLAUDE.md`; run `bash "${CLAUDE_PLUGIN_ROOT}/plugin/find-context.sh" "$PWD"` (in the repo copy: `bash plugin/find-context.sh "$PWD"`) if nothing is recorded), as the `campaign-engine` skill says: who, what to say, how to say it. In `example` mode, the example brain.
 - The inputs the workflow's "Pulls in" section names (files in `raw/campaigns/`, connected tools, read only).
 
@@ -42,7 +42,7 @@ For each channel, walk the Steps table in order:
 - **A launch task, in both modes:** a step marked "at launch" in its Who cell, or a step whose rule needs the built or live asset (a live page, a loaded email, a running ad, a lead arriving, a sales call). Do not do it and do not wait for it. Add it to `### Launch tasks` under the draft's Plan and notes, as `step <n> · <owner> · <what to do> · done when <check>`, and move on. Say in one line at the end how many launch tasks each channel has.
 - **A step owned by a tool (HubSpot, the CMS, the ad account):** do not do it. Write into the draft exactly what the person loads where, and move on.
 - **Specs:** check every element against the Specs table as you write it. Count characters and words. Fix before moving on.
-- **Messages and proof:** each asset carries the key message or one supporting message. A claim is written only with its proof from the brief's proof table; a (no proof) message is written as an opinion, never as a fact or a number. Nothing from outside the brief or the brain.
+- **Messages and proof:** each asset carries the key message or one supporting message. A long piece (a landing page, a webinar, a sequence read in order) follows the brief's story in order; a short piece (an ad, a post, a single email) carries one beat of it. Nothing breaks the We never line. If `narrative.md` exists, use it for evidence and objections; the brief wins where they differ. A claim is written only with its proof from the brief's proof table; a (no proof) message is written as an opinion, never as a fact or a number. Nothing from outside the brief or the brain.
 - **CTA:** every CTA leads to the brief's destination and KPI action. Email 1 of a sequence may deliver the asset, but the sequence ends on the ask.
 - **Tracking:** every link is the full destination URL with UTMs, following the convention in `frameworks/workflow-format.md`, and jump links use the landing page's anchor IDs. Never "link here".
 - **Copy style (optional):** if the brief has `style:` (direct response, story-led, data-led, contrarian, or the user's own), write in that style within the voice guide; the voice guide wins where they conflict.
