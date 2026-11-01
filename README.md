@@ -116,7 +116,7 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 Keep automatic sync on in Claude and new versions reach you on their own. Not seeing an update yet? Go to **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched.
 
-**New in 0.19.0:** the campaign page tabs are now Brief, Touchpoints, Channels, To-dos, Results and Linked. Channels gives each channel its own tab, with its content first and how it runs below. The review sits in a closed fold at the bottom. To-dos puts everything a person still has to do in one table. Pages you already made pick this up at their next update.
+**New in 0.19.1:** the campaign page tabs are now Brief, Touchpoints, Channels, To-dos, Results and Linked. Channels gives each channel its own tab: its plan first (for ads, the campaign structure and budget), then its content, then its steps. The review sits in a closed fold at the bottom. To-dos puts everything a person still has to do in one table. Pages you already made pick this up at their next update.
 
 **New in 0.18.0:** touchpoints are now the customer's. A touchpoint is a moment the buyer meets the campaign, so the Touchpoints tab maps that path in order and leaves out your team's work: alerts, handoffs, launch tasks, and pieces marked (team only) such as a talk track or a battlecard. The brief's campaign structure gains a "How they fit" line, and Gate 1 checks both. Pages you already made pick this up at their next update; approved briefs keep what they have.
 

@@ -6,7 +6,7 @@
 <title>{{TITLE}}</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;900&family=Lato:wght@400;700&display=swap">
 <style>
-/* Campaign page: one per campaign. Tabs: Brief, Touchpoints (where and when the buyer meets the campaign, customer-facing only), Channels (a sub-tab per channel: every piece folds and opens on its preview, then how the channel runs; the review is a closed fold at the bottom), To-dos (everything a person still has to do, in one table), Results.
+/* Campaign page: one per campaign. Tabs: Brief, Touchpoints (where and when the buyer meets the campaign, customer-facing only), Channels (a sub-tab per channel: its plan, then every piece folded on its preview, then its steps; the review is a closed fold at the bottom), To-dos (everything a person still has to do, in one table), Results.
    CXL web system: teal primary, red for emphasis, beige ground, Work Sans 900 headings, Lato body. */
 :root {
   --teal: #6ce5e8; --red: #d61f2c; --bg: #faf7ef; --card: #ffffff; --text: #000000; --muted: #4f4a40; --line: #e7e1d3; --soft: #f2eee3;
@@ -146,7 +146,7 @@ footer { margin-top: 32px; font-size: 13px; color: var(--muted); }
   </div>
   <section class="panel active" id="brief" role="tabpanel">{{BRIEF_PANEL}}</section>
   <section class="panel" id="touchpoints" role="tabpanel">{{TOUCHPOINTS_PANEL}}</section>
-  <!-- Channels tab. Fill this page by slot, and never paste a slot into this note. First the channel sub-tabs. Last, the review: a closed details fold holding <div class="card qa-summary">top three fixes, scores table with a "Claude (self-review)" column, one note line</div>, the marker comment /qa-summary, and the full list.
+  <!-- Channels tab. Fill this page by slot, and never paste a slot into this note. First the channel sub-tabs, each opening on its plan. Last, the review: a closed details fold holding <div class="card qa-summary">top three fixes, scores table with a "Claude (self-review)" column, one note line</div>, the marker comment /qa-summary, and the full list.
        Preview blocks, one per piece:
        Email:  <div class="pv pv-email"><div class="pv-head"><div class="from">From name</div><div class="subj">Subject</div><div class="pre">Pre-header</div></div><div class="pv-body">Body<br><span class="pv-btn">Button</span></div></div>
        Ad:     <div class="pv pv-ad"><div class="pv-body">Primary text</div><div class="pv-img"><div><span class="on-img">Image text</span>What the image shows</div></div><div class="pv-foot"><span class="hl">Headline</span><span class="pv-btn">CTA</span></div></div>
