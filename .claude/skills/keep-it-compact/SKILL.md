@@ -37,7 +37,7 @@ Visible words, not counting starter prompts and tooltips. Over budget by more th
 | Page header (title to tabs) | 40 words |
 | Brief tab | 800 words |
 | Touchpoints tab | 400 words |
-| A channel sub-tab | 3,500 words, of which notes and plans 200 |
+| A channel sub-tab | 3,500 words, of which the plan 600 |
 | To-dos tab | 500 words |
 | One piece (an email, a post, a page edit) | the copy, plus 2 lines of notes at most |
 | Review summary (closed fold at the bottom of Channels) | 300 words: the top three fixes and the scores table; the full list folded below the channels |
