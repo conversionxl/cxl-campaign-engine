@@ -39,6 +39,7 @@ Visible words, not counting starter prompts and tooltips. Over budget by more th
 | Touchpoints tab | 400 words |
 | A channel sub-tab | 3,500 words, of which the plan 600 |
 | To-dos tab | 500 words |
+| Calendar sub-tab | The timeline, one fold and one short section: no notes on the timeline |
 | One piece (an email, a post, a page edit) | the copy, plus 2 lines of notes at most |
 | Review summary (closed fold at the bottom of Channels) | 300 words: the top three fixes and the scores table; the full list folded below the channels |
 | Results tab | 400 words |

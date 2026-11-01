@@ -77,9 +77,11 @@ Then two parts, always in this order:
 
 The content the workflow's Outputs section lists goes into those two parts. An Output the workflow names as its own file (the landing page mock-up, `drafts/landing-page-mockup.html`) is written next to the draft, built from the draft's copy, and rebuilt whenever that copy changes. Mark any line that rests on a (no proof) message or an (inferred) brief line. If the file exists, write `<channel>-v2.md` and say so; never overwrite a draft.
 
+**The calendar.** Update `projects/campaigns/<slug>/calendar.md` so every piece with a date has a row and every date matches its draft.
+
 ## 5. Hand over
 
-**Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab (each channel's plan, every piece with its preview, and the calls made in fast mode), the To-dos tab (launch tasks), the Touchpoints tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
+**Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab (the calendar, each channel's plan, every piece with its preview, and the calls made in fast mode), the To-dos tab (launch tasks), the Touchpoints tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
 
 
 For each channel: the file path, the decisions taken at each pause (in fast or balanced mode, how many calls you made and that the review lists them first), and the number of launch tasks. Update this campaign's row in `projects/campaigns/campaigns.md` (create the board from `frameworks/campaigns-board.md` if it is missing; example campaigns go in its Examples section): stage `drafted`. Nothing is loaded into an email, ad or CRM tool by this command; that is the human's step after Gate 2.
