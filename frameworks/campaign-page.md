@@ -71,7 +71,7 @@ One view of everything the campaign does, so the gaps and clashes show. It is bu
 **The timeline** opens the sub-tab, and the whole campaign fits on one screen:
 
 - **Columns:** one per week from the campaign's first Monday to its end, with a faint line per day and a stronger line per week, so an empty day is easy to see.
-- **Rows:** one per stream, using only the streams the campaign has. Put things that work together next to each other. The usual order: the offer, key moments, events, event follow-up, ads to events, full-list emails, newsletter, other paid, then social, one row per poster.
+- **Rows:** one per stream, using only the streams the campaign has. Group rows by type, in this order, with a `.tsep` gap between groups: the offer and key moments at the top; events and their follow-up; emails; ads; then social, one row per poster.
 - **Dots for single sends.** One dot per send, with no text. Text sits on a marker only when it fits, such as events a week or more apart. Hovering or focusing shows the date and the name.
 - **Bars for anything that spans days:** the offer, a sale weekend, an event, an ad flight, a nurture sequence.
 
@@ -91,7 +91,7 @@ Markup, with `SPAN` as the number of days from the first Monday to the end, and 
 - A dot sits at `(DAY + 0.5) / SPAN × 100`. Marker classes: `e` email, `n` newsletter, `w` event, `h` a person's posts, `c` company posts. Add `end` past 84% and `start` under 14%, so the label stays on the grid. Leave out `dot` when the text fits.
 - A bar is `<span class="tb" style="left:..%;width:..%;top:4px">Label</span>`, with class `o` offer, `k` key moment, `h` holidays, `p` paid or `nu` nurture.
 
-**Click to preview.** Every dot, nurture bar and day-by-day chip opens its piece in the box under the timeline, without leaving the calendar. Give the marker `data-p="<piece id>"`, `tabindex="0"` and `role="button"`, give the piece's fold in its channel tab `data-piece="<piece id>"`, and put `<div class="calp" hidden></div>` after the timeline. The template's script copies the piece into the box, so each piece stays in one place. A marker with no draft says "Not drafted yet".
+**Click to preview.** Every dot, nurture bar and day-by-day chip opens its piece in a pop-up over the page. It shows the piece's **target** (who it goes to and who is left out) and its **spec** (the limits it must meet, from the channel's workflow), then the piece. The Close button, the Escape key or a click outside dismisses it. Give the marker `data-p="<piece id>"`, `tabindex="0"` and `role="button"`, and give the piece's fold in its channel tab `data-piece="<piece id>"`, `data-target="..."` and `data-spec="..."`. The template holds the pop-up and copies the piece into it, so each piece stays in one place. A marker with no draft says "Not drafted yet".
 
 **Under the timeline:**
 
