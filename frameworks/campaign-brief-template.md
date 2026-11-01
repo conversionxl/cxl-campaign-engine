@@ -127,12 +127,15 @@ tags: [campaign]
 | <from Include> | <supporting message number> | <one line, from their words> |
 
 ## 5. Campaign structure
-<!-- What the campaign consists of, worked back from the goal. Not an execution plan: the steps live in each channel's workflow. -->
+<!-- What the campaign consists of, worked back from the goal. Not an execution plan: the steps live in each channel's workflow.
+A touchpoint is a moment the buyer meets the campaign: an ad in their feed, an email in their inbox, a page they land on, a call from a rep. Your team's work is never a touchpoint: alerts, handoffs, launch tasks, and assets only your team sees. Those assets go in the Assets column of the touchpoint they support, marked (team only). -->
 
-| Channel | Touchpoints | Assets | Weekly volume | Expected step conversion |
+| Channel | Touchpoints the buyer meets | Assets | Weekly volume | Expected step conversion |
 |---|---|---|---|---|
-| <email> | <4 sends over 2 weeks> | <4 emails> | <2 sends to N> | <click N%, page to KPI N%> (<source tag>, or (inferred)) |
+| <email> | <4 emails reach them over 2 weeks> | <4 emails> | <2 sends to N> | <click N%, page to KPI N%> (<source tag>, or (inferred)) |
+| <sales> | <1 call per lead> | <talk track (team only)> | <N calls> | <call to KPI N%> (<source tag>, or (inferred)) |
 
+- **How they fit:** <the order the buyer meets them, and what each one leads to: ad > landing page > email 1 > call>
 - **The math:** <weekly volume × step conversions = the target, or the gap and what closes it>
 - **Paid channels:** <per paid channel: spend, return target (cost per KPI action), and the learning-phase runway before the goal date> or "none"
 - **Sense check:** <how the goal compares with the size of the market and with what the team can deliver in the time>
