@@ -116,6 +116,8 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 Keep automatic sync on in Claude and new versions reach you on their own. Not seeing an update yet? Go to **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched.
 
+**New in 0.18.0:** touchpoints are now the customer's. A touchpoint is a moment the buyer meets the campaign, so the Touchpoints tab maps that path in order and leaves out your team's work: alerts, handoffs, launch tasks, and pieces marked (team only) such as a talk track or a battlecard. The brief's campaign structure gains a "How they fit" line, and Gate 1 checks both. Pages you already made pick this up at their next update; approved briefs keep what they have.
+
 **New in 0.16.1:** the Google Ads starter is rebuilt on Jack Paxton's CXL course, Validate and Scale Your Google Ads: budget tiers, the 60/30/10 split, match types and brand share, bid thresholds, headline jobs, landing page fixes before spend, and when to step in.
 
 **New in 0.16.0:** word budgets allow 10% over without a flag, so pages are no longer trimmed and re-checked in a loop; `/campaign-engine:campaigns page <campaign> share-safe` builds a page with real names swapped for stand-ins, from a list that stays on your machine, kept through every rebuild; and the review writes approval messages for the people who sign off on pieces, for you to send.

@@ -1,5 +1,5 @@
 {
-  "about": "Decision-model questions for a campaign brief, asked at Gate 1 with the brief as the state. They are the R rows of the Gate 1 table in quality-gate.md, from the review of 28 cohort demos (19 Oct 2026), written one proposition each as TypeSafe and Cloudflare advise; a compound row is split into parts (R1A and R1B, R5A and R5B). The rest of Gate 1 is judged by Claude's table. A model answer never passes or fails a brief on its own: it shows beside the table, and the human decides. R1, R2 and R3 matter most, because the engine writes every draft from the At a glance block.",
+  "about": "Decision-model questions for a campaign brief, asked at Gate 1 with the brief as the state. They are the R rows of the Gate 1 table in quality-gate.md, from the review of 28 cohort demos (19 Oct 2026) and a member's structure review (21 Oct 2026), written one proposition each as TypeSafe and Cloudflare advise; a compound row is split into parts (R1A and R1B, R5A and R5B). The rest of Gate 1 is judged by Claude's table. A model answer never passes or fails a brief on its own: it shows beside the table, and the human decides. R1, R2 and R3 matter most, because the engine writes every draft from the At a glance block.",
   "questions": {
     "R1A": {
       "type": "noul",
@@ -44,6 +44,14 @@
     "R13": {
       "type": "noul",
       "instructions": "A colleague reading only this brief could explain what the offer is worth to the buyer and what the key message is, and the brief contains no raw answers to questions, no internal labels and no undefined terms."
+    },
+    "R14A": {
+      "type": "noul",
+      "instructions": "Every touchpoint in the campaign structure is a moment the buyer or prospect meets the campaign, not the team's own work or an asset only the team sees."
+    },
+    "R14B": {
+      "type": "noul",
+      "instructions": "The campaign structure says the order in which the buyer meets the touchpoints and what each one leads to."
     }
   },
   "must_pass": [],
