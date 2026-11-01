@@ -6,7 +6,7 @@
 <title>{{TITLE}}</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;900&family=Lato:wght@400;700&display=swap">
 <style>
-/* Campaign page: one per campaign. Tabs: Brief, Touchpoints (where and when the buyer meets the campaign, customer-facing only), Channels (a sub-tab per channel: its plan, then every piece folded on its preview, then its steps; the review is a closed fold at the bottom), To-dos (everything a person still has to do, in one table), Results.
+/* Campaign page: one per campaign. Tabs: Brief, Touchpoints (the buyer's stages in one row, then a closed fold per stage, customer-facing only), Channels (a sub-tab per channel: its plan, then every piece folded on its preview, then its steps; the review is a closed fold at the bottom), To-dos (everything a person still has to do, in one table), Results.
    CXL web system: teal primary, red for emphasis, beige ground, Work Sans 900 headings, Lato body. */
 :root {
   --teal: #6ce5e8; --red: #d61f2c; --bg: #faf7ef; --card: #ffffff; --text: #000000; --muted: #4f4a40; --line: #e7e1d3; --soft: #f2eee3;
@@ -99,6 +99,9 @@ details[open] > summary { margin-bottom: 10px; }
 .empty { color: var(--muted); font-style: italic; margin: 0; }
 .scale { display: inline-block; vertical-align: middle; margin-left: 10px; padding: 2px 10px; border-radius: 999px; font: 900 14px var(--font-heading); letter-spacing: .02em; background: var(--teal); color: var(--on-teal); }
 .scale.big { background: var(--red); color: var(--on-red); }
+/* Touchpoints: the buyer's stages in one row, then a closed fold per stage. */
+.path { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 18px; }
+.path .step { flex: 1 1 110px; text-align: center; padding: 10px 8px; border-radius: 8px; background: var(--card); border-top: 3px solid var(--teal); font: 700 15px var(--font-heading); }
 .family { font-size: 14px; color: var(--muted); margin: -8px 0 14px; }
 .family a { font-weight: 700; color: var(--text); }
 .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 18px; }
