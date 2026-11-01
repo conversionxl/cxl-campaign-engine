@@ -116,6 +116,8 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 Keep automatic sync on in Claude and new versions reach you on their own. Not seeing an update yet? Go to **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched.
 
+**New in 0.23.1:** clicking a sequence on the calendar shows every email in it, not only the first.
+
 **New in 0.23.0:** the calendar groups its rows by type, with the offer and key moments on top. Clicking an item opens a pop-up with the piece, its target and its spec.
 
 **New in 0.22.0:** shorter pages. The Brief tab holds the brief and folds away the rest, Touchpoints is one view with a column per stage, and clicking anything on the calendar opens a preview of that piece.
