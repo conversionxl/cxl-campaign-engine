@@ -35,7 +35,7 @@ The engine proposes; the user confirms in the brief review. Classification decid
 
 ## The file
 
-**Length.** Above the Sources section, a small-c brief fits on one screen: about 350 words. Each field is one line; a list has three lines at most. Reasoning, maths, baselines and long source notes go to Sources. Source tags in the fields are short: `(Metorik)`, `(icp.md)`, `(your answer)`; the full path is in Sources.
+**Length.** Above the Sources section, a small-c brief fits on one screen: about 350 words, and 800 at the very most. Dates go on the calendar and tasks in To-dos. Volumes, segment detail and reasoning go to Sources, and proof can be one line. Each field is one line; a list has three lines at most. Reasoning, maths, baselines and long source notes go to Sources. Source tags in the fields are short: `(Metorik)`, `(icp.md)`, `(your answer)`; the full path is in Sources.
 
 **The cold-colleague test.** A colleague who reads only this brief can say what the offer is worth to the buyer and what the key message is, without asking. So the brief holds no raw answers to the engine's questions, no internal labels and no undefined terms.
 
