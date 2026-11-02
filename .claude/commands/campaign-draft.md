@@ -81,6 +81,8 @@ The content the workflow's Outputs section lists goes into those two parts. An O
 
 ## 5. Hand over
 
+**To-dos and tasks.** Update `todos.md`, grouped as `frameworks/campaign-todos.md` says, with what the drafts left open. If the brief has no `tasks:` line yet, settle it now with that file's "Task platform: ask once". If it has a link, match new to-dos to tasks there, and offer to create the ones with no match.
+
 **Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab (the calendar, each channel's plan, every piece with its preview, and the calls made in fast mode), the To-dos tab (launch tasks), the Touchpoints tab and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
 
 

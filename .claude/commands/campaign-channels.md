@@ -82,6 +82,8 @@ For each channel that changed, ask once: **"Save this as your default <channel>,
 
 ## 5. Update the board and hand over
 
+**To-dos and tasks.** Add the steps a person owns to `todos.md`, grouped as `frameworks/campaign-todos.md` says. If the brief has no `tasks:` line yet, settle it now with that file's "Task platform: ask once".
+
 **Campaign page.** If the brief's `page:` is set (not `none`), update the Channels tab (the calendar, then a sub-tab per channel, with its plan, steps and tools), the To-dos tab (steps a person owns), the Touchpoints tab (the planned customer touchpoints from the brief's campaign structure) and the header as `frameworks/campaign-page.md` says, without asking, and end your reply with the link.
 
 

@@ -53,6 +53,7 @@ approved_by:
 approved_on:
 dates: { start: "", end: "" }
 page:                   # the campaign page link or path, or none (asked once at the end of /campaign-brief)
+tasks:                  # where the to-dos live: a link to the main task or list, or none (asked once, see frameworks/campaign-todos.md)
 parent: none            # the main campaign's slug if this is a sub-campaign (frameworks/linked-campaigns.md)
 links: []               # campaigns alongside: - { campaign: <slug>, relation: feeds | fed-by | shares-audience | alongside, note: "" }
 channels: []            # proposed here, confirmed in /campaign-channels

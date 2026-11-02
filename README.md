@@ -116,6 +116,11 @@ https://github.com/conversionxl/cxl-campaign-engine. Show me the plan before cha
 
 Keep automatic sync on in Claude and new versions reach you on their own. Not seeing an update yet? Go to **Settings → Plugins → Add → Manage marketplaces → ⋮** next to the marketplace → **Check for updates**. Your folder, logs, campaigns, quality gate and saved default workflows are untouched.
 
+**New in 0.25.0:**
+- **To-dos are grouped.** By area (Tech, Paid, Email and social), then by bigger task, then the to-do, so a set of questions or a piece of setup reads as one thing. Channel steps at launch fold away.
+- **To-dos link to your tasks.** The first time a campaign writes to-dos, Claude checks for a connected work-management tool. If there is one, it asks whether you already have tasks or want them created. If not, it asks which tool you use and how to connect it. The to-dos can always stay on the page instead.
+- **Task cards follow the brief.** The main task carries At a glance, and each bigger task uses the same fields scoped to its piece of the work.
+
 **New in 0.24.0:**
 - **The brief states what you believe.** At a glance gains a Point of view line, and section 4 becomes Narrative and messages: point of view, the story in order, key message, supporting messages and a We never line. Drafts follow the story, and reviews check against it. Briefs you already wrote keep their layout.
 - **The Brief tab leads with it.** Narrative and messages sits open right under At a glance.

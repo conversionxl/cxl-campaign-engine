@@ -122,7 +122,7 @@ No connector is required. Every command still runs on files.
 | Collaboration | Slack, Microsoft Teams | | Where the sales alert goes | |
 
 ### Rules for live data
-- **Read only.** Never create, edit, or delete anything in a connected tool. Loading drafts into an email or ad tool is the human's step, after Gate 2.
+- **Read only.** Never create, edit, or delete anything in a connected tool. Loading drafts into an email or ad tool is the human's step, after Gate 2. The one exception is tasks in a work-management tool, created only on the user's yes, as `frameworks/campaign-todos.md` says.
 - **Pull the smallest set that answers the question**, over a stated date range. Prefer aggregates to raw rows.
 - **Snapshot what you used.** Save each pull as Markdown or CSV in `raw/campaigns/live/`, with the tool, the query or report, the date range, and today's date at the top. The brief cites the snapshot: `(HubSpot, agency pipeline 2026-01-01 to 2026-09-30, raw/campaigns/live/hubspot-pipeline-2026-10-06.md)`.
 - **No personal data outside the local folders.** No email addresses, phone numbers, or personal names of non-public people in the brief, the drafts, the review, or anything committed. Refer to leads by company, segment, or an ID.
