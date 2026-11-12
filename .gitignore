@@ -50,3 +50,6 @@ raw/strategy/*
 !raw/strategy/README.md
 raw/performance/*
 !raw/performance/README.md
+
+# Built plugin ZIP (scripts/build-zip.sh)
+dist/

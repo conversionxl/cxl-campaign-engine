@@ -30,6 +30,10 @@ Works in any folder. For daily logs, memory and the personal OS commands, also s
 
 The plugin is saved to your claude.ai account and Claude syncs it to chat, Cowork, the desktop app, VS Code and the terminal. You install it once, and you never download this repository for it.
 
+**No "Add marketplace" under Add, only "Upload plugin" and "Create with Claude"?** You're in the desktop app's **Code** mode. Switch to **Chat** mode (top left), then open **Settings → Plugins → Add** again. Add marketplace shows there. The plugin still syncs to the Code tab afterwards.
+
+**Still no "Add marketplace"? Upload the ZIP.** Download **[campaign-engine.zip](https://github.com/conversionxl/cxl-campaign-engine/releases/download/plugin-zips/campaign-engine.zip)** and upload it in **Settings → Plugins → Add → Upload plugin** as it is: don't unzip it. Don't use the green **Code → Download ZIP** button for this: that ZIP puts everything inside a `cxl-campaign-engine-main` folder, so the upload fails with "The archive must contain a .claude-plugin/plugin.json manifest". An uploaded plugin doesn't update itself: for a new version, remove it in **Settings → Plugins**, download the ZIP again and upload it.
+
 **Only if you can't use Settings → Plugins:** in the Claude chat in VS Code or a terminal (start `claude` first), type `/plugin marketplace add conversionxl/cxl-campaign-engine`, then `/plugin install campaign-engine@cxl-campaign-engine`. This makes a second, local copy on this computer only. Never use it as well as the Settings → Plugins route.
 
 Setup adds `raw/campaigns/`, `projects/campaigns/` with an empty campaigns board, your own copy of the default quality gate in `projects/campaign-engine/`, the eight starter channel workflows, the frameworks, the project file, and a Campaign Engine section in your `CLAUDE.md`. It never overwrites a file, and it adds the `.gitignore` rule that keeps your campaign data local before anything lands in `raw/campaigns/`. The commands are then `/campaign-engine:campaign-brief`, `campaign-channels`, `campaign-draft`, `campaign-review`, `quality-gate` and `campaigns`, and the skills load by themselves.
