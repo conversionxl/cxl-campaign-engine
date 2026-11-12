@@ -1,6 +1,6 @@
 {
   "name": "campaign-engine",
-  "version": "0.25.1",
+  "version": "0.25.2",
   "description": "Campaign Engine module for the CXL AI Native Marketer cohort: brief in, reviewed campaign out. Commands for the brief, channels, drafts, review, quality gate and the campaigns board, eight starter channel workflows built from CXL courses, and /campaign-engine:setup to add the module to your personal OS and coach you through a campaign. Works on its own; reads the brand brain from the marketing-brain plugin when it is there.",
   "author": {
     "name": "CXL",
