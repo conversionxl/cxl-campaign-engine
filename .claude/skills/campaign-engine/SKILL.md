@@ -1,6 +1,6 @@
 ---
 name: campaign-engine
-description: How the Campaign Engine's folders, files and gates fit together. Apply automatically on any campaign work in this repo: writing or adjusting a campaign brief, choosing channels or adjusting a channel's steps, drafting a channel (email campaign, email sequence, blog, social, sales enablement, landing page, ads, or one the user added), reviewing drafts, tracking several campaigns, reading campaign results, and whenever a task touches projects/campaigns/, projects/campaign-engine/, or raw/campaigns/.
+description: "How the Campaign Engine's folders, files and gates fit together. Apply automatically on any campaign work: writing or adjusting a campaign brief, choosing channels or adjusting a channel's steps, drafting a channel (email campaign, email sequence, blog, social, sales enablement, landing page, ads, or one the user added), reviewing drafts, tracking campaigns, reading results, and whenever a task touches projects/campaigns/, projects/campaign-engine/, or raw/campaigns/."
 ---
 
 # Campaign engine
